@@ -1,6 +1,6 @@
 import React from "react";
 
-import WordsList from "../../components/WordsList/WordsList";
+import WordsList from "../WordsList/WordsList";
 
 export default function WordsListReview() {
   return (
