@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { postData } from "../../services/postData";
 
+import InputField from "../InputField/InputField";
+
 export default function AddWordsForm() {
   const [inputWord, setInputWord] = useState("");
   const [inputTranslation, setInputTranslation] = useState("");
@@ -15,33 +17,33 @@ export default function AddWordsForm() {
   };
 
   const handleSubmit = e => {
-    const wordsURL = "/words";
     e.preventDefault();
-
+    const wordsURL = "/words";
     postData(wordsURL, {
       foreignWord: inputWord,
       translation: inputTranslation
     });
+
     setInputTranslation("");
     setInputWord("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <InputField
         placeholder="Foreing word"
-        type="text"
         name="word"
         value={inputWord}
         onChange={handleWordInputChange}
       />
-      <input
+
+      <InputField
         placeholder="Translation"
-        type="text"
         name="translation"
         value={inputTranslation}
         onChange={handleTranslationInputChange}
       />
+
       <button type="submit" value="submit">
         Add
       </button>
