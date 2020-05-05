@@ -56,6 +56,28 @@ router.post("/users/logoutAll", authentication, async (req, res) => {
   }
 });
 
+router.patch("/users/me", authentication, async (req, res) => {
+  const updates = Object.keys(req.body);
+  const allowedUpdtes = ["name", "email", "password"];
+  const isValidOperation = updates.every(update =>
+    allowedUpdtes.includes(update)
+  );
+
+  if (!isValidOperation) {
+    return res.status(400).send({ error: "Invalid updates!" });
+  }
+
+  try {
+    updates.forEach(update => (req.user[update] = req.body[update]));
+
+    await req.user.save();
+
+    res.send(req.user);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
 router.delete("/users/me", authentication, async (req, res) => {
   try {
     await req.user.remove();
