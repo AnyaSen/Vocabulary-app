@@ -17,9 +17,10 @@ router.post("/words", authentication, async (req, res) => {
   }
 });
 
-router.get("/words", async (req, res) => {
+router.get("/words", authentication, async (req, res) => {
   try {
-    const wordsList = await Word.find({});
+    const wordsList = await Word.find({ creator: req.user._id });
+
     res.send(wordsList);
   } catch (e) {
     res.status(500).send();
