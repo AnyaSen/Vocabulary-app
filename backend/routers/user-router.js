@@ -32,4 +32,28 @@ router.get("/users/me", authentication, async (req, res) => {
   res.send(req.user);
 });
 
+router.post("/users/logout", authentication, async (req, res) => {
+  try {
+    req.user.tokens = req.user.tokens.filter(token => {
+      return token.token !== req.token;
+    });
+    await req.user.save();
+
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
+router.post("/users/logoutAll", authentication, async (req, res) => {
+  try {
+    req.user.tokens = [];
+    await req.user.save();
+
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
 module.exports = router;
