@@ -1,9 +1,13 @@
 const express = require("express");
 const Word = require("../models/word-model");
+const authentication = require("../middleware/authentication");
 const router = new express.Router();
 
-router.post("/words", async (req, res) => {
-  const word = new Word(req.body);
+router.post("/words", authentication, async (req, res) => {
+  const word = new Word({
+    ...req.body,
+    creator: req.user._id
+  });
 
   try {
     await word.save();

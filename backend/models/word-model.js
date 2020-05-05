@@ -3,7 +3,12 @@ const mongoose = require("mongoose");
 const Word = mongoose.model("Word", {
   foreignWord: { type: String, required: true, trim: true },
   translation: { type: String, required: true, trim: true },
-  new: { type: Boolean, default: true }
+  new: { type: Boolean, default: true },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User"
+  }
 });
 
 module.exports = Word;
