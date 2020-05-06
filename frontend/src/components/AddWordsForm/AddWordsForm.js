@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
+import Styles from "./AddWordsForm.module.scss";
+
 import { postData } from "../../services/postData";
 
 import InputField from "../InputField/InputField";
+import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
 
 export default function AddWordsForm() {
   const [inputWord, setInputWord] = useState("");
@@ -29,24 +32,26 @@ export default function AddWordsForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputField
-        placeholder="Foreing word"
-        name="word"
-        value={inputWord}
-        onChange={handleWordInputChange}
-      />
+    <div className={Styles.AddWordsForm}>
+      <h2>ADD VOCABULARY</h2>
 
-      <InputField
-        placeholder="Translation"
-        name="translation"
-        value={inputTranslation}
-        onChange={handleTranslationInputChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <InputField
+          placeholder="Foreing word"
+          name="word"
+          value={inputWord}
+          onChange={handleWordInputChange}
+        />
 
-      <button type="submit" value="submit">
-        Add
-      </button>
-    </form>
+        <InputField
+          placeholder="Translation"
+          name="translation"
+          value={inputTranslation}
+          onChange={handleTranslationInputChange}
+        />
+
+        <PrimaryButton type="submit" value="submit" buttonMessage="Add" />
+      </form>
+    </div>
   );
 }
