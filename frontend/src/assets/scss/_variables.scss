@@ -1,0 +1,27 @@
+$base_unit: 0.5rem;
+
+$font-xs: $base_unit * 1.5; // 0.75rem
+$font-sm: $base_unit * 2; // 1rem
+$font-md: $base_unit * 3; // 1.5rem
+$font-lg: $base_unit * 4; // 2rem
+$font-xl: $base_unit * 5; // 2.5rem
+
+$space-0: $base_unit * 1; // 0.5rem
+$space-1: $base_unit * 2; // 1rem
+$space-2: $base_unit * 3; // 1.5rem
+$space-3: $base_unit * 4; // 2rem
+$space-4: $base_unit * 5; // 2.5rem
+$space-5: $base_unit * 6; // 3rem
+$space-6: $base_unit * 7; // 3.5rem
+$space-7: $base_unit * 8; // 4rem
+
+$color-text: #1f1f1f;
+$color-pink: #f79090;
+$color-light-grey: #f4f4f4;
+$color-grey: #efe9e7;
+$color-white: #ffffff;
+$color-border: #212020;
+
+$shadow-1: 2.98px 1.49px 13.08px rgba(204, 204, 204, 0.58);
+
+$border-radius: 2rem;

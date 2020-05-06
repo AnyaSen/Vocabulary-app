@@ -1,0 +1,7 @@
+@import "./variables";
+@import "./breakpoints";
+
+h1 {
+  font-weight: 600;
+  font-size: $font-xl;
+}

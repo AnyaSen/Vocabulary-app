@@ -1,4 +1,6 @@
 import React from "react";
+import "./App.scss";
+
 import { Route, Switch } from "react-router-dom";
 
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
