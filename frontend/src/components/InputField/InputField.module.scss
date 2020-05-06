@@ -1,0 +1,9 @@
+@import "../../assets/scss/variables";
+
+.InputField {
+  margin: $space-1;
+  padding: $space-1;
+  width: 100%;
+  font-size: $font-sm;
+  border: 1px solid $color-border;
+}

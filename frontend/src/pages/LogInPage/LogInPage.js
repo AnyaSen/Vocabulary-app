@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { postData } from "../../services/postData";
 
 import InputField from "../../components/InputField/InputField";
+import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
 
 export default function HomePage() {
   const [inputEmail, setInputEmail] = useState("");
@@ -31,9 +31,14 @@ export default function HomePage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Log in</h1>
-
+    <SignupLoginForm
+      handleSubmit={handleSubmit}
+      header="Log in"
+      buttonMessage="Continue"
+      paragraphMessage="Don&#39;t have an account? "
+      route="/"
+      linkMessage="Sing up"
+    >
       <InputField
         placeholder="Email"
         name="email"
@@ -47,12 +52,6 @@ export default function HomePage() {
         value={inputPassword}
         onChange={handlePasswordInputChange}
       />
-      <button type="submit" value="submit">
-        Continue
-      </button>
-      <p>
-        Don't have an account? <Link to="/">Sing up</Link>
-      </p>
-    </form>
+    </SignupLoginForm>
   );
 }

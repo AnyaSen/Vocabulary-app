@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { postData } from "../../services/postData";
 
 import InputField from "../../components/InputField/InputField";
+import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
 
 export default function SignUpPage() {
   const [inputName, setInputName] = useState("");
@@ -38,8 +38,14 @@ export default function SignUpPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Sign up</h1>
+    <SignupLoginForm
+      handleSubmit={handleSubmit}
+      header="Sign up"
+      buttonMessage="Create User"
+      paragraphMessage="Already have an account?"
+      route="/login"
+      linkMessage="Log In"
+    >
       <InputField
         placeholder="Name"
         name="name"
@@ -60,13 +66,6 @@ export default function SignUpPage() {
         value={inputPassword}
         onChange={handlePasswordInputChange}
       />
-
-      <button type="submit" value="submit">
-        Create user
-      </button>
-      <p>
-        Already have an account? <Link to="/login">Log In</Link>
-      </p>
-    </form>
+    </SignupLoginForm>
   );
 }

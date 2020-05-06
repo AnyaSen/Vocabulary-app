@@ -1,0 +1,43 @@
+@import "../../assets/scss/variables";
+
+.SignupLoginFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-light-grey;
+}
+
+.SignupLoginForm {
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    margin-bottom: $space-2;
+  }
+
+  p {
+    margin-top: $space-1;
+  }
+
+  a {
+    color: $color-pink;
+  }
+
+  button {
+    margin: $space-1;
+  }
+}
+
+.inputsFieldsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: $space-2;
+}
