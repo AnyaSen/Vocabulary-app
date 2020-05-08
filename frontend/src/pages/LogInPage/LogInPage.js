@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 import { postData } from "../../services/postData";
 
@@ -40,6 +41,7 @@ export default function HomePage() {
       linkMessage="Sing up"
     >
       <InputField
+        type="email"
         placeholder="Email"
         name="email"
         value={inputEmail}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 import { postData } from "../../services/postData";
 
@@ -47,6 +48,7 @@ export default function SignUpPage() {
       linkMessage="Log In"
     >
       <InputField
+        type="text"
         placeholder="Name"
         name="name"
         value={inputName}
@@ -54,6 +56,7 @@ export default function SignUpPage() {
       />
 
       <InputField
+        type="email"
         placeholder="Email"
         name="email"
         value={inputEmail}
@@ -65,6 +68,7 @@ export default function SignUpPage() {
         name="password"
         value={inputPassword}
         onChange={handlePasswordInputChange}
+        minlength={6}
       />
     </SignupLoginForm>
   );
