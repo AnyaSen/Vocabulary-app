@@ -2,7 +2,7 @@ import React from "react";
 
 import Styles from "./VocabularyPage.module.scss";
 
-import WordsListReview from "../../components/WordsListReview/WordsListReview";
+import WordsList from "../../components/WordsList/WordsList";
 import AddWordsForm from "../../components/AddWordsForm/AddWordsForm";
 import SideBar from "../../components/SideBar/SideBar";
 
@@ -12,7 +12,7 @@ export default function VocabularyPage() {
       <SideBar />
       <div className={Styles.VocabularyContainer}>
         <AddWordsForm />
-        <WordsListReview />
+        <WordsList />
       </div>
     </div>
   );
