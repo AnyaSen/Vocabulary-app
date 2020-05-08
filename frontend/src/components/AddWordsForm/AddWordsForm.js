@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Styles from "./AddWordsForm.module.scss";
 
-import { postData } from "../../services/postData";
+import { createWord } from "../../services/createWord";
+import { WordsContext } from "../../contexts/WordsContext";
 
 import InputField from "../InputField/InputField";
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
 
 export default function AddWordsForm() {
+  const { setWordsData } = useContext(WordsContext);
   const [inputWord, setInputWord] = useState("");
   const [inputTranslation, setInputTranslation] = useState("");
 
@@ -22,13 +24,14 @@ export default function AddWordsForm() {
   const handleSubmit = e => {
     e.preventDefault();
     const wordsURL = "/words";
-    postData(wordsURL, {
+    createWord(wordsURL, {
       foreignWord: inputWord,
       translation: inputTranslation
     });
 
     setInputTranslation("");
     setInputWord("");
+    setWordsData();
   };
 
   return (
