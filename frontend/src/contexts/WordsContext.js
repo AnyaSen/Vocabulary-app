@@ -6,7 +6,7 @@ export const WordsContext = createContext();
 export const WordsContextProvider = ({ children }) => {
   const [wordsArr, setWordsArr] = useState([]);
 
-  const setInitialUserData = async () => {
+  const setWordsData = async () => {
     const wordsURL = "/words";
 
     try {
@@ -19,14 +19,15 @@ export const WordsContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    setInitialUserData();
+    setWordsData();
   }, []);
 
   return (
     <WordsContext.Provider
       value={{
         wordsArr,
-        setWordsArr
+        setWordsArr,
+        setWordsData
       }}
     >
       {children}
