@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { postData } from "../../services/postData";
+import { signup } from "../../services/signup";
 
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
@@ -24,9 +24,8 @@ export default function SignUpPage() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const usersURL = "/users";
 
-    postData(usersURL, {
+    signup({
       name: inputName,
       email: inputEmail,
       password: inputPassword
