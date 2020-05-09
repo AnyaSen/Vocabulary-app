@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36.303" height="33.131" viewBox="0 0 36.303 33.131">
+  <g id="Group_26" data-name="Group 26" transform="translate(0 26.695) rotate(-41)">
+    <g id="Polygon_1" data-name="Polygon 1" transform="translate(0 8.527) rotate(-90)" fill="#1f1f1f">
+      <path d="M 7.693767547607422 7.492659091949463 L 0.8334138989448547 7.492659091949463 L 4.263590812683105 1.062341690063477 L 7.693767547607422 7.492659091949463 Z" stroke="none"/>
+      <path d="M 4.263590812683105 2.124665260314941 L 1.666817188262939 6.992659568786621 L 6.86036491394043 6.992659568786621 L 4.263590812683105 2.124665260314941 M 4.263590812683105 -4.76837158203125e-07 L 8.527180671691895 7.992659091949463 L 9.5367431640625e-07 7.992659091949463 L 4.263590812683105 -4.76837158203125e-07 Z" stroke="none" fill="#1f1f1f"/>
+    </g>
+    <g id="Rectangle_9" data-name="Rectangle 9" transform="translate(37.783 0)" fill="#f79090" stroke="#f79090" stroke-width="1">
+      <rect width="2.906" height="8.527" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1.906" height="7.527" fill="none"/>
+    </g>
+    <g id="Rectangle_10" data-name="Rectangle 10" transform="translate(9.446 0)" fill="#1f1f1f" stroke="#1f1f1f" stroke-width="1">
+      <rect width="26.884" height="8.527" stroke="none"/>
+      <rect x="0.5" y="0.5" width="25.884" height="7.527" fill="none"/>
+    </g>
+  </g>
+</svg>

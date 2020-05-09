@@ -28,14 +28,14 @@ body {
 }
 button {
   border: none;
-  border-radius: $border-radius;
+  border-radius: $border-radius-lg;
   cursor: pointer;
   outline: none;
   font-family: inherit;
 }
 
 input {
-  border-radius: 0.5rem;
+  border-radius: $border-radius-sm;
   outline: none;
   font-family: inherit;
 }

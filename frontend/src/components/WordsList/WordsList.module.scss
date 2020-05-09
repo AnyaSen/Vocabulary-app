@@ -1,0 +1,10 @@
+@import "../../assets/scss/variables";
+
+.WordPairContainer {
+  border: 1px solid $color-light-border;
+  border-radius: $border-radius-sm;
+  width: 95%;
+  margin: $space-2 0;
+  padding: $space-1;
+  overflow-y: auto;
+}

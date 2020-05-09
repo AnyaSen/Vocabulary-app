@@ -1,0 +1,16 @@
+@import "../../assets/scss/variables";
+
+.WordPair {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+
+  img {
+    height: $space-2;
+  }
+
+  p {
+    padding: $space-2;
+    width: 30%;
+  }
+}
