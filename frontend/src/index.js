@@ -4,12 +4,15 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 import { WordsContextProvider } from "./contexts/WordsContext";
+import { ErrorContextProvider } from "./contexts/ErrorContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <WordsContextProvider>
-        <App />
+        <ErrorContextProvider>
+          <App />
+        </ErrorContextProvider>
       </WordsContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
