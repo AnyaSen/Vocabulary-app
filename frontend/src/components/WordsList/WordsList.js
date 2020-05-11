@@ -7,11 +7,7 @@ import WordPair from "../WordPair/WordPair";
 import { WordsContext } from "../../contexts/WordsContext";
 
 export default function WordsList() {
-  const { wordsArr, setWordsData } = useContext(WordsContext);
-
-  useEffect(() => {
-    setWordsData();
-  }, []);
+  const { wordsArr } = useContext(WordsContext);
 
   return (
     <div className={Styles.WordPairContainer}>
@@ -23,6 +19,7 @@ export default function WordsList() {
               transaltion={word.translation}
               key={id}
               ID={word._id}
+              wordObject={word}
             />
           );
         })
