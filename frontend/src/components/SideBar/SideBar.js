@@ -1,5 +1,7 @@
 import React from "react";
 
+import { logout } from "../../services/logout";
+
 import Styles from "./SideBar.module.scss";
 
 export default function SideBar() {
@@ -7,7 +9,7 @@ export default function SideBar() {
     <div className={Styles.SideBar}>
       <div className={Styles.user}>A</div>
 
-      <button>LOG OUT</button>
+      <button onClick={logout}>LOG OUT</button>
     </div>
   );
 }
