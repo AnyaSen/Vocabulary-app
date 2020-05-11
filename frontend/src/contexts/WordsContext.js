@@ -1,5 +1,5 @@
-import React, { useState, createContext, useEffect } from "react";
-import { fetchData } from "../services/fetchData";
+import React, { useState, createContext } from "react";
+import { readData } from "../services/readData";
 
 export const WordsContext = createContext();
 
@@ -10,17 +10,13 @@ export const WordsContextProvider = ({ children }) => {
     const wordsURL = "/words";
 
     try {
-      const wordsDataArr = await fetchData(wordsURL);
+      const wordsDataArr = await readData(wordsURL);
 
       setWordsArr(wordsDataArr);
     } catch (error) {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    setWordsData();
-  }, []);
 
   return (
     <WordsContext.Provider
