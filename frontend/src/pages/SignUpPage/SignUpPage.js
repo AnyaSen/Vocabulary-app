@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import { signup } from "../../services/signup";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
@@ -9,6 +11,10 @@ export default function SignUpPage() {
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+
+  const { isSignupError, setIsSignupError } = useContext(ErrorContext);
+
+  const history = useHistory();
 
   const handleNameInputChange = event => {
     setInputName(event.target.value);
@@ -22,18 +28,28 @@ export default function SignUpPage() {
     setInputPassword(event.target.value);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = async event => {
+    event.preventDefault();
 
-    signup({
-      name: inputName,
-      email: inputEmail,
-      password: inputPassword
-    });
+    try {
+      setIsSignupError(false);
 
-    setInputName("");
-    setInputEmail("");
-    setInputPassword("");
+      await signup({
+        name: inputName,
+        email: inputEmail,
+        password: inputPassword
+      });
+
+      history.push("/vocabulary");
+
+      setInputName("");
+      setInputEmail("");
+      setInputPassword("");
+    } catch (error) {
+      console.log(error);
+
+      setIsSignupError(true);
+    }
   };
 
   return (
@@ -45,6 +61,8 @@ export default function SignUpPage() {
       route="/login"
       linkMessage="Log In"
     >
+      {isSignupError ? <p>Account already exists</p> : null}
+
       <InputField
         type="text"
         placeholder="Name"

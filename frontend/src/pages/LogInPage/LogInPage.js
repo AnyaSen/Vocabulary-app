@@ -54,7 +54,6 @@ export default function HomePage() {
       paragraphMessage="Don&#39;t have an account? "
       route="/"
       linkMessage="Sing up"
-      // LoginRoute={isLoginSuccess ? "/voulabulary" : ""}
     >
       {isLoginError ? <p>User is not found :(</p> : null}
 

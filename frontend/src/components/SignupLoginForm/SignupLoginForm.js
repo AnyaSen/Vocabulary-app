@@ -25,6 +25,7 @@ export default function SignupLoginForm({
           value="submit"
           buttonMessage={buttonMessage}
         />
+
         <p>
           {paragraphMessage} <Link to={route}>{linkMessage}</Link>
         </p>
