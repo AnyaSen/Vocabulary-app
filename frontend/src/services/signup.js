@@ -7,9 +7,11 @@ export const signup = async dataObject => {
     const result = await axios.post(usersURL, dataObject);
 
     const token = result.data.token;
+    const userName = result.data.user.name;
 
     if (token) {
       localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("userName", JSON.stringify(userName));
     }
     return result.data;
   } catch (error) {
