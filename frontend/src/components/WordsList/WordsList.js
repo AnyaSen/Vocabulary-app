@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import Styles from "./WordsList.module.scss";
 
@@ -12,14 +12,13 @@ export default function WordsList() {
   return (
     <div className={Styles.WordPairContainer}>
       {wordsArr.length !== 0 ? (
-        wordsArr.map((word, id) => {
+        wordsArr.map((word, index) => {
           return (
             <WordPair
               word={word.foreignWord}
               transaltion={word.translation}
-              key={id}
+              key={index}
               ID={word._id}
-              wordObject={word}
             />
           );
         })
