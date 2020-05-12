@@ -1,16 +1,55 @@
 @import "../../assets/scss/variables";
 
-.WordPair {
+.WordPairContainer {
   display: flex;
-  justify-content: space-around;
-  text-align: left;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  .WordPair {
+    flex: 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .buttonsContainer {
+    flex: 1;
+  }
 
   img {
     height: $space-2;
+    margin: 0 $space-2;
   }
 
   p {
-    padding: $space-2;
-    width: 30%;
+    padding: $space-1;
+  }
+}
+
+.EditWordForm {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  .editInputs {
+    flex: 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .SubmitButtonContainer {
+    flex: 1;
+  }
+
+  input {
+    border: 1px solid $color-light-border;
+    padding: $space-0;
+  }
+
+  button {
+    width: fit-content;
   }
 }

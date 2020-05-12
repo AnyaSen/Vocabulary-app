@@ -32,6 +32,7 @@ export default function WordPair({ word, transaltion, ID }) {
       ID
     );
     setWordsData();
+
     setIsEditButtonClicked(false);
   };
 
@@ -44,38 +45,49 @@ export default function WordPair({ word, transaltion, ID }) {
   };
 
   return (
-    <div className={Styles.WordPair}>
+    <>
       {isEditButtonClicked ? (
-        <>
-          <InputField
-            type="text"
-            placeholder="Foreign word"
-            value={foreignWordInput}
-            onChange={handleWordInputChange}
-          />
-          <InputField
-            type="text"
-            placeholder="Translation"
-            value={translationInput}
-            onChange={handleTranslationInputChange}
-          />
-
-          <SecondaryButton onClick={editAndUpdate} buttonMessage="Submit" />
-        </>
+        <form onSubmit={editAndUpdate} className={Styles.EditWordForm}>
+          <div className={Styles.editInputs}>
+            <InputField
+              type="text"
+              placeholder="Foreign word"
+              value={foreignWordInput}
+              onChange={handleWordInputChange}
+            />
+            <InputField
+              type="text"
+              placeholder="Translation"
+              value={translationInput}
+              onChange={handleTranslationInputChange}
+            />
+          </div>
+          <div className={Styles.SubmitButtonContainer}>
+            <SecondaryButton
+              type="submit"
+              value="submit"
+              buttonMessage="Submit"
+            />
+          </div>
+        </form>
       ) : (
-        <>
-          <p>{word.toLowerCase()}</p>
-          <p>{transaltion.toLowerCase()}</p>
+        <div className={Styles.WordPairContainer}>
+          <div className={Styles.WordPair}>
+            <p>{word.toLowerCase()}</p>
+            <p>{transaltion.toLowerCase()}</p>
+          </div>
 
-          <button onClick={setEditMode}>
-            <img src={editSvg} alt="Edit" />
-          </button>
+          <div className={Styles.buttonsContainer}>
+            <button onClick={setEditMode}>
+              <img src={editSvg} alt="Edit" />
+            </button>
 
-          <button onClick={deleteAndUpdate}>
-            <img src={deleteSvg} alt="Delete" />
-          </button>
-        </>
+            <button onClick={deleteAndUpdate}>
+              <img src={deleteSvg} alt="Delete" />
+            </button>
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 }
