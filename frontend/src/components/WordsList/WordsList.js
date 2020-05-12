@@ -15,8 +15,8 @@ export default function WordsList() {
         wordsArr.map((word, index) => {
           return (
             <WordPair
-              word={word.foreignWord}
-              transaltion={word.translation}
+              word={word.foreignWord.toLowerCase()}
+              transaltion={word.translation.toLowerCase()}
               key={index}
               ID={word._id}
             />
