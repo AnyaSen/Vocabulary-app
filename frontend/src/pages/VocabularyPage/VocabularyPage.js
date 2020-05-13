@@ -5,6 +5,8 @@ import Styles from "./VocabularyPage.module.scss";
 import WordsList from "../../components/WordsList/WordsList";
 import AddWordsForm from "../../components/AddWordsForm/AddWordsForm";
 import SideBar from "../../components/SideBar/SideBar";
+import BrowseVocabulary from "../../components/BrowseVocabulary/BrowseVocabulary";
+
 import { WordsContext } from "../../contexts/WordsContext";
 
 export default function VocabularyPage() {
@@ -18,6 +20,7 @@ export default function VocabularyPage() {
     <div className={Styles.VocabularyPage}>
       <SideBar />
       <div className={Styles.VocabularyContainer}>
+        <BrowseVocabulary />
         <AddWordsForm />
         <WordsList />
       </div>

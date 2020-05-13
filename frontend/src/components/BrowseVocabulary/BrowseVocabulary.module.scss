@@ -1,0 +1,14 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.BrowseVocabulary {
+ position:absolute;
+ top:0;
+ right:0;
+ margin-right: $space-2;
+ margin-top: $space-0;
+
+  input {
+    @include input-sm
+  }
+}
