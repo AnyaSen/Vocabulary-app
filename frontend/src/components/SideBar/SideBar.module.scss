@@ -1,11 +1,11 @@
 @import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
 
 .SideBar {
   background-color: $color-light-grey;
   width: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-column
+  
 
   .user {
     margin-top: $space-2;

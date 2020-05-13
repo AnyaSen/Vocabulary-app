@@ -1,3 +1,5 @@
+@import "../../assets/scss/mixins";
+
 .VocabularyPage {
   display: flex;
   flex-direction: row;
@@ -5,10 +7,9 @@
 }
 
 .VocabularyContainer {
-  display: flex;
-  flex-direction: column;
+  @include flex-column
+ 
   width: 100%;
   justify-content: center;
-  align-items: center;
   text-align: center;
 }

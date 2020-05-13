@@ -1,7 +1,7 @@
 @import "../../assets/scss/variables";
 
 .WordPairContainer {
-  border: 1px solid $color-light-border;
+  border: $border-light;
   border-radius: $border-radius-sm;
   width: 95%;
   margin: $space-2 0;
