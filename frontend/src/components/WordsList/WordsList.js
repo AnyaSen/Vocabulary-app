@@ -17,7 +17,7 @@ export default function WordsList() {
             <WordPair
               word={word.foreignWord.toLowerCase()}
               transaltion={word.translation.toLowerCase()}
-              key={index}
+              key={word._id}
               ID={word._id}
             />
           );
