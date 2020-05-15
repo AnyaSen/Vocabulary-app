@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
-import { readData } from "../services/readData";
+
+import { getWords } from "../services/getWords";
 
 export const WordsContext = createContext();
 
@@ -7,10 +8,8 @@ export const WordsContextProvider = ({ children }) => {
   const [wordsArr, setWordsArr] = useState([]);
 
   const setWordsData = async () => {
-    const wordsURL = "/words";
-
     try {
-      const wordsDataArr = await readData(wordsURL);
+      const wordsDataArr = await getWords();
 
       setWordsArr(wordsDataArr);
     } catch (error) {

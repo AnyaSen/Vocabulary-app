@@ -1,18 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import Styles from "./WordsList.module.scss";
 
 import WordPair from "../WordPair/WordPair";
 
-import { WordsContext } from "../../contexts/WordsContext";
-
-export default function WordsList() {
-  const { wordsArr } = useContext(WordsContext);
-
+export default function WordsList({ wordsArray, noWordsMessage }) {
   return (
     <div className={Styles.WordPairContainer}>
-      {wordsArr.length !== 0 ? (
-        wordsArr.map((word, index) => {
+      {wordsArray.length !== 0 ? (
+        wordsArray.map(word => {
           return (
             <WordPair
               word={word.foreignWord.toLowerCase()}
@@ -23,7 +19,7 @@ export default function WordsList() {
           );
         })
       ) : (
-        <p>Here will be your words.</p>
+        <p>{noWordsMessage}</p>
       )}
     </div>
   );

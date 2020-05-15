@@ -1,6 +1,8 @@
 import axios from "axios";
 
-export const readData = async URL => {
+export const getWords = async () => {
+  const wordsURL = "/words";
+
   const token = JSON.parse(localStorage.getItem("token"));
 
   const headers = {
@@ -8,7 +10,7 @@ export const readData = async URL => {
   };
 
   try {
-    const result = await axios(URL, { headers });
+    const result = await axios(wordsURL, { headers });
 
     return result.data;
   } catch (error) {

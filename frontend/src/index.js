@@ -7,6 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import { WordsContextProvider } from "./contexts/WordsContext";
 import { ErrorContextProvider } from "./contexts/ErrorContext";
 import { LoadingContextProvider } from "./contexts/LoadingContext";
+import { BrowseContextProvider } from "./contexts/BrowseContext";
+
 
 axios.interceptors.response.use(
   function(config) {
@@ -27,7 +29,9 @@ ReactDOM.render(
       <WordsContextProvider>
         <ErrorContextProvider>
           <LoadingContextProvider>
+          <BrowseContextProvider>
             <App />
+          </BrowseContextProvider>
           </LoadingContextProvider>
         </ErrorContextProvider>
       </WordsContextProvider>
