@@ -23,12 +23,15 @@ export default function BrowseVocabulary() {
     setIsBrowsingMode(true);
     const filteredVocabularyArray = filterVocabulary(wordsArr, searchWordInput);
     setModifiedWordsArr(filteredVocabularyArray);
-
-    setSearchWordInput("");
   };
 
   const handleSearchWordInputChange = event => {
     setSearchWordInput(event.target.value);
+  };
+
+  const handleShowAll = () => {
+    setIsBrowsingMode(false);
+    setSearchWordInput("");
   };
 
   return (
@@ -46,10 +49,7 @@ export default function BrowseVocabulary() {
 
       {isBrowsingMode ? (
         <div className={Styles.showAllButton}>
-          <SecondaryButton
-            buttonMessage="ShowAll"
-            onClick={() => setIsBrowsingMode(false)}
-          />
+          <SecondaryButton buttonMessage="Show All" onClick={handleShowAll} />
         </div>
       ) : null}
     </div>

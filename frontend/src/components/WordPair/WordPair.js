@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 
 import { WordsContext } from "../../contexts/WordsContext";
+import { BrowseContext } from "../../contexts/BrowseContext";
+
 import { deleteWord } from "../../services/deleteWord";
 import { editWord } from "../../services/editWord";
 
@@ -14,11 +16,19 @@ export default function WordPair({ word, transaltion, ID }) {
   const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
   const [foreignWordInput, setForeignWordInput] = useState(word);
   const [translationInput, setTranslationInput] = useState(transaltion);
+  const [editedFilteredForeignWord, setEditedFilteredForeignWord] = useState(
+    word
+  );
+  const [editedFilteredTranslation, setEditedFilteredTranslation] = useState(
+    transaltion
+  );
 
   const { setWordsData } = useContext(WordsContext);
+  const { isBrowsingMode } = useContext(BrowseContext);
 
   const deleteAndUpdate = () => {
     deleteWord(ID);
+
     setWordsData();
   };
 
@@ -32,6 +42,11 @@ export default function WordPair({ word, transaltion, ID }) {
       ID
     );
     setWordsData();
+
+    if (isBrowsingMode) {
+      setEditedFilteredForeignWord(foreignWordInput);
+      setEditedFilteredTranslation(translationInput);
+    }
 
     setIsEditButtonClicked(false);
   };
@@ -73,8 +88,8 @@ export default function WordPair({ word, transaltion, ID }) {
       ) : (
         <div className={Styles.WordPairContainer}>
           <div className={Styles.WordPair}>
-            <p>{word.toLowerCase()}</p>
-            <p>{transaltion.toLowerCase()}</p>
+            <p>{!isBrowsingMode ? word : editedFilteredForeignWord}</p>
+            <p>{!isBrowsingMode ? transaltion : editedFilteredTranslation}</p>
           </div>
 
           <div className={Styles.buttonsContainer}>
