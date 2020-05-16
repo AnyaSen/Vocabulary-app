@@ -16,6 +16,7 @@ export default function VocabularyPage() {
 
   useEffect(() => {
     setWordsData();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -23,12 +24,15 @@ export default function VocabularyPage() {
       <SideBar />
       <div className={Styles.VocabularyContainer}>
         <BrowseVocabulary />
-        <AddWordsForm />
         {!isBrowsingMode ? (
-          <WordsList
-            wordsArray={wordsArr}
-            noWordsMessage="Here will be your words."
-          />
+          <>
+            <AddWordsForm />
+
+            <WordsList
+              wordsArray={wordsArr}
+              noWordsMessage="Here will be your words."
+            />
+          </>
         ) : (
           <WordsList
             wordsArray={modifiedWordsArr}
