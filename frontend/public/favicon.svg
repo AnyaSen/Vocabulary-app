@@ -1,9 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="145" height="125" viewBox="0 0 145 125">
-  <g id="Group_58" data-name="Group 58" transform="translate(-4634 -1288)">
-    <g id="Group_54" data-name="Group 54" transform="translate(-141 -17)">
-      <rect id="Rectangle_15" data-name="Rectangle 15" width="145" height="125" transform="translate(4775 1305)" fill="#fff"/>
-      <circle id="Ellipse_8" data-name="Ellipse 8" cx="62.5" cy="62.5" r="62.5" transform="translate(4785 1305)" fill="#f79090"/>
+  <g id="Group_53" data-name="Group 53" transform="translate(-4746 -1258)">
+    <g id="Group_55" data-name="Group 55" transform="translate(84 -7)">
+      <g id="Group_56" data-name="Group 56" transform="translate(11 -4)">
+        <g id="Group_57" data-name="Group 57" transform="translate(5 -19)">
+          <g id="Group_58" data-name="Group 58">
+            <g id="Group_59" data-name="Group 59" transform="translate(1)">
+              <g id="Group_60" data-name="Group 60" transform="translate(13)">
+                <g id="Group_54" data-name="Group 54" transform="translate(-143 -17)">
+                  <path id="Path_11" data-name="Path 11" d="M0,0H145V125H0Z" transform="translate(4775 1305)" fill="none"/>
+                  <circle id="Ellipse_8" data-name="Ellipse 8" cx="62.5" cy="62.5" r="62.5" transform="translate(4785 1305)" fill="#f79090"/>
+                </g>
+                <text id="V" transform="translate(4680 1375)" fill="#fff" font-size="79" font-family="Questrial-Regular, Questrial"><tspan x="0" y="0">V</tspan></text>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
     </g>
-    <text id="V" transform="translate(4679 1378)" fill="#fff" font-size="88" font-family="Questrial-Regular, Questrial"><tspan x="0" y="0">V</tspan></text>
   </g>
 </svg>
