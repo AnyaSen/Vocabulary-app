@@ -24,10 +24,26 @@ export default function WordPair({ word, transaltion, ID }) {
   );
 
   const { setWordsData } = useContext(WordsContext);
-  const { isBrowsingMode } = useContext(BrowseContext);
+  const { isBrowsingMode, modifiedWordsArr, setModifiedWordsArr } = useContext(
+    BrowseContext
+  );
+
+  const deleteFilteredWord = id => {
+    const newModifiedArr = modifiedWordsArr;
+
+    const wordIndex = newModifiedArr.findIndex(word => word._id === id);
+
+    newModifiedArr.splice(wordIndex, 1);
+
+    setModifiedWordsArr(newModifiedArr);
+  };
 
   const deleteAndUpdate = () => {
     deleteWord(ID);
+
+    if (isBrowsingMode) {
+      deleteFilteredWord(ID);
+    }
 
     setWordsData();
   };
