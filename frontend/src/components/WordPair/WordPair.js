@@ -36,7 +36,9 @@ export default function WordPair({ word, transaltion, ID }) {
     setIsEditButtonClicked(true);
   };
 
-  const editAndUpdate = () => {
+  const editAndUpdate = event => {
+    event.preventDefault();
+
     editWord(
       { foreignWord: foreignWordInput, translation: translationInput },
       ID
