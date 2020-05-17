@@ -1,0 +1,7 @@
+@import "../../assets/scss/mixins";
+
+.LoadingPage {
+  @include flex-column;
+  height: 100vh;
+  justify-content: center;
+}
