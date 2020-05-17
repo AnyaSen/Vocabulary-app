@@ -4,12 +4,15 @@ export const LoadingContext = createContext();
 
 export const LoadingContextProvider = ({ children }) => {
   const [isVocabularyLoading, setIsVocabularyLoading] = useState(true);
+  const [isProfileLoading, setIsProfileLoading] = useState(false);
 
   return (
     <LoadingContext.Provider
       value={{
         isVocabularyLoading,
-        setIsVocabularyLoading
+        setIsVocabularyLoading,
+        isProfileLoading,
+        setIsProfileLoading
       }}
     >
       {children}

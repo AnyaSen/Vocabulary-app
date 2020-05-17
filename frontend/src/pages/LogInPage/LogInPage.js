@@ -3,15 +3,18 @@ import { useHistory } from "react-router-dom";
 
 import { login } from "../../services/login";
 import { ErrorContext } from "../../contexts/ErrorContext";
+import { LoadingContext } from "../../contexts/LoadingContext";
 
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 export default function HomePage() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
   const { isLoginError, setIsLoginError } = useContext(ErrorContext);
+  const { isProfileLoading, setIsProfileLoading } = useContext(LoadingContext);
 
   const history = useHistory();
 
@@ -25,6 +28,7 @@ export default function HomePage() {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    setIsProfileLoading(true);
 
     try {
       setIsLoginError(false);
@@ -39,12 +43,16 @@ export default function HomePage() {
 
       setInputEmail("");
       setInputPassword("");
+
+      setIsProfileLoading(false);
     } catch (error) {
       console.log(error);
 
       setIsLoginError(true);
     }
   };
+
+  if (isProfileLoading) return <LoadingPage />;
 
   return (
     <SignupLoginForm

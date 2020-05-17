@@ -9,7 +9,6 @@ import { ErrorContextProvider } from "./contexts/ErrorContext";
 import { LoadingContextProvider } from "./contexts/LoadingContext";
 import { BrowseContextProvider } from "./contexts/BrowseContext";
 
-
 axios.interceptors.response.use(
   function(config) {
     return config;
@@ -26,15 +25,15 @@ axios.interceptors.response.use(
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <WordsContextProvider>
-        <ErrorContextProvider>
-          <LoadingContextProvider>
-          <BrowseContextProvider>
-            <App />
-          </BrowseContextProvider>
-          </LoadingContextProvider>
-        </ErrorContextProvider>
-      </WordsContextProvider>
+      <ErrorContextProvider>
+        <LoadingContextProvider>
+          <WordsContextProvider>
+            <BrowseContextProvider>
+              <App />
+            </BrowseContextProvider>
+          </WordsContextProvider>
+        </LoadingContextProvider>
+      </ErrorContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

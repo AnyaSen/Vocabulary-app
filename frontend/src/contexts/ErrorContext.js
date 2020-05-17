@@ -5,6 +5,7 @@ export const ErrorContext = createContext();
 export const ErrorContextProvider = ({ children }) => {
   const [isLoginError, setIsLoginError] = useState(false);
   const [isSignupError, setIsSignupError] = useState(false);
+  const [isVocabularyError, setIsVocabularyError] = useState(false);
 
   return (
     <ErrorContext.Provider
@@ -12,7 +13,9 @@ export const ErrorContextProvider = ({ children }) => {
         isLoginError,
         setIsLoginError,
         isSignupError,
-        setIsSignupError
+        setIsSignupError,
+        isVocabularyError,
+        setIsVocabularyError
       }}
     >
       {children}
