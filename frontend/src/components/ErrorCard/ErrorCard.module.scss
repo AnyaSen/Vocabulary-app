@@ -1,0 +1,11 @@
+@import "../../assets/scss/mixins";
+
+.ErrorCard {
+  @include flex-column;
+  height: 100vh;
+  justify-content: center;
+
+  p {
+    margin-top: $space-2;
+  }
+}
