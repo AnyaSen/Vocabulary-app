@@ -1,19 +1,25 @@
 import React, { useContext, useState } from "react";
 
+import Styles from "./WordPair.module.scss";
+
 import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";
+import { LoadingContext } from "../../contexts/LoadingContext";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 import { deleteWord } from "../../services/deleteWord";
 import { editWord } from "../../services/editWord";
 
-import Styles from "./WordPair.module.scss";
 import editSvg from "../../assets/img/edit.svg";
 import deleteSvg from "../../assets/img/delete.svg";
 import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 import InputField from "../InputField/InputField";
+import LoaderSmall from "../Loader/LoaderSmall/LoaderSmall";
+import ErrorSmall from "../ErrorSmall/ErrorSmall";
 
 export default function WordPair({ word, transaltion, ID }) {
   const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
+  const [isDeleteButtonClicked, setIsDeleteButtonClicked] = useState(false);
   const [foreignWordInput, setForeignWordInput] = useState(word);
   const [translationInput, setTranslationInput] = useState(transaltion);
   const [editedFilteredForeignWord, setEditedFilteredForeignWord] = useState(
@@ -24,6 +30,16 @@ export default function WordPair({ word, transaltion, ID }) {
   );
 
   const { setWordsData } = useContext(WordsContext);
+  const { isFormSubmissionError, setIsFormSubmissionError } = useContext(
+    ErrorContext
+  );
+  const { isDeletingError, setIsDeletingError } = useContext(ErrorContext);
+  const { isFormSubmissionLoading, setIsFormSubmissionLoading } = useContext(
+    LoadingContext
+  );
+  const { isDeletingLoading, setIsDeletingLoading } = useContext(
+    LoadingContext
+  );
   const { isBrowsingMode, modifiedWordsArr, setModifiedWordsArr } = useContext(
     BrowseContext
   );
@@ -38,35 +54,55 @@ export default function WordPair({ word, transaltion, ID }) {
     setModifiedWordsArr(newModifiedArr);
   };
 
-  const deleteAndUpdate = () => {
-    deleteWord(ID);
+  const deleteAndUpdate = async event => {
+    event.preventDefault();
+    setIsDeletingLoading(true);
 
-    if (isBrowsingMode) {
-      deleteFilteredWord(ID);
+    try {
+      setIsDeleteButtonClicked(true);
+      await deleteWord(ID);
+
+      if (isBrowsingMode) {
+        deleteFilteredWord(ID);
+      }
+
+      setWordsData();
+
+      setIsDeletingLoading(false);
+    } catch (e) {
+      setIsDeletingLoading(false);
+      setIsDeletingError(true);
+      console.log(e);
     }
+  };
 
-    setWordsData();
+  const editAndUpdate = async event => {
+    event.preventDefault();
+    setIsFormSubmissionLoading(true);
+    try {
+      await editWord(
+        { foreignWord: foreignWordInput, translation: translationInput },
+        ID
+      );
+
+      if (isBrowsingMode) {
+        setEditedFilteredForeignWord(foreignWordInput);
+        setEditedFilteredTranslation(translationInput);
+      }
+
+      setWordsData();
+      setIsFormSubmissionLoading(false);
+
+      setIsEditButtonClicked(false);
+    } catch (e) {
+      setIsFormSubmissionLoading(false);
+      setIsFormSubmissionError(true);
+      console.log(e);
+    }
   };
 
   const setEditMode = () => {
     setIsEditButtonClicked(true);
-  };
-
-  const editAndUpdate = event => {
-    event.preventDefault();
-
-    editWord(
-      { foreignWord: foreignWordInput, translation: translationInput },
-      ID
-    );
-    setWordsData();
-
-    if (isBrowsingMode) {
-      setEditedFilteredForeignWord(foreignWordInput);
-      setEditedFilteredTranslation(translationInput);
-    }
-
-    setIsEditButtonClicked(false);
   };
 
   const handleWordInputChange = event => {
@@ -96,11 +132,17 @@ export default function WordPair({ word, transaltion, ID }) {
             />
           </div>
           <div className={Styles.SubmitButtonContainer}>
-            <SecondaryButton
-              type="submit"
-              value="submit"
-              buttonMessage="Submit"
-            />
+            {isFormSubmissionError ? (
+              <ErrorSmall onClick={() => setIsEditButtonClicked(false)} />
+            ) : !isFormSubmissionLoading ? (
+              <SecondaryButton
+                type="submit"
+                value="submit"
+                buttonMessage="Submit"
+              />
+            ) : (
+              <LoaderSmall />
+            )}
           </div>
         </form>
       ) : (
@@ -110,15 +152,21 @@ export default function WordPair({ word, transaltion, ID }) {
             <p>{!isBrowsingMode ? transaltion : editedFilteredTranslation}</p>
           </div>
 
-          <div className={Styles.buttonsContainer}>
-            <button onClick={setEditMode}>
-              <img src={editSvg} alt="Edit" />
-            </button>
+          {isDeletingLoading && isDeleteButtonClicked ? (
+            <LoaderSmall />
+          ) : isDeletingError && isDeleteButtonClicked ? (
+            <ErrorSmall onClick={() => setIsDeleteButtonClicked(false)} />
+          ) : (
+            <div className={Styles.buttonsContainer}>
+              <button onClick={setEditMode}>
+                <img src={editSvg} alt="Edit" />
+              </button>
 
-            <button onClick={deleteAndUpdate}>
-              <img src={deleteSvg} alt="Delete" />
-            </button>
-          </div>
+              <button onClick={deleteAndUpdate}>
+                <img src={deleteSvg} alt="Delete" />
+              </button>
+            </div>
+          )}
         </div>
       )}
     </>

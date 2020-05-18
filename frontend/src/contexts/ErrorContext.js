@@ -6,6 +6,8 @@ export const ErrorContextProvider = ({ children }) => {
   const [isLoginError, setIsLoginError] = useState(false);
   const [isSignupError, setIsSignupError] = useState(false);
   const [isVocabularyError, setIsVocabularyError] = useState(false);
+  const [isFormSubmissionError, setIsFormSubmissionError] = useState(false);
+  const [isDeletingError, setIsDeletingError] = useState(false);
 
   return (
     <ErrorContext.Provider
@@ -15,7 +17,11 @@ export const ErrorContextProvider = ({ children }) => {
         isSignupError,
         setIsSignupError,
         isVocabularyError,
-        setIsVocabularyError
+        setIsVocabularyError,
+        isFormSubmissionError,
+        setIsFormSubmissionError,
+        isDeletingError,
+        setIsDeletingError
       }}
     >
       {children}

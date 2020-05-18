@@ -30,8 +30,8 @@
 
 .EditWordForm {
   width: 100%;
-  
-   @include flex-row;
+
+  @include flex-row;
   justify-content: space-between;
 
   .editInputs {
@@ -43,13 +43,15 @@
 
   .SubmitButtonContainer {
     flex: 1;
-  }
 
-  input {
-       @include input-sm
-  }
+    @include flex-row;
 
-  button {
-    width: fit-content;
+    input {
+      @include input-sm;
+    }
+
+    button {
+      width: fit-content;
+    }
   }
 }
