@@ -4,8 +4,7 @@
 .SideBar {
   background-color: $color-light-grey;
   width: 10%;
-  @include flex-column
-  
+  @include flex-column;
 
   .user {
     margin-top: $space-2;

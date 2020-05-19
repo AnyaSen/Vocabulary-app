@@ -6,9 +6,7 @@ import Styles from "./SideBar.module.scss";
 
 export default function SideBar() {
   const name = localStorage.getItem("userName");
-  const firstLetter = name.charAt(1);
-
-  console.log(name);
+  const firstLetter = name.toUpperCase().charAt(1);
 
   return (
     <div className={Styles.SideBar}>
