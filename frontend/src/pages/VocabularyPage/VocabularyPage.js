@@ -35,13 +35,14 @@ export default function VocabularyPage() {
 
         {!isBrowsingMode ? (
           <>
-            <AddWordsForm />
-
             {!isVocabularyLoading ? (
-              <WordsList
-                wordsArray={wordsArr}
-                noWordsMessage="Here will be your words."
-              />
+              <>
+                <AddWordsForm />
+                <WordsList
+                  wordsArray={wordsArr}
+                  noWordsMessage="Here will be your words."
+                />
+              </>
             ) : (
               <Loader />
             )}
