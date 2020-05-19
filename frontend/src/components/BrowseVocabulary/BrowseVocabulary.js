@@ -11,9 +11,11 @@ import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 
 export default function BrowseVocabulary() {
   const [searchWordInput, setSearchWordInput] = useState("");
+
   const { setModifiedWordsArr, isBrowsingMode, setIsBrowsingMode } = useContext(
     BrowseContext
   );
+  const { setWordsData } = useContext(WordsContext);
 
   const { wordsArr } = useContext(WordsContext);
 
@@ -21,6 +23,7 @@ export default function BrowseVocabulary() {
     event.preventDefault();
 
     setIsBrowsingMode(true);
+
     const filteredVocabularyArray = filterVocabulary(wordsArr, searchWordInput);
     setModifiedWordsArr(filteredVocabularyArray);
   };
@@ -32,6 +35,7 @@ export default function BrowseVocabulary() {
   const handleShowAll = () => {
     setIsBrowsingMode(false);
     setSearchWordInput("");
+    setWordsData();
   };
 
   return (

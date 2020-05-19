@@ -60,7 +60,7 @@ export default function WordPair({ word, transaltion, ID }) {
 
     try {
       setIsDeleteButtonClicked(true);
-      await deleteWord(ID);
+      deleteWord(ID);
 
       if (isBrowsingMode) {
         deleteFilteredWord(ID);
@@ -79,21 +79,33 @@ export default function WordPair({ word, transaltion, ID }) {
   const editAndUpdate = async event => {
     event.preventDefault();
     setIsFormSubmissionLoading(true);
+
     try {
-      await editWord(
-        { foreignWord: foreignWordInput, translation: translationInput },
-        ID
-      );
+      if (!isBrowsingMode) {
+        editWord(
+          { foreignWord: foreignWordInput, translation: translationInput },
+          ID
+        );
 
-      if (isBrowsingMode) {
+        setWordsData();
+
+        setIsFormSubmissionLoading(false);
+
+        setIsEditButtonClicked(false);
+      } else {
         setEditedFilteredForeignWord(foreignWordInput);
+
         setEditedFilteredTranslation(translationInput);
+
+        editWord(
+          { foreignWord: foreignWordInput, translation: translationInput },
+          ID
+        );
+
+        setIsFormSubmissionLoading(false);
+
+        setIsEditButtonClicked(false);
       }
-
-      setWordsData();
-      setIsFormSubmissionLoading(false);
-
-      setIsEditButtonClicked(false);
     } catch (e) {
       setIsFormSubmissionLoading(false);
       setIsFormSubmissionError(true);
