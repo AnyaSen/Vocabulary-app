@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LogInPage from "./pages/LogInPage/LogInPage";
@@ -16,6 +16,8 @@ function App() {
         <Route exact path="/login" component={LogInPage} />
         <Route exact path="/vocabulary" component={VocabularyPage} />
         <Route exact path="/learn" component={LearningPage} />
+
+        <Redirect to="/signup" />
       </Switch>
     </div>
   );
