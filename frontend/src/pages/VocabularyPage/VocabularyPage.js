@@ -4,7 +4,6 @@ import Styles from "./VocabularyPage.module.scss";
 
 import WordsList from "../../components/WordsList/WordsList";
 import AddWordsForm from "../../components/AddWordsForm/AddWordsForm";
-import SideBar from "../../components/SideBar/SideBar";
 import BrowseVocabulary from "../../components/BrowseVocabulary/BrowseVocabulary";
 import Loader from "../../components/Loader/Loader";
 import ErrorCard from "../../components/ErrorCard/ErrorCard";
@@ -13,6 +12,7 @@ import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 import { ErrorContext } from "../../contexts/ErrorContext";
+import Layout from "../../components/Layout/Layout";
 
 export default function VocabularyPage() {
   const { wordsArr, setWordsData } = useContext(WordsContext);
@@ -28,8 +28,7 @@ export default function VocabularyPage() {
   if (isVocabularyError) return <ErrorCard />;
 
   return (
-    <div className={Styles.VocabularyPage}>
-      <SideBar />
+    <Layout>
       <div className={Styles.VocabularyContainer}>
         <BrowseVocabulary />
 
@@ -56,6 +55,6 @@ export default function VocabularyPage() {
           <Loader />
         )}
       </div>
-    </div>
+    </Layout>
   );
 }

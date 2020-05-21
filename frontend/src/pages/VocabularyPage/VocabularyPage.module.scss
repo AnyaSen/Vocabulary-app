@@ -1,15 +1,4 @@
 @import "../../assets/scss/mixins";
-@import "../../assets/scss/breakpoints";
-
-.VocabularyPage {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-
-  @include lg {
-    flex-direction: column;
-  }
-}
 
 .VocabularyContainer {
   @include flex-column;

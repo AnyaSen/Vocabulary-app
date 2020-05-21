@@ -7,11 +7,13 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LogInPage from "./pages/LogInPage/LogInPage";
 import LearningPage from "./pages/LearningPage/LearningPage";
 import VocabularyPage from "./pages/VocabularyPage/VocabularyPage";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
     <div className="App">
       <Switch>
+        <Route exact path="/home" component={HomePage} />
         <Route exact path="/signup" component={SignUpPage} />
         <Route exact path="/login" component={LogInPage} />
         <Route exact path="/vocabulary" component={VocabularyPage} />

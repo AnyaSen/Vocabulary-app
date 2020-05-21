@@ -3,9 +3,10 @@
 @import "../../assets/scss/breakpoints";
 
 .SideBar {
-  background-color: $color-light-grey;
-  width: 10%;
   @include flex-column;
+  background-color: $color-light-grey;
+  width: fit-content;
+  justify-content: space-around;
 
   @include lg {
     width: 100%;
@@ -14,7 +15,7 @@
   }
 
   .user {
-    margin-top: $space-2;
+    margin-top: $space-0;
     margin-bottom: $space-1;
     font-size: $font-lg;
     color: $color-pink;
@@ -37,5 +38,18 @@
     background-color: inherit;
     font-size: $font-xs;
     text-decoration: none;
+  }
+
+  .links {
+    @include flex-column;
+    margin: 0 $space-1;
+    height: 60vh;
+    justify-content: space-evenly;
+  }
+
+  .instructions {
+    @include flex-column;
+    color: $color-pink;
+    margin-bottom: $space-0;
   }
 }

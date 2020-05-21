@@ -4,15 +4,30 @@ import { logout } from "../../services/logout";
 
 import Styles from "./SideBar.module.scss";
 
+import ButtonMenuLink from "../Buttons/ButtonMenuLink/ButtonMenuLink";
+
 export default function SideBar() {
   const name = localStorage.getItem("userName");
   const firstLetter = name.toUpperCase().charAt(1);
 
   return (
     <div className={Styles.SideBar}>
-      <div className={Styles.user}>{firstLetter}</div>
+      <div>
+        <div className={Styles.user}>{firstLetter}</div>
 
-      <button onClick={logout}>LOG OUT</button>
+        <button onClick={logout}>LOG OUT</button>
+      </div>
+
+      <div className={Styles.links}>
+        <ButtonMenuLink linkTo="/home" buttonMessage="HOME" />
+        <ButtonMenuLink linkTo="/vocabulary" buttonMessage="VOCABULARY" />
+        <ButtonMenuLink linkTo="/learn" buttonMessage="LEARN" />
+      </div>
+
+      <div className={Styles.instructions}>
+        <h2>?</h2>
+        <button>HOW TO USE</button>
+      </div>
     </div>
   );
 }

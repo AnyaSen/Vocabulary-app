@@ -1,0 +1,12 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
+
+.Layout {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  @include lg {
+    flex-direction: column;
+  }
+}
