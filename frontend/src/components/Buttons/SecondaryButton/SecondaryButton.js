@@ -6,10 +6,13 @@ export default function SecondaryButton({
   buttonMessage,
   onClick,
   type,
-  value
+  value,
+  textColor,
+  backgroundColor
 }) {
   return (
     <button
+      style={{ color: textColor, backgroundColor: backgroundColor }}
       onClick={onClick}
       type={type}
       value={value}

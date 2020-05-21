@@ -1,4 +1,5 @@
 @import "../../assets/scss/variables";
+@import "../../assets/scss/breakpoints";
 
 .WordPairContainer {
   border: $border-light;
@@ -7,4 +8,8 @@
   margin: $space-2 0;
   padding: $space-1;
   overflow-y: auto;
+
+  @include lg {
+    margin-top: $space-3;
+  }
 }

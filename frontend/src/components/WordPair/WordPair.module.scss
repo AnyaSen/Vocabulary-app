@@ -2,16 +2,14 @@
 @import "../../assets/scss/mixins";
 
 .WordPairContainer {
-  display: flex;
+  @include flex-row;
   width: 100%;
   justify-content: space-between;
-  align-items: center;
 
   .WordPair {
     flex: 3;
-    display: flex;
+    @include flex-row;
     justify-content: space-around;
-    align-items: center;
   }
 
   .buttonsContainer {

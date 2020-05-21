@@ -53,7 +53,12 @@ export default function BrowseVocabulary() {
 
       {isBrowsingMode ? (
         <div className={Styles.showAllButton}>
-          <SecondaryButton buttonMessage="Show All" onClick={handleShowAll} />
+          <SecondaryButton
+            buttonMessage="Show All"
+            onClick={handleShowAll}
+            textColor="white"
+            backgroundColor="#f79090"
+          />
         </div>
       ) : null}
     </div>

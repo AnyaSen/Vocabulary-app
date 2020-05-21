@@ -1,4 +1,5 @@
 @import "../../assets/scss/variables";
+@import "../../assets/scss/breakpoints";
 
 .SignupLoginFormContainer {
   display: flex;
@@ -16,6 +17,10 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  @include lg {
+    width: 65%;
+  }
 
   h1 {
     margin-bottom: $space-2;
