@@ -57,10 +57,10 @@ export default function HomePage() {
   return (
     <SignupLoginForm
       handleSubmit={handleSubmit}
-      header="Log in"
+      header="LOG IN"
       buttonMessage="Continue"
       paragraphMessage="Don&#39;t have an account? "
-      route="/"
+      route="/signup"
       linkMessage="Sing up"
     >
       {isLoginError ? <p>User is not found :(</p> : null}

@@ -17,6 +17,20 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
+
+  .SignupLoginFormLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+      height: 3rem;
+      width: auto;
+      margin-left: $space-3;
+      margin-top: $space-2;
+    }
+  }
 
   @include lg {
     width: 65%;

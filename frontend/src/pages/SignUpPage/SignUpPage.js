@@ -62,7 +62,7 @@ export default function SignUpPage() {
   return (
     <SignupLoginForm
       handleSubmit={handleSubmit}
-      header="Sign up"
+      header="SIGN UP"
       buttonMessage="Create User"
       paragraphMessage="Already have an account?"
       route="/login"
