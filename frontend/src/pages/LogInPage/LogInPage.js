@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
+import Styles from "../../components/SignupLoginForm/SignupLoginForm.module.scss";
+
 import { login } from "../../services/login";
 import { ErrorContext } from "../../contexts/ErrorContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
@@ -12,6 +14,7 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 export default function HomePage() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const [isEmptyInputError, setIsEmptyInputError] = useState(false);
 
   const { isLoginError, setIsLoginError } = useContext(ErrorContext);
   const { isProfileLoading, setIsProfileLoading } = useContext(LoadingContext);
@@ -26,12 +29,10 @@ export default function HomePage() {
     setInputPassword(event.target.value);
   };
 
-  const handleSubmit = async event => {
-    event.preventDefault();
-    setIsProfileLoading(true);
-
+  const sendProfile = async () => {
     try {
-      setIsLoginError(false);
+      setIsProfileLoading(true);
+
       await login({
         email: inputEmail,
         password: inputPassword
@@ -48,7 +49,20 @@ export default function HomePage() {
     } catch (error) {
       console.log(error);
 
+      setIsProfileLoading(false);
       setIsLoginError(true);
+    }
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    setIsLoginError(false);
+
+    if (inputEmail === "" || inputPassword === "") {
+      setIsEmptyInputError(true);
+    } else {
+      setIsEmptyInputError(false);
+      sendProfile();
     }
   };
 
@@ -57,13 +71,17 @@ export default function HomePage() {
   return (
     <SignupLoginForm
       handleSubmit={handleSubmit}
-      header="LOG IN"
+      header="Log in"
       buttonMessage="Continue"
       paragraphMessage="Don&#39;t have an account? "
-      route="/signup"
+      route="/"
       linkMessage="Sing up"
     >
-      {isLoginError ? <p>User is not found :(</p> : null}
+      {isLoginError ? (
+        <p className={Styles.error}>Wrong credentials</p>
+      ) : isEmptyInputError ? (
+        <p className={Styles.error}> Please, fill in all the fields</p>
+      ) : null}
 
       <InputField
         type="email"
