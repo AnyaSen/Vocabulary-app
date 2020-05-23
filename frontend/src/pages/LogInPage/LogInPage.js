@@ -38,7 +38,7 @@ export default function HomePage() {
         password: inputPassword
       });
 
-      history.push("/vocabulary");
+      history.push("/home");
 
       setIsLoginError(false);
 
@@ -74,7 +74,7 @@ export default function HomePage() {
       header="Log in"
       buttonMessage="Continue"
       paragraphMessage="Don&#39;t have an account? "
-      route="/"
+      route="/signup"
       linkMessage="Sing up"
     >
       {isLoginError ? (
