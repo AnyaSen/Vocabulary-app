@@ -53,7 +53,7 @@ export default function AddWordsForm() {
           onChange={handleTranslationInputChange}
         />
 
-        <PrimaryButton type="submit" value="submit" buttonMessage="Add" />
+        <PrimaryButton type="submit" value="submit" buttonMessage="ADD" />
       </form>
     </div>
   );
