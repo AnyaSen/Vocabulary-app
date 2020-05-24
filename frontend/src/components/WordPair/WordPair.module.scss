@@ -14,6 +14,7 @@
 
   .buttonsContainer {
     flex: 1;
+    @include flex-row;
   }
 
   img {
@@ -23,6 +24,8 @@
 
   p {
     padding: $space-1;
+    width: 30rem;
+    word-break: break-all;
   }
 }
 
