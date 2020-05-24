@@ -8,19 +8,15 @@ import instructionsSvg from "../../assets/img/instructions.svg";
 import logoSvg from "../../assets/img/logo.svg";
 
 import InitialPageButton from "../../components/InitialPageButton/InitialPageButton";
+import PageLayout from "../../components/PageLayout/PageLayout";
 
 export default function InitialPage() {
   return (
-    <div className={Styles.InitialPage}>
-      <div className={Styles.InitialPageHeader}>
-        <img src={logoSvg} alt="Logo" />
-
-        <h1>Welcome to Vocabulary Builder!</h1>
-
-        <div>
-          <h2>Here you can add new words, learn them and see your progress</h2>
-        </div>
-      </div>
+    <PageLayout
+      header="Welcome to Vocabulary Builder!"
+      subHeader="Here you can add new words, learn them and see your progress"
+    >
+      <img src={logoSvg} alt="Logo" className={Styles.logo} />
 
       <div className={Styles.InitialPageButtons}>
         <InitialPageButton
@@ -47,6 +43,6 @@ export default function InitialPage() {
           buttonDescription="To log into an existing account"
         />
       </div>
-    </div>
+    </PageLayout>
   );
 }
