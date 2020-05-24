@@ -24,16 +24,16 @@
     top: 0;
     left: 0;
 
+    @include lg {
+      width: 65%;
+    }
+
     img {
       height: 3rem;
       width: auto;
       margin-left: $space-3;
       margin-top: $space-2;
     }
-  }
-
-  @include lg {
-    width: 65%;
   }
 
   h1 {
@@ -63,4 +63,8 @@
   input {
     width: 100%;
   }
+}
+
+.error {
+  color: $color-red;
 }

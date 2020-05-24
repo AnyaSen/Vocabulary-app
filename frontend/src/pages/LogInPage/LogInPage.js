@@ -40,8 +40,6 @@ export default function HomePage() {
 
       history.push("/home");
 
-      setIsLoginError(false);
-
       setInputEmail("");
       setInputPassword("");
 
