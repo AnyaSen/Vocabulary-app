@@ -1,7 +1,7 @@
 @import "./variables";
 
 @mixin input-sm {
- border: $border-light;;
+  border: $border-light;
   padding: $space-0;
 }
 
@@ -14,4 +14,16 @@
 @mixin flex-row {
   display: flex;
   align-items: center;
+}
+
+@mixin button-sm($bgColor, $color) {
+  padding: $space-0 $space-1;
+  background-color: $bgColor;
+  color: $color;
+}
+
+@mixin button-lg($bgColor, $color) {
+  padding: $space-05 $space-2;
+  background-color: $bgColor;
+  color: $color;
 }

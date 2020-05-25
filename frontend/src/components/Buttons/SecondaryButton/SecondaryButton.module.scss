@@ -1,7 +1,6 @@
 @import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
 
 .SecondaryButton {
-  background-color: $color-grey;
-  padding: $space-0 $space-1;
-
+  @include button-sm($color-grey, $color-text);
 }
