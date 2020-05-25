@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/vocabulary" component={VocabularyPage} />
         <Route exact path="/learn" component={LearningPage} />
 
-        <Redirect to="/initialpage" />
+        <Redirect to="/" />
       </Switch>
     </div>
   );
