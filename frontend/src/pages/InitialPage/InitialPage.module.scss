@@ -9,10 +9,3 @@
   margin-left: $space-3;
   margin-top: $space-3;
 }
-
-.InitialPageButtons {
-  @include flex-row;
-  width: 100%;
-  justify-content: space-evenly;
-  margin-top: $space-2;
-}

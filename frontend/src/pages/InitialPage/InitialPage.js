@@ -7,7 +7,7 @@ import loginSvg from "../../assets/img/login.svg";
 import instructionsSvg from "../../assets/img/instructions.svg";
 import logoSvg from "../../assets/img/logo.svg";
 
-import InitialPageButton from "../../components/InitialPageButton/InitialPageButton";
+import InitialPageButton from "../../components/Buttons/InitialPageButton/InitialPageButton";
 import PageLayout from "../../components/PageLayout/PageLayout";
 
 export default function InitialPage() {
@@ -18,31 +18,29 @@ export default function InitialPage() {
     >
       <img src={logoSvg} alt="Logo" className={Styles.logo} />
 
-      <div className={Styles.InitialPageButtons}>
-        <InitialPageButton
-          imgSrc={signupSvg}
-          imgAlt="Sign up"
-          linkTo="/signup"
-          buttonMessage="SIGN UP"
-          buttonDescription="To create an account"
-        />
+      <InitialPageButton
+        imgSrc={signupSvg}
+        imgAlt="Sign up"
+        linkTo="/signup"
+        buttonMessage="SIGN UP"
+        buttonDescription="To create an account"
+      />
 
-        <InitialPageButton
-          imgSrc={instructionsSvg}
-          imgAlt="Instructions"
-          linkTo="/"
-          buttonMessage="INSTRUCTIONS"
-          buttonDescription="To see how the app works"
-        />
+      <InitialPageButton
+        imgSrc={instructionsSvg}
+        imgAlt="Instructions"
+        linkTo="/"
+        buttonMessage="INSTRUCTIONS"
+        buttonDescription="To see how the app works"
+      />
 
-        <InitialPageButton
-          imgSrc={loginSvg}
-          imgAlt="Log in"
-          linkTo="/login"
-          buttonMessage="LOG IN"
-          buttonDescription="To log into an existing account"
-        />
-      </div>
+      <InitialPageButton
+        imgSrc={loginSvg}
+        imgAlt="Log in"
+        linkTo="/login"
+        buttonMessage="LOG IN"
+        buttonDescription="To log into an existing account"
+      />
     </PageLayout>
   );
 }
