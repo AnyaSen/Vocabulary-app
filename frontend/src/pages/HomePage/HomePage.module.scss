@@ -1,0 +1,18 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.buttonsContainer {
+  @include flex-row;
+  width: 100%;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-wrap: wrap;
+
+  div {
+    margin: $space-1;
+  }
+
+  p {
+    margin-top: $space-0;
+  }
+}

@@ -1,0 +1,12 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
+.HomePageButtonContainer {
+  @include flex-column;
+
+  img {
+    height: 4rem;
+    width: auto;
+    margin-bottom: $space-2;
+  }
+}

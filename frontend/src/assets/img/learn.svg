@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="84" viewBox="0 0 120 84">
+  <g id="Group_135" data-name="Group 135" transform="translate(-1560 -587)">
+    <rect id="Rectangle_40" data-name="Rectangle 40" width="74" height="48" rx="3" transform="translate(1583 623)" fill="#e2e2e2"/>
+    <g id="Group_133" data-name="Group 133" transform="translate(-3 7)">
+      <path id="Polygon_2" data-name="Polygon 2" d="M58.554.8a3,3,0,0,1,2.892,0l48.32,26.576A3,3,0,0,1,108.32,33H11.68a3,3,0,0,1-1.446-5.629Z" transform="translate(1563 580)" fill="#f79090"/>
+      <path id="Polygon_3" data-name="Polygon 3" d="M58.554.8a3,3,0,0,1,2.892,0l48.32,26.576A3,3,0,0,1,108.32,33H11.68a3,3,0,0,1-1.446-5.629Z" transform="translate(1683 640) rotate(180)" fill="#f79090"/>
+    </g>
+    <g id="Group_134" data-name="Group 134" transform="translate(-3 9)">
+      <rect id="Rectangle_41" data-name="Rectangle 41" width="51" height="2" rx="1" transform="translate(1624 605)" fill="#1f1f1f"/>
+      <circle id="Ellipse_22" data-name="Ellipse 22" cx="5" cy="5" r="5" transform="translate(1619 601)" fill="#1f1f1f"/>
+      <rect id="Rectangle_42" data-name="Rectangle 42" width="26" height="2" rx="1" transform="translate(1675.5 605.5) rotate(90)" fill="#1f1f1f"/>
+    </g>
+    <rect id="Rectangle_43" data-name="Rectangle 43" width="10" height="12" rx="2" transform="translate(1666 635)" fill="#1f1f1f"/>
+  </g>
+</svg>

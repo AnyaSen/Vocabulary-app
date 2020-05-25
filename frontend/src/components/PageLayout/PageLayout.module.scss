@@ -4,19 +4,28 @@
 .PageLayout {
   @include flex-column;
   height: 100vh;
-  justify-content: center;
+  width: 100%;
 
   .PageLayoutHeader {
     width: 100%;
     text-align: center;
-    margin-bottom: $space-2;
+    margin-top: $space-8;
+    flex: 1;
 
     h2 {
       padding: $space-3;
-      margin: $space-4 0;
+      margin: $space-5 0;
       width: 100%;
       background-color: $color-light-grey;
       font-weight: 300;
     }
+  }
+
+  .children {
+    @include flex-row;
+    width: 100%;
+    justify-content: space-evenly;
+    flex: 2;
+    margin-bottom: $space-8;
   }
 }
