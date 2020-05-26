@@ -1,0 +1,14 @@
+@import "../../../assets/scss/variables";
+
+.ArrowBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  img {
+    height: 3rem;
+    width: auto;
+    margin-left: $space-3;
+    margin-top: $space-2;
+  }
+}

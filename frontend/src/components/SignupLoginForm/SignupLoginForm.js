@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import arrowSvg from "../../assets/img/arrow_back.svg";
 import Styles from "./SignupLoginForm.module.scss";
 
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
+import ArrowBack from "../Buttons/ArrowBack/ArrowBack";
 
 export default function SignupLoginForm({
   handleSubmit,
@@ -18,9 +18,7 @@ export default function SignupLoginForm({
   return (
     <div className={Styles.SignupLoginFormContainer}>
       <form onSubmit={handleSubmit} className={Styles.SignupLoginForm}>
-        <Link to="/" className={Styles.SignupLoginFormLink}>
-          <img src={arrowSvg} alt="Go Back" />
-        </Link>
+        <ArrowBack linkTo="/" />
 
         <h1>{header}</h1>
 
