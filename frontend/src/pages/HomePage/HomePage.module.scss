@@ -1,6 +1,10 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
 
+.HomePage {
+  width: 100%;
+}
+
 .buttonsContainer {
   @include flex-row;
   width: 100%;

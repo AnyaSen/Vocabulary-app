@@ -31,7 +31,7 @@ export default function HomePage() {
           <HomePageButton
             imgSrc={progress}
             imgAlt="Progress"
-            linkTo="/vocabulary"
+            linkTo="/progress"
             buttonMessage="Progress"
             buttonDescription="To see your learning progress"
           />

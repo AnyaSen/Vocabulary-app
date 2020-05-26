@@ -9,6 +9,7 @@ import LearningPage from "./pages/LearningPage/LearningPage";
 import VocabularyPage from "./pages/VocabularyPage/VocabularyPage";
 import HomePage from "./pages/HomePage/HomePage";
 import InitialPage from "./pages/InitialPage/InitialPage";
+import ProgressPage from "./pages/ProgressPage/ProgressPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/signup" component={SignUpPage} />
         <Route exact path="/login" component={LogInPage} />
         <Route exact path="/home" component={HomePage} />
+        <Route exact path="/progress" component={ProgressPage} />
         <Route exact path="/vocabulary" component={VocabularyPage} />
         <Route exact path="/learn" component={LearningPage} />
 
