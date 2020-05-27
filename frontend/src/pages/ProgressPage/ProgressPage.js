@@ -8,13 +8,19 @@ import {
   filterLearnedWords,
   filterLearningWords
 } from "../../services/filterVocabulary";
+import { LoadingContext } from "../../contexts/LoadingContext";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 import PageLayout from "../../components/PageLayout/PageLayout";
 import ArrowBack from "../../components/Buttons/ArrowBack/ArrowBack";
+import LoadingPage from "../LoadingPage/LoadingPage";
+import ErrorCard from "../../components/ErrorCard/ErrorCard";
+import ExplanatoryWordsCard from "../../components/ExplanatoryWordsCard/ExplanatoryWordsCard";
 
 export default function ProgressPage() {
   const { wordsArr, setWordsData } = useContext(WordsContext);
-
+  const { isVocabularyLoading } = useContext(LoadingContext);
+  const { isVocabularyError } = useContext(ErrorContext);
   useEffect(() => {
     setWordsData();
     // eslint-disable-next-line
@@ -23,6 +29,9 @@ export default function ProgressPage() {
   const filteredNewWordsLength = filterNewWords(wordsArr).length;
   const filteredrLearnedWordsLength = filterLearnedWords(wordsArr).length;
   const filteredLearningWordsLength = filterLearningWords(wordsArr).length;
+
+  if (isVocabularyLoading) return <LoadingPage />;
+  if (isVocabularyError) return <ErrorCard />;
 
   return (
     <div>
@@ -68,6 +77,8 @@ export default function ProgressPage() {
             fontName: "inherit"
           }}
         />
+
+        <ExplanatoryWordsCard />
       </PageLayout>
     </div>
   );
