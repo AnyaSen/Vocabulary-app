@@ -1,0 +1,22 @@
+@import "../../assets/scss/variables";
+
+.ExplanatoryWordsCard {
+  padding: $space-2;
+  background-color: $color-dark-white;
+  border-radius: $border-radius-md;
+  border: 1px solid $color-pink;
+
+  h2 {
+    text-align: center;
+    margin-bottom: $space-0;
+  }
+
+  p {
+    line-height: $space-5;
+
+    span {
+      color: $color-pink;
+      font-weight: 600;
+    }
+  }
+}
