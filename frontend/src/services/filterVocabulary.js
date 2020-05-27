@@ -20,3 +20,24 @@ export const filterVocabulary = (vocabularyArr, userInputWord) => {
 
   return filteredVocabulary;
 };
+
+export const filterNewWords = vocabularyArr => {
+  const filteredWords = vocabularyArr.filter(wordPair => {
+    return wordPair.new;
+  });
+  return filteredWords;
+};
+
+export const filterLearnedWords = vocabularyArr => {
+  const filteredWords = vocabularyArr.filter(wordPair => {
+    return wordPair.learned;
+  });
+  return filteredWords;
+};
+
+export const filterLearningWords = vocabularyArr => {
+  const filteredWords = vocabularyArr.filter(wordPair => {
+    return wordPair.learning;
+  });
+  return filteredWords;
+};
