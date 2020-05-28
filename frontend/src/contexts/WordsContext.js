@@ -1,17 +1,35 @@
 import React, { useState, createContext, useContext } from "react";
 
+import {
+  filterNewWords,
+  filterLearnedWords,
+  filterLearningWords
+} from "../services/filterVocabulary";
 import { getWords } from "../services/getWords";
+
 import { LoadingContext } from "./LoadingContext";
 import { ErrorContext } from "./ErrorContext";
 
 export const WordsContext = createContext();
 
 export const WordsContextProvider = ({ children }) => {
-  // const { setIsVocabularyLoading } = useContext(LoadingContext);
-
   const [wordsArr, setWordsArr] = useState([]);
+  const [newWords, setNewWords] = useState([]);
+  const [learningWords, setLearningWords] = useState([]);
+  const [learnedWords, setLearnedWords] = useState([]);
+
   const { setIsVocabularyLoading } = useContext(LoadingContext);
   const { setIsVocabularyError } = useContext(ErrorContext);
+
+  const filterWords = VocabularyArray => {
+    const filteredNewWords = filterNewWords(VocabularyArray);
+    const filteredLearningWords = filterLearningWords(VocabularyArray);
+    const filteredLearnedWords = filterLearnedWords(VocabularyArray);
+
+    setNewWords(filteredNewWords);
+    setLearningWords(filteredLearningWords);
+    setLearnedWords(filteredLearnedWords);
+  };
 
   const setWordsData = async () => {
     try {
@@ -20,6 +38,7 @@ export const WordsContextProvider = ({ children }) => {
 
       setWordsArr(wordsDataArr);
 
+      filterWords(wordsDataArr);
       setIsVocabularyLoading(false);
     } catch (error) {
       setIsVocabularyLoading(false);
@@ -34,7 +53,10 @@ export const WordsContextProvider = ({ children }) => {
       value={{
         wordsArr,
         setWordsArr,
-        setWordsData
+        setWordsData,
+        newWords,
+        learningWords,
+        learnedWords
       }}
     >
       {children}
