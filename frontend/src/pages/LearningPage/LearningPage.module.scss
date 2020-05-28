@@ -1,0 +1,23 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.PreferencesForm {
+  @include flex-column;
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+.explanatoryContainer {
+  @include flex-column;
+
+  button {
+    padding: $space-0 $space-1;
+    margin-bottom: $space-1;
+    background-color: $color-dark-white;
+    border-radius: $border-radius-lg;
+    border: 1px solid $color-pink;
+  }
+}
