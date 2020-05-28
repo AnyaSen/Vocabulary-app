@@ -3,11 +3,6 @@ import React, { useEffect, useContext } from "react";
 import { Chart } from "react-google-charts";
 
 import { WordsContext } from "../../contexts/WordsContext";
-import {
-  filterNewWords,
-  filterLearnedWords,
-  filterLearningWords
-} from "../../services/filterVocabulary";
 import { LoadingContext } from "../../contexts/LoadingContext";
 import { ErrorContext } from "../../contexts/ErrorContext";
 
@@ -18,17 +13,21 @@ import ErrorCard from "../../components/ErrorCard/ErrorCard";
 import ExplanatoryWordsCard from "../../components/ExplanatoryWordsCard/ExplanatoryWordsCard";
 
 export default function ProgressPage() {
-  const { wordsArr, setWordsData } = useContext(WordsContext);
+  const { setWordsData, newWords, learningWords, learnedWords } = useContext(
+    WordsContext
+  );
+
   const { isVocabularyLoading } = useContext(LoadingContext);
   const { isVocabularyError } = useContext(ErrorContext);
+
   useEffect(() => {
     setWordsData();
     // eslint-disable-next-line
   }, []);
 
-  const filteredNewWordsLength = filterNewWords(wordsArr).length;
-  const filteredrLearnedWordsLength = filterLearnedWords(wordsArr).length;
-  const filteredLearningWordsLength = filterLearningWords(wordsArr).length;
+  const newWordsLength = newWords.length;
+  const learningWordsLength = learningWords.length;
+  const learnedWordsWordsLength = learnedWords.length;
 
   if (isVocabularyLoading) return <LoadingPage />;
   if (isVocabularyError) return <ErrorCard />;
@@ -44,15 +43,9 @@ export default function ProgressPage() {
           chartType="PieChart"
           data={[
             ["Words", "Of Total Words"],
-            [`New - ${filteredNewWordsLength}`, filteredNewWordsLength],
-            [
-              `Learning - ${filteredLearningWordsLength}`,
-              filteredLearningWordsLength
-            ],
-            [
-              `Learned - ${filteredrLearnedWordsLength}`,
-              filteredrLearnedWordsLength
-            ]
+            [`New - ${newWordsLength}`, newWordsLength],
+            [`Learning - ${learningWordsLength}`, learningWordsLength],
+            [`Learned - ${learnedWordsWordsLength}`, learnedWordsWordsLength]
           ]}
           options={{
             slices: [
