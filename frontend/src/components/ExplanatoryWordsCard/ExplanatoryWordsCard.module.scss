@@ -1,18 +1,18 @@
 @import "../../assets/scss/variables";
 
 .ExplanatoryWordsCard {
-  padding: $space-2;
+  padding: $space-1;
   background-color: $color-dark-white;
   border-radius: $border-radius-md;
   border: 1px solid $color-pink;
 
-  h2 {
+  .header {
     text-align: center;
     margin-bottom: $space-0;
   }
 
   p {
-    line-height: $space-5;
+    line-height: $space-3;
 
     span {
       color: $color-pink;

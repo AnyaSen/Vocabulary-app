@@ -5,7 +5,7 @@ import Styles from "./ExplanatoryWordsCard.module.scss";
 export default function ExplanatoryWordsCard() {
   return (
     <div className={Styles.ExplanatoryWordsCard}>
-      <h2>WORDS</h2>
+      <p className={Styles.header}>WORDS</p>
 
       <p>
         <span>New</span> - added but not yet reviewed{" "}
