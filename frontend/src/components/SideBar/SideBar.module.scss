@@ -7,6 +7,7 @@
   background-color: $color-light-grey;
   width: fit-content;
   justify-content: space-around;
+  text-align: center;
 
   @include lg {
     width: 100%;

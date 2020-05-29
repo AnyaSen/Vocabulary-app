@@ -8,13 +8,11 @@ export default function InputFieldSmall({
   value,
   onChange,
   type,
-  minlength,
-  maxlength,
   labelText
 }) {
   return (
-    <div>
-      <label className={Styles.label}>{labelText}</label>
+    <div className={Styles.InputLabelContainer}>
+      <label>{labelText}</label>
       <input
         className={Styles.InputFieldSmall}
         type={type}
@@ -22,9 +20,6 @@ export default function InputFieldSmall({
         name={name}
         value={value}
         onChange={onChange}
-        required
-        minLength={minlength}
-        maxLength={maxlength}
       />
     </div>
   );

@@ -1,9 +1,11 @@
 @import "../../assets/scss/variables";
+.InputLabelContainer {
+  margin: $space-05;
 
-.InputFieldSmall {
-  margin: $space-1;
-  padding: 0.3rem $space-0;
-  width: 3rem;
-  font-size: $font-sm;
-  border: $border-light;
+  .InputFieldSmall {
+    padding: 0.2rem $space-0;
+    width: 3rem;
+    font-size: $font-sm;
+    border: $border-light;
+  }
 }
