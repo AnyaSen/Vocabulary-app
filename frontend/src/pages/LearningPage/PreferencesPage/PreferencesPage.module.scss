@@ -1,5 +1,5 @@
-@import "../../assets/scss/variables";
-@import "../../assets/scss/mixins";
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
 
 .PreferencesForm {
   @include flex-column;
@@ -9,15 +9,35 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  input {
+    margin-left: $space-1;
+  }
+
+  button {
+    margin-top: $space-1;
+  }
+
+  .inputFieldsContainer {
+    margin: $space-1;
+  }
 }
 .explanatoryContainer {
   @include flex-column;
 
   button {
     padding: $space-0 $space-1;
-    margin-bottom: $space-1;
+    margin: $space-1 0;
     background-color: $color-dark-white;
     border-radius: $border-radius-lg;
     border: 1px solid $color-pink;
   }
+}
+
+.error {
+  color: $color-red;
+  margin-top: $space-0;
+  word-break: break-word;
+  width: 90%;
+  text-align: center;
 }
