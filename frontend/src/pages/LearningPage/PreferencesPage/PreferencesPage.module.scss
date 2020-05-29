@@ -41,3 +41,9 @@
   width: 90%;
   text-align: center;
 }
+
+.noWordsMessage {
+  border: 1px solid $color-pink;
+  border-radius: $border-radius-sm;
+  padding: $space-1;
+}
