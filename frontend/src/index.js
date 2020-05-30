@@ -8,6 +8,7 @@ import { WordsContextProvider } from "./contexts/WordsContext";
 import { ErrorContextProvider } from "./contexts/ErrorContext";
 import { LoadingContextProvider } from "./contexts/LoadingContext";
 import { BrowseContextProvider } from "./contexts/BrowseContext";
+import { LearningContextProvider } from "./contexts/LearningContext";
 
 axios.interceptors.response.use(
   function(config) {
@@ -15,7 +16,7 @@ axios.interceptors.response.use(
   },
   function(error) {
     if (401 === error.response.status) {
-      window.location = "/login";
+      window.location = "/";
     } else {
       return Promise.reject(error);
     }
@@ -28,9 +29,11 @@ ReactDOM.render(
       <ErrorContextProvider>
         <LoadingContextProvider>
           <WordsContextProvider>
-            <BrowseContextProvider>
-              <App />
-            </BrowseContextProvider>
+            <LearningContextProvider>
+              <BrowseContextProvider>
+                <App />
+              </BrowseContextProvider>
+            </LearningContextProvider>
           </WordsContextProvider>
         </LoadingContextProvider>
       </ErrorContextProvider>
