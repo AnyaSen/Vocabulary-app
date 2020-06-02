@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import Styles from "../../components/SignupLoginForm/SignupLoginForm.module.scss";
-
 import { login } from "../../services/login";
 import { ErrorContext } from "../../contexts/ErrorContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
@@ -10,13 +8,15 @@ import { LoadingContext } from "../../contexts/LoadingContext";
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import WarningMessage from "../../components/WarningMessage/WarningMessage";
 
 export default function HomePage() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  const [isEmptyInputError, setIsEmptyInputError] = useState(false);
 
+  const [isEmptyInputError, setIsEmptyInputError] = useState(false);
   const { isLoginError, setIsLoginError } = useContext(ErrorContext);
+
   const { isProfileLoading, setIsProfileLoading } = useContext(LoadingContext);
 
   const history = useHistory();
@@ -26,6 +26,7 @@ export default function HomePage() {
   };
 
   const handlePasswordInputChange = event => {
+    setIsLoginError(false);
     setInputPassword(event.target.value);
   };
 
@@ -76,9 +77,9 @@ export default function HomePage() {
       linkMessage="Sing up"
     >
       {isLoginError ? (
-        <p className={Styles.error}>Wrong credentials</p>
+        <WarningMessage warnMessage="Wrong credentials" />
       ) : isEmptyInputError ? (
-        <p className={Styles.error}> Please, fill in all the fields</p>
+        <WarningMessage warnMessage="Please, fill in all the fields" />
       ) : null}
 
       <InputField
