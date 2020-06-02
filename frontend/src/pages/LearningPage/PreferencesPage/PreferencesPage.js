@@ -35,10 +35,10 @@ export default function PreferencesPage() {
   ] = useState(false);
   const [isSumError, setIsSumError] = useState(false);
 
-  const [inputTotalWords, setInputTotalWords] = useState("");
-  const [inputNumberNewWords, setInputNumberNewWords] = useState("");
-  const [inputNumberLearningWords, setInputNumberLearningWords] = useState("");
-  const [inputNumberLearnedWords, setInputNumberLearnedWords] = useState("");
+  const [inputTotalWords, setInputTotalWords] = useState(0);
+  const [inputNumberNewWords, setInputNumberNewWords] = useState(0);
+  const [inputNumberLearningWords, setInputNumberLearningWords] = useState(0);
+  const [inputNumberLearnedWords, setInputNumberLearnedWords] = useState(0);
 
   const {
     wordsArr,
@@ -62,7 +62,11 @@ export default function PreferencesPage() {
   const newWordsLength = newWords.length;
   const learningWordsLength = learningWords.length;
   const learnedWordsLength = learnedWords.length;
+
   const noWords = wordsArr.length === 0;
+  const noNewWords = newWordsLength === 0;
+  const noLearningWords = learningWordsLength === 0;
+  const noLearnedWords = learnedWordsLength === 0;
 
   const toggleisShowButtonPressed = () => {
     setIsShowButtonPressed(!isShowButtonPressed);
@@ -85,10 +89,11 @@ export default function PreferencesPage() {
   };
 
   const areAllFieldsEmpty =
-    inputTotalWords === "" ||
-    inputNumberNewWords === "" ||
-    inputNumberLearningWords === "" ||
-    inputNumberLearnedWords === "";
+    (inputTotalWords === "" && !noWords) ||
+    (inputNumberNewWords === "" && !noNewWords && !noLearningWords) ||
+    !noLearnedWords ||
+    (inputNumberLearningWords === "" && !noLearningWords) ||
+    (inputNumberLearnedWords === "" && !noLearnedWords);
 
   const isSumEqualToTotal =
     parseInt(inputNumberNewWords) +
@@ -96,17 +101,17 @@ export default function PreferencesPage() {
       parseInt(inputNumberLearnedWords) ===
     parseInt(inputTotalWords);
 
-  const validateNumber = num => {
-    const numbers = /^[0-9]+$/;
+  // const validateNumber = num => {
+  //   const numbers = /^[0-9]+$/;
 
-    return num.match(numbers);
-  };
+  //   return num.match(numbers);
+  // };
 
-  const areValidNumbers =
-    validateNumber(inputTotalWords) &&
-    validateNumber(inputNumberNewWords) &&
-    validateNumber(inputNumberLearningWords) &&
-    validateNumber(inputNumberLearnedWords);
+  // const areValidNumbers =
+  //   validateNumber(inputTotalWords) &&
+  //   validateNumber(inputNumberNewWords) &&
+  //   validateNumber(inputNumberLearningWords) &&
+  //   validateNumber(inputNumberLearnedWords);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -124,16 +129,18 @@ export default function PreferencesPage() {
       setIsInputNumberLearnedWordsError(false);
 
       setIsEmptyInputError(true);
-    } else if (!areValidNumbers) {
-      setIsInputTotalWordsError(false);
-      setIsSumError(false);
-      setIsEmptyInputError(false);
-      setIsInputNumberNewWordsError(false);
-      setIsInputNumberLearningWordsError(false);
-      setIsInputNumberLearnedWordsError(false);
+    }
+    // else if (!areValidNumbers) {
+    //   setIsInputTotalWordsError(false);
+    //   setIsSumError(false);
+    //   setIsEmptyInputError(false);
+    //   setIsInputNumberNewWordsError(false);
+    //   setIsInputNumberLearningWordsError(false);
+    //   setIsInputNumberLearnedWordsError(false);
 
-      setIsTypeError(true);
-    } else if (inputTotalWords < 1 || inputTotalWords > totalWordsLength) {
+    //   setIsTypeError(true);
+    //}
+    else if (inputTotalWords < 1 || inputTotalWords > totalWordsLength) {
       setIsTypeError(false);
       setIsEmptyInputError(false);
       setIsSumError(false);
@@ -219,7 +226,7 @@ export default function PreferencesPage() {
                 <WarningMessage warnMessage="Please, enter NUMBERS" />
               ) : isInputTotalWordsError ? (
                 <WarningMessage
-                  warnMessage={`Words in total" should be between 1 and ${totalWordsLength}`}
+                  warnMessage={`Total words" should be between 1 and ${totalWordsLength}`}
                 />
               ) : isInputNumberNewWordsError ? (
                 <WarningMessage
@@ -245,8 +252,7 @@ export default function PreferencesPage() {
                   onChange={handleTotalWordsChange}
                 />
 
-                {(newWordsLength !== 0 && learningWordsLength !== 0) ||
-                learnedWordsLength !== 0 ? (
+                {!noNewWords ? (
                   <InputFieldSmall
                     labelText="New words"
                     type="number"
@@ -255,8 +261,7 @@ export default function PreferencesPage() {
                   />
                 ) : null}
 
-                {(learningWordsLength !== 0 && newWordsLength !== 0) ||
-                learnedWordsLength !== 0 ? (
+                {(!noLearningWords && !noNewWords) || !noLearnedWords ? (
                   <InputFieldSmall
                     labelText="Learing words"
                     type="number"
@@ -265,8 +270,7 @@ export default function PreferencesPage() {
                   />
                 ) : null}
 
-                {(learnedWordsLength !== 0 && newWordsLength !== 0) ||
-                learningWordsLength !== 0 ? (
+                {(!noLearnedWords && !noNewWords) || !noLearningWords ? (
                   <InputFieldSmall
                     labelText="Learned words"
                     type="number"
