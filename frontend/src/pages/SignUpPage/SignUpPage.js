@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import Styles from "../../components/SignupLoginForm/SignupLoginForm.module.scss";
-
 import { signup } from "../../services/signup";
 import { ErrorContext } from "../../contexts/ErrorContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
@@ -10,6 +8,7 @@ import { LoadingContext } from "../../contexts/LoadingContext";
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import WarningMessage from "../../components/WarningMessage/WarningMessage";
 
 export default function SignUpPage() {
   const [inputName, setInputName] = useState("");
@@ -110,13 +109,13 @@ export default function SignUpPage() {
       linkMessage="Log In"
     >
       {isSignupError ? (
-        <p className={Styles.error}>Error</p>
+        <WarningMessage warnMessage="Error" />
       ) : isEmptyInputError ? (
-        <p className={Styles.error}> Please, fill in all the fields</p>
+        <WarningMessage warnMessage="Please, fill in all the fields" />
       ) : isPasswordError ? (
-        <p className={Styles.error}> Password should be 6 characters</p>
+        <WarningMessage warnMessage="Password should be 6 characters" />
       ) : isEmailError ? (
-        <p className={Styles.error}> Invalid email</p>
+        <WarningMessage warnMessage="Invalid email" />
       ) : null}
 
       <InputField

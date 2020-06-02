@@ -14,6 +14,7 @@ import LoadingPage from "../../LoadingPage/LoadingPage";
 import ExplanatoryWordsCard from "../../../components/ExplanatoryWordsCard/ExplanatoryWordsCard";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall";
+import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 
 export default function PreferencesPage() {
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);
@@ -96,7 +97,6 @@ export default function PreferencesPage() {
     parseInt(inputTotalWords);
 
   const validateNumber = num => {
-    // eslint-disable-next-line
     const numbers = /^[0-9]+$/;
 
     return num.match(numbers);
@@ -209,34 +209,32 @@ export default function PreferencesPage() {
         ) : (
           <>
             <form onSubmit={handleSubmit} className={Styles.PreferencesForm}>
-              <p>Please, fill the preferences in numbers and press START</p>
+              <p className={Styles.PreferencesHeader}>
+                Please, fill the preferences in numbers and press START
+              </p>
 
               {isEmptyInputError ? (
-                <p className={Styles.error}>All the fields should be filled</p>
+                <WarningMessage warnMessage="All the fields should be filled" />
               ) : isTypeError ? (
-                <p className={Styles.error}>Please, enter NUMBERS</p>
+                <WarningMessage warnMessage="Please, enter NUMBERS" />
               ) : isInputTotalWordsError ? (
-                <p className={Styles.error}>
-                  "Words in total" should be between 1 and {totalWordsLength}
-                </p>
+                <WarningMessage
+                  warnMessage={`Words in total" should be between 1 and ${totalWordsLength}`}
+                />
               ) : isInputNumberNewWordsError ? (
-                <p className={Styles.error}>
-                  "New words" should be less than or equal to {newWordsLength}
-                </p>
+                <WarningMessage
+                  warnMessage={`"New words" should be less than or equal to ${newWordsLength}`}
+                />
               ) : isInputNumberLearningWordsError ? (
-                <p className={Styles.error}>
-                  "New words" should be less than or equal to{" "}
-                  {learningWordsLength}
-                </p>
+                <WarningMessage
+                  warnMessage={`"Learing words" should be less than or equal to ${learningWordsLength}`}
+                />
               ) : isInputNumberLearnedWordsError ? (
-                <p className={Styles.error}>
-                  "New words" should be less than or equal to{" "}
-                  {learnedWordsLength}
-                </p>
+                <WarningMessage
+                  warnMessage={`"Learned words" should be less than or equal to ${learnedWordsLength}`}
+                />
               ) : isSumError ? (
-                <p className={Styles.error}>
-                  "Words in total" should be equal to the sum of words types
-                </p>
+                <WarningMessage warnMessage='"Words in total" should be equal to the sum of words types' />
               ) : null}
 
               <div className={Styles.inputFieldsContainer}>
