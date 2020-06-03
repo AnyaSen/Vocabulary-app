@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import InitialPage from "./pages/InitialPage/InitialPage";
 import ProgressPage from "./pages/ProgressPage/ProgressPage";
 import PreferencesPage from "./pages/LearningPage/PreferencesPage/PreferencesPage";
+import QuestionPage from "./pages/LearningPage/QuestionPage/QuestionPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/progress" component={ProgressPage} />
         <Route exact path="/vocabulary" component={VocabularyPage} />
         <Route exact path="/learn" component={PreferencesPage} />
+        <Route exact path="/question" component={QuestionPage} />
 
         <Redirect to="/" />
       </Switch>
