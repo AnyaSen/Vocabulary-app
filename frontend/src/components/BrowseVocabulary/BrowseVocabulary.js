@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 import Styles from "./BrowseVocabulary.module.scss";
 
@@ -8,9 +8,12 @@ import { filterVocabulary } from "../../services/filterVocabulary";
 
 import InputField from "../InputField/InputField";
 import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
+import { useForm } from "../../hooks/useForm";
 
 export default function BrowseVocabulary() {
-  const [searchWordInput, setSearchWordInput] = useState("");
+  const [values, handleChange, clearValues] = useForm({
+    searchWord: ""
+  });
 
   const { setModifiedWordsArr, isBrowsingMode, setIsBrowsingMode } = useContext(
     BrowseContext
@@ -24,17 +27,18 @@ export default function BrowseVocabulary() {
 
     setIsBrowsingMode(true);
 
-    const filteredVocabularyArray = filterVocabulary(wordsArr, searchWordInput);
+    const filteredVocabularyArray = filterVocabulary(
+      wordsArr,
+      values.searchWord
+    );
     setModifiedWordsArr(filteredVocabularyArray);
-  };
-
-  const handleSearchWordInputChange = event => {
-    setSearchWordInput(event.target.value);
   };
 
   const handleShowAll = () => {
     setIsBrowsingMode(false);
-    setSearchWordInput("");
+
+    clearValues();
+
     setWordsData();
   };
 
@@ -43,9 +47,10 @@ export default function BrowseVocabulary() {
       <form className={Styles.BrowseVocabularyForm} onSubmit={searchAndUpdate}>
         <InputField
           type="text"
+          name="searchWord"
           placeholder="Enter a word"
-          value={searchWordInput}
-          onChange={handleSearchWordInputChange}
+          value={values.searchWord}
+          onChange={handleChange}
         />
 
         <SecondaryButton type="submit" value="submit" buttonMessage="Search" />

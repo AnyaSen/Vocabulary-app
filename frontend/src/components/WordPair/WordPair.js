@@ -9,6 +9,7 @@ import { ErrorContext } from "../../contexts/ErrorContext";
 
 import { deleteWord } from "../../services/deleteWord";
 import { editWord } from "../../services/editWord";
+import { useForm } from "../../hooks/useForm";
 
 import editSvg from "../../assets/img/edit.svg";
 import deleteSvg from "../../assets/img/delete.svg";
@@ -20,8 +21,12 @@ import ErrorSmall from "../ErrorSmall/ErrorSmall";
 export default function WordPair({ word, transaltion, ID }) {
   const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
   const [isDeleteButtonClicked, setIsDeleteButtonClicked] = useState(false);
-  const [foreignWordInput, setForeignWordInput] = useState(word);
-  const [translationInput, setTranslationInput] = useState(transaltion);
+
+  const [values, handleChange] = useForm({
+    foreignWord: "",
+    translation: ""
+  });
+
   const [editedFilteredForeignWord, setEditedFilteredForeignWord] = useState(
     word
   );
@@ -83,7 +88,7 @@ export default function WordPair({ word, transaltion, ID }) {
     try {
       if (!isBrowsingMode) {
         editWord(
-          { foreignWord: foreignWordInput, translation: translationInput },
+          { foreignWord: values.foreignWord, translation: values.translation },
           ID
         );
 
@@ -93,12 +98,12 @@ export default function WordPair({ word, transaltion, ID }) {
 
         setIsEditButtonClicked(false);
       } else {
-        setEditedFilteredForeignWord(foreignWordInput);
+        setEditedFilteredForeignWord(values.foreignWord);
 
-        setEditedFilteredTranslation(translationInput);
+        setEditedFilteredTranslation(values.translation);
 
         editWord(
-          { foreignWord: foreignWordInput, translation: translationInput },
+          { foreignWord: values.foreignWord, translation: values.translation },
           ID
         );
 
@@ -117,14 +122,6 @@ export default function WordPair({ word, transaltion, ID }) {
     setIsEditButtonClicked(true);
   };
 
-  const handleWordInputChange = event => {
-    setForeignWordInput(event.target.value);
-  };
-
-  const handleTranslationInputChange = event => {
-    setTranslationInput(event.target.value);
-  };
-
   return (
     <>
       {isEditButtonClicked ? (
@@ -133,14 +130,14 @@ export default function WordPair({ word, transaltion, ID }) {
             <InputField
               type="text"
               placeholder="Foreign word"
-              value={foreignWordInput}
-              onChange={handleWordInputChange}
+              value={values.foreignWord}
+              onChange={handleChange}
             />
             <InputField
               type="text"
               placeholder="Translation"
-              value={translationInput}
-              onChange={handleTranslationInputChange}
+              value={values.translation}
+              onChange={handleChange}
             />
           </div>
           <div className={Styles.SubmitButtonContainer}>

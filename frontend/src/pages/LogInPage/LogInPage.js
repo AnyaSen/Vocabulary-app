@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { login } from "../../services/login";
+import { useForm } from "../../hooks/useForm";
+
 import { ErrorContext } from "../../contexts/ErrorContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 
@@ -11,8 +13,10 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 import WarningMessage from "../../components/WarningMessage/WarningMessage";
 
 export default function HomePage() {
-  const [inputEmail, setInputEmail] = useState("");
-  const [inputPassword, setInputPassword] = useState("");
+  const [values, handleChange, clearValues] = useForm({
+    email: "",
+    password: ""
+  });
 
   const [isEmptyInputError, setIsEmptyInputError] = useState(false);
   const { isLoginError, setIsLoginError } = useContext(ErrorContext);
@@ -21,28 +25,18 @@ export default function HomePage() {
 
   const history = useHistory();
 
-  const handleEmailInputChange = event => {
-    setInputEmail(event.target.value);
-  };
-
-  const handlePasswordInputChange = event => {
-    setIsLoginError(false);
-    setInputPassword(event.target.value);
-  };
-
   const sendProfile = async () => {
     try {
       setIsProfileLoading(true);
 
       await login({
-        email: inputEmail,
-        password: inputPassword
+        email: values.email,
+        password: values.password
       });
 
       history.push("/home");
 
-      setInputEmail("");
-      setInputPassword("");
+      clearValues();
 
       setIsProfileLoading(false);
     } catch (error) {
@@ -57,7 +51,7 @@ export default function HomePage() {
     event.preventDefault();
     setIsLoginError(false);
 
-    if (inputEmail === "" || inputPassword === "") {
+    if (values.email === "" || values.password === "") {
       setIsEmptyInputError(true);
     } else {
       setIsEmptyInputError(false);
@@ -86,15 +80,15 @@ export default function HomePage() {
         type="email"
         placeholder="Email"
         name="email"
-        value={inputEmail}
-        onChange={handleEmailInputChange}
+        value={values.email}
+        onChange={handleChange}
       />
 
       <InputField
         placeholder="Password"
         name="password"
-        value={inputPassword}
-        onChange={handlePasswordInputChange}
+        value={values.password}
+        onChange={handleChange}
       />
     </SignupLoginForm>
   );

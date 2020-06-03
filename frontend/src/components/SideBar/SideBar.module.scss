@@ -9,11 +9,11 @@
   justify-content: space-around;
   text-align: center;
 
-  @include lg {
-    width: 100%;
-    flex-direction: row;
-    padding: 1rem;
-  }
+  // @include lg {
+  //   width: 100%;
+  //   flex-direction: row;
+  //   padding: 1rem;
+  // }
 
   .user {
     margin-top: $space-0;
@@ -27,12 +27,12 @@
     padding: $space-0;
     border-radius: 2rem;
 
-    @include lg {
-      width: 3rem;
-      height: 3rem;
-      margin: 0 $space-1;
-      font-size: $font-md;
-    }
+    // @include lg {
+    //   width: 3rem;
+    //   height: 3rem;
+    //   margin: 0 $space-1;
+    //   font-size: $font-md;
+    // }
   }
 
   button {
