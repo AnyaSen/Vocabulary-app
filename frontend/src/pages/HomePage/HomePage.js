@@ -10,7 +10,7 @@ import PageLayout from "../../components/PageLayout/PageLayout";
 import HomePageButton from "../../components/Buttons/HomePageButton/HomePageButton";
 
 export default function HomePage() {
-  const name = localStorage.getItem("userName").slice(1, -1);
+  const name = JSON.parse(localStorage.getItem("userName"));
 
   return (
     <Layout>
