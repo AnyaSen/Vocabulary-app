@@ -1,36 +1,34 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 import Styles from "./AddWordsForm.module.scss";
 
 import { createWord } from "../../services/createWord";
 import { WordsContext } from "../../contexts/WordsContext";
+import { useForm } from "../../hooks/useForm";
 
 import InputField from "../InputField/InputField";
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
 
 export default function AddWordsForm() {
   const { setWordsData } = useContext(WordsContext);
-  const [inputWord, setInputWord] = useState("");
-  const [inputTranslation, setInputTranslation] = useState("");
 
-  const handleWordInputChange = event => {
-    setInputWord(event.target.value);
-  };
-
-  const handleTranslationInputChange = event => {
-    setInputTranslation(event.target.value);
-  };
+  const [values, handleChange, clearValues] = useForm({
+    word: "",
+    translation: ""
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const wordsURL = "/words";
+
     createWord(wordsURL, {
-      foreignWord: inputWord,
-      translation: inputTranslation
+      foreignWord: values.word,
+      translation: values.translation
     });
 
-    setInputTranslation("");
-    setInputWord("");
+    clearValues();
+
     setWordsData();
   };
 
@@ -42,15 +40,15 @@ export default function AddWordsForm() {
         <InputField
           placeholder="Foreing word"
           name="word"
-          value={inputWord}
-          onChange={handleWordInputChange}
+          value={values.word}
+          onChange={handleChange}
         />
 
         <InputField
           placeholder="Translation"
           name="translation"
-          value={inputTranslation}
-          onChange={handleTranslationInputChange}
+          value={values.translation}
+          onChange={handleChange}
         />
 
         <PrimaryButton type="submit" value="submit" buttonMessage="ADD" />

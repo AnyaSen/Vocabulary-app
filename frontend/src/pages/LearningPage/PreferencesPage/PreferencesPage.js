@@ -6,6 +6,8 @@ import Styles from "./PreferencesPage.module.scss";
 import { WordsContext } from "../../../contexts/WordsContext";
 import { LoadingContext } from "../../../contexts/LoadingContext";
 import { ErrorContext } from "../../../contexts/ErrorContext";
+import { LearningContext } from "../../../contexts/LearningContext";
+import { useForm } from "../../../hooks/useForm";
 
 import Layout from "../../../components/Layout/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
@@ -17,6 +19,13 @@ import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall
 import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 
 export default function PreferencesPage() {
+  const [values, handleChange] = useForm({
+    totalWords: 0,
+    newWords: 0,
+    learningWords: 0,
+    learnedWords: 0
+  });
+
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);
 
   const [isEmptyInputError, setIsEmptyInputError] = useState(false);
@@ -35,11 +44,6 @@ export default function PreferencesPage() {
   ] = useState(false);
   const [isSumError, setIsSumError] = useState(false);
 
-  const [inputTotalWords, setInputTotalWords] = useState(0);
-  const [inputNumberNewWords, setInputNumberNewWords] = useState(0);
-  const [inputNumberLearningWords, setInputNumberLearningWords] = useState(0);
-  const [inputNumberLearnedWords, setInputNumberLearnedWords] = useState(0);
-
   const {
     wordsArr,
     setWordsData,
@@ -48,6 +52,12 @@ export default function PreferencesPage() {
     learnedWords
   } = useContext(WordsContext);
 
+  const {
+    setTotalWordsNumber,
+    setNewWordsNumber,
+    setLearningWordsNumber,
+    setLearnedWordsNumber
+  } = useContext(LearningContext);
   const { isVocabularyLoading } = useContext(LoadingContext);
   const { isVocabularyError } = useContext(ErrorContext);
 
@@ -72,34 +82,18 @@ export default function PreferencesPage() {
     setIsShowButtonPressed(!isShowButtonPressed);
   };
 
-  const handleTotalWordsChange = event => {
-    setInputTotalWords(event.target.value);
-  };
-
-  const handleNewWordsChange = event => {
-    setInputNumberNewWords(event.target.value);
-  };
-
-  const handleLearningWordsChange = event => {
-    setInputNumberLearningWords(event.target.value);
-  };
-
-  const handleLearnedWordsChange = event => {
-    setInputNumberLearnedWords(event.target.value);
-  };
-
   const areAllFieldsEmpty =
-    (inputTotalWords === "" && !noWords) ||
-    (inputNumberNewWords === "" && !noNewWords && !noLearningWords) ||
+    (values.totalWords === 0 && !noWords) ||
+    (values.newWords === 0 && !noNewWords && !noLearningWords) ||
     !noLearnedWords ||
-    (inputNumberLearningWords === "" && !noLearningWords) ||
-    (inputNumberLearnedWords === "" && !noLearnedWords);
+    (values.learningWords === 0 && !noLearningWords) ||
+    (values.learnedWords === 0 && !noLearnedWords);
 
   const isSumEqualToTotal =
-    parseInt(inputNumberNewWords) +
-      parseInt(inputNumberLearningWords) +
-      parseInt(inputNumberLearnedWords) ===
-    parseInt(inputTotalWords);
+    parseInt(values.newWords) +
+      parseInt(values.learningWords) +
+      parseInt(values.learnedWords) ===
+    parseInt(values.totalWords);
 
   // const validateNumber = num => {
   //   const numbers = /^[0-9]+$/;
@@ -108,13 +102,14 @@ export default function PreferencesPage() {
   // };
 
   // const areValidNumbers =
-  //   validateNumber(inputTotalWords) &&
-  //   validateNumber(inputNumberNewWords) &&
-  //   validateNumber(inputNumberLearningWords) &&
-  //   validateNumber(inputNumberLearnedWords);
+  //   validateNumber(values.totalWords) &&
+  //   validateNumber(values.newWords) &&
+  //   validateNumber(values.learningWords) &&
+  //   validateNumber(values.learnedWords);
 
   const handleSubmit = event => {
     event.preventDefault();
+
     setIsEmptyInputError(false);
     setIsTypeError(false);
     setIsInputTotalWordsError(false);
@@ -129,8 +124,7 @@ export default function PreferencesPage() {
       setIsInputNumberLearnedWordsError(false);
 
       setIsEmptyInputError(true);
-    }
-    // else if (!areValidNumbers) {
+    } //  else if (!areValidNumbers) {
     //   setIsInputTotalWordsError(false);
     //   setIsSumError(false);
     //   setIsEmptyInputError(false);
@@ -139,8 +133,8 @@ export default function PreferencesPage() {
     //   setIsInputNumberLearnedWordsError(false);
 
     //   setIsTypeError(true);
-    //}
-    else if (inputTotalWords < 1 || inputTotalWords > totalWordsLength) {
+    // }
+    else if (values.totalWords < 1 || values.totalWords > totalWordsLength) {
       setIsTypeError(false);
       setIsEmptyInputError(false);
       setIsSumError(false);
@@ -149,10 +143,7 @@ export default function PreferencesPage() {
       setIsInputNumberLearnedWordsError(false);
 
       setIsInputTotalWordsError(true);
-    } else if (
-      inputNumberNewWords < 0 ||
-      inputNumberNewWords > newWordsLength
-    ) {
+    } else if (values.newWords < 0 || values.newWords > newWordsLength) {
       setIsTypeError(false);
       setIsEmptyInputError(false);
       setIsSumError(false);
@@ -162,8 +153,8 @@ export default function PreferencesPage() {
 
       setIsInputNumberNewWordsError(true);
     } else if (
-      inputNumberLearningWords < 0 ||
-      inputNumberLearningWords > learningWordsLength
+      values.learningWords < 0 ||
+      values.learningWords > learningWordsLength
     ) {
       setIsTypeError(false);
       setIsEmptyInputError(false);
@@ -174,8 +165,8 @@ export default function PreferencesPage() {
 
       setIsInputNumberLearningWordsError(true);
     } else if (
-      inputNumberLearnedWords < 0 ||
-      inputNumberLearnedWords > learnedWordsLength
+      values.learnedWords < 0 ||
+      values.learnedWords > learnedWordsLength
     ) {
       setIsTypeError(false);
       setIsEmptyInputError(false);
@@ -195,7 +186,11 @@ export default function PreferencesPage() {
 
       setIsSumError(true);
     } else {
-      console.log("YES");
+      setTotalWordsNumber(values.totalWords);
+      setNewWordsNumber(values.newWords);
+      setLearningWordsNumber(values.learningWords);
+      setLearnedWordsNumber(values.learnedWords);
+
       history.push("/question");
     }
   };
@@ -248,16 +243,18 @@ export default function PreferencesPage() {
                 <InputFieldSmall
                   labelText="Total words"
                   type="number"
-                  value={inputTotalWords}
-                  onChange={handleTotalWordsChange}
+                  name="totalWords"
+                  value={values.totalWords}
+                  onChange={handleChange}
                 />
 
                 {!noNewWords ? (
                   <InputFieldSmall
                     labelText="New words"
                     type="number"
-                    value={inputNumberNewWords}
-                    onChange={handleNewWordsChange}
+                    name="newWords"
+                    value={values.newWords}
+                    onChange={handleChange}
                   />
                 ) : null}
 
@@ -265,8 +262,9 @@ export default function PreferencesPage() {
                   <InputFieldSmall
                     labelText="Learing words"
                     type="number"
-                    value={inputNumberLearningWords}
-                    onChange={handleLearningWordsChange}
+                    name="learningWords"
+                    value={values.learningWords}
+                    onChange={handleChange}
                   />
                 ) : null}
 
@@ -274,10 +272,11 @@ export default function PreferencesPage() {
                   <InputFieldSmall
                     labelText="Learned words"
                     type="number"
+                    name="learnedWords"
                     maxlength={`${learnedWordsLength}`}
                     minlength={1}
-                    value={inputNumberLearnedWords}
-                    onChange={handleLearnedWordsChange}
+                    value={values.learnedWords}
+                    onChange={handleChange}
                   />
                 ) : null}
               </div>
