@@ -7,8 +7,8 @@ import Styles from "./SideBar.module.scss";
 import ButtonMenuLink from "../Buttons/ButtonMenuLink/ButtonMenuLink";
 
 export default function SideBar() {
-  const name = localStorage.getItem("userName");
-  const firstLetter = name.toUpperCase().charAt(1);
+  const name = JSON.parse(localStorage.getItem("userName"));
+  const firstLetter = name.toUpperCase().charAt(0);
 
   return (
     <div className={Styles.SideBar}>

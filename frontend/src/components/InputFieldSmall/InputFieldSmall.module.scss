@@ -1,5 +1,7 @@
 @import "../../assets/scss/variables";
 .InputLabelContainer {
+  margin: $space-0;
+
   .InputFieldSmall {
     padding: 0.2rem $space-0;
     width: 3rem;
