@@ -34,11 +34,11 @@ export default function HomePage() {
         password: values.password
       });
 
-      history.push("/home");
+      setIsProfileLoading(false);
 
       clearValues();
 
-      setIsProfileLoading(false);
+      history.push("/home");
     } catch (error) {
       console.log(error);
 
