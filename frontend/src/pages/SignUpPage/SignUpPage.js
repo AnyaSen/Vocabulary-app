@@ -38,11 +38,11 @@ export default function SignUpPage() {
         password: values.password
       });
 
-      history.push("/home");
-
       clearValues();
 
       setIsProfileLoading(false);
+
+      history.push("/home");
     } catch (error) {
       console.log(error);
 
