@@ -1,0 +1,22 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
+.ConfirmationCard {
+  @include flex-column;
+  @include push-to-upper-left-corner;
+
+  z-index: 2;
+  margin: $space-1;
+  padding: $space-1 $space-2;
+  background-color: $color-white;
+  border-radius: $border-radius-md;
+  border: 2px solid $color-pink;
+
+  button {
+    margin: $space-1;
+  }
+
+  .ConfirmationCardQuestion {
+    margin: $space-1;
+  }
+}

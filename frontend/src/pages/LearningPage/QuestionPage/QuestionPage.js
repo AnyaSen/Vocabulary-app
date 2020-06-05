@@ -4,6 +4,8 @@ import { getRandomWords } from "../../../services/getRandomWords";
 
 import { LearningContext } from "../../../contexts/LearningContext";
 import { WordsContext } from "../../../contexts/WordsContext";
+import QuestionCard from "../../../components/QuestionCard/QuestionCard";
+import ProgressCard from "../../../components/ProgressCard/ProgressCard";
 
 export default function QuestionPage() {
   const {
@@ -47,10 +49,14 @@ export default function QuestionPage() {
 
   return (
     <div>
-      <p>total: {totalWordsNumber}</p>
-      <p>new: {newWordsNumber}</p>
-      <p>learning: {learningWordsNumber}</p>
-      <p>old: {learnedWordsNumber}</p>
+      <ProgressCard
+        totalWordsNum={totalWordsNumber}
+        newWordsNum={newWordsNumber}
+        learningWordsNum={learningWordsNumber}
+        learnedWordsNum={learnedWordsNumber}
+      />
+
+      <QuestionCard task="Please, enter translation of the word" word="word" />
     </div>
   );
 }
