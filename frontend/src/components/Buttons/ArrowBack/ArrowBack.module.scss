@@ -1,9 +1,8 @@
 @import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
 
 .ArrowBack {
-  position: absolute;
-  top: 0;
-  left: 0;
+  @include push-to-upper-left-corner;
 
   img {
     height: 3rem;
