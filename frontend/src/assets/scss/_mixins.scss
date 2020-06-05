@@ -27,3 +27,15 @@
   background-color: $bgColor;
   color: $color;
 }
+
+@mixin push-to-upper-left-corner() {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin push-to-upper-right-corner() {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

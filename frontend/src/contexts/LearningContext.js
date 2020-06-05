@@ -1,12 +1,17 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 export const LearningContext = createContext();
 
 export const LearningContextProvider = ({ children }) => {
-  const [totalWordsNumber, setTotalWordsNumber] = useState([]);
-  const [newWordsNumber, setNewWordsNumber] = useState([]);
-  const [learningWordsNumber, setLearningWordsNumber] = useState([]);
-  const [learnedWordsNumber, setLearnedWordsNumber] = useState([]);
+  const [totalWordsNumber, setTotalWordsNumber] = useState(0);
+  const [newWordsNumber, setNewWordsNumber] = useState(0);
+  const [learningWordsNumber, setLearningWordsNumber] = useState(0);
+  const [learnedWordsNumber, setLearnedWordsNumber] = useState(0);
+
+  const [totalWordsArray, setTotalWordsArray] = useState([]);
+  const [newWordsArray, setNewWordsArray] = useState([]);
+  const [learningWordsArray, setLearningWordsArray] = useState([]);
+  const [learnedWordsArray, setLearnedWordsArray] = useState([]);
 
   useEffect(() => {
     const numberOfTotal = localStorage.getItem("total-words-number");
@@ -48,7 +53,17 @@ export const LearningContextProvider = ({ children }) => {
         learningWordsNumber,
         setLearningWordsNumber,
         learnedWordsNumber,
-        setLearnedWordsNumber
+        setLearnedWordsNumber,
+
+        totalWordsArray,
+        newWordsArray,
+        learningWordsArray,
+        learnedWordsArray,
+
+        setTotalWordsArray,
+        setNewWordsArray,
+        setLearningWordsArray,
+        setLearnedWordsArray
       }}
     >
       {children}
