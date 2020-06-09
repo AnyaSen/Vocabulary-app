@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { login } from "../../services/login";
 import { useForm } from "../../hooks/useForm";
 
-import { ErrorContext } from "../../contexts/ErrorContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 
 import InputField from "../../components/InputField/InputField";
@@ -18,20 +17,21 @@ export default function HomePage() {
     password: ""
   });
 
-  const [isEmptyInputError, setIsEmptyInputError] = useState(false);
-  const { isLoginError, setIsLoginError } = useContext(ErrorContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const { isProfileLoading, setIsProfileLoading } = useContext(LoadingContext);
 
   const history = useHistory();
+
+  const { email, password } = values;
 
   const sendProfile = async () => {
     try {
       setIsProfileLoading(true);
 
       await login({
-        email: values.email,
-        password: values.password
+        email,
+        password
       });
 
       setIsProfileLoading(false);
@@ -42,21 +42,28 @@ export default function HomePage() {
     } catch (error) {
       console.log(error);
 
+      setErrorMessage("Wrong credentials");
+
       setIsProfileLoading(false);
-      setIsLoginError(true);
+    }
+  };
+
+  const validateAndSendProfile = () => {
+    const areValuesEmpty = email === "" || password === "";
+
+    if (areValuesEmpty) {
+      setErrorMessage("All fields should be filled");
+    } else {
+      sendProfile();
     }
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    setIsLoginError(false);
 
-    if (values.email === "" || values.password === "") {
-      setIsEmptyInputError(true);
-    } else {
-      setIsEmptyInputError(false);
-      sendProfile();
-    }
+    setErrorMessage("");
+
+    validateAndSendProfile();
   };
 
   if (isProfileLoading) return <LoadingPage />;
@@ -70,14 +77,9 @@ export default function HomePage() {
       route="/signup"
       linkMessage="Sing up"
     >
-      {isLoginError ? (
-        <WarningMessage warnMessage="Wrong credentials" />
-      ) : isEmptyInputError ? (
-        <WarningMessage warnMessage="Please, fill in all the fields" />
-      ) : null}
+      <WarningMessage warnMessage={errorMessage} />
 
       <InputField
-        type="email"
         placeholder="Email"
         name="email"
         value={values.email}

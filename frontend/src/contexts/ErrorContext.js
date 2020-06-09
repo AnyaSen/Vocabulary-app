@@ -3,7 +3,11 @@ import React, { createContext, useState } from "react";
 export const ErrorContext = createContext();
 
 export const ErrorContextProvider = ({ children }) => {
-  const [isLoginError, setIsLoginError] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMessages, setErrorMessages] = useState([
+    "Sorry, something went wrong."
+  ]);
+
   const [isSignupError, setIsSignupError] = useState(false);
   const [isVocabularyError, setIsVocabularyError] = useState(false);
   const [isFormSubmissionError, setIsFormSubmissionError] = useState(false);
@@ -12,8 +16,11 @@ export const ErrorContextProvider = ({ children }) => {
   return (
     <ErrorContext.Provider
       value={{
-        isLoginError,
-        setIsLoginError,
+        isError,
+        setIsError,
+        errorMessages,
+        setErrorMessages,
+
         isSignupError,
         setIsSignupError,
         isVocabularyError,
