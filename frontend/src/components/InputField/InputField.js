@@ -18,8 +18,6 @@ export default function InputField({
       name={name}
       value={value}
       onChange={onChange}
-      required
-      minLength={minlength}
     />
   );
 }

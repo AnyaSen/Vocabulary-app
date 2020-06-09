@@ -8,7 +8,6 @@ export const ErrorContextProvider = ({ children }) => {
     "Sorry, something went wrong."
   ]);
 
-  const [isSignupError, setIsSignupError] = useState(false);
   const [isVocabularyError, setIsVocabularyError] = useState(false);
   const [isFormSubmissionError, setIsFormSubmissionError] = useState(false);
   const [isDeletingError, setIsDeletingError] = useState(false);
@@ -21,8 +20,6 @@ export const ErrorContextProvider = ({ children }) => {
         errorMessages,
         setErrorMessages,
 
-        isSignupError,
-        setIsSignupError,
         isVocabularyError,
         setIsVocabularyError,
         isFormSubmissionError,

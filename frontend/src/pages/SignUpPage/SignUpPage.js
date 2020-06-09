@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { signup } from "../../services/signup";
 import { useForm } from "../../hooks/useForm";
 
-import { ErrorContext } from "../../contexts/ErrorContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 
 import InputField from "../../components/InputField/InputField";
@@ -19,23 +18,22 @@ export default function SignUpPage() {
     password: ""
   });
 
-  const [isEmptyInputError, setIsEmptyInputError] = useState(false);
-  const [isPasswordError, setIsPasswordError] = useState(false);
-  const [isEmailError, setIsEmailError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const { isSignupError, setIsSignupError } = useContext(ErrorContext);
   const { isProfileLoading, setIsProfileLoading } = useContext(LoadingContext);
 
   const history = useHistory();
+
+  const { name, email, password } = values;
 
   const sendProfile = async () => {
     try {
       setIsProfileLoading(true);
 
       await signup({
-        name: values.name,
-        email: values.email,
-        password: values.password
+        name: name,
+        email: email,
+        password: password
       });
 
       history.push("/home");
@@ -47,7 +45,8 @@ export default function SignUpPage() {
       console.log(error);
 
       setIsProfileLoading(false);
-      setIsSignupError(true);
+
+      setErrorMessage("Account already exists");
     }
   };
 
@@ -55,37 +54,31 @@ export default function SignUpPage() {
     // eslint-disable-next-line
     const regexp = /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([\t]*\r\n)?[\t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([\t]*\r\n)?[\t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
 
-    return regexp.test(String(values.email).toLowerCase());
+    return regexp.test(String(email).toLowerCase());
   };
 
-  const isValidEmail = validateEmail();
+  const validateAndSendProfile = () => {
+    const areValuesEmpty = name === "" || email === "" || password === "";
+    const isValidEmail = validateEmail();
+    const isNOTPasswordValid = password.length > 0 && password.length < 6;
+
+    if (areValuesEmpty) {
+      setErrorMessage("All fields should be filled");
+    } else if (!isValidEmail) {
+      setErrorMessage("Email is invalid");
+    } else if (isNOTPasswordValid) {
+      setErrorMessage("Password should be 6 charecters minimun");
+    } else {
+      sendProfile();
+    }
+  };
 
   const handleSubmit = async event => {
     event.preventDefault();
 
-    setIsSignupError(false);
+    setErrorMessage("");
 
-    if (values.name === "" || values.email === "" || values.password === "") {
-      setIsPasswordError(false);
-      setIsEmailError(false);
-
-      setIsEmptyInputError(true);
-    } else if (!isValidEmail) {
-      setIsEmptyInputError(false);
-      setIsPasswordError(false);
-
-      setIsEmailError(true);
-    } else if (values.password.length < 6 && values.password.length > 0) {
-      setIsEmptyInputError(false);
-
-      setIsPasswordError(true);
-    } else {
-      setIsEmptyInputError(false);
-      setIsPasswordError(false);
-      setIsEmailError(false);
-
-      sendProfile();
-    }
+    validateAndSendProfile();
   };
 
   if (isProfileLoading) return <LoadingPage />;
@@ -99,21 +92,13 @@ export default function SignUpPage() {
       route="/login"
       linkMessage="Log In"
     >
-      {isSignupError ? (
-        <WarningMessage warnMessage="Error" />
-      ) : isEmptyInputError ? (
-        <WarningMessage warnMessage="Please, fill in all the fields" />
-      ) : isPasswordError ? (
-        <WarningMessage warnMessage="Password should be 6 characters" />
-      ) : isEmailError ? (
-        <WarningMessage warnMessage="Invalid email" />
-      ) : null}
+      <WarningMessage warnMessage={errorMessage} />
 
       <InputField
         type="text"
         placeholder="Name"
         name="name"
-        value={values.name}
+        value={name}
         onChange={handleChange}
       />
 
@@ -121,14 +106,14 @@ export default function SignUpPage() {
         type="email"
         placeholder="Email"
         name="email"
-        value={values.email}
+        value={email}
         onChange={handleChange}
       />
 
       <InputField
         placeholder="Password"
         name="password"
-        value={values.password}
+        value={password}
         onChange={handleChange}
         minlength={6}
       />
