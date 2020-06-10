@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import Styles from "./BrowseVocabulary.module.scss";
 
@@ -9,11 +9,14 @@ import { filterVocabulary } from "../../services/filterVocabulary";
 import InputField from "../InputField/InputField";
 import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 import { useForm } from "../../hooks/useForm";
+import WarningMessage from "../WarningMessage/WarningMessage";
 
 export default function BrowseVocabulary() {
   const [values, handleChange, clearValues] = useForm({
     searchWord: ""
   });
+
+  const [errorMessage, setErrorMessage] = useState("");
 
   const { setModifiedWordsArr, isBrowsingMode, setIsBrowsingMode } = useContext(
     BrowseContext
@@ -22,16 +25,25 @@ export default function BrowseVocabulary() {
 
   const { wordsArr } = useContext(WordsContext);
 
+  const { searchWord } = values;
+
   const searchAndUpdate = event => {
     event.preventDefault();
 
-    setIsBrowsingMode(true);
+    const isFieldEmpty = searchWord === "";
 
-    const filteredVocabularyArray = filterVocabulary(
-      wordsArr,
-      values.searchWord
-    );
-    setModifiedWordsArr(filteredVocabularyArray);
+    if (isFieldEmpty) {
+      setErrorMessage("Start entering a word");
+    } else {
+      setErrorMessage("");
+      setIsBrowsingMode(true);
+
+      const filteredVocabularyArray = filterVocabulary(
+        wordsArr,
+        values.searchWord
+      );
+      setModifiedWordsArr(filteredVocabularyArray);
+    }
   };
 
   const handleShowAll = () => {
@@ -49,12 +61,14 @@ export default function BrowseVocabulary() {
           type="text"
           name="searchWord"
           placeholder="Enter a word"
-          value={values.searchWord}
+          value={searchWord}
           onChange={handleChange}
         />
 
         <SecondaryButton type="submit" value="submit" buttonMessage="Search" />
       </form>
+
+      <WarningMessage warnMessage={errorMessage} />
 
       {isBrowsingMode ? (
         <div className={Styles.showAllButton}>

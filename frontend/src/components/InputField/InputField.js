@@ -7,17 +7,18 @@ export default function InputField({
   name,
   value,
   onChange,
-  type,
-  minlength
+  type
 }) {
   return (
-    <input
-      className={Styles.InputField}
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      value={value}
-      onChange={onChange}
-    />
+    <div className={Styles.InputFieldContainer}>
+      <input
+        className={Styles.InputField}
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 }
