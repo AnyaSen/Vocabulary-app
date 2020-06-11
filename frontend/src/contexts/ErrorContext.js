@@ -9,8 +9,6 @@ export const ErrorContextProvider = ({ children }) => {
   ]);
 
   const [isVocabularyError, setIsVocabularyError] = useState(false);
-  const [isFormSubmissionError, setIsFormSubmissionError] = useState(false);
-  const [isDeletingError, setIsDeletingError] = useState(false);
 
   return (
     <ErrorContext.Provider
@@ -21,11 +19,7 @@ export const ErrorContextProvider = ({ children }) => {
         setErrorMessages,
 
         isVocabularyError,
-        setIsVocabularyError,
-        isFormSubmissionError,
-        setIsFormSubmissionError,
-        isDeletingError,
-        setIsDeletingError
+        setIsVocabularyError
       }}
     >
       {children}

@@ -41,6 +41,11 @@
 
     @include flex-row;
     justify-content: space-around;
+
+    input {
+      @include input-sm;
+      margin: 0;
+    }
   }
 
   .SubmitButtonContainer {
@@ -48,12 +53,9 @@
 
     @include flex-row;
 
-    input {
-      @include input-sm;
-    }
-
     button {
       width: fit-content;
+      margin-right: $space-1;
     }
   }
 }
