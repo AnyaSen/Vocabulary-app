@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const signup = async dataObject => {
-  const usersURL = "/users";
+  const usersURL = "/users/signup";
 
   try {
     const result = await axios.post(usersURL, dataObject);

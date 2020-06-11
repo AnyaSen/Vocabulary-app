@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import Styles from "./AddWordsForm.module.scss";
 
@@ -8,46 +8,62 @@ import { useForm } from "../../hooks/useForm";
 
 import InputField from "../InputField/InputField";
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
+import WarningMessage from "../WarningMessage/WarningMessage";
 
 export default function AddWordsForm() {
   const { setWordsData } = useContext(WordsContext);
 
   const [values, handleChange, clearValues] = useForm({
-    word: "",
+    foreignWord: "",
     translation: ""
   });
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const { foreignWord, translation } = values;
 
   const handleSubmit = e => {
     e.preventDefault();
 
+    setErrorMessage("");
+
+    const isForeignWordEmpty = foreignWord === "";
+    const isTranslationEmpty = translation === "";
+
     const wordsURL = "/words";
 
-    createWord(wordsURL, {
-      foreignWord: values.word,
-      translation: values.translation
-    });
+    if (isForeignWordEmpty || isTranslationEmpty) {
+      setErrorMessage("All fields should be filled");
+    } else {
+      createWord(wordsURL, {
+        foreignWord,
+        translation
+      });
 
-    clearValues();
+      clearValues();
 
-    setWordsData();
+      setWordsData();
+    }
   };
 
   return (
     <div className={Styles.AddWordsForm}>
       <h2>ADD VOCABULARY</h2>
 
-      <form onSubmit={handleSubmit}>
+      <WarningMessage warnMessage={errorMessage} />
+
+      <form onSubmit={handleSubmit} className={Styles.form}>
         <InputField
           placeholder="Foreing word"
-          name="word"
-          value={values.word}
+          name="foreignWord"
+          value={foreignWord}
           onChange={handleChange}
         />
 
         <InputField
           placeholder="Translation"
           name="translation"
-          value={values.translation}
+          value={translation}
           onChange={handleChange}
         />
 

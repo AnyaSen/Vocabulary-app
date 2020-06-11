@@ -3,12 +3,13 @@ const User = require("../models/user-model");
 const authentication = require("../middleware/authentication");
 const router = new express.Router();
 
-router.post("/users", async (req, res) => {
+router.post("/users/signup", async (req, res) => {
   const user = new User(req.body);
-  const token = await user.generateAuthToken();
 
   try {
+    const token = await user.generateAuthToken();
     await user.save();
+
     res.status(201).send({ user, token });
   } catch (e) {
     res.status(400).send(e);

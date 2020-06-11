@@ -4,8 +4,6 @@ import Styles from "./WordPair.module.scss";
 
 import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";
-import { LoadingContext } from "../../contexts/LoadingContext";
-import { ErrorContext } from "../../contexts/ErrorContext";
 
 import { deleteWord } from "../../services/deleteWord";
 import { editWord } from "../../services/editWord";
@@ -17,37 +15,47 @@ import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 import InputField from "../InputField/InputField";
 import LoaderSmall from "../Loader/LoaderSmall/LoaderSmall";
 import ErrorSmall from "../ErrorSmall/ErrorSmall";
+import WarningMessage from "../WarningMessage/WarningMessage";
 
 export default function WordPair({ word, transaltion, ID }) {
   const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [isDeleteButtonClicked, setIsDeleteButtonClicked] = useState(false);
 
-  const [values, handleChange] = useForm({
-    foreignWord: "",
-    translation: ""
+  const [editedFilteredWords, setEditedFilteredWords] = useState({
+    editedFilteredForeignWord: word,
+    editedFilteredTranslation: transaltion
   });
 
-  const [editedFilteredForeignWord, setEditedFilteredForeignWord] = useState(
-    word
-  );
-  const [editedFilteredTranslation, setEditedFilteredTranslation] = useState(
-    transaltion
-  );
-
   const { setWordsData } = useContext(WordsContext);
-  const { isFormSubmissionError, setIsFormSubmissionError } = useContext(
-    ErrorContext
-  );
-  const { isDeletingError, setIsDeletingError } = useContext(ErrorContext);
-  const { isFormSubmissionLoading, setIsFormSubmissionLoading } = useContext(
-    LoadingContext
-  );
-  const { isDeletingLoading, setIsDeletingLoading } = useContext(
-    LoadingContext
-  );
+
+  const [errors, setErrors] = useState({
+    isFormSubmissionError: false,
+    isDeletingError: false
+  });
+
+  const [loading, setLoading] = useState({
+    isFormSubmissionLoading: false,
+    isDeletingLoading: false
+  });
+
   const { isBrowsingMode, modifiedWordsArr, setModifiedWordsArr } = useContext(
     BrowseContext
   );
+
+  const [values, handleChange] = useForm({
+    foreignWord: word,
+    translation: transaltion
+  });
+
+  const { foreignWord, translation } = values;
+  const { isFormSubmissionError, isDeletingError } = errors;
+  const { isFormSubmissionLoading, isDeletingLoading } = loading;
+  const {
+    editedFilteredForeignWord,
+    editedFilteredTranslation
+  } = editedFilteredWords;
 
   const deleteFilteredWord = id => {
     const newModifiedArr = modifiedWordsArr;
@@ -59,62 +67,73 @@ export default function WordPair({ word, transaltion, ID }) {
     setModifiedWordsArr(newModifiedArr);
   };
 
-  const deleteAndUpdate = async event => {
-    event.preventDefault();
-    setIsDeletingLoading(true);
-
+  const sendDeletedWords = async () => {
     try {
       setIsDeleteButtonClicked(true);
-      deleteWord(ID);
+      setLoading({ ...loading, isDeletingLoading: true });
 
-      if (isBrowsingMode) {
-        deleteFilteredWord(ID);
-      }
+      await deleteWord(ID);
 
-      setWordsData();
-
-      setIsDeletingLoading(false);
+      await setWordsData();
     } catch (e) {
-      setIsDeletingLoading(false);
-      setIsDeletingError(true);
+      setLoading({ ...loading, isDeletingLoading: false });
+      setErrors({ ...errors, isDeletingError: true });
       console.log(e);
     }
   };
 
-  const editAndUpdate = async event => {
+  const deleteAndUpdate = async event => {
     event.preventDefault();
-    setIsFormSubmissionLoading(true);
+
+    if (!isBrowsingMode) {
+      sendDeletedWords();
+    } else {
+      deleteFilteredWord(ID);
+      sendDeletedWords();
+    }
+  };
+
+  const sendEditedWords = async () => {
+    setLoading({ ...loading, isFormSubmissionLoading: true });
 
     try {
+      await editWord({ foreignWord, translation }, ID);
+
+      setLoading({ ...loading, isFormSubmissionLoading: false });
+
+      setIsEditButtonClicked(false);
+
+      await setWordsData();
+    } catch (e) {
+      setLoading({ ...loading, isFormSubmissionLoading: false });
+
+      setErrors({ ...errors, isFormSubmissionError: true });
+      console.log(e);
+    }
+  };
+
+  const editAndUpdate = event => {
+    event.preventDefault();
+
+    const areFieldEmpty = foreignWord === "" || translation === "";
+
+    if (areFieldEmpty) {
+      setErrorMessage("Enter the words");
+    } else {
+      setErrorMessage("");
+
       if (!isBrowsingMode) {
-        editWord(
-          { foreignWord: values.foreignWord, translation: values.translation },
-          ID
-        );
-
-        setWordsData();
-
-        setIsFormSubmissionLoading(false);
-
-        setIsEditButtonClicked(false);
+        sendEditedWords();
       } else {
-        setEditedFilteredForeignWord(values.foreignWord);
-
-        setEditedFilteredTranslation(values.translation);
-
-        editWord(
-          { foreignWord: values.foreignWord, translation: values.translation },
-          ID
-        );
-
-        setIsFormSubmissionLoading(false);
+        setEditedFilteredWords({
+          editedFilteredForeignWord: foreignWord,
+          editedFilteredTranslation: translation
+        });
+        editWord({ foreignWord, translation }, ID);
+        setLoading({ ...loading, isFormSubmissionLoading: false });
 
         setIsEditButtonClicked(false);
       }
-    } catch (e) {
-      setIsFormSubmissionLoading(false);
-      setIsFormSubmissionError(true);
-      console.log(e);
     }
   };
 
@@ -130,13 +149,15 @@ export default function WordPair({ word, transaltion, ID }) {
             <InputField
               type="text"
               placeholder="Foreign word"
-              value={values.foreignWord}
+              value={foreignWord}
+              name="foreignWord"
               onChange={handleChange}
             />
             <InputField
               type="text"
               placeholder="Translation"
-              value={values.translation}
+              value={translation}
+              name="translation"
               onChange={handleChange}
             />
           </div>
@@ -144,11 +165,14 @@ export default function WordPair({ word, transaltion, ID }) {
             {isFormSubmissionError ? (
               <ErrorSmall onClick={() => setIsEditButtonClicked(false)} />
             ) : !isFormSubmissionLoading ? (
-              <SecondaryButton
-                type="submit"
-                value="submit"
-                buttonMessage="Submit"
-              />
+              <>
+                <SecondaryButton
+                  type="submit"
+                  value="submit"
+                  buttonMessage="Submit"
+                />
+                <WarningMessage warnMessage={errorMessage} />
+              </>
             ) : (
               <LoaderSmall />
             )}

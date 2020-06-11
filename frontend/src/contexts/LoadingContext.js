@@ -5,8 +5,6 @@ export const LoadingContext = createContext();
 export const LoadingContextProvider = ({ children }) => {
   const [isVocabularyLoading, setIsVocabularyLoading] = useState(true);
   const [isProfileLoading, setIsProfileLoading] = useState(false);
-  const [isFormSubmissionLoading, setIsFormSubmissionLoading] = useState(false);
-  const [isDeletingLoading, setIsDeletingLoading] = useState(false);
 
   return (
     <LoadingContext.Provider
@@ -14,11 +12,7 @@ export const LoadingContextProvider = ({ children }) => {
         isVocabularyLoading,
         setIsVocabularyLoading,
         isProfileLoading,
-        setIsProfileLoading,
-        isFormSubmissionLoading,
-        setIsFormSubmissionLoading,
-        isDeletingLoading,
-        setIsDeletingLoading
+        setIsProfileLoading
       }}
     >
       {children}
