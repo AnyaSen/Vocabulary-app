@@ -9,12 +9,13 @@ export default function WordsList({ wordsArray, noWordsMessage }) {
     <div className={Styles.WordPairContainer}>
       {wordsArray.length !== 0 ? (
         wordsArray.map(word => {
+          const { foreignWord, translation, _id } = word;
           return (
             <WordPair
-              word={word.foreignWord.toLowerCase()}
-              transaltion={word.translation.toLowerCase()}
-              key={word._id}
-              ID={word._id}
+              word={foreignWord.toLowerCase()}
+              transaltion={translation.toLowerCase()}
+              key={_id}
+              ID={_id}
             />
           );
         })
