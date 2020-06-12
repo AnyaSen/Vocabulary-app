@@ -48,6 +48,16 @@ export const WordsContextProvider = ({ children }) => {
     }
   };
 
+  const totalWordsLength = wordsArr.length;
+  const newWordsLength = newWords.length;
+  const learningWordsLength = learningWords.length;
+  const learnedWordsLength = learnedWords.length;
+
+  const noWords = wordsArr.length === 0;
+  const noNewWords = newWordsLength === 0;
+  const noLearningWords = learningWordsLength === 0;
+  const noLearnedWords = learnedWordsLength === 0;
+
   return (
     <WordsContext.Provider
       value={{
@@ -56,7 +66,17 @@ export const WordsContextProvider = ({ children }) => {
         setWordsData,
         newWords,
         learningWords,
-        learnedWords
+        learnedWords,
+
+        totalWordsLength,
+        newWordsLength,
+        learningWordsLength,
+        learnedWordsLength,
+
+        noWords,
+        noNewWords,
+        noLearningWords,
+        noLearnedWords
       }}
     >
       {children}

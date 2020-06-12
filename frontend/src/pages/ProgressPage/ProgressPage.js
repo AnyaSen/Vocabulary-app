@@ -16,10 +16,12 @@ import NotificationMessage from "../../components/NotificationMessage/Notificati
 export default function ProgressPage() {
   const {
     setWordsData,
-    newWords,
-    learningWords,
-    learnedWords,
-    wordsArr
+
+    newWordsLength,
+    learningWordsLength,
+    learnedWordsLength,
+
+    noWords
   } = useContext(WordsContext);
 
   const { isVocabularyLoading } = useContext(LoadingContext);
@@ -29,11 +31,6 @@ export default function ProgressPage() {
     setWordsData();
     // eslint-disable-next-line
   }, []);
-
-  const newWordsLength = newWords.length;
-  const learningWordsLength = learningWords.length;
-  const learnedWordsWordsLength = learnedWords.length;
-  const noWords = wordsArr.length === 0;
 
   if (isVocabularyLoading) return <LoadingPage />;
   if (isVocabularyError) return <ErrorCard />;
@@ -55,7 +52,7 @@ export default function ProgressPage() {
           ["Words", "Of Total Words"],
           [`New - ${newWordsLength}`, newWordsLength],
           [`Learning - ${learningWordsLength}`, learningWordsLength],
-          [`Learned - ${learnedWordsWordsLength}`, learnedWordsWordsLength]
+          [`Learned - ${learnedWordsLength}`, learnedWordsLength]
         ]}
         options={{
           slices: [
