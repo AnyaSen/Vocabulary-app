@@ -1,0 +1,9 @@
+@import "../../assets/scss/mixins";
+
+.congratsImgAndButton {
+  @include flex-column;
+
+  img {
+    height: 13rem;
+  }
+}
