@@ -6,7 +6,9 @@ export default function PageLayout({
   children,
   subHeader,
   header,
-  headerAfterBreak
+  headerAfterBreak,
+  span,
+  subHeaderAferSpan
 }) {
   return (
     <div className={Styles.PageLayout}>
@@ -18,7 +20,11 @@ export default function PageLayout({
         </h1>
 
         <div>
-          <h2>{subHeader}</h2>
+          <h2>
+            {subHeader}
+            <span>{span}</span>
+            {subHeaderAferSpan}
+          </h2>
         </div>
       </div>
 
