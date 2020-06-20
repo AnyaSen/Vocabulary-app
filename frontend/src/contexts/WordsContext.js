@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
 
 import {
   filterNewWords,
@@ -33,12 +33,12 @@ export const WordsContextProvider = ({ children }) => {
 
   const setWordsData = async () => {
     try {
-      setIsVocabularyLoading(true);
       const wordsDataArr = await getWords();
 
       setWordsArr(wordsDataArr);
 
       filterWords(wordsDataArr);
+
       setIsVocabularyLoading(false);
     } catch (error) {
       setIsVocabularyLoading(false);
@@ -47,6 +47,15 @@ export const WordsContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token") !== null) {
+      setWordsData();
+    } else {
+      setIsVocabularyLoading(false);
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const totalWordsLength = wordsArr.length;
   const newWordsLength = newWords.length;
@@ -62,11 +71,10 @@ export const WordsContextProvider = ({ children }) => {
     <WordsContext.Provider
       value={{
         wordsArr,
-        setWordsArr,
-        setWordsData,
         newWords,
         learningWords,
         learnedWords,
+        setWordsData,
 
         totalWordsLength,
         newWordsLength,
