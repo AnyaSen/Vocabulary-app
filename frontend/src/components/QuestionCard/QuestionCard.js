@@ -29,7 +29,7 @@ export default function QuestionCard({ task, word }) {
     <div className={Styles.QuestionCardContainer}>
       {showConfirmation ? (
         <ConfirmationCard
-          confQuestion="Are you sure you want to finish learning?"
+          confQuestion="Are you sure you want to quit learning?"
           confAnswerOne="YES"
           confAnswerTwo="NO"
           answerOneOnClick={() => {

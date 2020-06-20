@@ -26,6 +26,10 @@
 
     justify-content: center;
     width: 80%;
+
+    input {
+      border-color: $color-pink;
+    }
   }
 
   .arrow {

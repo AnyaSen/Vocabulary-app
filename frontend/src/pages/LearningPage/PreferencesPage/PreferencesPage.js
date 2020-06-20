@@ -1,18 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import Styles from "./PreferencesPage.module.scss";
 
 import { WordsContext } from "../../../contexts/WordsContext";
-import { LoadingContext } from "../../../contexts/LoadingContext";
-import { ErrorContext } from "../../../contexts/ErrorContext";
-import { LearningContext } from "../../../contexts/LearningContext";
 import { useForm } from "../../../hooks/useForm";
 
 import Layout from "../../../components/Layout/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
-import ErrorCard from "../../../components/ErrorCard/ErrorCard";
-import LoadingPage from "../../LoadingPage/LoadingPage";
 import ExplanatoryWordsCard from "../../../components/ExplanatoryWordsCard/ExplanatoryWordsCard";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall";
@@ -20,20 +15,11 @@ import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 import NotificationMessage from "../../../components/NotificationMessage/NotificationMessage";
 
 export default function PreferencesPage() {
-  const [values, handleChange] = useForm({
-    newWordsInput: "",
-    learningWordsInput: "",
-    learnedWordsInput: ""
-  });
-
-  const { newWordsInput, learningWordsInput, learnedWordsInput } = values;
-
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
 
   const {
-    setWordsData,
     totalWordsLength,
     newWordsLength,
     learningWordsLength,
@@ -45,25 +31,18 @@ export default function PreferencesPage() {
     noLearnedWords
   } = useContext(WordsContext);
 
-  const {
-    setNewWordsNumber,
-    setLearningWordsNumber,
-    setLearnedWordsNumber
-  } = useContext(LearningContext);
-
-  const { isVocabularyLoading } = useContext(LoadingContext);
-  const { isVocabularyError } = useContext(ErrorContext);
+  const [values, handleChange] = useForm({
+    newWordsInput: newWordsLength,
+    learningWordsInput: learningWordsLength,
+    learnedWordsInput: learnedWordsLength
+  });
+  const { newWordsInput, learningWordsInput, learnedWordsInput } = values;
 
   const history = useHistory();
 
   const toggleisShowButtonPressed = () => {
     setIsShowButtonPressed(!isShowButtonPressed);
   };
-
-  useEffect(() => {
-    setWordsData();
-    // eslint-disable-next-line
-  }, []);
 
   const isNewWordsInputEmpty = newWordsInput === "";
   const isLearningWordsInputEmpty = learningWordsInput === "";
@@ -74,16 +53,17 @@ export default function PreferencesPage() {
     (isLearningWordsInputEmpty && !noLearningWords) ||
     (isLearnedWordsInputEmpty && !noLearnedWords);
 
-  const validateNumber = num => {
+  const isValidNumber = num => {
     const numbers = /^[0-9]+$/;
+    const numberToString = num.toString();
 
-    return num.match(numbers);
+    return numberToString.match(numbers);
   };
 
   const areNotValidNumbers =
-    (!validateNumber(newWordsInput) && !noNewWords) ||
-    (!validateNumber(learningWordsInput) && !noLearningWords) ||
-    (!validateNumber(learnedWordsInput) && !noLearnedWords);
+    (!isValidNumber(newWordsInput) && !noNewWords) ||
+    (!isValidNumber(learningWordsInput) && !noLearningWords) ||
+    (!isValidNumber(learnedWordsInput) && !noLearnedWords);
 
   const newWordsRange =
     (newWordsInput > 0 && newWordsInput <= newWordsLength) ||
@@ -106,35 +86,24 @@ export default function PreferencesPage() {
       setErrorMessage("All the fields should be filled");
     } else if (areNotValidNumbers) {
       setErrorMessage("Please, enter Numbers");
-    } else if (!newWordsRange) {
+    } else if (!newWordsRange && !noNewWords) {
       setErrorMessage(
         `"New words" should be positive and ${newWordsLength} maximum`
       );
-    } else if (!learningWordsRange) {
+    } else if (!learningWordsRange && !noLearningWords) {
       setErrorMessage(
         `"Learing words" should be positive and ${learningWordsLength} maximum`
       );
-    } else if (!learnedWordsRange) {
+    } else if (!learnedWordsRange && !noLearnedWords) {
       setErrorMessage(
         `"Learned words" should be positive and ${learnedWordsLength} maximum`
       );
     } else {
-      isNewWordsInputEmpty
-        ? setNewWordsNumber(0)
-        : setNewWordsNumber(newWordsInput);
-      isLearningWordsInputEmpty
-        ? setLearningWordsNumber(0)
-        : setLearningWordsNumber(learningWordsInput);
-      isLearnedWordsInputEmpty
-        ? setLearnedWordsNumber(0)
-        : setLearnedWordsNumber(learnedWordsInput);
-
-      history.push("/question");
+      history.push(
+        `/question/${newWordsInput}/${learningWordsInput}/${learnedWordsInput}`
+      );
     }
   };
-
-  if (isVocabularyLoading) return <LoadingPage />;
-  if (isVocabularyError) return <ErrorCard />;
 
   return (
     <Layout>

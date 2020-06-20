@@ -8,7 +8,6 @@ import { WordsContextProvider } from "./contexts/WordsContext";
 import { ErrorContextProvider } from "./contexts/ErrorContext";
 import { LoadingContextProvider } from "./contexts/LoadingContext";
 import { BrowseContextProvider } from "./contexts/BrowseContext";
-import { LearningContextProvider } from "./contexts/LearningContext";
 
 axios.interceptors.response.use(
   function(config) {
@@ -29,11 +28,9 @@ ReactDOM.render(
       <ErrorContextProvider>
         <LoadingContextProvider>
           <WordsContextProvider>
-            <LearningContextProvider>
-              <BrowseContextProvider>
-                <App />
-              </BrowseContextProvider>
-            </LearningContextProvider>
+            <BrowseContextProvider>
+              <App />
+            </BrowseContextProvider>
           </WordsContextProvider>
         </LoadingContextProvider>
       </ErrorContextProvider>
