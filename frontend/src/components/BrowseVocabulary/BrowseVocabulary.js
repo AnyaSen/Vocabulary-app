@@ -21,9 +21,7 @@ export default function BrowseVocabulary() {
   const { setModifiedWordsArr, isBrowsingMode, setIsBrowsingMode } = useContext(
     BrowseContext
   );
-  const { setWordsData } = useContext(WordsContext);
-
-  const { wordsArr } = useContext(WordsContext);
+  const { setWordsData, wordsArr } = useContext(WordsContext);
 
   const { searchWord } = values;
 
@@ -38,10 +36,7 @@ export default function BrowseVocabulary() {
       setErrorMessage("");
       setIsBrowsingMode(true);
 
-      const filteredVocabularyArray = filterVocabulary(
-        wordsArr,
-        values.searchWord
-      );
+      const filteredVocabularyArray = filterVocabulary(wordsArr, searchWord);
       setModifiedWordsArr(filteredVocabularyArray);
     }
   };
@@ -70,7 +65,7 @@ export default function BrowseVocabulary() {
 
       <WarningMessage warnMessage={errorMessage} />
 
-      {isBrowsingMode ? (
+      {isBrowsingMode && (
         <div className={Styles.showAllButton}>
           <SecondaryButton
             buttonMessage="Show All"
@@ -79,7 +74,7 @@ export default function BrowseVocabulary() {
             backgroundColor="#f79090"
           />
         </div>
-      ) : null}
+      )}
     </div>
   );
 }

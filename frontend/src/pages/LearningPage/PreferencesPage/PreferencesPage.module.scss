@@ -32,14 +32,8 @@
   button {
     padding: $space-0 $space-1;
     margin: $space-1 0;
-    background-color: $color-dark-white;
+    background-color: $color-light-grey;
     border-radius: $border-radius-lg;
     border: 1px solid $color-pink;
   }
-}
-
-.noWordsMessage {
-  border: 1px solid $color-pink;
-  border-radius: $border-radius-sm;
-  padding: $space-1;
 }

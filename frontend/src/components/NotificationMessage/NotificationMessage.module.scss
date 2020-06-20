@@ -1,0 +1,8 @@
+@import "../../assets/scss/variables";
+
+
+.NotificationMessage {
+  border: 1px solid $color-pink;
+  border-radius: $border-radius-sm;
+  padding: $space-1;
+}

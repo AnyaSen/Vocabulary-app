@@ -14,7 +14,6 @@ export default function ProgressCard({
       <p className={Styles.header}>PROGRESS</p>
       <table>
         <tbody>
-          <ProgressCardRow wordType="Total:" number={totalWordsNum} />
           <ProgressCardRow wordType="New:" number={newWordsNum} />
           <ProgressCardRow wordType="Learning:" number={learningWordsNum} />
           <ProgressCardRow wordType="Learned:" number={learnedWordsNum} />

@@ -1,202 +1,109 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import Styles from "./PreferencesPage.module.scss";
 
 import { WordsContext } from "../../../contexts/WordsContext";
-import { LoadingContext } from "../../../contexts/LoadingContext";
-import { ErrorContext } from "../../../contexts/ErrorContext";
-import { LearningContext } from "../../../contexts/LearningContext";
 import { useForm } from "../../../hooks/useForm";
 
 import Layout from "../../../components/Layout/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
-import ErrorCard from "../../../components/ErrorCard/ErrorCard";
-import LoadingPage from "../../LoadingPage/LoadingPage";
 import ExplanatoryWordsCard from "../../../components/ExplanatoryWordsCard/ExplanatoryWordsCard";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall";
 import WarningMessage from "../../../components/WarningMessage/WarningMessage";
+import NotificationMessage from "../../../components/NotificationMessage/NotificationMessage";
 
 export default function PreferencesPage() {
-  const [values, handleChange] = useForm({
-    totalWords: 0,
-    newWords: 0,
-    learningWords: 0,
-    learnedWords: 0
-  });
-
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);
 
-  const [isEmptyInputError, setIsEmptyInputError] = useState(false);
-  const [isTypeError, setIsTypeError] = useState(false);
-  const [isInputTotalWordsError, setIsInputTotalWordsError] = useState(false);
-  const [isInputNumberNewWordsError, setIsInputNumberNewWordsError] = useState(
-    false
-  );
-  const [
-    isInputNumberLearningWordsError,
-    setIsInputNumberLearningWordsError
-  ] = useState(false);
-  const [
-    isInputNumberLearnedWordsError,
-    setIsInputNumberLearnedWordsError
-  ] = useState(false);
-  const [isSumError, setIsSumError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const {
-    wordsArr,
-    setWordsData,
-    newWords,
-    learningWords,
-    learnedWords
+    totalWordsLength,
+    newWordsLength,
+    learningWordsLength,
+    learnedWordsLength,
+
+    noWords,
+    noNewWords,
+    noLearningWords,
+    noLearnedWords
   } = useContext(WordsContext);
 
-  const {
-    setTotalWordsNumber,
-    setNewWordsNumber,
-    setLearningWordsNumber,
-    setLearnedWordsNumber
-  } = useContext(LearningContext);
-  const { isVocabularyLoading } = useContext(LoadingContext);
-  const { isVocabularyError } = useContext(ErrorContext);
+  const [values, handleChange] = useForm({
+    newWordsInput: newWordsLength,
+    learningWordsInput: learningWordsLength,
+    learnedWordsInput: learnedWordsLength
+  });
+  const { newWordsInput, learningWordsInput, learnedWordsInput } = values;
 
   const history = useHistory();
-
-  useEffect(() => {
-    setWordsData();
-    // eslint-disable-next-line
-  }, []);
-
-  const totalWordsLength = wordsArr.length;
-  const newWordsLength = newWords.length;
-  const learningWordsLength = learningWords.length;
-  const learnedWordsLength = learnedWords.length;
-
-  const noWords = wordsArr.length === 0;
-  const noNewWords = newWordsLength === 0;
-  const noLearningWords = learningWordsLength === 0;
-  const noLearnedWords = learnedWordsLength === 0;
 
   const toggleisShowButtonPressed = () => {
     setIsShowButtonPressed(!isShowButtonPressed);
   };
 
-  const areAllFieldsEmpty =
-    (values.totalWords === 0 && !noWords) ||
-    (values.newWords === 0 && !noNewWords && !noLearningWords) ||
-    !noLearnedWords ||
-    (values.learningWords === 0 && !noLearningWords) ||
-    (values.learnedWords === 0 && !noLearnedWords);
+  const isNewWordsInputEmpty = newWordsInput === "";
+  const isLearningWordsInputEmpty = learningWordsInput === "";
+  const isLearnedWordsInputEmpty = learnedWordsInput === "";
 
-  const isSumEqualToTotal =
-    parseInt(values.newWords) +
-      parseInt(values.learningWords) +
-      parseInt(values.learnedWords) ===
-    parseInt(values.totalWords);
+  const areSomeFieldsEmpty =
+    (isNewWordsInputEmpty && !noNewWords) ||
+    (isLearningWordsInputEmpty && !noLearningWords) ||
+    (isLearnedWordsInputEmpty && !noLearnedWords);
 
-  // const validateNumber = num => {
-  //   const numbers = /^[0-9]+$/;
+  const isValidNumber = num => {
+    const numbers = /^[0-9]+$/;
+    const numberToString = num.toString();
 
-  //   return num.match(numbers);
-  // };
+    return numberToString.match(numbers);
+  };
 
-  // const areValidNumbers =
-  //   validateNumber(values.totalWords) &&
-  //   validateNumber(values.newWords) &&
-  //   validateNumber(values.learningWords) &&
-  //   validateNumber(values.learnedWords);
+  const areNotValidNumbers =
+    (!isValidNumber(newWordsInput) && !noNewWords) ||
+    (!isValidNumber(learningWordsInput) && !noLearningWords) ||
+    (!isValidNumber(learnedWordsInput) && !noLearnedWords);
+
+  const newWordsRange =
+    (newWordsInput > 0 && newWordsInput <= newWordsLength) ||
+    isNewWordsInputEmpty;
+
+  const learningWordsRange =
+    (learningWordsInput > 0 && learningWordsInput <= learningWordsLength) ||
+    isLearningWordsInputEmpty;
+
+  const learnedWordsRange =
+    (learnedWordsInput > 0 && learnedWordsInput <= learnedWordsLength) ||
+    isLearnedWordsInputEmpty;
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    setIsEmptyInputError(false);
-    setIsTypeError(false);
-    setIsInputTotalWordsError(false);
-    setIsSumError(false);
-    setIsInputNumberNewWordsError(false);
+    setErrorMessage("");
 
-    if (areAllFieldsEmpty) {
-      setIsTypeError(false);
-      setIsInputTotalWordsError(false);
-      setIsSumError(false);
-      setIsInputNumberNewWordsError(false);
-      setIsInputNumberLearnedWordsError(false);
-
-      setIsEmptyInputError(true);
-    } //  else if (!areValidNumbers) {
-    //   setIsInputTotalWordsError(false);
-    //   setIsSumError(false);
-    //   setIsEmptyInputError(false);
-    //   setIsInputNumberNewWordsError(false);
-    //   setIsInputNumberLearningWordsError(false);
-    //   setIsInputNumberLearnedWordsError(false);
-
-    //   setIsTypeError(true);
-    // }
-    else if (values.totalWords < 1 || values.totalWords > totalWordsLength) {
-      setIsTypeError(false);
-      setIsEmptyInputError(false);
-      setIsSumError(false);
-      setIsInputNumberNewWordsError(false);
-      setIsInputNumberLearningWordsError(false);
-      setIsInputNumberLearnedWordsError(false);
-
-      setIsInputTotalWordsError(true);
-    } else if (values.newWords < 0 || values.newWords > newWordsLength) {
-      setIsTypeError(false);
-      setIsEmptyInputError(false);
-      setIsSumError(false);
-      setIsInputTotalWordsError(false);
-      setIsInputNumberLearningWordsError(false);
-      setIsInputNumberLearnedWordsError(false);
-
-      setIsInputNumberNewWordsError(true);
-    } else if (
-      values.learningWords < 0 ||
-      values.learningWords > learningWordsLength
-    ) {
-      setIsTypeError(false);
-      setIsEmptyInputError(false);
-      setIsSumError(false);
-      setIsInputTotalWordsError(false);
-      setIsInputNumberNewWordsError(false);
-      setIsInputNumberLearnedWordsError(false);
-
-      setIsInputNumberLearningWordsError(true);
-    } else if (
-      values.learnedWords < 0 ||
-      values.learnedWords > learnedWordsLength
-    ) {
-      setIsTypeError(false);
-      setIsEmptyInputError(false);
-      setIsSumError(false);
-      setIsInputTotalWordsError(false);
-      setIsInputNumberNewWordsError(false);
-      setIsInputNumberLearningWordsError(false);
-
-      setIsInputNumberLearnedWordsError(true);
-    } else if (!isSumEqualToTotal) {
-      setIsTypeError(false);
-      setIsEmptyInputError(false);
-      setIsInputTotalWordsError(false);
-      setIsInputNumberNewWordsError(false);
-      setIsInputNumberLearningWordsError(false);
-      setIsInputNumberLearnedWordsError(false);
-
-      setIsSumError(true);
+    if (areSomeFieldsEmpty) {
+      setErrorMessage("All the fields should be filled");
+    } else if (areNotValidNumbers) {
+      setErrorMessage("Please, enter Numbers");
+    } else if (!newWordsRange && !noNewWords) {
+      setErrorMessage(
+        `"New words" should be positive and ${newWordsLength} maximum`
+      );
+    } else if (!learningWordsRange && !noLearningWords) {
+      setErrorMessage(
+        `"Learing words" should be positive and ${learningWordsLength} maximum`
+      );
+    } else if (!learnedWordsRange && !noLearnedWords) {
+      setErrorMessage(
+        `"Learned words" should be positive and ${learnedWordsLength} maximum`
+      );
     } else {
-      setTotalWordsNumber(values.totalWords);
-      setNewWordsNumber(values.newWords);
-      setLearningWordsNumber(values.learningWords);
-      setLearnedWordsNumber(values.learnedWords);
-
-      history.push("/question");
+      history.push(
+        `/question/${newWordsInput}/${learningWordsInput}/${learnedWordsInput}`
+      );
     }
   };
-
-  if (isVocabularyLoading) return <LoadingPage />;
-  if (isVocabularyError) return <ErrorCard />;
 
   return (
     <Layout>
@@ -205,9 +112,7 @@ export default function PreferencesPage() {
         subHeader="How many words would you like to review?"
       >
         {noWords ? (
-          <h2 className={Styles.noWordsMessage}>
-            Please, add some vocabulary before learning
-          </h2>
+          <NotificationMessage text=" Please, add some vocabulary before learning" />
         ) : (
           <>
             <form onSubmit={handleSubmit} className={Styles.PreferencesForm}>
@@ -215,70 +120,35 @@ export default function PreferencesPage() {
                 Please, fill the preferences in numbers and press START
               </p>
 
-              {isEmptyInputError ? (
-                <WarningMessage warnMessage="All the fields should be filled" />
-              ) : isTypeError ? (
-                <WarningMessage warnMessage="Please, enter NUMBERS" />
-              ) : isInputTotalWordsError ? (
-                <WarningMessage
-                  warnMessage={`Total words" should be between 1 and ${totalWordsLength}`}
-                />
-              ) : isInputNumberNewWordsError ? (
-                <WarningMessage
-                  warnMessage={`"New words" should be less than or equal to ${newWordsLength}`}
-                />
-              ) : isInputNumberLearningWordsError ? (
-                <WarningMessage
-                  warnMessage={`"Learing words" should be less than or equal to ${learningWordsLength}`}
-                />
-              ) : isInputNumberLearnedWordsError ? (
-                <WarningMessage
-                  warnMessage={`"Learned words" should be less than or equal to ${learnedWordsLength}`}
-                />
-              ) : isSumError ? (
-                <WarningMessage warnMessage='"Words in total" should be equal to the sum of words types' />
-              ) : null}
+              <WarningMessage warnMessage={errorMessage} />
 
               <div className={Styles.inputFieldsContainer}>
-                <InputFieldSmall
-                  labelText="Total words"
-                  type="number"
-                  name="totalWords"
-                  value={values.totalWords}
-                  onChange={handleChange}
-                />
-
-                {!noNewWords ? (
+                {!noNewWords && (
                   <InputFieldSmall
                     labelText="New words"
-                    type="number"
-                    name="newWords"
-                    value={values.newWords}
+                    name="newWordsInput"
+                    value={newWordsInput}
                     onChange={handleChange}
                   />
-                ) : null}
+                )}
 
-                {(!noLearningWords && !noNewWords) || !noLearnedWords ? (
+                {!noLearningWords && (
                   <InputFieldSmall
                     labelText="Learing words"
-                    type="number"
-                    name="learningWords"
-                    value={values.learningWords}
+                    name="learningWordsInput"
+                    value={learningWordsInput}
                     onChange={handleChange}
                   />
-                ) : null}
+                )}
 
-                {(!noLearnedWords && !noNewWords) || !noLearningWords ? (
+                {!noLearnedWords && (
                   <InputFieldSmall
                     labelText="Learned words"
-                    type="number"
-                    name="learnedWords"
-                    maxlength={`${learnedWordsLength}`}
-                    minlength={1}
-                    value={values.learnedWords}
+                    name="learnedWordsInput"
+                    value={learnedWordsInput}
                     onChange={handleChange}
                   />
-                ) : null}
+                )}
               </div>
 
               <PrimaryButton
@@ -302,7 +172,7 @@ export default function PreferencesPage() {
                   : "Show types of words"}
               </button>
 
-              {isShowButtonPressed ? <ExplanatoryWordsCard /> : null}
+              {isShowButtonPressed && <ExplanatoryWordsCard />}
             </div>
           </>
         )}

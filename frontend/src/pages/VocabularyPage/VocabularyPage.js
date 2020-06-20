@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 
 import Styles from "./VocabularyPage.module.scss";
 
@@ -15,15 +15,10 @@ import { ErrorContext } from "../../contexts/ErrorContext";
 import Layout from "../../components/Layout/Layout";
 
 export default function VocabularyPage() {
-  const { wordsArr, setWordsData } = useContext(WordsContext);
+  const { wordsArr } = useContext(WordsContext);
   const { isBrowsingMode, modifiedWordsArr } = useContext(BrowseContext);
   const { isVocabularyLoading } = useContext(LoadingContext);
   const { isVocabularyError } = useContext(ErrorContext);
-
-  useEffect(() => {
-    setWordsData();
-    // eslint-disable-next-line
-  }, []);
 
   if (isVocabularyError) return <ErrorCard />;
 
