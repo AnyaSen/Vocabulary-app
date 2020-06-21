@@ -48,14 +48,15 @@ export const WordsContextProvider = ({ children }) => {
     }
   };
 
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    if (localStorage.getItem("token") !== null) {
-      setWordsData();
-    } else {
+    if (token === null) {
       setIsVocabularyLoading(false);
+    } else {
+      setWordsData();
     }
     // eslint-disable-next-line
-  }, []);
+  }, [token]);
 
   const totalWordsLength = wordsArr.length;
   const newWordsLength = newWords.length;
