@@ -87,6 +87,7 @@ export default function HomePage() {
       />
 
       <InputField
+        type="password"
         placeholder="Password"
         name="password"
         value={values.password}

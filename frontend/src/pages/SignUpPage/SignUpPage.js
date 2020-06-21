@@ -111,6 +111,7 @@ export default function SignUpPage() {
       />
 
       <InputField
+        type="password"
         placeholder="Password"
         name="password"
         value={password}
