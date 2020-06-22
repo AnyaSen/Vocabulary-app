@@ -7,7 +7,8 @@ export default function InputField({
   name,
   value,
   onChange,
-  type
+  type,
+  autocomplete
 }) {
   return (
     <div className={Styles.InputFieldContainer}>
@@ -18,6 +19,7 @@ export default function InputField({
         name={name}
         value={value}
         onChange={onChange}
+        autoComplete={autocomplete}
       />
     </div>
   );

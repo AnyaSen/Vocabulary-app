@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import { Redirect } from "react-router-dom";
 
 import { WordsContext } from "../../../contexts/WordsContext";
+import { LearningContext } from "../../../contexts/LearningContext";
 
 import QuestionCard from "../../../components/QuestionCard/QuestionCard";
 import ProgressCard from "../../../components/ProgressCard/ProgressCard";
@@ -17,6 +18,10 @@ export default function QuestionPage({ match }) {
     learningWordsLength,
     learnedWordsLength
   } = useContext(WordsContext);
+
+  const { wordCount, setWordCount, currentWord, setCurrentWord } = useContext(
+    LearningContext
+  );
 
   const filterWordsFromArray = (array, numberOfWords) =>
     array.filter((item, index) => {
@@ -54,9 +59,16 @@ export default function QuestionPage({ match }) {
     croppedLearnedWordsArray
   );
 
-  const [currentWord, setCurrentWord] = useState(
-    croppedNewWords[0].foreignWord
+  const totalWordArr = croppedNewWords.concat(
+    croppedLearningWords,
+    croppedLearnedWords
   );
+
+  const [totalWords, setTotalWords] = useState(totalWordArr);
+
+  useEffect(() => {
+    setCurrentWord(totalWords[wordCount].foreignWord);
+  }, [wordCount]);
 
   if (
     !isValidNumberOfNewWords ||
@@ -76,6 +88,8 @@ export default function QuestionPage({ match }) {
       <QuestionCard
         task="Please, enter translation of the word"
         word={currentWord}
+        setWordCount={setWordCount}
+        totalWorsArray={totalWords}
       />
     </div>
   );

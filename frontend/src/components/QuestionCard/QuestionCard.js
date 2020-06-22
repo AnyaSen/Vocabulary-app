@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
 import { useHistory } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+import { LearningContext } from "../../contexts/LearningContext";
 
 import Styles from "./QuestionCard.module.scss";
 import arrowSvg from "../../assets/img/arrow_back.svg";
 
 import WordCard from "./WordCard/WordCard";
-
-import { useForm } from "../../hooks/useForm";
 import InputField from "../InputField/InputField";
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 import ConfirmationCard from "../ConfirmationCard/ConfirmationCard";
+import CongratsPage from "../../pages/CongratsPage/CongratsPage";
 
-export default function QuestionCard({ task, word }) {
+export default function QuestionCard({ task, word, totalWorsArray }) {
   const [values, handleChange] = useForm({
     translation: ""
   });
 
+  const { wordCount, setWordCount } = useContext(LearningContext);
+
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showCongratilationPage, setShowCongratilationPage] = useState(false);
 
   const history = useHistory();
 
@@ -25,8 +30,21 @@ export default function QuestionCard({ task, word }) {
     setShowConfirmation(true);
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    if (wordCount < totalWorsArray.length - 1) {
+      setWordCount(wordCount + 1);
+    } else {
+      setWordCount(0);
+      setShowCongratilationPage(true);
+    }
+  };
+
+  if (showCongratilationPage) return <CongratsPage />;
+
   return (
-    <div className={Styles.QuestionCardContainer}>
+    <form onSubmit={handleSubmit} className={Styles.QuestionCardContainer}>
       {showConfirmation ? (
         <ConfirmationCard
           confQuestion="Are you sure you want to quit learning?"
@@ -64,10 +82,11 @@ export default function QuestionCard({ task, word }) {
             value={values.translation}
             onChange={handleChange}
             type="text"
+            autocomplete="off"
           />
         </WordCard>
       </div>
       <PrimaryButton buttonMessage="CHECK THE ANSWER" />
-    </div>
+    </form>
   );
 }
