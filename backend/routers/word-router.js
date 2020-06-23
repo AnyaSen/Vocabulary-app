@@ -43,7 +43,13 @@ router.delete("/words/:id", async (req, res) => {
 
 router.patch("/words/:id", async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdtes = ["foreignWord", "translation"];
+  const allowedUpdtes = [
+    "foreignWord",
+    "translation",
+    "new",
+    "learning",
+    "learned"
+  ];
   const isValidOperation = updates.every(update =>
     allowedUpdtes.includes(update)
   );

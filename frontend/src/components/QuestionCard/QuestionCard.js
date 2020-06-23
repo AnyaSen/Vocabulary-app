@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 
 import { useHistory } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { editWord } from "../../services/editWord";
+
 import { LearningContext } from "../../contexts/LearningContext";
 
 import Styles from "./QuestionCard.module.scss";
@@ -14,7 +16,7 @@ import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 import ConfirmationCard from "../ConfirmationCard/ConfirmationCard";
 import CongratsPage from "../../pages/CongratsPage/CongratsPage";
 
-export default function QuestionCard({ task, word, totalWorsArray }) {
+export default function QuestionCard({ task, currentWord, totalWorsArray }) {
   const [values, handleChange] = useForm({
     translation: ""
   });
@@ -35,8 +37,14 @@ export default function QuestionCard({ task, word, totalWorsArray }) {
 
     if (wordCount < totalWorsArray.length - 1) {
       setWordCount(wordCount + 1);
+
+      editWord(
+        { new: "false", learning: "true" },
+        totalWorsArray[wordCount]._id
+      );
     } else {
       setWordCount(0);
+
       setShowCongratilationPage(true);
     }
   };
@@ -72,7 +80,7 @@ export default function QuestionCard({ task, word, totalWorsArray }) {
       </div>
       <div className={Styles.WordCardsContainer}>
         <WordCard>
-          <h1>{word}</h1>
+          <h1>{currentWord}</h1>
         </WordCard>
 
         <WordCard>

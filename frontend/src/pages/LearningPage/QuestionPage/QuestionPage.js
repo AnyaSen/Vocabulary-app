@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
@@ -9,15 +9,7 @@ import QuestionCard from "../../../components/QuestionCard/QuestionCard";
 import ProgressCard from "../../../components/ProgressCard/ProgressCard";
 
 export default function QuestionPage({ match }) {
-  const {
-    newWords,
-    learningWords,
-    learnedWords,
-
-    newWordsLength,
-    learningWordsLength,
-    learnedWordsLength
-  } = useContext(WordsContext);
+  const { newWords, learningWords, learnedWords } = useContext(WordsContext);
 
   const { wordCount, setWordCount, currentWord, setCurrentWord } = useContext(
     LearningContext
@@ -45,11 +37,11 @@ export default function QuestionPage({ match }) {
     numberOfLearnedParam
   );
 
-  const isValidNumberOfNewWords = numberOfNewParam <= newWordsLength;
-  const isValidNumberOfLearningWords =
-    numberOfLearningParam <= learningWordsLength;
-  const isValidNumberOfLearnedWords =
-    numberOfLearnedParam <= learnedWordsLength;
+  // const isValidNumberOfNewWords = numberOfNewParam <= newWordsLength;
+  // const isValidNumberOfLearningWords =
+  //   numberOfLearningParam <= learningWordsLength;
+  // const isValidNumberOfLearnedWords =
+  //   numberOfLearnedParam <= learnedWordsLength;
 
   const [croppedNewWords, setCroppedNewWords] = useState(croppedNewWordsArray);
   const [croppedLearningWords, setCroppedLearningWords] = useState(
@@ -70,24 +62,24 @@ export default function QuestionPage({ match }) {
     setCurrentWord(totalWords[wordCount].foreignWord);
   }, [wordCount]);
 
-  if (
-    !isValidNumberOfNewWords ||
-    !isValidNumberOfLearningWords ||
-    !isValidNumberOfLearnedWords
-  )
-    return <Redirect to="/learn" />;
+  // if (
+  //   !isValidNumberOfNewWords ||
+  //   !isValidNumberOfLearningWords ||
+  //   !isValidNumberOfLearnedWords
+  // )
+  //   return <Redirect to="/learn" />;
 
   return (
     <div>
       <ProgressCard
         newWordsNum={croppedNewWords.length}
-        learningWordsNum={croppedLearnedWords.length}
-        learnedWordsNum={croppedLearningWords.length}
+        learningWordsNum={croppedLearningWords.length}
+        learnedWordsNum={croppedLearnedWords.length}
       />
 
       <QuestionCard
         task="Please, enter translation of the word"
-        word={currentWord}
+        currentWord={currentWord}
         setWordCount={setWordCount}
         totalWorsArray={totalWords}
       />

@@ -15,8 +15,8 @@ export default function CongratsPage() {
       <PageLayout
         header="Congratulations!"
         subHeader="You have learned "
-        span="30 "
-        subHeaderAferSpan="words"
+        span={30}
+        subHeaderAferSpan=" words"
       >
         <div className={Styles.congratsImgAndButton}>
           <img src={congratsSvg} alt="congrats" />

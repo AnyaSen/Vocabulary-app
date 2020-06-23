@@ -4,8 +4,8 @@ const Word = mongoose.model("Word", {
   foreignWord: { type: String, required: true, trim: true },
   translation: { type: String, required: true, trim: true },
   new: { type: Boolean, default: true },
-  learned: { type: Boolean, default: false },
   learning: { type: Boolean, default: false },
+  learned: { type: Boolean, default: false },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
