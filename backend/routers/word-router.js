@@ -46,7 +46,7 @@ router.patch("/words/:id", async (req, res) => {
   const allowedUpdtes = [
     "foreignWord",
     "translation",
-    "new",
+    "newlyAdded",
     "learning",
     "learned"
   ];
