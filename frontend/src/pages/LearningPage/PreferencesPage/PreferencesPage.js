@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import Styles from "./PreferencesPage.module.scss";
@@ -24,6 +24,7 @@ export default function PreferencesPage() {
     newWordsLength,
     learningWordsLength,
     learnedWordsLength,
+    setWordsData,
 
     noWords,
     noNewWords,
@@ -104,6 +105,12 @@ export default function PreferencesPage() {
       );
     }
   };
+
+  useEffect(() => {
+    setWordsData();
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Layout>

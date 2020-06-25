@@ -1,5 +1,5 @@
-@import "../../assets/scss/mixins";
-@import "../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/variables";
 
 .QuestionCardContainer {
   @include flex-column;
@@ -14,17 +14,6 @@
 
     button {
       margin-top: $space-0;
-    }
-  }
-
-  .headerWithImg {
-    @include flex-row;
-    margin-bottom: $space-1;
-
-    img {
-      margin-left: $space-0;
-      height: 2rem;
-      width: auto;
     }
   }
 

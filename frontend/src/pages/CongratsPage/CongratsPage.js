@@ -9,14 +9,14 @@ import { Link } from "react-router-dom";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import PrimaryButton from "../../components/Buttons/PrimaryButton/PrimaryButton";
 
-export default function CongratsPage() {
+export default function CongratsPage({ numberOfReviewedWords }) {
   return (
     <div>
       <PageLayout
         header="Congratulations!"
-        subHeader="You have learned "
-        span="30 "
-        subHeaderAferSpan="words"
+        subHeader="You have reviewed "
+        span={numberOfReviewedWords}
+        subHeaderAferSpan=" words"
       >
         <div className={Styles.congratsImgAndButton}>
           <img src={congratsSvg} alt="congrats" />

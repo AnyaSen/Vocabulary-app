@@ -1,14 +1,16 @@
 export const filterVocabulary = (vocabularyArr, userInputWord) => {
   const filteredVocabulary = vocabularyArr.filter(wordPair => {
+    const { foreignWord, translation } = wordPair;
+
     const inputWord = userInputWord.toLowerCase();
 
     const inputWordLength = userInputWord.length;
 
-    const existingWordFirstLetters = wordPair.foreignWord
+    const existingWordFirstLetters = foreignWord
       .toLowerCase()
       .substring(0, inputWordLength);
 
-    const existingTranslationFirstLetters = wordPair.translation
+    const existingTranslationFirstLetters = translation
       .toLowerCase()
       .substring(0, inputWordLength);
 
@@ -23,21 +25,25 @@ export const filterVocabulary = (vocabularyArr, userInputWord) => {
 
 export const filterNewWords = vocabularyArr => {
   const filteredWords = vocabularyArr.filter(wordPair => {
-    return wordPair.new;
-  });
-  return filteredWords;
-};
-
-export const filterLearnedWords = vocabularyArr => {
-  const filteredWords = vocabularyArr.filter(wordPair => {
-    return wordPair.learned;
+    const { newlyAdded } = wordPair;
+    return newlyAdded;
   });
   return filteredWords;
 };
 
 export const filterLearningWords = vocabularyArr => {
   const filteredWords = vocabularyArr.filter(wordPair => {
-    return wordPair.learning;
+    const { learning } = wordPair;
+
+    return learning;
+  });
+  return filteredWords;
+};
+
+export const filterLearnedWords = vocabularyArr => {
+  const filteredWords = vocabularyArr.filter(wordPair => {
+    const { learned } = wordPair;
+    return learned;
   });
   return filteredWords;
 };

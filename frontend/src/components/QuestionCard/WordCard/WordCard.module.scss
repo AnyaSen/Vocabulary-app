@@ -18,3 +18,21 @@
     border: 1px solid $color-pink;
   }
 }
+
+.WordCardRed {
+  @extend .WordCard;
+
+  border-color: $color-red;
+}
+
+.WordCardGreen {
+  @extend .WordCard;
+
+  border-color: $color-green;
+}
+
+.WordCardYellow {
+  @extend .WordCard;
+
+  border-color: $color-yellow;
+}

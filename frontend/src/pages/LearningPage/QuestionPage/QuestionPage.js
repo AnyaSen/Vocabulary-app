@@ -1,22 +1,17 @@
-import React, { useContext, useState } from "react";
-
-import { Redirect } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
 
 import { WordsContext } from "../../../contexts/WordsContext";
+import { LearningContext } from "../../../contexts/LearningContext";
 
 import QuestionCard from "../../../components/QuestionCard/QuestionCard";
 import ProgressCard from "../../../components/ProgressCard/ProgressCard";
 
 export default function QuestionPage({ match }) {
-  const {
-    newWords,
-    learningWords,
-    learnedWords,
+  const { newWords, learningWords, learnedWords } = useContext(WordsContext);
 
-    newWordsLength,
-    learningWordsLength,
-    learnedWordsLength
-  } = useContext(WordsContext);
+  const { wordCount, setWordCount, currentWord, setCurrentWord } = useContext(
+    LearningContext
+  );
 
   const filterWordsFromArray = (array, numberOfWords) =>
     array.filter((item, index) => {
@@ -40,12 +35,6 @@ export default function QuestionPage({ match }) {
     numberOfLearnedParam
   );
 
-  const isValidNumberOfNewWords = numberOfNewParam <= newWordsLength;
-  const isValidNumberOfLearningWords =
-    numberOfLearningParam <= learningWordsLength;
-  const isValidNumberOfLearnedWords =
-    numberOfLearnedParam <= learnedWordsLength;
-
   const [croppedNewWords, setCroppedNewWords] = useState(croppedNewWordsArray);
   const [croppedLearningWords, setCroppedLearningWords] = useState(
     croppedLearningWordsArray
@@ -54,28 +43,32 @@ export default function QuestionPage({ match }) {
     croppedLearnedWordsArray
   );
 
-  const [currentWord, setCurrentWord] = useState(
-    croppedNewWords[0].foreignWord
+  const totalWordArr = croppedNewWords.concat(
+    croppedLearningWords,
+    croppedLearnedWords
   );
 
-  if (
-    !isValidNumberOfNewWords ||
-    !isValidNumberOfLearningWords ||
-    !isValidNumberOfLearnedWords
-  )
-    return <Redirect to="/learn" />;
+  const [totalWords, setTotalWords] = useState(totalWordArr);
+
+  useEffect(() => {
+    const { foreignWord } = totalWords[wordCount];
+
+    setCurrentWord(foreignWord);
+  }, [wordCount]);
 
   return (
     <div>
       <ProgressCard
         newWordsNum={croppedNewWords.length}
-        learningWordsNum={croppedLearnedWords.length}
-        learnedWordsNum={croppedLearningWords.length}
+        learningWordsNum={croppedLearningWords.length}
+        learnedWordsNum={croppedLearnedWords.length}
       />
 
       <QuestionCard
         task="Please, enter translation of the word"
-        word={currentWord}
+        currentWord={currentWord}
+        setWordCount={setWordCount}
+        totalWorsArray={totalWords}
       />
     </div>
   );
