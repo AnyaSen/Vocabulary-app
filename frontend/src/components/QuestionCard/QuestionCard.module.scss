@@ -17,6 +17,17 @@
     }
   }
 
+  .headerWithImg {
+    @include flex-row;
+    margin-bottom: $space-1;
+
+    img {
+      margin-left: $space-0;
+      height: 2rem;
+      width: auto;
+    }
+  }
+
   button {
     margin-top: $space-0;
   }

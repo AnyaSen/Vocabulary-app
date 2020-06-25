@@ -1,7 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 
-// import { Redirect } from "react-router-dom";
-
 import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
 
@@ -37,12 +35,6 @@ export default function QuestionPage({ match }) {
     numberOfLearnedParam
   );
 
-  // const isValidNumberOfNewWords = numberOfNewParam <= newWordsLength;
-  // const isValidNumberOfLearningWords =
-  //   numberOfLearningParam <= learningWordsLength;
-  // const isValidNumberOfLearnedWords =
-  //   numberOfLearnedParam <= learnedWordsLength;
-
   const [croppedNewWords, setCroppedNewWords] = useState(croppedNewWordsArray);
   const [croppedLearningWords, setCroppedLearningWords] = useState(
     croppedLearningWordsArray
@@ -59,15 +51,10 @@ export default function QuestionPage({ match }) {
   const [totalWords, setTotalWords] = useState(totalWordArr);
 
   useEffect(() => {
-    setCurrentWord(totalWords[wordCount].foreignWord);
-  }, [wordCount]);
+    const { foreignWord } = totalWords[wordCount];
 
-  // if (
-  //   !isValidNumberOfNewWords ||
-  //   !isValidNumberOfLearningWords ||
-  //   !isValidNumberOfLearnedWords
-  // )
-  //   return <Redirect to="/learn" />;
+    setCurrentWord(foreignWord);
+  }, [wordCount]);
 
   return (
     <div>

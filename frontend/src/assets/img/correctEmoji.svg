@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="102" height="102" viewBox="0 0 102 102">
+  <g id="Group_148" data-name="Group 148" transform="translate(-1092 -677)">
+    <circle id="Ellipse_23" data-name="Ellipse 23" cx="51" cy="51" r="51" transform="translate(1092 677)" fill="#c8ed4d"/>
+    <g id="Group_145" data-name="Group 145" transform="translate(203 254)">
+      <text id="_" data-name=")" transform="translate(924 487) rotate(90)" fill="#1f1f1f" font-size="54" font-family="Questrial-Regular, Questrial"><tspan x="0" y="0">)</tspan></text>
+      <g id="Group_62" data-name="Group 62" transform="translate(909 447.874)">
+        <circle id="Ellipse_10" data-name="Ellipse 10" cx="13.5" cy="13.5" r="13.5" transform="translate(0 0.126)" fill="#1f1f1f"/>
+        <path id="Path_9" data-name="Path 9" d="M5.281,0A5.281,5.281,0,1,1,0,5.281,5.281,5.281,0,0,1,5.281,0Z" transform="translate(13.483 0.971)" fill="#fff"/>
+        <path id="Path_12" data-name="Path 12" d="M2.094,0A2.094,2.094,0,1,1,0,2.094,2.094,2.094,0,0,1,2.094,0Z" transform="translate(4.952 13.483)" fill="#fff"/>
+      </g>
+      <g id="Group_63" data-name="Group 63" transform="translate(943.123 447.874)">
+        <circle id="Ellipse_10-2" data-name="Ellipse 10" cx="13.5" cy="13.5" r="13.5" transform="translate(-0.123 0.126)" fill="#1f1f1f"/>
+        <path id="Path_9-2" data-name="Path 9" d="M5.281,0A5.281,5.281,0,1,1,0,5.281,5.281,5.281,0,0,1,5.281,0Z" transform="translate(13.483 0.971)" fill="#fff"/>
+        <path id="Path_12-2" data-name="Path 12" d="M2.094,0A2.094,2.094,0,1,1,0,2.094,2.094,2.094,0,0,1,2.094,0Z" transform="translate(4.952 13.483)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
