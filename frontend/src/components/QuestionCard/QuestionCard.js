@@ -54,6 +54,15 @@ export default function QuestionCard({ task, currentWord, totalWorsArray }) {
 
     setBorderColor("yellow");
     setReaction("It's okay, try to remember: ");
+
+    if (newlyAdded || learned) {
+      editWord(
+        { newlyAdded: "false", learning: "true", learned: "false" },
+        _id
+      );
+
+      return;
+    }
   };
 
   const handleContinueClick = () => {
@@ -90,20 +99,33 @@ export default function QuestionCard({ task, currentWord, totalWorsArray }) {
 
     const rightTranslation = translation === translationInput;
 
+    if (newlyAdded || learned) {
+      editWord(
+        { newlyAdded: "false", learning: "true", learned: "false" },
+        _id
+      );
+
+      return;
+    }
+
     if (rightTranslation) {
       setIsCorrectGuess(true);
       setBorderColor("green");
       setReaction("CORRECT");
+
+      editWord(
+        { newlyAdded: "false", learning: "false", learned: "true" },
+        _id
+      );
     } else {
       setIsIncorrectGuess(true);
       setBorderColor("red");
       setReaction("INCORRECT");
-    }
 
-    if (newlyAdded || learned) {
-      editWord({ newlyAdded: "false", learning: "true" }, _id);
-
-      return;
+      editWord(
+        { newlyAdded: "false", learning: "true", learned: "false" },
+        _id
+      );
     }
   };
 
@@ -131,14 +153,15 @@ export default function QuestionCard({ task, currentWord, totalWorsArray }) {
       )}
 
       {isAnswerMode ? (
-        <h2 className={Styles.headerWithImg}>
-          {reaction}{" "}
-          {isCorrectGuess ? (
-            <img src={correctEmojiSvg} />
-          ) : isIncorrectGuess ? (
-            <img src={incorrectEmojiSvg} />
-          ) : null}
-        </h2>
+        <div className={Styles.headerWithImg}>
+          <h2>{reaction}</h2>
+          {!doNotKnowGuess && (
+            <img
+              src={isCorrectGuess ? correctEmojiSvg : incorrectEmojiSvg}
+              alt="reaction emoji"
+            />
+          )}
+        </div>
       ) : (
         <div className={Styles.header}>
           <h2>{task}</h2>
@@ -153,6 +176,9 @@ export default function QuestionCard({ task, currentWord, totalWorsArray }) {
       )}
 
       <WarningMessage warnMessage={errorMessage} />
+      {isIncorrectGuess && (
+        <p className={Styles.wrongTranslation}>{translationInput}</p>
+      )}
 
       <div className={Styles.WordCardsContainer}>
         <WordCard>

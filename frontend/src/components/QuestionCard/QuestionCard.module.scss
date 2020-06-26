@@ -19,6 +19,7 @@
 
   .headerWithImg {
     @include flex-row;
+
     margin-bottom: $space-1;
 
     img {
@@ -54,5 +55,10 @@
       width: auto;
       cursor: pointer;
     }
+  }
+
+  .wrongTranslation {
+    text-decoration: line-through;
+    color: $color-red;
   }
 }
