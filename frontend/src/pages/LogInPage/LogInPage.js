@@ -84,6 +84,7 @@ export default function HomePage() {
         name="email"
         value={values.email}
         onChange={handleChange}
+        autocompleteON
       />
 
       <InputField

@@ -108,6 +108,7 @@ export default function SignUpPage() {
         name="email"
         value={email}
         onChange={handleChange}
+        autocompleteON
       />
 
       <InputField
