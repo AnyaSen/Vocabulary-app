@@ -1,5 +1,6 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
 
 .InitialPageButtonContainer {
   @include flex-column;
@@ -8,6 +9,10 @@
     height: 3rem;
     width: auto;
     margin-bottom: $space-0;
+  }
+
+  p {
+    text-align: center;
   }
 
   button {
@@ -27,5 +32,17 @@
       transition: background-color ease-in-out;
       transition-duration: 0.4s;
     }
+
+    @include md {
+      margin: $space-0 0;
+    }
+
+    @include xs {
+      font-size: $font-xs;
+    }
+  }
+
+  @include md {
+    margin: $space-2;
   }
 }

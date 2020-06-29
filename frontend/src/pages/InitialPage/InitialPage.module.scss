@@ -1,5 +1,6 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .logo {
   height: 3rem;
@@ -8,4 +9,15 @@
   left: 0;
   margin-left: $space-3;
   margin-top: $space-3;
+
+  @include lg {
+    margin-left: $space-2;
+    margin-top: $space-2;
+  }
+
+  @include md {
+    width: 100%;
+    margin-top: $space-3;
+    margin-left: 0;
+  }
 }

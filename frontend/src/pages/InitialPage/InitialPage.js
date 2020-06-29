@@ -7,8 +7,8 @@ import loginSvg from "../../assets/img/login.svg";
 import instructionsSvg from "../../assets/img/instructions.svg";
 import logoSvg from "../../assets/img/logo.svg";
 
-import InitialPageButton from "../../components/Buttons/InitialPageButton/InitialPageButton";
 import PageLayout from "../../components/PageLayout/PageLayout";
+import InitialPageButton from "./InitialPageButton/InitialPageButton";
 
 export default function InitialPage() {
   return (

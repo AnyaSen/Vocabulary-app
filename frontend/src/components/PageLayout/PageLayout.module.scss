@@ -1,5 +1,6 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .PageLayout {
   @include flex-column;
@@ -12,6 +13,13 @@
     margin-top: $space-8;
     flex: 1;
 
+    h1 {
+      @include md {
+        margin: 0 $space-0;
+        margin-top: $space-2;
+      }
+    }
+
     h2 {
       padding: $space-3;
       margin: $space-5 0;
@@ -22,6 +30,9 @@
       span {
         color: $color-pink;
       }
+      @include md {
+        margin: $space-3 0;
+      }
     }
   }
 
@@ -31,5 +42,9 @@
     justify-content: space-evenly;
     flex: 2;
     margin-bottom: $space-8;
+
+    @include md {
+      @include flex-column;
+    }
   }
 }
