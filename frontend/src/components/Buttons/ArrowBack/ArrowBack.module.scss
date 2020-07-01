@@ -1,5 +1,6 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
 
 .ArrowBack {
   @include push-to-upper-left-corner;
@@ -9,5 +10,10 @@
     width: auto;
     margin-left: $space-3;
     margin-top: $space-2;
+
+    @include md {
+      margin-left: $space-2;
+      margin-top: $space-1;
+    }
   }
 }
