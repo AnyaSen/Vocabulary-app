@@ -15,5 +15,9 @@
       margin-left: $space-2;
       margin-top: $space-1;
     }
+
+    @include xs {
+      height: 2.5rem;
+    }
   }
 }
