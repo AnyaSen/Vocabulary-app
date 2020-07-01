@@ -1,10 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import { useForm } from "../../../hooks/useForm";
 import Styles from "./PreferencesPage.module.scss";
 
 import { WordsContext } from "../../../contexts/WordsContext";
-import { useForm } from "../../../hooks/useForm";
 
 import Layout from "../../../components/Layout/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
@@ -24,7 +23,6 @@ export default function PreferencesPage() {
     newWordsLength,
     learningWordsLength,
     learnedWordsLength,
-    setWordsData,
 
     noWords,
     noNewWords,
@@ -106,11 +104,11 @@ export default function PreferencesPage() {
     }
   };
 
-  useEffect(() => {
-    setWordsData();
+  // useEffect(() => {
+  //   setWordsData();
 
-    // eslint-disable-next-line
-  }, []);
+  //   // eslint-disable-next-line
+  // }, []);
 
   return (
     <Layout>

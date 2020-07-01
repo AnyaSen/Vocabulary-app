@@ -9,9 +9,7 @@ import ProgressCard from "../../../components/ProgressCard/ProgressCard";
 export default function QuestionPage({ match }) {
   const { newWords, learningWords, learnedWords } = useContext(WordsContext);
 
-  const { wordCount, setWordCount, currentWord, setCurrentWord } = useContext(
-    LearningContext
-  );
+  const { wordCount, setCurrentWord } = useContext(LearningContext);
 
   const filterWordsFromArray = (array, numberOfWords) =>
     array.filter((item, index) => {
@@ -48,7 +46,7 @@ export default function QuestionPage({ match }) {
     croppedLearnedWords
   );
 
-  const [totalWords, setTotalWords] = useState(totalWordArr);
+  const [totalWords] = useState(totalWordArr);
 
   useEffect(() => {
     const { foreignWord } = totalWords[wordCount];
@@ -66,8 +64,6 @@ export default function QuestionPage({ match }) {
 
       <QuestionCard
         task="Please, enter translation of the word"
-        currentWord={currentWord}
-        setWordCount={setWordCount}
         totalWorsArray={totalWords}
       />
     </div>

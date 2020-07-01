@@ -1,6 +1,19 @@
 @import "../../assets/scss/mixins";
 @import "../../assets/scss/variables";
 
+.arrow {
+  @include push-to-upper-left-corner;
+
+  margin-left: $space-3;
+  margin-top: $space-2;
+
+  img {
+    height: 3rem;
+    width: auto;
+    cursor: pointer;
+  }
+}
+
 .QuestionCardContainer {
   @include flex-column;
 
@@ -41,19 +54,6 @@
 
     input {
       border-color: $color-pink;
-    }
-  }
-
-  .arrow {
-    @include push-to-upper-left-corner;
-
-    margin-left: $space-3;
-    margin-top: $space-2;
-
-    img {
-      height: 3rem;
-      width: auto;
-      cursor: pointer;
     }
   }
 
