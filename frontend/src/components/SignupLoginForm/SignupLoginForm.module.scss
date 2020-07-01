@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   background-color: $color-light-grey;
+  height: 100vh;
 }
 
 .SignupLoginForm {
@@ -21,6 +22,10 @@
 
   h1 {
     margin-bottom: $space-2;
+
+    @include md {
+      margin-bottom: 0;
+    }
   }
 
   p {
@@ -33,6 +38,24 @@
 
   button {
     margin: $space-1;
+  }
+
+  @include lg {
+    height: 75vh;
+    border-radius: $border-radius-sm;
+    box-shadow: $shadow-2;
+  }
+
+  @include md {
+    width: 60%;
+  }
+
+  @include sm {
+    width: 22rem;
+  }
+
+  @include xs {
+    width: 100%;
   }
 }
 
