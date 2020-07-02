@@ -47,3 +47,8 @@ export const filterLearnedWords = vocabularyArr => {
   });
   return filteredWords;
 };
+
+export const filterWordsFromArrayByNumber = (array, numberOfWords) =>
+  array.filter((item, index) => {
+    return index < numberOfWords;
+  });

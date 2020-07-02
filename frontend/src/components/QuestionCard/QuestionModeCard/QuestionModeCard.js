@@ -23,12 +23,23 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
     setReaction,
 
     values,
-    handleChange
+    handleChange,
+
+    croppedNewWordsLength,
+    setCroppedNewWordsLength,
+    croppedLearningWordsLength,
+    setCroppedLearningWordsLength,
+    croppedLearnedWordsLength,
+    setCroppedLearnedWordsLength
   } = useContext(LearningContext);
 
   const [errorMessage, setErrorMessage] = useState("");
 
   const { translationInput } = values;
+
+  const { newlyAdded, learning, learned, _id, translation } = totalWorsArray[
+    wordCount
+  ];
 
   const handleDoNotKnowClick = () => {
     setErrorMessage("");
@@ -42,12 +53,13 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
         { newlyAdded: "false", learning: "true", learned: "false" },
         _id
       );
+      newlyAdded && setCroppedNewWordsLength(croppedNewWordsLength - 1);
+      learned && setCroppedLearnedWordsLength(croppedLearnedWordsLength - 1);
+      setCroppedLearningWordsLength(croppedLearningWordsLength + 1);
 
       return;
     }
   };
-
-  const { newlyAdded, learned, _id, translation } = totalWorsArray[wordCount];
 
   const handleSubmit = event => {
     const noTranslation = translationInput === "";
@@ -62,13 +74,6 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
 
     const rightTranslation = translation === translationInput;
 
-    if (newlyAdded || learned) {
-      editWord(
-        { newlyAdded: "false", learning: "true", learned: "false" },
-        _id
-      );
-    }
-
     if (rightTranslation) {
       setIsCorrectGuess(true);
       setBorderColor("green");
@@ -78,6 +83,11 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
         { newlyAdded: "false", learning: "false", learned: "true" },
         _id
       );
+
+      newlyAdded && setCroppedNewWordsLength(croppedNewWordsLength - 1);
+      learning && setCroppedLearningWordsLength(croppedLearningWordsLength - 1);
+
+      setCroppedLearnedWordsLength(croppedLearnedWordsLength + 1);
     } else {
       setIsIncorrectGuess(true);
       setBorderColor("red");
@@ -87,6 +97,12 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
         { newlyAdded: "false", learning: "true", learned: "false" },
         _id
       );
+      if (newlyAdded || learned) {
+        newlyAdded && setCroppedNewWordsLength(croppedNewWordsLength - 1);
+        learned && setCroppedLearnedWordsLength(croppedLearnedWordsLength - 1);
+
+        setCroppedLearningWordsLength(croppedLearningWordsLength + 1);
+      }
     }
   };
 

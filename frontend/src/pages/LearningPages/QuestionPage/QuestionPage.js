@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 
+import { filterWordsFromArrayByNumber } from "../../../services/filterVocabulary";
 import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
 
@@ -9,26 +10,33 @@ import ProgressCard from "../../../components/ProgressCard/ProgressCard";
 export default function QuestionPage({ match }) {
   const { newWords, learningWords, learnedWords } = useContext(WordsContext);
 
-  const { wordCount, setCurrentWord } = useContext(LearningContext);
-
-  const filterWordsFromArray = (array, numberOfWords) =>
-    array.filter((item, index) => {
-      return index < numberOfWords;
-    });
+  const {
+    wordCount,
+    setCurrentWord,
+    croppedNewWordsLength,
+    setCroppedNewWordsLength,
+    croppedLearningWordsLength,
+    setCroppedLearningWordsLength,
+    croppedLearnedWordsLength,
+    setCroppedLearnedWordsLength
+  } = useContext(LearningContext);
 
   const { newNumber, learningNumber, learnedNumber } = match.params;
   const numberOfNewParam = newNumber;
   const numberOfLearningParam = learningNumber;
   const numberOfLearnedParam = learnedNumber;
 
-  const croppedNewWordsArray = filterWordsFromArray(newWords, numberOfNewParam);
+  const croppedNewWordsArray = filterWordsFromArrayByNumber(
+    newWords,
+    numberOfNewParam
+  );
 
-  const croppedLearningWordsArray = filterWordsFromArray(
+  const croppedLearningWordsArray = filterWordsFromArrayByNumber(
     learningWords,
     numberOfLearningParam
   );
 
-  const croppedLearnedWordsArray = filterWordsFromArray(
+  const croppedLearnedWordsArray = filterWordsFromArrayByNumber(
     learnedWords,
     numberOfLearnedParam
   );
@@ -54,12 +62,18 @@ export default function QuestionPage({ match }) {
     setCurrentWord(foreignWord);
   }, [wordCount]);
 
+  useEffect(() => {
+    setCroppedNewWordsLength(croppedNewWords.length);
+    setCroppedLearningWordsLength(croppedLearningWords.length);
+    setCroppedLearnedWordsLength(croppedLearnedWords.length);
+  }, []);
+
   return (
     <div>
       <ProgressCard
-        newWordsNum={croppedNewWords.length}
-        learningWordsNum={croppedLearningWords.length}
-        learnedWordsNum={croppedLearnedWords.length}
+        newWordsNum={croppedNewWordsLength}
+        learningWordsNum={croppedLearningWordsLength}
+        learnedWordsNum={croppedLearnedWordsLength}
       />
 
       <QuestionCard

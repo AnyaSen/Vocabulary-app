@@ -7,6 +7,12 @@ export const LearningContextProvider = ({ children }) => {
   const [wordCount, setWordCount] = useState(0);
   const [currentWord, setCurrentWord] = useState("");
 
+  const [croppedNewWordsLength, setCroppedNewWordsLength] = useState(0);
+  const [croppedLearningWordsLength, setCroppedLearningWordsLength] = useState(
+    0
+  );
+  const [croppedLearnedWordsLength, setCroppedLearnedWordsLength] = useState(0);
+
   const [isCorrectGuess, setIsCorrectGuess] = useState(false);
   const [isIncorrectGuess, setIsIncorrectGuess] = useState(false);
   const [doNotKnowGuess, setDoNotKnowGuess] = useState(false);
@@ -45,7 +51,14 @@ export const LearningContextProvider = ({ children }) => {
 
         values,
         handleChange,
-        clearValues
+        clearValues,
+
+        croppedNewWordsLength,
+        setCroppedNewWordsLength,
+        croppedLearningWordsLength,
+        setCroppedLearningWordsLength,
+        croppedLearnedWordsLength,
+        setCroppedLearnedWordsLength
       }}
     >
       {children}
