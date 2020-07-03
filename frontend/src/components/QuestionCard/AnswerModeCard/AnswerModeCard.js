@@ -80,7 +80,6 @@ export default function AnswerModeCard({ totalWorsArray }) {
 
       <SecondaryButton
         type="button"
-        backgroundColor="#f4f4f4"
         buttonMessage="Continue"
         onClick={handleContinueClick}
       />

@@ -113,7 +113,6 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
 
         <SecondaryButton
           type="button"
-          backgroundColor="#f4f4f4"
           buttonMessage="I don't remember"
           onClick={handleDoNotKnowClick}
         />

@@ -56,7 +56,7 @@ export const WordsContextProvider = ({ children }) => {
       setWordsData();
     }
     // eslint-disable-next-line
-  }, [token]);
+  }, [token, wordsArr]);
 
   const totalWordsLength = wordsArr.length;
   const newWordsLength = newWords.length;
