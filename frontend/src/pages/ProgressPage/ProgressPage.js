@@ -41,13 +41,13 @@ export default function ProgressPage() {
         options={{
           slices: [
             {
+              color: "#efe9e7"
+            },
+            {
+              color: "#fce1e1"
+            },
+            {
               color: "#F79090"
-            },
-            {
-              color: "#A08484"
-            },
-            {
-              color: "#D0CECE"
             }
           ],
           legend: {
@@ -56,6 +56,10 @@ export default function ProgressPage() {
             textStyle: {
               fontSize: 14
             }
+          },
+
+          pieSliceTextStyle: {
+            color: "#1f1f1f"
           },
 
           fontName: "inherit"
