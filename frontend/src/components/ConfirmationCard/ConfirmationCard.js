@@ -19,12 +19,11 @@ export default function ConfirmationCard({
         <SecondaryButton
           buttonMessage={confAnswerOne}
           onClick={answerOneOnClick}
+          buttonColor="pink"
         />
         <SecondaryButton
           onClick={answerTwoOnClick}
           buttonMessage={confAnswerTwo}
-          textColor="white"
-          backgroundColor="#f79090"
         />
       </div>
     </div>

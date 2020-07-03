@@ -6,15 +6,17 @@ export default function PrimaryButton({
   buttonMessage,
   type,
   value,
-  textColor,
-  backgroundColor
+  buttonColor
 }) {
   return (
     <button
       type={type}
       value={value}
-      className={Styles.PrimaryButton}
-      style={{ color: textColor, backgroundColor: backgroundColor }}
+      className={
+        buttonColor === "white"
+          ? Styles.PrimaryButtonWhite
+          : Styles.PrimaryButtonPink
+      }
     >
       {buttonMessage}
     </button>

@@ -7,16 +7,18 @@ export default function SecondaryButton({
   onClick,
   type,
   value,
-  textColor,
-  backgroundColor
+  buttonColor
 }) {
   return (
     <button
-      style={{ color: textColor, backgroundColor: backgroundColor }}
       onClick={onClick}
       type={type}
       value={value}
-      className={Styles.SecondaryButton}
+      className={
+        buttonColor === "pink"
+          ? Styles.SecondaryButtonPink
+          : Styles.SecondaryButtonWhite
+      }
     >
       {buttonMessage}
     </button>

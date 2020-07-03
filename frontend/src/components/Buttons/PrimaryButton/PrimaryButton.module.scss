@@ -1,6 +1,10 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
 
-.PrimaryButton {
+.PrimaryButtonPink {
   @include button-lg($color-pink, $color-white);
+}
+
+.PrimaryButtonWhite {
+  @include button-lg($color-dark-white, $color-text);
 }

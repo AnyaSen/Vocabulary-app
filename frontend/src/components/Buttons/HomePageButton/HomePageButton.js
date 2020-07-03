@@ -17,11 +17,7 @@ export default function HomePageButton({
       <img src={imgSrc} alt={imgAlt} />
 
       <Link to={linkTo}>
-        <PrimaryButton
-          buttonMessage={buttonMessage}
-          backgroundColor="#EFE9E7"
-          textColor="#1F1F1F"
-        />
+        <PrimaryButton buttonMessage={buttonMessage} buttonColor="white" />
       </Link>
 
       <p>{buttonDescription}</p>

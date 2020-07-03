@@ -1,6 +1,10 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
 
-.SecondaryButton {
+.SecondaryButtonWhite {
   @include button-sm($color-grey, $color-text);
+}
+
+.SecondaryButtonPink {
+  @include button-sm($color-pink, $color-white);
 }

@@ -2,7 +2,7 @@
 @import "../../assets/scss/breakpoints";
 
 .WordPairContainer {
-  border: $border-light;
+  box-shadow: $shadow-1;
   border-radius: $border-radius-sm;
   width: 95%;
   margin: $space-2 0;

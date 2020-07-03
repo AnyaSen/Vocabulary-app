@@ -70,8 +70,7 @@ export default function BrowseVocabulary() {
           <SecondaryButton
             buttonMessage="Show All"
             onClick={handleShowAll}
-            textColor="white"
-            backgroundColor="#f79090"
+            buttonColor="pink"
           />
         </div>
       )}
