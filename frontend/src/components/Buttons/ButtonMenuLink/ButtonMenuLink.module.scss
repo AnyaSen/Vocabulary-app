@@ -1,4 +1,5 @@
 @import "../../../assets/scss/variables";
+@import "../../../assets/scss/breakpoints";
 
 .ButtonMenuLink {
   border: 1px solid $color-pink;
@@ -8,6 +9,10 @@
   border-radius: $border-radius-md;
   width: 100%;
   text-align: center;
+
+  @include lg {
+    padding: 0.2rem $space-0;
+  }
 }
 .active {
   border: 1px solid $color-brown;

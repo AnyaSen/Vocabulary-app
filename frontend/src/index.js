@@ -9,6 +9,7 @@ import { ErrorContextProvider } from "./contexts/ErrorContext";
 import { LoadingContextProvider } from "./contexts/LoadingContext";
 import { BrowseContextProvider } from "./contexts/BrowseContext";
 import { LearningContextProvider } from "./contexts/LearningContext";
+import { NavBarConextProvider } from "./contexts/NavBarConext";
 
 axios.interceptors.response.use(
   function(config) {
@@ -28,13 +29,15 @@ ReactDOM.render(
     <BrowserRouter>
       <ErrorContextProvider>
         <LoadingContextProvider>
-          <WordsContextProvider>
-            <LearningContextProvider>
-              <BrowseContextProvider>
-                <App />
-              </BrowseContextProvider>
-            </LearningContextProvider>
-          </WordsContextProvider>
+          <NavBarConextProvider>
+            <WordsContextProvider>
+              <LearningContextProvider>
+                <BrowseContextProvider>
+                  <App />
+                </BrowseContextProvider>
+              </LearningContextProvider>
+            </WordsContextProvider>
+          </NavBarConextProvider>
         </LoadingContextProvider>
       </ErrorContextProvider>
     </BrowserRouter>

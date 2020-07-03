@@ -1,12 +1,17 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .AddWordsForm {
-  margin-top: $space-8;
+  margin-top: 6rem;
   margin-bottom: $space-3;
 
   h2 {
     margin-bottom: $space-2;
+  }
+
+  @include lg {
+    margin-top: 9rem;
   }
 
   .form {
