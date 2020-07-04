@@ -12,4 +12,8 @@
   @include lg {
     margin-top: $space-3;
   }
+
+  @include sm {
+    padding: $space-0;
+  }
 }

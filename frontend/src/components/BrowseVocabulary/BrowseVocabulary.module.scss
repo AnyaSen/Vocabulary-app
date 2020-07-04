@@ -16,6 +16,15 @@
 
     input {
       @include input-sm;
+
+      @include sm {
+        margin: $space-0;
+        width: 10rem;
+      }
+
+      @include xs {
+        width: 7.5rem;
+      }
     }
   }
 

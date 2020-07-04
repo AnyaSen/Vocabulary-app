@@ -14,7 +14,25 @@
     margin-top: 9rem;
   }
 
+  @include sm {
+    margin-bottom: $space-0;
+
+    h2 {
+      margin-bottom: $space-0;
+      font-size: $font-md;
+    }
+  }
+
   .form {
     @include flex-row;
+
+    @include sm {
+      @include flex-column;
+
+      input {
+        margin: $space-0 0;
+        padding: $space-05;
+      }
+    }
   }
 }

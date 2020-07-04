@@ -1,5 +1,6 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .WordPairContainer {
   @include flex-row;
@@ -10,20 +11,28 @@
     flex: 3;
     @include flex-row;
     justify-content: space-around;
+
+    @include sm {
+      flex: 2;
+    }
   }
 
   .buttonsContainer {
-    flex: 1;
+    flex: 0;
     @include flex-row;
   }
 
   img {
     height: 1.4rem;
     margin: 0 $space-2;
+
+    @include sm {
+      margin: $space-1;
+    }
   }
 
   p {
-    padding: $space-1;
+    padding: $space-1 0;
     width: 30%;
     text-align: left;
     word-break: break-word;
@@ -41,6 +50,10 @@
 
     @include flex-row;
     justify-content: space-around;
+
+    @include sm {
+      flex: 1;
+    }
 
     input {
       @include input-sm;

@@ -1,5 +1,6 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .BurgerBar {
   .close {
@@ -8,11 +9,19 @@
     margin-left: $space-2;
     height: 1.5rem;
     cursor: pointer;
+
+    @include xs {
+      height: 1rem;
+    }
   }
 
   .dots {
     @extend .close;
     height: 0.8rem;
+
+    @include xs {
+      height: 0.6rem;
+    }
   }
 
   .BurgerOpen {

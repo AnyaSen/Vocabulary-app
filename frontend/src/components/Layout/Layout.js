@@ -9,7 +9,7 @@ import { NavBarConext } from "../../contexts/NavBarConext";
 
 export default function Layout({ children }) {
   const [burgerBar, setBurgerBar] = useState(false);
-  const { isBurgerOpen, setIsBurgerOpen } = useContext(NavBarConext);
+  const { isBurgerOpen } = useContext(NavBarConext);
 
   useEffect(() => {
     if (window.innerWidth < 719) {
