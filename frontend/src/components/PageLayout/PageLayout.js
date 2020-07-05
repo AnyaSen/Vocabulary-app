@@ -8,7 +8,8 @@ export default function PageLayout({
   header,
   headerAfterBreak,
   span,
-  subHeaderAferSpan
+  subHeaderAferSpan,
+  childrenFlexColumn
 }) {
   return (
     <div className={Styles.PageLayout}>
@@ -28,7 +29,11 @@ export default function PageLayout({
         </div>
       </div>
 
-      <div className={Styles.children}>{children}</div>
+      <div
+        className={childrenFlexColumn ? Styles.childrenColumn : Styles.children}
+      >
+        {children}
+      </div>
     </div>
   );
 }

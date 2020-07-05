@@ -1,5 +1,6 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .HomePage {
   width: 100%;
@@ -12,8 +13,13 @@
   text-align: center;
   flex-wrap: wrap;
 
+  @include md {
+    margin-bottom: 0;
+  }
+
   div {
-    margin: $space-1;
+    margin: 0 $space-2;
+    margin-top: $space-2;
   }
 
   p {

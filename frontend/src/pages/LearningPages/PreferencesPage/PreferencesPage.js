@@ -104,15 +104,10 @@ export default function PreferencesPage() {
     }
   };
 
-  // useEffect(() => {
-  //   setWordsData();
-
-  //   // eslint-disable-next-line
-  // }, []);
-
   return (
     <Layout>
       <PageLayout
+        childrenFlexColumn
         header="PREFERENCES"
         subHeader="How many words would you like to review?"
       >
@@ -120,6 +115,25 @@ export default function PreferencesPage() {
           <NotificationMessage text=" Please, add some vocabulary before learning" />
         ) : (
           <>
+            <div className={Styles.explanatoryContainer}>
+              <div className={Styles.wordsNumberInfo}>
+                <p className={Styles.totalWordsNumber}>
+                  You have <span>{totalWordsLength} word(s)</span> in total
+                </p>
+                <p>
+                  New: {newWordsLength}
+                  <br /> Learning: {learningWordsLength}
+                  <br />
+                  Learned: {learnedWordsLength}
+                </p>
+              </div>
+              <button onClick={toggleisShowButtonPressed}>
+                {isShowButtonPressed ? "Close" : "Show word types"}
+              </button>
+
+              {isShowButtonPressed && <ExplanatoryWordsCard />}
+            </div>
+
             <form onSubmit={handleSubmit} className={Styles.PreferencesForm}>
               <p className={Styles.PreferencesHeader}>
                 Please, fill the preferences in numbers and press START
@@ -162,23 +176,6 @@ export default function PreferencesPage() {
                 buttonMessage="START"
               />
             </form>
-
-            <div className={Styles.explanatoryContainer}>
-              <p>
-                You have {totalWordsLength} word(s) in total
-                <br /> New: {newWordsLength}
-                <br /> Learning: {learningWordsLength}
-                <br />
-                Learned: {learnedWordsLength}
-              </p>
-              <button onClick={toggleisShowButtonPressed}>
-                {isShowButtonPressed
-                  ? "Close types of words"
-                  : "Show types of words"}
-              </button>
-
-              {isShowButtonPressed && <ExplanatoryWordsCard />}
-            </div>
           </>
         )}
       </PageLayout>

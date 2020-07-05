@@ -1,5 +1,6 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
 
 .PreferencesForm {
   @include flex-column;
@@ -11,7 +12,9 @@
   }
 
   .PreferencesHeader {
+    margin: 0 $space-0;
     margin-bottom: $space-0;
+    text-align: center;
   }
 
   input {
@@ -19,7 +22,7 @@
   }
 
   button {
-    margin-top: $space-1;
+    margin: $space-1 0;
   }
 
   .inputFieldsContainer {
@@ -28,6 +31,7 @@
 }
 .explanatoryContainer {
   @include flex-column;
+  margin-bottom: $space-1;
 
   button {
     padding: $space-0 $space-1;
@@ -35,5 +39,18 @@
     background-color: $color-light-grey;
     border-radius: $border-radius-lg;
     box-shadow: $shadow-2;
+  }
+
+  .wordsNumberInfo {
+    padding: 0 $space-2;
+    margin-right: $space-2;
+  }
+
+  .totalWordsNumber {
+    font-weight: 700;
+
+    span {
+      color: $color-pink;
+    }
   }
 }
