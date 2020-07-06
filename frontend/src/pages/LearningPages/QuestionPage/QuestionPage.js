@@ -18,7 +18,8 @@ export default function QuestionPage({ match }) {
     croppedLearningWordsLength,
     setCroppedLearningWordsLength,
     croppedLearnedWordsLength,
-    setCroppedLearnedWordsLength
+    setCroppedLearnedWordsLength,
+    showCongratilationPage
   } = useContext(LearningContext);
 
   const { newNumber, learningNumber, learnedNumber } = match.params;
@@ -70,11 +71,13 @@ export default function QuestionPage({ match }) {
 
   return (
     <div>
-      <ProgressCard
-        newWordsNum={croppedNewWordsLength}
-        learningWordsNum={croppedLearningWordsLength}
-        learnedWordsNum={croppedLearnedWordsLength}
-      />
+      {!showCongratilationPage && (
+        <ProgressCard
+          newWordsNum={croppedNewWordsLength}
+          learningWordsNum={croppedLearningWordsLength}
+          learnedWordsNum={croppedLearnedWordsLength}
+        />
+      )}
 
       <QuestionCard
         task="Please, enter translation of the word"

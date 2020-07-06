@@ -1,5 +1,6 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .ProgressCard {
   @include push-to-upper-right-corner;
@@ -11,12 +12,20 @@
   width: fit-content;
   box-shadow: $shadow-2;
 
+  @include md {
+    padding: $space-0 $space-2;
+  }
+
   .header {
     text-align: center;
     margin-bottom: $space-0;
     color: $color-pink;
     font-weight: 700;
     letter-spacing: 0.05rem;
+
+    @include md {
+      margin-bottom: 0;
+    }
   }
 
   p {

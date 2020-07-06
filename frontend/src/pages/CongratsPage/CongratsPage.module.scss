@@ -1,9 +1,22 @@
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
 
 .congratsImgAndButton {
   @include flex-column;
 
   img {
     height: 13rem;
+
+    @include md {
+      margin-top: $space-8;
+    }
+
+    @include sm {
+      height: 10rem;
+    }
+
+    @include xs {
+      height: 9rem;
+    }
   }
 }

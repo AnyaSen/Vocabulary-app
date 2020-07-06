@@ -1,14 +1,19 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
 
 .WordCard {
   @include flex-column;
 
   padding: $space-4 $space-1;
   margin: $space-1;
-  border: 1px solid $color-dark-white;
+  box-shadow: $shadow-1;
   border-radius: $border-radius-lg;
-  width: 40%;
+  width: 23rem;
+
+  @include xs {
+    width: 17rem;
+  }
 
   h1 {
     padding: $space-0;

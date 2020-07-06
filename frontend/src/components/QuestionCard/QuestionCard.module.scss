@@ -1,5 +1,6 @@
 @import "../../assets/scss/mixins";
 @import "../../assets/scss/variables";
+@import "../../assets/scss/breakpoints";
 
 .arrow {
   @include push-to-upper-left-corner;
@@ -28,6 +29,10 @@
     button {
       margin-top: $space-0;
     }
+
+    @include md {
+      margin-top: $space-6;
+    }
   }
 
   .headerWithImg {
@@ -51,6 +56,10 @@
 
     justify-content: center;
     width: 80%;
+
+    @include md {
+      @include flex-column;
+    }
 
     input {
       border-color: $color-pink;
