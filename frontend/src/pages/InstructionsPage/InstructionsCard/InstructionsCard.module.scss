@@ -7,6 +7,10 @@
   padding-top: $space-5;
   margin: $space-2;
 
+  @include xl {
+    margin: $space-3;
+  }
+
   .InstructionsNumber {
     position: absolute;
     top: 0;

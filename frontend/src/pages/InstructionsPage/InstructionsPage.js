@@ -1,7 +1,6 @@
 import React from "react";
 
 import Styles from "./InstructionsPage.module.scss";
-import screen from "../../assets/img/screen.png";
 
 import ArrowBack from "../../components/Buttons/ArrowBack/ArrowBack";
 import InstructionsCard from "./InstructionsCard/InstructionsCard";
@@ -42,6 +41,12 @@ export default function InstructionsPage() {
         />
         <InstructionsCard
           instructionNumber={4}
+          text="    First, create an account pressing the sing up button."
+          textafterBreak=" Log into your
+      account if you already have one."
+        />
+        <InstructionsCard
+          instructionNumber={5}
           text="    First, create an account pressing the sing up button."
           textafterBreak=" Log into your
       account if you already have one."
