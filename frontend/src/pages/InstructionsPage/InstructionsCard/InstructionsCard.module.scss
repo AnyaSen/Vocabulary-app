@@ -1,0 +1,36 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
+
+.InstructionsCardContainer {
+  position: relative;
+  padding-top: $space-5;
+  margin: $space-2;
+
+  .InstructionsNumber {
+    position: absolute;
+    top: 0;
+    left: 40%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    width: 3.5rem;
+    padding: $space-1 $space-2;
+    background-color: $color-pink;
+    border-radius: 50%;
+    color: $color-white;
+
+    span {
+      text-align: center;
+      font-size: $font-md;
+    }
+  }
+}
+
+.InstructionsCard {
+  box-shadow: $shadow-2;
+  padding: $space-2;
+  border-radius: $border-radius-md;
+}

@@ -69,9 +69,15 @@
 
       .instructions {
         @include flex-column;
+        justify-content: center;
 
         h2 {
           color: $color-pink;
+          text-align: center;
+        }
+
+        a {
+          text-decoration: none;
         }
       }
     }

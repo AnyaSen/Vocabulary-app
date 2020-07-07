@@ -1,0 +1,36 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/breakpoints";
+
+.InstructionsPage {
+  @include flex-row;
+  height: 100vh;
+
+  .InstructionsVideoContainer {
+    @include flex-row;
+
+    background-color: $color-light-grey;
+    height: 100vh;
+    width: fit-content;
+    padding: 0 $space-3;
+
+    iframe {
+      width: 35rem;
+      height: 20rem;
+      box-shadow: $shadow-2;
+    }
+  }
+
+  .InstructionCards {
+    @include flex-column;
+    width: 100%;
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: $space-1;
+
+    h1 {
+      text-align: center;
+      margin: $space-2 0;
+    }
+  }
+}

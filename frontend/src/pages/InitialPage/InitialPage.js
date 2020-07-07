@@ -29,7 +29,7 @@ export default function InitialPage() {
       <InitialPageButton
         imgSrc={instructionsSvg}
         imgAlt="Instructions"
-        linkTo="/"
+        linkTo="/instructions"
         buttonMessage="INSTRUCTIONS"
         buttonDescription="To see how the app works"
       />

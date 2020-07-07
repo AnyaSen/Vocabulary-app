@@ -17,6 +17,7 @@ import QuestionPage from "./pages/LearningPages/QuestionPage/QuestionPage";
 import CongratsPage from "./pages/CongratsPage/CongratsPage";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import ErrorCard from "./components/ErrorCard/ErrorCard";
+import InstructionsPage from "./pages/InstructionsPage/InstructionsPage";
 
 function App() {
   const { isVocabularyLoading } = useContext(LoadingContext);
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/" component={InitialPage} />
         <Route exact path="/signup" component={SignUpPage} />
         <Route exact path="/login" component={LogInPage} />
+        <Route exact path="/instructions" component={InstructionsPage} />
 
         <Route exact path="/home" component={HomePage} />
         <Route exact path="/progress" component={ProgressPage} />

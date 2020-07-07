@@ -4,6 +4,7 @@ import { logout } from "../../services/logout";
 
 import Styles from "./SideBar.module.scss";
 
+import { NavLink } from "react-router-dom";
 import ButtonMenuLink from "../Buttons/ButtonMenuLink/ButtonMenuLink";
 
 export default function SideBar() {
@@ -25,8 +26,11 @@ export default function SideBar() {
       </div>
 
       <div className={Styles.instructions}>
-        <h2>?</h2>
-        <button>HOW TO USE</button>
+        <NavLink to="/instructions">
+          <h2>?</h2>
+
+          <button>HOW TO USE</button>
+        </NavLink>
       </div>
     </div>
   );

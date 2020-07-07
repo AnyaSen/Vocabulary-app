@@ -40,5 +40,9 @@
     @include flex-column;
     color: $color-pink;
     margin-bottom: $space-0;
+
+    a {
+      text-decoration: none;
+    }
   }
 }

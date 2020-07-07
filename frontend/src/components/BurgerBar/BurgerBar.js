@@ -10,6 +10,7 @@ import closeSvg from "../../assets/img/close.svg";
 import { NavBarConext } from "../../contexts/NavBarConext";
 
 import ButtonMenuLink from "../Buttons/ButtonMenuLink/ButtonMenuLink";
+import { NavLink } from "react-router-dom";
 
 export default function BurgerBar() {
   const { isBurgerOpen, setIsBurgerOpen } = useContext(NavBarConext);
@@ -56,8 +57,11 @@ export default function BurgerBar() {
             </div>
 
             <div className={Styles.instructions}>
-              <h2>?</h2>
-              <button>HOW TO USE</button>
+              <NavLink to="/instructions">
+                <h2>?</h2>
+
+                <button>HOW TO USE</button>
+              </NavLink>
             </div>
           </div>
         </div>
