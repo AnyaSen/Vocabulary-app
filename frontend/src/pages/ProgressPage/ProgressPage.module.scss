@@ -1,0 +1,21 @@
+@import "../../assets/scss/breakpoints";
+
+.chart {
+  width: 35rem;
+  height: 25rem;
+
+  @include md {
+    width: 34rem;
+    height: 25rem;
+  }
+
+  @include sm {
+    width: 22rem;
+    height: 30rem;
+  }
+
+  @include xs {
+    width: 19rem;
+    height: 25rem;
+  }
+}

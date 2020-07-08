@@ -18,29 +18,31 @@ export default function InitialPage() {
     >
       <img src={logoSvg} alt="Logo" className={Styles.logo} />
 
-      <InitialPageButton
-        imgSrc={signupSvg}
-        imgAlt="Sign up"
-        linkTo="/signup"
-        buttonMessage="SIGN UP"
-        buttonDescription="To create an account"
-      />
+      <div className={Styles.buttons}>
+        <InitialPageButton
+          imgSrc={signupSvg}
+          imgAlt="Sign up"
+          linkTo="/signup"
+          buttonMessage="SIGN UP"
+          buttonDescription="To create an account"
+        />
 
-      <InitialPageButton
-        imgSrc={instructionsSvg}
-        imgAlt="Instructions"
-        linkTo="/instructions"
-        buttonMessage="INSTRUCTIONS"
-        buttonDescription="To see how the app works"
-      />
+        <InitialPageButton
+          imgSrc={instructionsSvg}
+          imgAlt="Instructions"
+          linkTo="/instructions"
+          buttonMessage="INSTRUCTIONS"
+          buttonDescription="To see how the app works"
+        />
 
-      <InitialPageButton
-        imgSrc={loginSvg}
-        imgAlt="Log in"
-        linkTo="/login"
-        buttonMessage="LOG IN"
-        buttonDescription="To log into an existing account"
-      />
+        <InitialPageButton
+          imgSrc={loginSvg}
+          imgAlt="Log in"
+          linkTo="/login"
+          buttonMessage="LOG IN"
+          buttonDescription="To log into an existing account"
+        />
+      </div>
     </PageLayout>
   );
 }

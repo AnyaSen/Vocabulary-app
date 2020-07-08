@@ -21,3 +21,20 @@
     margin-left: 0;
   }
 }
+
+.buttons {
+  @include flex-row;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: $space-8;
+  margin-bottom: $space-1;
+
+  @include lg {
+    margin-top: 5rem;
+  }
+
+  @include sm {
+    margin-top: 0;
+  }
+}

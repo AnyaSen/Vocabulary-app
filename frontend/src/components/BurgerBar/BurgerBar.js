@@ -24,6 +24,7 @@ export default function BurgerBar() {
   return (
     <div className={Styles.BurgerBar}>
       <img
+        alt="menu"
         src={isBurgerOpen ? closeSvg : burgerDotsSvg}
         onClick={toggleBurgerOpening}
         className={isBurgerOpen ? Styles.close : Styles.dots}

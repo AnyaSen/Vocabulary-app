@@ -43,32 +43,37 @@
   width: 100%;
 
   @include flex-row;
-  justify-content: space-between;
+  justify-content: center;
 
   .editInputs {
-    flex: 3;
-
     @include flex-row;
     justify-content: space-around;
 
-    @include sm {
-      flex: 1;
-    }
-
     input {
       @include input-sm;
-      margin: 0;
+      margin: 0 $space-1;
+
+      @include sm {
+        width: 7.5rem;
+        margin: 0 $space-0;
+      }
+
+      @include xs {
+        width: 5.5rem;
+      }
     }
   }
 
   .SubmitButtonContainer {
-    flex: 1;
-
     @include flex-row;
 
     button {
       width: fit-content;
-      margin-right: $space-1;
+      margin: 0 $space-1;
+
+      @include sm {
+        margin: 0;
+      }
     }
   }
 }

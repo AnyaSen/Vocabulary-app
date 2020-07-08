@@ -5,6 +5,8 @@
 .PreferencesForm {
   @include flex-column;
 
+  margin-bottom: $space-3;
+
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -12,7 +14,7 @@
   }
 
   .PreferencesHeader {
-    margin: 0 $space-0;
+    margin: 0 $space-1;
     margin-bottom: $space-0;
     text-align: center;
   }

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import Styles from "./ProgressPage.module.scss";
+
 import { Chart } from "react-google-charts";
 
 import { WordsContext } from "../../contexts/WordsContext";
@@ -29,8 +31,7 @@ export default function ProgressPage() {
       <ArrowBack linkTo="/home" />
 
       <Chart
-        width={"600px"}
-        height={"400px"}
+        className={Styles.chart}
         chartType="PieChart"
         data={[
           ["Words", "Of Total Words"],
@@ -51,7 +52,7 @@ export default function ProgressPage() {
             }
           ],
           legend: {
-            position: "right",
+            position: "bottom",
             alignment: "center",
             textStyle: {
               fontSize: 14

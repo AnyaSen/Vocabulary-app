@@ -42,16 +42,6 @@
     width: 100%;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-top: $space-8;
-    margin-bottom: $space-1;
-
-    @include lg {
-      margin-top: 5rem;
-    }
-
-    @include md {
-      margin-top: 0;
-    }
   }
 
   .childrenColumn {

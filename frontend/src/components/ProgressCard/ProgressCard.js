@@ -4,7 +4,6 @@ import Styles from "./ProgressCard.module.scss";
 import ProgressCardRow from "./ProgressCardRow/ProgressCardRow";
 
 export default function ProgressCard({
-  totalWordsNum,
   newWordsNum,
   learningWordsNum,
   learnedWordsNum
