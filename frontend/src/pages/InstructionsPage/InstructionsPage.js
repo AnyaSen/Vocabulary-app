@@ -1,16 +1,24 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import Styles from "./InstructionsPage.module.scss";
+import arrowStyles from "../../components/Buttons/ArrowBack/ArrowBack.module.scss";
+import arrowSvg from "../../assets/img/arrow_back.svg";
 
-import ArrowBack from "../../components/Buttons/ArrowBack/ArrowBack";
 import InstructionsCard from "./InstructionsCard/InstructionsCard";
 
 export default function InstructionsPage() {
+  let history = useHistory();
+
   return (
     <div className={Styles.InstructionsPage}>
-      <ArrowBack linkTo="/" />
+      <div className={arrowStyles.ArrowBack} onClick={() => history.goBack()}>
+        <img src={arrowSvg} alt="Go Back" />
+      </div>
+
       <div className={Styles.InstructionsVideoContainer}>
         <iframe
+          title="instructionsVideo"
           src="https://www.youtube.com/embed/dgvk_511dGw"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
