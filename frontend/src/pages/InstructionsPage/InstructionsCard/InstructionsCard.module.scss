@@ -34,7 +34,16 @@
 }
 
 .InstructionsCard {
+  width: 25rem;
   box-shadow: $shadow-2;
   padding: $space-2;
   border-radius: $border-radius-md;
+
+  @include sm {
+    width: 20rem;
+  }
+
+  @include xs {
+    width: 18rem;
+  }
 }
