@@ -38,7 +38,7 @@ export default function InstructionsPage() {
         <InstructionsCard
           instructionNumber={2}
           text="On the home page, press the button VOCABULARY. "
-          textafterBreak="On the vocabulary page, you can add words by typing a word and its translation, pressing ADD afterwords. You will see the word showing in the list below."
+          textafterBreak="On the vocabulary page, you can add words by typing a word and its translation, pressing ADD afterwords. You will see the word showing in the list below. Click on a word pair to see its information."
         />
         <InstructionsCard
           instructionNumber={3}
