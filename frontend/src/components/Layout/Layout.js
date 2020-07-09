@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 
 import Styles from "./Layout.module.scss";
 
-import SideBar from "../SideBar/SideBar";
-import BurgerBar from "../BurgerBar/BurgerBar";
+import SideBar from "./SideBar/SideBar";
+import BurgerBar from "./BurgerBar/BurgerBar";
 
 import { NavBarConext } from "../../contexts/NavBarConext";
 

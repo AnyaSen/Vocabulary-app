@@ -5,6 +5,10 @@ export const BrowseContext = createContext();
 export const BrowseContextProvider = ({ children }) => {
   const [modifiedWordsArr, setModifiedWordsArr] = useState([]);
   const [isBrowsingMode, setIsBrowsingMode] = useState(false);
+  const [isWordPairOpen, setIsWordPairOpen] = useState(false);
+  const [wordPairForeignWord, setWordPairForeignWord] = useState("");
+  const [wordPairTranslation, setWordPairTranslation] = useState("");
+  const [wordPairType, setWordPairType] = useState("");
 
   return (
     <BrowseContext.Provider
@@ -12,7 +16,17 @@ export const BrowseContextProvider = ({ children }) => {
         modifiedWordsArr,
         setModifiedWordsArr,
         isBrowsingMode,
-        setIsBrowsingMode
+        setIsBrowsingMode,
+
+        isWordPairOpen,
+        setIsWordPairOpen,
+        wordPairForeignWord,
+        setWordPairForeignWord,
+        wordPairTranslation,
+        setWordPairTranslation,
+
+        wordPairType,
+        setWordPairType
       }}
     >
       {children}

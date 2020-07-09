@@ -2,22 +2,29 @@ import React, { useContext, useState } from "react";
 
 import Styles from "./WordPair.module.scss";
 
-import { WordsContext } from "../../contexts/WordsContext";
-import { BrowseContext } from "../../contexts/BrowseContext";
+import { WordsContext } from "../../../contexts/WordsContext";
+import { BrowseContext } from "../../../contexts/BrowseContext";
 
-import { deleteWord } from "../../services/deleteWord";
-import { editWord } from "../../services/editWord";
-import { useForm } from "../../hooks/useForm";
+import { deleteWord } from "../../../services/deleteWord";
+import { editWord } from "../../../services/editWord";
+import { useForm } from "../../../hooks/useForm";
 
-import editSvg from "../../assets/img/edit.svg";
-import deleteSvg from "../../assets/img/delete.svg";
-import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
-import InputField from "../InputField/InputField";
-import LoaderSmall from "../Loader/LoaderSmall/LoaderSmall";
-import ErrorSmall from "../ErrorSmall/ErrorSmall";
-import WarningMessage from "../WarningMessage/WarningMessage";
+import editSvg from "../../../assets/img/edit.svg";
+import deleteSvg from "../../../assets/img/delete.svg";
+import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
+import InputField from "../../InputField/InputField";
+import LoaderSmall from "../../Loader/LoaderSmall/LoaderSmall";
+import ErrorSmall from "../../ErrorSmall/ErrorSmall";
+import WarningMessage from "../../WarningMessage/WarningMessage";
 
-export default function WordPair({ word, transaltion, ID }) {
+export default function WordPair({
+  word,
+  transaltion,
+  ID,
+  newlyAdded,
+  learning,
+  learned
+}) {
   const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -40,9 +47,15 @@ export default function WordPair({ word, transaltion, ID }) {
     isDeletingLoading: false
   });
 
-  const { isBrowsingMode, modifiedWordsArr, setModifiedWordsArr } = useContext(
-    BrowseContext
-  );
+  const {
+    isBrowsingMode,
+    modifiedWordsArr,
+    setModifiedWordsArr,
+    setIsWordPairOpen,
+    setWordPairForeignWord,
+    setWordPairTranslation,
+    setWordPairType
+  } = useContext(BrowseContext);
 
   const [values, handleChange] = useForm({
     foreignWord: word,
@@ -56,6 +69,19 @@ export default function WordPair({ word, transaltion, ID }) {
     editedFilteredForeignWord,
     editedFilteredTranslation
   } = editedFilteredWords;
+
+  const handleWordPairClick = () => {
+    setIsWordPairOpen(true);
+    setWordPairForeignWord(foreignWord);
+    setWordPairTranslation(transaltion);
+    if (newlyAdded) {
+      setWordPairType("NEW");
+    } else if (learning) {
+      setWordPairType("LEARNING");
+    } else {
+      setWordPairType("LEARNED");
+    }
+  };
 
   const deleteFilteredWord = id => {
     const newModifiedArr = modifiedWordsArr;
@@ -141,6 +167,15 @@ export default function WordPair({ word, transaltion, ID }) {
     setIsEditButtonClicked(true);
   };
 
+  const cutLongerWord = word => {
+    if (word.length > 15) {
+      const cutWord = word.slice(0, 15);
+      return cutWord + "...";
+    } else {
+      return word;
+    }
+  };
+
   return (
     <>
       {isEditButtonClicked ? (
@@ -181,8 +216,16 @@ export default function WordPair({ word, transaltion, ID }) {
       ) : (
         <div className={Styles.WordPairContainer}>
           <div className={Styles.WordPair}>
-            <p>{!isBrowsingMode ? word : editedFilteredForeignWord}</p>
-            <p>{!isBrowsingMode ? transaltion : editedFilteredTranslation}</p>
+            <p onClick={handleWordPairClick}>
+              {!isBrowsingMode
+                ? cutLongerWord(word)
+                : cutLongerWord(editedFilteredForeignWord)}
+            </p>
+            <p onClick={handleWordPairClick}>
+              {!isBrowsingMode
+                ? cutLongerWord(transaltion)
+                : cutLongerWord(editedFilteredTranslation)}
+            </p>
           </div>
 
           {isDeletingLoading && isDeleteButtonClicked ? (

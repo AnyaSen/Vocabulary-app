@@ -1,0 +1,47 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
+
+.WordPairCard {
+  width: 25rem;
+  margin-top: 6rem;
+  margin-bottom: $space-3;
+  padding: $space-3 $space-1;
+  box-shadow: $shadow-1;
+  border-radius: $border-radius-sm;
+  position: relative;
+
+  @include md {
+    width: 30rem;
+  }
+
+  @include sm {
+    width: 20rem;
+  }
+
+  @include xs {
+    width: 19rem;
+  }
+
+  img {
+    cursor: pointer;
+    @include push-to-upper-right-corner;
+    margin-top: $space-0;
+    margin-right: $space-1;
+    height: 1.2rem;
+  }
+
+  h2 {
+    hyphens: auto;
+    padding: $space-0;
+    box-shadow: $shadow-1;
+    margin: $space-0;
+    word-break: break-word;
+  }
+
+  p {
+    margin-bottom: $space-1;
+    color: $color-pink;
+    font-weight: 700;
+  }
+}

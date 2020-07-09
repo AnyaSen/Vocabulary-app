@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 
 import Styles from "./AddWordsForm.module.scss";
 
-import { createWord } from "../../services/createWord";
-import { WordsContext } from "../../contexts/WordsContext";
-import { useForm } from "../../hooks/useForm";
+import { createWord } from "../../../services/createWord";
+import { WordsContext } from "../../../contexts/WordsContext";
+import { useForm } from "../../../hooks/useForm";
 
-import InputField from "../InputField/InputField";
-import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
-import WarningMessage from "../WarningMessage/WarningMessage";
+import InputField from "../../../components/InputField/InputField";
+import PrimaryButton from "../../../components/Buttons/PrimaryButton/PrimaryButton";
+import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 
 export default function AddWordsForm() {
   const { setWordsData } = useContext(WordsContext);

@@ -1,11 +1,12 @@
-@import "../../assets/scss/variables";
-@import "../../assets/scss/mixins";
-@import "../../assets/scss/breakpoints";
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
 
 .WordPairContainer {
   @include flex-row;
   width: 100%;
   justify-content: space-between;
+  margin: $space-0;
 
   .WordPair {
     flex: 3;
@@ -29,13 +30,25 @@
     @include sm {
       margin: $space-1;
     }
+
+    @include xs {
+      height: 1.2rem;
+      margin: $space-05;
+    }
   }
 
   p {
-    padding: $space-1 0;
+    cursor: pointer;
+    margin: $space-1 $space-0;
     width: 30%;
     text-align: left;
     word-break: break-word;
+    hyphens: auto;
+
+    @include xs {
+      width: 50%;
+      margin: $space-05;
+    }
   }
 }
 

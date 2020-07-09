@@ -3,20 +3,23 @@ import React, { useContext } from "react";
 import Styles from "./VocabularyPage.module.scss";
 
 import WordsList from "../../components/WordsList/WordsList";
-import AddWordsForm from "../../components/AddWordsForm/AddWordsForm";
 import BrowseVocabulary from "../../components/BrowseVocabulary/BrowseVocabulary";
 import Loader from "../../components/Loader/Loader";
 import ErrorCard from "../../components/ErrorCard/ErrorCard";
+import Layout from "../../components/Layout/Layout";
+import AddWordsForm from "./AddWordsForm/AddWordsForm";
 
 import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 import { ErrorContext } from "../../contexts/ErrorContext";
-import Layout from "../../components/Layout/Layout";
+import WordPairCard from "./WordPairCard/WordPairCard";
 
 export default function VocabularyPage() {
   const { wordsArr } = useContext(WordsContext);
-  const { isBrowsingMode, modifiedWordsArr } = useContext(BrowseContext);
+  const { isBrowsingMode, modifiedWordsArr, isWordPairOpen } = useContext(
+    BrowseContext
+  );
   const { isVocabularyLoading } = useContext(LoadingContext);
   const { isVocabularyError } = useContext(ErrorContext);
 
@@ -31,7 +34,12 @@ export default function VocabularyPage() {
           <>
             {!isVocabularyLoading ? (
               <>
-                <AddWordsForm />
+                {isWordPairOpen ? (
+                  <WordPairCard foreignWord="word" translation="translation" />
+                ) : (
+                  <AddWordsForm />
+                )}
+
                 <WordsList
                   wordsArray={wordsArr}
                   noWordsMessage="Here will be your words."
@@ -42,10 +50,15 @@ export default function VocabularyPage() {
             )}
           </>
         ) : !isVocabularyLoading ? (
-          <WordsList
-            wordsArray={modifiedWordsArr}
-            noWordsMessage="No words were found."
-          />
+          <>
+            {isWordPairOpen && (
+              <WordPairCard foreignWord="word" translation="translation" />
+            )}
+            <WordsList
+              wordsArray={modifiedWordsArr}
+              noWordsMessage="No words were found."
+            />
+          </>
         ) : (
           <Loader />
         )}

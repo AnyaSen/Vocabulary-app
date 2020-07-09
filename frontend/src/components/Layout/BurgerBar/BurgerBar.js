@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 
-import { logout } from "../../services/logout";
+import { logout } from "../../../services/logout";
 
 import Styles from "./BurgerBar.module.scss";
 
-import burgerDotsSvg from "../../assets/img/burgerDots.svg";
-import closeSvg from "../../assets/img/close.svg";
+import burgerDotsSvg from "../../../assets/img/burgerDots.svg";
+import closeSvg from "../../../assets/img/close.svg";
 
-import { NavBarConext } from "../../contexts/NavBarConext";
+import { NavBarConext } from "../../../contexts/NavBarConext";
 
-import ButtonMenuLink from "../Buttons/ButtonMenuLink/ButtonMenuLink";
+import ButtonMenuLink from "../../Buttons/ButtonMenuLink/ButtonMenuLink";
 import { NavLink } from "react-router-dom";
 
 export default function BurgerBar() {
@@ -24,7 +24,7 @@ export default function BurgerBar() {
   return (
     <div className={Styles.BurgerBar}>
       <img
-        alt="menu"
+        alt={isBurgerOpen ? "close" : "menu"}
         src={isBurgerOpen ? closeSvg : burgerDotsSvg}
         onClick={toggleBurgerOpening}
         className={isBurgerOpen ? Styles.close : Styles.dots}

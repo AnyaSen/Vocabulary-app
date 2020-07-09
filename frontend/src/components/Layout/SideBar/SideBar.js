@@ -1,11 +1,11 @@
 import React from "react";
 
-import { logout } from "../../services/logout";
+import { logout } from "../../../services/logout";
 
 import Styles from "./SideBar.module.scss";
 
 import { NavLink } from "react-router-dom";
-import ButtonMenuLink from "../Buttons/ButtonMenuLink/ButtonMenuLink";
+import ButtonMenuLink from "../../Buttons/ButtonMenuLink/ButtonMenuLink";
 
 export default function SideBar() {
   const name = JSON.parse(localStorage.getItem("userName"));
