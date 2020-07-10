@@ -8,12 +8,12 @@ import Loader from "../../components/Loader/Loader";
 import ErrorCard from "../../components/ErrorCard/ErrorCard";
 import Layout from "../../components/Layout/Layout";
 import AddWordsForm from "./AddWordsForm/AddWordsForm";
+import WordPairCard from "./WordPairCard/WordPairCard";
 
 import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 import { ErrorContext } from "../../contexts/ErrorContext";
-import WordPairCard from "./WordPairCard/WordPairCard";
 
 export default function VocabularyPage() {
   const { wordsArr } = useContext(WordsContext);

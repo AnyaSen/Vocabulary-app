@@ -1,0 +1,17 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
+
+.ArrowUp {
+  cursor: pointer;
+  margin: $space-0 0;
+  display: none;
+
+  img {
+    height: 2.5rem;
+  }
+
+  @include md {
+    display: inline-block;
+  }
+}
