@@ -70,11 +70,11 @@ export default function AnswerModeCard({ totalWorsArray }) {
 
       <div className={Styles.WordCardsContainer}>
         <WordCard>
-          <h1>{currentWord}</h1>
+          <h2>{currentWord}</h2>
         </WordCard>
 
         <WordCard borderColor={borderColor}>
-          <h1>{translation}</h1>
+          <h2>{translation}</h2>
         </WordCard>
       </div>
 

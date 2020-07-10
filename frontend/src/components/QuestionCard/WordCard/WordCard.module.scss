@@ -9,13 +9,18 @@
   margin: $space-1;
   box-shadow: $shadow-1;
   border-radius: $border-radius-lg;
-  width: 23rem;
+  word-break: break-all;
+  width: 24rem;
+
+  @include md {
+    width: 20rem;
+  }
 
   @include xs {
     width: 17rem;
   }
 
-  h1 {
+  h2 {
     padding: $space-0;
   }
 

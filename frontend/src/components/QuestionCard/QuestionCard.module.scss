@@ -24,7 +24,7 @@
 
   .header {
     @include flex-column;
-    margin-bottom: $space-1;
+    margin: $space-1;
 
     button {
       margin-top: $space-0;
@@ -55,7 +55,7 @@
     @include flex-row;
 
     justify-content: center;
-    width: 80%;
+    flex-wrap: wrap;
 
     @include md {
       @include flex-column;
