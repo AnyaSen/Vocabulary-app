@@ -64,16 +64,21 @@ export default function PreferencesPage() {
     (!isValidNumber(learningWordsInput) && !noLearningWords) ||
     (!isValidNumber(learnedWordsInput) && !noLearnedWords);
 
+  const allTheValuesAreZero =
+    parseInt(newWordsInput) === 0 &&
+    parseInt(learningWordsInput) === 0 &&
+    parseInt(learnedWordsInput) === 0;
+
   const newWordsRange =
-    (newWordsInput > 0 && newWordsInput <= newWordsLength) ||
+    (newWordsInput > -1 && newWordsInput <= newWordsLength) ||
     isNewWordsInputEmpty;
 
   const learningWordsRange =
-    (learningWordsInput > 0 && learningWordsInput <= learningWordsLength) ||
+    (learningWordsInput > -1 && learningWordsInput <= learningWordsLength) ||
     isLearningWordsInputEmpty;
 
   const learnedWordsRange =
-    (learnedWordsInput > 0 && learnedWordsInput <= learnedWordsLength) ||
+    (learnedWordsInput > -1 && learnedWordsInput <= learnedWordsLength) ||
     isLearnedWordsInputEmpty;
 
   const handleSubmit = event => {
@@ -97,6 +102,8 @@ export default function PreferencesPage() {
       setErrorMessage(
         `"Learned words" should be positive and ${learnedWordsLength} maximum`
       );
+    } else if (allTheValuesAreZero) {
+      setErrorMessage(`Chose at least 1 word to review`);
     } else {
       history.push(
         `/question/${newWordsInput}/${learningWordsInput}/${learnedWordsInput}`
