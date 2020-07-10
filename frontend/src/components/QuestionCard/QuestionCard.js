@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import { LearningContext } from "../../contexts/LearningContext";
@@ -29,21 +29,39 @@ export default function QuestionCard({ task, totalWorsArray }) {
     setShowConfirmation(true);
   };
 
+  const confitmationCard = useRef();
+
+  const handleClick = e => {
+    if (!e.composedPath().includes(confitmationCard.current)) {
+      setShowConfirmation(false);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
   return (
     <div>
       {!showCongratilationPage &&
         (showConfirmation ? (
-          <ConfirmationCard
-            confQuestion="Are you sure you want to quit learning?"
-            confAnswerOne="YES"
-            confAnswerTwo="NO"
-            answerOneOnClick={() => {
-              history.push("/learn");
-            }}
-            answerTwoOnClick={() => {
-              setShowConfirmation(false);
-            }}
-          />
+          <div ref={confitmationCard}>
+            <ConfirmationCard
+              confQuestion="Are you sure you want to quit learning?"
+              confAnswerOne="YES"
+              confAnswerTwo="NO"
+              answerOneOnClick={() => {
+                history.push("/learn");
+              }}
+              answerTwoOnClick={() => {
+                setShowConfirmation(false);
+              }}
+            />
+          </div>
         ) : (
           <div className={Styles.arrow}>
             <img src={arrowSvg} alt="Go Back" onClick={handleConfirmation} />
