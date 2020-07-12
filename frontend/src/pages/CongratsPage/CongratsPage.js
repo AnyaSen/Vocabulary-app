@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Styles from "./CongratsPage.module.scss";
 
@@ -9,7 +9,11 @@ import { Link } from "react-router-dom";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import PrimaryButton from "../../components/Buttons/PrimaryButton/PrimaryButton";
 
+import { LearningContext } from "../../contexts/LearningContext";
+
 export default function CongratsPage({ numberOfReviewedWords }) {
+  const { setShowCongratilationPage } = useContext(LearningContext);
+
   return (
     <div>
       <PageLayout
@@ -21,7 +25,12 @@ export default function CongratsPage({ numberOfReviewedWords }) {
         <div className={Styles.congratsImgAndButton}>
           <img src={congratsSvg} alt="congrats" />
 
-          <Link to="/home">
+          <Link
+            to="/home"
+            onClick={() => {
+              setShowCongratilationPage(false);
+            }}
+          >
             <PrimaryButton buttonMessage="HOME" />
           </Link>
         </div>

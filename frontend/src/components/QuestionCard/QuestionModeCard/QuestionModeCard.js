@@ -72,7 +72,8 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
       return;
     }
 
-    const rightTranslation = translation === translationInput;
+    const rightTranslation =
+      translation.toLowerCase() === translationInput.toLowerCase();
 
     if (rightTranslation) {
       setIsCorrectGuess(true);
