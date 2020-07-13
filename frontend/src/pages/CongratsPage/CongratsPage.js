@@ -20,7 +20,7 @@ export default function CongratsPage({ numberOfReviewedWords }) {
         header="Congratulations!"
         subHeader="You have reviewed "
         span={numberOfReviewedWords}
-        subHeaderAferSpan=" words"
+        subHeaderAferSpan=" word(s)"
       >
         <div className={Styles.congratsImgAndButton}>
           <img src={congratsSvg} alt="congrats" />

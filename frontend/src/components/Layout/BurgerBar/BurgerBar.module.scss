@@ -37,7 +37,8 @@
       justify-content: space-evenly;
       background-color: $color-white;
       width: 90%;
-      height: 50vh;
+      height: auto;
+      padding: $space-3 0;
       border-radius: $border-radius-md;
       box-shadow: $shadow-2;
 
@@ -53,7 +54,7 @@
       }
 
       .links {
-        @include flex-row;
+        @include flex-column;
 
         justify-content: center;
         flex-wrap: wrap;

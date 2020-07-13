@@ -3,8 +3,6 @@
 @import "../../assets/scss/breakpoints";
 
 .ProgressCard {
-  @include push-to-upper-right-corner;
-
   margin: $space-1;
   padding: $space-1 $space-2;
   background-color: $color-light-grey;

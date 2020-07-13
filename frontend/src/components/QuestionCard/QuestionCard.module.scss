@@ -2,25 +2,12 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/breakpoints";
 
-.arrow {
-  @include push-to-upper-left-corner;
-
-  margin-left: $space-3;
-  margin-top: $space-2;
-
-  img {
-    height: 3rem;
-    width: auto;
-    cursor: pointer;
-  }
-}
-
 .QuestionCardContainer {
   @include flex-column;
 
   width: 100%;
-  height: 100vh;
   justify-content: center;
+  padding: $space-1;
 
   .header {
     @include flex-column;
@@ -30,8 +17,8 @@
       margin-top: $space-0;
     }
 
-    @include md {
-      margin-top: $space-6;
+    h2 {
+      margin-bottom: $space-0;
     }
   }
 
@@ -48,7 +35,7 @@
   }
 
   button {
-    margin-top: $space-0;
+    margin: $space-0 0;
   }
 
   .WordCardsContainer {

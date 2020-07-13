@@ -1,11 +1,11 @@
 @import "../../../assets/scss/mixins";
 @import "../../../assets/scss/variables";
+@import "../../../assets/scss/breakpoints";
 
 .QuestionCardContainer {
   @include flex-column;
 
   width: 100%;
-  height: 100vh;
   justify-content: center;
 
   .header {
@@ -31,12 +31,18 @@
       border-color: $color-pink;
     }
   }
+}
+.progressCardArrowContainer {
+  display: flex;
+  justify-content: space-between;
 
   .arrow {
-    @include push-to-upper-left-corner;
-
     margin-left: $space-3;
     margin-top: $space-2;
+
+    @include sm {
+      margin-left: $space-1;
+    }
 
     img {
       height: 3rem;
