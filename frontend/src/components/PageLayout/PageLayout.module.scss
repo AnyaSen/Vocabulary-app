@@ -6,19 +6,15 @@
   @include flex-column;
   width: 100%;
   min-height: 100vh;
+  justify-content: center;
   overflow-y: scroll;
-  align-items: center;
 
   .PageLayoutHeader {
     width: 100%;
     text-align: center;
-    margin-top: $space-8;
 
     h1 {
-      margin: 0 $space-1;
-      @include md {
-        margin-top: $space-2;
-      }
+      margin: $space-1;
     }
 
     h2 {
@@ -47,5 +43,28 @@
   .childrenColumn {
     width: 100%;
     @include flex-column;
+  }
+
+  .logo {
+    height: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: $space-3;
+    margin-top: $space-3;
+
+    @include lg {
+      margin-top: $space-2;
+    }
+
+    @include md {
+      margin-left: 0;
+      position: static;
+      width: 100%;
+    }
+
+    @include sm {
+      width: 100%;
+    }
   }
 }

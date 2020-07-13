@@ -15,8 +15,8 @@ export default function HomePage() {
   return (
     <Layout>
       <PageLayout
-        header={`Dear ${name},`}
-        headerAfterBreak="Welcome to your Vocabulary home!"
+        header={`${name},`}
+        headerAfterBreak="Nice to see you here!"
         subHeader="What would you like to do?"
       >
         <div className={Styles.buttonsContainer}>

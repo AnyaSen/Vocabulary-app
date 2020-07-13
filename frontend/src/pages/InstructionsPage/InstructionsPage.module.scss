@@ -31,6 +31,10 @@
       padding-top: $space-8;
     }
 
+    @include xs_height {
+      padding-top: $space-7;
+    }
+
     iframe {
       width: 50rem;
       height: 30rem;
@@ -53,6 +57,10 @@
 
       @include xs {
         width: 19rem;
+      }
+
+      @include xs_height {
+        height: 10rem;
       }
     }
   }

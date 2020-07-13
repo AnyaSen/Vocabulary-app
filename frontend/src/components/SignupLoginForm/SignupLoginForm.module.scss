@@ -59,6 +59,10 @@
     border-radius: 0;
     box-shadow: none;
   }
+
+  @include xs_height {
+    height: 100vh;
+  }
 }
 
 .inputsFieldsContainer {

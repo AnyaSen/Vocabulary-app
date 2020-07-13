@@ -17,6 +17,7 @@
 
   .dots {
     @extend .close;
+    position: static;
     height: 0.8rem;
 
     @include xs {
@@ -39,10 +40,6 @@
       height: 50vh;
       border-radius: $border-radius-md;
       box-shadow: $shadow-2;
-
-      .close {
-        @include push-to-upper-right-corner;
-      }
 
       .user {
         @include flex-column;

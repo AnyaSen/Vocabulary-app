@@ -1,21 +1,29 @@
 @import "../../assets/scss/breakpoints";
+@import "../../assets/scss/variables";
 
-.chart {
-  width: 35rem;
-  height: 25rem;
-
-  @include md {
-    width: 34rem;
-    height: 25rem;
+.ProgressPage {
+  @include lg {
+    padding: $space-2 0;
   }
 
-  @include sm {
-    width: 22rem;
-    height: 30rem;
-  }
-
-  @include xs {
-    width: 19rem;
+  .chart {
+    width: 35rem;
     height: 25rem;
+
+    @include md {
+      width: 34rem;
+    }
+
+    @include sm {
+      width: 22rem;
+    }
+
+    @include xs {
+      width: 19rem;
+    }
+
+    @include xs_height {
+      height: 19rem;
+    }
   }
 }

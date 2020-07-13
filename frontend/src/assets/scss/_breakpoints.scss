@@ -38,6 +38,14 @@ $screen-xl: 1279px;
   }
 }
 
+$screen-height-xs: 640px;
+
+@mixin xs_height {
+  @media (max-height: #{$screen-height-xs}) {
+    @content;
+  }
+}
+
 // Custom devices
 @mixin custom($screen) {
   @media (max-width: $screen+"px") {

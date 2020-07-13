@@ -27,47 +27,49 @@ export default function ProgressPage() {
       <NotificationMessage text="Please, add some vocabulary first" />
     </PageLayout>
   ) : (
-    <PageLayout header="PROGRESS" subHeader="Here you can see your progress">
-      <ArrowBack linkTo="/home" />
+    <div className={Styles.ProgressPage}>
+      <PageLayout header="PROGRESS" subHeader="Here you can see your progress">
+        <ArrowBack linkTo="/home" />
 
-      <Chart
-        className={Styles.chart}
-        chartType="PieChart"
-        data={[
-          ["Words", "Of Total Words"],
-          [`New - ${newWordsLength}`, newWordsLength],
-          [`Learning - ${learningWordsLength}`, learningWordsLength],
-          [`Learned - ${learnedWordsLength}`, learnedWordsLength]
-        ]}
-        options={{
-          slices: [
-            {
-              color: "#efe9e7"
+        <ExplanatoryWordsCard />
+
+        <Chart
+          className={Styles.chart}
+          chartType="PieChart"
+          data={[
+            ["Words", "Of Total Words"],
+            [`New - ${newWordsLength}`, newWordsLength],
+            [`Learning - ${learningWordsLength}`, learningWordsLength],
+            [`Learned - ${learnedWordsLength}`, learnedWordsLength]
+          ]}
+          options={{
+            slices: [
+              {
+                color: "#efe9e7"
+              },
+              {
+                color: "#fce1e1"
+              },
+              {
+                color: "#F79090"
+              }
+            ],
+            legend: {
+              position: "bottom",
+              alignment: "center",
+              textStyle: {
+                fontSize: 14
+              }
             },
-            {
-              color: "#fce1e1"
+
+            pieSliceTextStyle: {
+              color: "#1f1f1f"
             },
-            {
-              color: "#F79090"
-            }
-          ],
-          legend: {
-            position: "bottom",
-            alignment: "center",
-            textStyle: {
-              fontSize: 14
-            }
-          },
 
-          pieSliceTextStyle: {
-            color: "#1f1f1f"
-          },
-
-          fontName: "inherit"
-        }}
-      />
-
-      <ExplanatoryWordsCard />
-    </PageLayout>
+            fontName: "inherit"
+          }}
+        />
+      </PageLayout>
+    </div>
   );
 }

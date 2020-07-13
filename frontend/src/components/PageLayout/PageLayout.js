@@ -1,6 +1,7 @@
 import React from "react";
 
 import Styles from "./PageLayout.module.scss";
+import logoSvg from "../../assets/img/logo.svg";
 
 export default function PageLayout({
   children,
@@ -9,10 +10,12 @@ export default function PageLayout({
   headerAfterBreak,
   span,
   subHeaderAferSpan,
-  childrenFlexColumn
+  childrenFlexColumn,
+  showLogo
 }) {
   return (
     <div className={Styles.PageLayout}>
+      {showLogo && <img src={logoSvg} alt="Logo" className={Styles.logo} />}
       <div className={Styles.PageLayoutHeader}>
         <h1>
           {header}

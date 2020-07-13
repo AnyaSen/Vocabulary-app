@@ -16,8 +16,4 @@ h2 {
   @include md {
     font-size: $font-md;
   }
-
-  @include xs {
-    font-size: $font-sm;
-  }
 }

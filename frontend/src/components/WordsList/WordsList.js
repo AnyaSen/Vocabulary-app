@@ -30,7 +30,7 @@ export default function WordsList({ wordsArray, noWordsMessage }) {
 
   return (
     <>
-      <div className={Styles.WordPairContainer}>
+      <div className={Styles.WordsList}>
         {wordsArray.map(word => {
           const {
             foreignWord,
@@ -53,7 +53,7 @@ export default function WordsList({ wordsArray, noWordsMessage }) {
           );
         })}
       </div>
-      <ArrowUp onClick={scrollTop} />
+      {wordsArray.length > 10 && <ArrowUp onClick={scrollTop} />}
     </>
   );
 }
