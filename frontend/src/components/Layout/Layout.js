@@ -17,7 +17,7 @@ export default function Layout({ children }) {
     } else {
       setBurgerBar(false);
     }
-  }, [window.innerWidth]);
+  }, []);
 
   if (isBurgerOpen) return <BurgerBar />;
 
