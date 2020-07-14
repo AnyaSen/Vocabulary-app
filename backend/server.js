@@ -12,6 +12,10 @@ app.use(express.json());
 app.use(WordRouter);
 app.use(UserRouter);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../frontend/build"));
+}
+
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
 );
