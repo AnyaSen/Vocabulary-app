@@ -123,7 +123,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
 
       <div className={Styles.WordCardsContainer}>
         <WordCard>
-          <h2>{currentWord}</h2>
+          <h2>{currentWord.toLowerCase()}</h2>
         </WordCard>
 
         <WordCard>
