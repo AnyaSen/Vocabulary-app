@@ -19,7 +19,7 @@ export default function InstructionsPage() {
       <div className={Styles.InstructionsVideoContainer}>
         <iframe
           title="instructionsVideo"
-          src="https://www.youtube.com/embed/dgvk_511dGw"
+          src="https://www.youtube.com/embed/qRo3O2N7uqg"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -87,7 +87,7 @@ export default function InstructionsPage() {
         />
         <InstructionsCard
           instructionNumber={12}
-          text="If you want to see instructions, press the question mark at the bottom of the sideBar and you will see this page again. "
+          text="If you want to see instructions, press the question mark at the bottom of the sidebar and you will see this page again. "
         />
         <InstructionsCard
           instructionNumber={13}
