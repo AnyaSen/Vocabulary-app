@@ -16,7 +16,7 @@ app.use(UserRouter);
 dotenv.config();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../frontend/build"));
+  app.use(express.static("frontend/build"));
 }
 
 app.listen(port, () =>
