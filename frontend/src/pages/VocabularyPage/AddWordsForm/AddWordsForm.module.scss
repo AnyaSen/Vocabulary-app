@@ -3,7 +3,7 @@
 @import "../../../assets/scss/breakpoints";
 
 .AddWordsForm {
-  margin-top: 6rem;
+  margin-top: $space-8;
   margin-bottom: $space-3;
 
   h2 {
@@ -11,10 +11,10 @@
   }
 
   @include lg {
-    margin-top: 9rem;
+    margin-top: $space-7;
   }
 
-  @include sm {
+  @include md {
     margin-bottom: $space-0;
 
     h2 {
