@@ -23,7 +23,7 @@ export default function WordsList({ wordsArray, noWordsMessage }) {
 
   if (wordsArray.length === 0)
     return (
-      <div className={Styles.WordPairContainer}>
+      <div className={Styles.WordsList}>
         <p>{noWordsMessage}</p>
       </div>
     );

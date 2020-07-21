@@ -119,7 +119,11 @@ export default function PreferencesPage() {
         subHeader="How many words would you like to review?"
       >
         {noWords ? (
-          <NotificationMessage text=" Please, add some vocabulary before learning" />
+          <NotificationMessage
+            text=" Please, add some vocabulary before learning."
+            linkMessage="GO TO VOCABULARY"
+            linkRoute="/vocabulary"
+          />
         ) : (
           <>
             <div className={Styles.explanatoryContainer}>

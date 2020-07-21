@@ -1,8 +1,13 @@
 @import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
 
+.NotificationContainer {
+  @include flex-column;
 
-.NotificationMessage {
-  border: 1px solid $color-pink;
-  border-radius: $border-radius-sm;
-  padding: $space-1;
+  .NotificationMessage {
+    margin: $space-0;
+    color: $color-red;
+    border-radius: $border-radius-sm;
+    padding: $space-1;
+  }
 }

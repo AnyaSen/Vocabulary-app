@@ -22,13 +22,18 @@ export default function ProgressPage() {
   } = useContext(WordsContext);
 
   return noWords ? (
-    <PageLayout header="PROGRESS" subHeader="Here you will see your progress">
+    <PageLayout header="PROGRESS" subHeader="Here you will see your progress.">
       <ArrowBack linkTo="/home" />
-      <NotificationMessage text="Please, add some vocabulary first" />
+
+      <NotificationMessage
+        text="Please, add some vocabulary first."
+        linkMessage="GO TO VOCABULARY"
+        linkRoute="/vocabulary"
+      />
     </PageLayout>
   ) : (
     <div className={Styles.ProgressPage}>
-      <PageLayout header="PROGRESS" subHeader="Here you can see your progress">
+      <PageLayout header="PROGRESS" subHeader="Here you can see your progress.">
         <ArrowBack linkTo="/home" />
 
         <ExplanatoryWordsCard />
