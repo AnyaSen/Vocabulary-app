@@ -10,25 +10,6 @@
   text-align: center;
   height: 100vh;
 
-  .user {
-    margin-top: $space-0;
-    margin-bottom: $space-1;
-    font-size: $font-lg;
-    color: $color-pink;
-    background-color: $color-white;
-    width: 4rem;
-    height: 4rem;
-    text-align: center;
-    padding: $space-0;
-    border-radius: 2rem;
-  }
-
-  button {
-    background-color: inherit;
-    font-size: $font-xs;
-    text-decoration: none;
-  }
-
   .links {
     @include flex-column;
     margin: 0 $space-1;
@@ -40,6 +21,10 @@
     @include flex-column;
     color: $color-pink;
     margin-bottom: $space-0;
+
+    button {
+      font-size: $font-xs;
+    }
 
     a {
       text-decoration: none;
