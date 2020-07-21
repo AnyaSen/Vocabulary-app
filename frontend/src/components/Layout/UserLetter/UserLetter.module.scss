@@ -1,0 +1,46 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
+.userLetterContainer {
+  @include flex-column;
+
+  .deleteButton {
+    color: $color-pink;
+    font-size: $font-xs;
+    margin-top: $space-0;
+    cursor: pointer;
+  }
+
+  .logOutButton {
+    font-size: $font-xs;
+  }
+
+  .userLetter {
+    cursor: default;
+    background-color: $color-white;
+    text-align: center;
+    border-radius: 2rem;
+    position: relative;
+    padding: $space-0 $space-1;
+
+    h1 {
+      font-size: $font-lg;
+      color: $color-pink;
+    }
+  }
+
+  .userLetterInCircle {
+    @extend .userLetter;
+    margin: $space-1 0;
+    width: 4rem;
+    height: 4rem;
+    padding: $space-0;
+
+    .delete {
+      @include push-to-upper-right-corner;
+
+      height: 0.9rem;
+      cursor: pointer;
+    }
+  }
+}

@@ -42,20 +42,10 @@
       border-radius: $border-radius-md;
       box-shadow: $shadow-2;
 
-      .user {
-        @include flex-column;
-
-        .userLetter {
-          margin-bottom: $space-0;
-          font-size: $font-lg;
-          color: $color-pink;
-          text-align: center;
-        }
-      }
-
       .links {
         @include flex-column;
 
+        margin: $space-1;
         justify-content: center;
         flex-wrap: wrap;
         a {

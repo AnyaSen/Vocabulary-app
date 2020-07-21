@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 
-import { logout } from "../../../services/logout";
-
 import Styles from "./BurgerBar.module.scss";
+
+import { NavLink } from "react-router-dom";
 
 import burgerDotsSvg from "../../../assets/img/burgerDots.svg";
 import closeSvg from "../../../assets/img/close.svg";
@@ -10,13 +10,10 @@ import closeSvg from "../../../assets/img/close.svg";
 import { NavBarConext } from "../../../contexts/NavBarConext";
 
 import ButtonMenuLink from "../../Buttons/ButtonMenuLink/ButtonMenuLink";
-import { NavLink } from "react-router-dom";
+import UserLetter from "../UserLetter/UserLetter";
 
 export default function BurgerBar() {
   const { isBurgerOpen, setIsBurgerOpen } = useContext(NavBarConext);
-
-  const name = JSON.parse(localStorage.getItem("userName"));
-  const firstLetter = name.toUpperCase().charAt(0);
 
   const toggleBurgerOpening = () => {
     setIsBurgerOpen(!isBurgerOpen);
@@ -33,11 +30,7 @@ export default function BurgerBar() {
       {isBurgerOpen && (
         <div className={Styles.BurgerOpen}>
           <div className={Styles.BurgerCard}>
-            <div className={Styles.user}>
-              <div className={Styles.userLetter}>{firstLetter}</div>
-
-              <button onClick={logout}>LOG OUT</button>
-            </div>
+            <UserLetter />
 
             <div className={Styles.links}>
               <ButtonMenuLink

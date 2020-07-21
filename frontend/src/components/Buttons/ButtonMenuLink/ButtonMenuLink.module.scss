@@ -10,6 +10,11 @@
   width: 100%;
   text-align: center;
 
+  button {
+    font-size: $font-xs;
+    text-decoration: none;
+  }
+
   @include lg {
     padding: 0.2rem $space-0;
   }
