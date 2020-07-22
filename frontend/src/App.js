@@ -5,6 +5,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import { LoadingContext } from "./contexts/LoadingContext";
 import { ErrorContext } from "./contexts/ErrorContext";
+import ScrollToTop from "./services/ScrollToTop";
 
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LogInPage from "./pages/LogInPage/LogInPage";
@@ -29,6 +30,7 @@ function App() {
     <ErrorCard />
   ) : (
     <div className="App">
+      <ScrollToTop />
       <Switch>
         <Route exact path="/" component={InitialPage} />
         <Route exact path="/signup" component={SignUpPage} />

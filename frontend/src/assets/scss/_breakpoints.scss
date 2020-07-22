@@ -38,7 +38,14 @@ $screen-xl: 1279px;
   }
 }
 
-$screen-height-xs: 640px;
+$screen-height-sm: 620px;
+$screen-height-xs: 400px;
+
+@mixin sm_height {
+  @media (max-height: #{$screen-height-sm}) {
+    @content;
+  }
+}
 
 @mixin xs_height {
   @media (max-height: #{$screen-height-xs}) {

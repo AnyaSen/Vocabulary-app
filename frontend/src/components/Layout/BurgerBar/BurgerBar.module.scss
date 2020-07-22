@@ -32,6 +32,10 @@
     background-color: $color-light-grey;
     height: 100vh;
 
+    @include xs_height {
+      height: auto;
+    }
+
     .BurgerCard {
       @include flex-column;
       justify-content: space-evenly;
@@ -41,6 +45,12 @@
       padding: $space-3 0;
       border-radius: $border-radius-md;
       box-shadow: $shadow-2;
+
+      @include xs_height {
+        width: auto;
+        padding: $space-1 $space-3;
+        margin: $space-1;
+      }
 
       .links {
         @include flex-column;

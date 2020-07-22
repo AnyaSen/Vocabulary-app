@@ -7,73 +7,78 @@
   align-items: center;
   background-color: $color-light-grey;
   height: 100vh;
-}
 
-.SignupLoginForm {
-  background-color: $color-white;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
+  @include sm_height {
+    height: auto;
+  }
 
-  h1 {
-    margin-bottom: $space-2;
+  .SignupLoginForm {
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
 
-    @include md {
-      margin-bottom: 0;
+    h1 {
+      margin-bottom: $space-2;
+
+      @include md {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin-top: $space-1;
+    }
+
+    a {
+      color: $color-pink;
+    }
+
+    button {
+      margin: $space-1;
+    }
+
+    @include lg {
+      height: auto;
+      margin: $space-1;
+      padding: $space-7 $space-1;
+      border-radius: $border-radius-sm;
+      box-shadow: $shadow-2;
+    }
+
+    @include sm {
+      width: 22rem;
+    }
+
+    @include xs {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    @include sm_height {
+      height: auto;
+      margin: $space-1;
+      padding: $space-5 $space-1;
     }
   }
 
-  p {
-    margin-top: $space-1;
-  }
+  .inputsFieldsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: $space-2;
+    width: 15rem;
 
-  a {
-    color: $color-pink;
-  }
-
-  button {
-    margin: $space-1;
-  }
-
-  @include lg {
-    height: 75vh;
-    border-radius: $border-radius-sm;
-    box-shadow: $shadow-2;
-  }
-
-  @include md {
-    width: 60%;
-  }
-
-  @include sm {
-    width: 22rem;
-  }
-
-  @include xs {
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  @include xs_height {
-    height: 100vh;
-  }
-}
-
-.inputsFieldsContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: $space-2;
-  width: 15rem;
-
-  input {
-    width: 100%;
+    input {
+      width: 100%;
+    }
   }
 }
