@@ -30,11 +30,8 @@
 
     justify-content: center;
     background-color: $color-light-grey;
-    height: 100vh;
-
-    @include xs_height {
-      height: auto;
-    }
+    min-height: 100vh;
+    padding: $space-1 $space-3;
 
     .BurgerCard {
       @include flex-column;

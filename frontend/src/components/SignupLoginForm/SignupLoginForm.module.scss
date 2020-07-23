@@ -6,11 +6,7 @@
   justify-content: center;
   align-items: center;
   background-color: $color-light-grey;
-  height: 100vh;
-
-  @include sm_height {
-    height: auto;
-  }
+  min-height: 100vh;
 
   .SignupLoginForm {
     background-color: $color-white;
