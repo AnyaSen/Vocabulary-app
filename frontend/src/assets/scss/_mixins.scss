@@ -3,6 +3,7 @@
 @mixin input-sm {
   border: $border-light;
   padding: $space-0;
+  margin: $space-0;
 }
 
 @mixin flex-column {

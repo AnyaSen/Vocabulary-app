@@ -9,13 +9,14 @@ export default function InputField({
   onChange,
   type,
   autocompleteON,
-  refInput
+  refInput,
+  small
 }) {
   return (
     <div className={Styles.InputFieldContainer}>
       <input
         ref={refInput}
-        className={Styles.InputField}
+        className={small ? Styles.smallInputField : Styles.InputField}
         type={type}
         placeholder={placeholder}
         name={name}

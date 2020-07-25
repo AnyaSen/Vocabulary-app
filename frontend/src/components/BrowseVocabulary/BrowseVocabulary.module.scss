@@ -15,10 +15,7 @@
     @include flex-row;
 
     input {
-      @include input-sm;
-
       @include sm {
-        margin: $space-0;
         width: 10rem;
       }
 

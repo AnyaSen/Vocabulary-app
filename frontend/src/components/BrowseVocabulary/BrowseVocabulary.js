@@ -53,6 +53,7 @@ export default function BrowseVocabulary() {
     <div className={Styles.BrowseVocabulary}>
       <form className={Styles.BrowseVocabularyForm} onSubmit={searchAndUpdate}>
         <InputField
+          small
           type="text"
           name="searchWord"
           placeholder="Enter a word"

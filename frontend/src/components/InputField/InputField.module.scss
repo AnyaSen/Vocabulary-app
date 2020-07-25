@@ -1,4 +1,5 @@
 @import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
 
 .InputFieldContainer {
   .InputField {
@@ -6,5 +7,10 @@
     padding: $space-1;
     font-size: $font-sm;
     border: $border-dark;
+  }
+
+  .smallInputField {
+    @extend .InputField;
+    @include input-sm;
   }
 }

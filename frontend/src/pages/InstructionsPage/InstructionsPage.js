@@ -93,6 +93,11 @@ export default function InstructionsPage() {
           instructionNumber={13}
           text="To log out, press “LOGOUT” at the top of the sidebar."
         />
+        <InstructionsCard
+          instructionNumber={14}
+          text="In case if you would like to delete the account press a cross sign in the upper left corner of a user circle with a letter at the top of the sidebar, then press “OK” and “Continue”."
+          textafterBreak="Enter your user name in the input field and press “Submit”. Your account will be deleted and you will be redirected to the initial page."
+        />
       </div>
     </div>
   );
