@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import Styles from "./InstructionsPage.module.scss";
 import arrowSvg from "../../assets/img/arrow_back.svg";
 
-import InstructionsCard from "./InstructionsCard/InstructionsCard";
+import InstructionsCard from "../../components/InstructionsCard/InstructionsCard";
 
 export default function InstructionsPage() {
   let history = useHistory();

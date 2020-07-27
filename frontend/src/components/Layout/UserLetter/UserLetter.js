@@ -7,10 +7,10 @@ import { useForm } from "../../../hooks/useForm";
 import Styles from "./UserLetter.module.scss";
 import deleteSvg from "../../../assets/img/delete_account.svg";
 
-import ConfirmationCard from "../../ConfirmationCard/ConfirmationCard";
+import ConfirmationCard from "../../shared/ConfirmationCard/ConfirmationCard";
 import InputField from "../../InputField/InputField";
 import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
-import WarningMessage from "../../WarningMessage/WarningMessage";
+import WarningMessage from "../../shared/WarningMessage/WarningMessage";
 
 export default function UserLetter({ inCircle }) {
   const userName = JSON.parse(localStorage.getItem("userName"));

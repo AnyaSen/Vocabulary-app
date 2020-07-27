@@ -7,11 +7,11 @@ import { WordsContext } from "../../../contexts/WordsContext";
 
 import Layout from "../../../components/Layout/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
-import ExplanatoryWordsCard from "../../../components/ExplanatoryWordsCard/ExplanatoryWordsCard";
+import ExplanatoryWordsCard from "../../../components/shared/ExplanatoryWordsCard/ExplanatoryWordsCard";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall";
-import WarningMessage from "../../../components/WarningMessage/WarningMessage";
-import NotificationMessage from "../../../components/NotificationMessage/NotificationMessage";
+import WarningMessage from "../../../components/shared/WarningMessage/WarningMessage";
+import NotificationMessage from "../../../components/shared/NotificationMessage/NotificationMessage";
 
 export default function PreferencesPage() {
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);

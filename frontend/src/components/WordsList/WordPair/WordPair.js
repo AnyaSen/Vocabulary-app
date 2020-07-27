@@ -13,9 +13,9 @@ import editSvg from "../../../assets/img/edit.svg";
 import deleteSvg from "../../../assets/img/delete.svg";
 import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
 import InputField from "../../InputField/InputField";
-import LoaderSmall from "../../Loader/LoaderSmall/LoaderSmall";
+import LoaderSmall from "../../shared/LoaderSmall/LoaderSmall";
 import ErrorSmall from "../../ErrorSmall/ErrorSmall";
-import WarningMessage from "../../WarningMessage/WarningMessage";
+import WarningMessage from "../../shared/WarningMessage/WarningMessage";
 
 export default function WordPair({
   word,

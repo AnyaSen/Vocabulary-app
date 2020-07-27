@@ -9,8 +9,8 @@ import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
 
 import QuestionCard from "../../../components/QuestionCard/QuestionCard";
-import ProgressCard from "../../../components/ProgressCard/ProgressCard";
-import ConfirmationCard from "../../../components/ConfirmationCard/ConfirmationCard";
+import ProgressCard from "../../../components/shared/ProgressCard/ProgressCard";
+import ConfirmationCard from "../../../components/shared/ConfirmationCard/ConfirmationCard";
 
 export default function QuestionPage({ match }) {
   const { newWords, learningWords, learnedWords } = useContext(WordsContext);

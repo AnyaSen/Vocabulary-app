@@ -4,11 +4,11 @@ import Styles from "./VocabularyPage.module.scss";
 
 import WordsList from "../../components/WordsList/WordsList";
 import BrowseVocabulary from "../../components/BrowseVocabulary/BrowseVocabulary";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../components/shared/Loader/Loader";
 import ErrorCard from "../../components/ErrorCard/ErrorCard";
 import Layout from "../../components/Layout/Layout";
-import AddWordsForm from "./AddWordsForm/AddWordsForm";
-import WordPairCard from "./WordPairCard/WordPairCard";
+import AddWordsForm from "../../components/AddWordsForm/AddWordsForm";
+import WordPairCard from "../../components/WordPairCard/WordPairCard";
 
 import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";

@@ -6,7 +6,7 @@ import WordCard from "../WordCard/WordCard";
 import InputField from "../../InputField/InputField";
 import PrimaryButton from "../../Buttons/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
-import WarningMessage from "../../WarningMessage/WarningMessage";
+import WarningMessage from "../../shared/WarningMessage/WarningMessage";
 
 import { LearningContext } from "../../../contexts/LearningContext";
 

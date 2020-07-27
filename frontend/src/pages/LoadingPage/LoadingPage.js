@@ -2,7 +2,7 @@ import React from "react";
 
 import Styles from "./LoadingPage.module.scss";
 
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../components/shared/Loader/Loader";
 
 export default function LoadingPage() {
   return (

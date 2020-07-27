@@ -9,7 +9,7 @@ import { LoadingContext } from "../../contexts/LoadingContext";
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
 import LoadingPage from "../LoadingPage/LoadingPage";
-import WarningMessage from "../../components/WarningMessage/WarningMessage";
+import WarningMessage from "../../components/shared/WarningMessage/WarningMessage";
 
 export default function HomePage() {
   const [values, handleChange, clearValues] = useForm({

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 
 import Styles from "./WordPairCard.module.scss";
-import closeSvg from "../../../assets/img/close.svg";
+import closeSvg from "../../assets/img/close.svg";
 
-import { BrowseContext } from "../../../contexts/BrowseContext";
+import { BrowseContext } from "../../contexts/BrowseContext";
 
 export default function WordPairCard() {
   const {
