@@ -14,6 +14,26 @@
     cursor: pointer;
   }
 
+  .ArrowBack {
+    @include push-to-upper-left-corner;
+
+    img {
+      height: 3rem;
+      width: auto;
+      margin-left: $space-3;
+      margin-top: $space-2;
+
+      @include md {
+        margin-left: $space-2;
+        margin-top: $space-1;
+      }
+
+      @include xs {
+        height: 2.5rem;
+      }
+    }
+  }
+
   .InstructionsVideoContainer {
     @include flex-row;
 
