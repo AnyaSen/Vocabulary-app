@@ -7,7 +7,7 @@ import { Chart } from "react-google-charts";
 import { WordsContext } from "../../contexts/WordsContext";
 
 import PageLayout from "../../components/PageLayout/PageLayout";
-import ArrowBack from "../../components/Buttons/ArrowBack/ArrowBack";
+import ArrowBack from "../../components/Buttons/ArrowBack";
 
 import ExplanatoryWordsCard from "../../components/ExplanatoryWordsCard/ExplanatoryWordsCard";
 import NotificationMessage from "../../components/NotificationMessage/NotificationMessage";

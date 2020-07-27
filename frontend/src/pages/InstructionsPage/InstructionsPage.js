@@ -2,7 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Styles from "./InstructionsPage.module.scss";
-import arrowStyles from "../../components/Buttons/ArrowBack/ArrowBack.module.scss";
 import arrowSvg from "../../assets/img/arrow_back.svg";
 
 import InstructionsCard from "./InstructionsCard/InstructionsCard";
@@ -12,7 +11,7 @@ export default function InstructionsPage() {
 
   return (
     <div className={Styles.InstructionsPage}>
-      <div className={arrowStyles.ArrowBack} onClick={() => history.goBack()}>
+      <div className={Styles.ArrowBack} onClick={() => history.goBack()}>
         <img src={arrowSvg} alt="Go Back" />
       </div>
 
@@ -23,9 +22,7 @@ export default function InstructionsPage() {
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        >
-          >
-        </iframe>
+        ></iframe>
       </div>
       <div className={Styles.InstructionCards}>
         <h1>Instructions</h1>

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import { Link } from "react-router-dom";
 
 import Styles from "./ArrowBack.module.scss";
 import arrowSvg from "../../../assets/img/arrow_back.svg";
 
-export default function ArrowBack({ linkTo }) {
+interface Props {
+  linkTo: string;
+}
+
+export default function ArrowBack({ linkTo }: Props): ReactElement {
   return (
     <Link to={linkTo} className={Styles.ArrowBack}>
       <img src={arrowSvg} alt="Go Back" />
