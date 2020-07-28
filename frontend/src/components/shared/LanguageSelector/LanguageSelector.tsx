@@ -6,13 +6,11 @@ import rus_flagSvg from "../../../assets/img/rus_flag.svg";
 
 import { LanguageContext } from "../../../contexts/LanguageContext";
 
-interface Props {}
-
-export default function LanguageSelector({}: Props): ReactElement {
+export default function LanguageSelector(): ReactElement {
   const { setLanguage } = useContext(LanguageContext);
 
   return (
-    <div className={Styles.LanguageSelector} data-testid="LanguageSelector">
+    <div className={Styles.LanguageSelector} data-testid="language-selector">
       <img
         src={us_flagSvg}
         alt="English"

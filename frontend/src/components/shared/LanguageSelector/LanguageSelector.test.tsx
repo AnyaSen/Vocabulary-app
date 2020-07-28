@@ -16,6 +16,6 @@ describe("<LanguageSelector />", () => {
 
     expect(getByAltText("English")).toBeTruthy();
     expect(getByAltText("Russian")).toBeTruthy();
-    expect(getByTestId("LanguageSelector").children.length).toBe(2);
+    expect(getByTestId("language-selector").children.length).toBe(2);
   });
 });
