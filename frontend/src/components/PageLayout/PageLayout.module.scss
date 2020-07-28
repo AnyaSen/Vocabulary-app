@@ -45,20 +45,29 @@
     @include flex-column;
   }
 
-  .logo {
-    height: 3rem;
+  .logoAndLanguage {
+    @include flex-row;
+
     position: absolute;
     top: 0;
     left: 0;
     margin-left: $space-3;
     margin-top: $space-3;
 
+    img {
+      margin: $space-0;
+    }
+
+    .logo {
+      height: 3rem;
+    }
+
     @include lg {
       margin-top: $space-2;
     }
 
     @include md {
-      margin-left: 0;
+      // justify-content: space-around;
       position: static;
       width: 100%;
     }

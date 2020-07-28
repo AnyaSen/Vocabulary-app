@@ -15,7 +15,7 @@ export default function InitialPageButton({
       <img src={imgSrc} alt={imgAlt} />
 
       <Link to={linkTo}>
-        <button>{buttonMessage}</button>
+        <button>{buttonMessage.toUpperCase()}</button>
       </Link>
 
       <p>{buttonDescription}</p>

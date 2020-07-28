@@ -1,0 +1,22 @@
+{
+  "English": {
+    "welcome": "Welcome to Vocabulary Builder!",
+    "welcome_subheader": "Here you can add new words, learn them and see your progress.",
+    "sign_up": "Sign up ",
+    "sign_up_message": "To create an account",
+    "log_in": "Log in",
+    "log_in_message": "To log into an existing account",
+    "instructions": "Instrucitions",
+    "instructions_message": "To see how the app works"
+  },
+  "Russian": {
+    "welcome": "Добро пожаловать в Vocabulary Builder!",
+    "welcome_subheader": "Здесь вы можете добавлять новые слова, учить их и отслеживать прогресс.",
+    "sign_up": "Регистрация",
+    "sign_up_message": "Cоздать аккаунт",
+    "log_in": "Bxoд",
+    "log_in_message": "Войти в существующий аккаунт",
+    "instructions": "Инструкции",
+    "instructions_message": "Смотреть, как работает приложение"
+  }
+}

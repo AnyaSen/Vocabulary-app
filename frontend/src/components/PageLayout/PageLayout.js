@@ -3,6 +3,8 @@ import React from "react";
 import Styles from "./PageLayout.module.scss";
 import logoSvg from "../../assets/img/logo.svg";
 
+import LanguageSelector from "../shared/LanguageSelector";
+
 export default function PageLayout({
   children,
   subHeader,
@@ -11,11 +13,19 @@ export default function PageLayout({
   span,
   subHeaderAferSpan,
   childrenFlexColumn,
-  showLogo
+  showLogo,
+  showLanguageSelector
 }) {
   return (
     <div className={Styles.PageLayout}>
-      {showLogo && <img src={logoSvg} alt="Logo" className={Styles.logo} />}
+      {showLogo && (
+        <div className={Styles.logoAndLanguage}>
+          <img src={logoSvg} alt="Logo" className={Styles.logo} />
+
+          {showLanguageSelector && <LanguageSelector />}
+        </div>
+      )}
+
       <div className={Styles.PageLayoutHeader}>
         <h1>
           {header}

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import typography from "../../typography/typography.json";
 
 import Styles from "./InitialPage.module.scss";
-
 import signupSvg from "../../assets/img/signup.svg";
 import loginSvg from "../../assets/img/login.svg";
 import instructionsSvg from "../../assets/img/instructions.svg";
@@ -9,36 +9,51 @@ import instructionsSvg from "../../assets/img/instructions.svg";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import InitialPageButton from "../../components/Buttons/InitialPageButton/InitialPageButton";
 
+import { LanguageContext } from "../../contexts/LanguageContext.js";
+
 export default function InitialPage() {
+  const { language } = useContext(LanguageContext);
+  const {
+    welcome,
+    welcome_subheader,
+    sign_up,
+    log_in,
+    instructions,
+    log_in_message,
+    sign_up_message,
+    instructions_message
+  } = typography[language];
+
   return (
     <PageLayout
+      showLanguageSelector
       showLogo
-      header="Welcome to Vocabulary Builder!"
-      subHeader="Here you can add new words, learn them and see your progress"
+      header={welcome}
+      subHeader={welcome_subheader}
     >
       <div className={Styles.buttons}>
         <InitialPageButton
           imgSrc={signupSvg}
           imgAlt="Sign up"
           linkTo="/signup"
-          buttonMessage="SIGN UP"
-          buttonDescription="To create an account"
+          buttonMessage={sign_up}
+          buttonDescription={sign_up_message}
         />
 
         <InitialPageButton
           imgSrc={instructionsSvg}
           imgAlt="Instructions"
           linkTo="/instructions"
-          buttonMessage="INSTRUCTIONS"
-          buttonDescription="To see how the app works"
+          buttonMessage={instructions}
+          buttonDescription={instructions_message}
         />
 
         <InitialPageButton
           imgSrc={loginSvg}
           imgAlt="Log in"
           linkTo="/login"
-          buttonMessage="LOG IN"
-          buttonDescription="To log into an existing account"
+          buttonMessage={log_in}
+          buttonDescription={log_in_message}
         />
       </div>
     </PageLayout>
