@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import typography from "../../typography/typography.json";
 
 import { login } from "../../services/login";
 import { useForm } from "../../hooks/useForm";
 
 import { LoadingContext } from "../../contexts/LoadingContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
@@ -12,6 +14,19 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 import WarningMessage from "../../components/shared/WarningMessage/WarningMessage";
 
 export default function HomePage() {
+  const { language } = useContext(LanguageContext);
+
+  const {
+    log_in,
+    email_,
+    password_,
+    sign_up,
+    dont_have_an_aссount,
+    continue_,
+    empty_fields_err,
+    wrong_credentials_err
+  } = typography[language];
+
   const [values, handleChange, clearValues] = useForm({
     email: "",
     password: ""
@@ -42,7 +57,7 @@ export default function HomePage() {
     } catch (error) {
       console.log(error);
 
-      setErrorMessage("Wrong credentials");
+      setErrorMessage(wrong_credentials_err);
 
       setIsProfileLoading(false);
     }
@@ -52,7 +67,7 @@ export default function HomePage() {
     const areValuesEmpty = email === "" || password === "";
 
     if (areValuesEmpty) {
-      setErrorMessage("All fields should be filled");
+      setErrorMessage(empty_fields_err);
     } else {
       sendProfile();
     }
@@ -71,16 +86,16 @@ export default function HomePage() {
   return (
     <SignupLoginForm
       handleSubmit={handleSubmit}
-      header="Log in"
-      buttonMessage="Continue"
-      paragraphMessage="Don&#39;t have an account? "
+      header={log_in}
+      buttonMessage={continue_}
+      paragraphMessage={dont_have_an_aссount}
       route="/signup"
-      linkMessage="Sing up"
+      linkMessage={sign_up}
     >
       <WarningMessage warnMessage={errorMessage} />
 
       <InputField
-        placeholder="Email"
+        placeholder={email_}
         name="email"
         value={values.email}
         onChange={handleChange}
@@ -89,7 +104,7 @@ export default function HomePage() {
 
       <InputField
         type="password"
-        placeholder="Password"
+        placeholder={password_}
         name="password"
         value={values.password}
         onChange={handleChange}

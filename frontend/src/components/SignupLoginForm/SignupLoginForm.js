@@ -20,7 +20,7 @@ export default function SignupLoginForm({
       <form onSubmit={handleSubmit} className={Styles.SignupLoginForm}>
         <ArrowBack linkTo="/" />
 
-        <h1>{header}</h1>
+        <h1>{header.toUpperCase()}</h1>
 
         <div className={Styles.inputsFieldsContainer}>{children}</div>
 

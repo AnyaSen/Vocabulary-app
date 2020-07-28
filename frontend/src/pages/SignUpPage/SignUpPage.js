@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import typography from "../../typography/typography.json";
 
 import { signup } from "../../services/signup";
 import { useForm } from "../../hooks/useForm";
 
 import { LoadingContext } from "../../contexts/LoadingContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
@@ -12,6 +14,22 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 import WarningMessage from "../../components/shared/WarningMessage/WarningMessage";
 
 export default function SignUpPage() {
+  const { language } = useContext(LanguageContext);
+
+  const {
+    sign_up,
+    name_,
+    email_,
+    password_,
+    create_user,
+    already_have_an_aссount,
+    log_in,
+    empty_fields_err,
+    account_exists_err,
+    email_invalid_err,
+    password_invalid_err
+  } = typography[language];
+
   const [values, handleChange, clearValues] = useForm({
     name: "",
     email: "",
@@ -46,7 +64,7 @@ export default function SignUpPage() {
 
       setIsProfileLoading(false);
 
-      setErrorMessage("Account already exists");
+      setErrorMessage(account_exists_err);
     }
   };
 
@@ -63,11 +81,11 @@ export default function SignUpPage() {
     const isNOTPasswordValid = password.length > 0 && password.length < 6;
 
     if (areValuesEmpty) {
-      setErrorMessage("All fields should be filled");
+      setErrorMessage(empty_fields_err);
     } else if (!isValidEmail) {
-      setErrorMessage("Email is invalid");
+      setErrorMessage(email_invalid_err);
     } else if (isNOTPasswordValid) {
-      setErrorMessage("Password should be 6 charecters minimun");
+      setErrorMessage(password_invalid_err);
     } else {
       sendProfile();
     }
@@ -86,17 +104,17 @@ export default function SignUpPage() {
   return (
     <SignupLoginForm
       handleSubmit={handleSubmit}
-      header="SIGN UP"
-      buttonMessage="Create User"
-      paragraphMessage="Already have an account?"
+      header={sign_up}
+      buttonMessage={create_user}
+      paragraphMessage={already_have_an_aссount}
       route="/login"
-      linkMessage="Log In"
+      linkMessage={log_in}
     >
       <WarningMessage warnMessage={errorMessage} />
 
       <InputField
         type="text"
-        placeholder="Name"
+        placeholder={name_}
         name="name"
         value={name}
         onChange={handleChange}
@@ -104,7 +122,7 @@ export default function SignUpPage() {
 
       <InputField
         type="email"
-        placeholder="Email"
+        placeholder={email_}
         name="email"
         value={email}
         onChange={handleChange}
@@ -113,7 +131,7 @@ export default function SignUpPage() {
 
       <InputField
         type="password"
-        placeholder="Password"
+        placeholder={password_}
         name="password"
         value={password}
         onChange={handleChange}

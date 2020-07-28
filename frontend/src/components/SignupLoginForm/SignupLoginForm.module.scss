@@ -20,7 +20,7 @@
     position: relative;
 
     h1 {
-      margin-bottom: $space-2;
+      margin-bottom: $space-0;
 
       @include md {
         margin-bottom: 0;
@@ -72,9 +72,5 @@
     align-items: center;
     margin: $space-2;
     width: 15rem;
-
-    input {
-      width: 100%;
-    }
   }
 }
