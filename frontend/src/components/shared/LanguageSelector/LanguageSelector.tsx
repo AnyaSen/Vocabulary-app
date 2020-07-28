@@ -12,7 +12,7 @@ export default function LanguageSelector({}: Props): ReactElement {
   const { setLanguage } = useContext(LanguageContext);
 
   return (
-    <div className={Styles.LanguageSelector}>
+    <div className={Styles.LanguageSelector} data-testid="LanguageSelector">
       <img
         src={us_flagSvg}
         alt="English"
