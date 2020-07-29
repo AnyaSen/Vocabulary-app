@@ -1,9 +1,21 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import Styles from "./PageLayout.module.scss";
 import logoSvg from "../../assets/img/logo.svg";
 
 import LanguageSelector from "../shared/LanguageSelector";
+
+interface Props {
+  children: React.ReactNode;
+  header: string;
+  headerAfterBreak?: string;
+  subHeader: string;
+  span?: string;
+  subHeaderAferSpan?: string;
+  childrenFlexColumn?: boolean;
+  showLogo?: boolean;
+  showLanguageSelector?: boolean;
+}
 
 export default function PageLayout({
   children,
@@ -15,12 +27,15 @@ export default function PageLayout({
   childrenFlexColumn,
   showLogo,
   showLanguageSelector
-}) {
+}: Props): ReactElement {
   return (
-    <div className={Styles.PageLayout}>
-      {showLogo && (
-        <div className={Styles.logoAndLanguage}>
-          <img src={logoSvg} alt="Logo" className={Styles.logo} />
+    <div className={Styles.PageLayout} data-testid="page-layout">
+      {(showLogo || showLanguageSelector) && (
+        <div
+          className={Styles.logoAndLanguage}
+          data-testid="logo-and-language-selector-container"
+        >
+          {showLogo && <img src={logoSvg} alt="Logo" className={Styles.logo} />}
 
           {showLanguageSelector && <LanguageSelector />}
         </div>
@@ -41,8 +56,8 @@ export default function PageLayout({
           </h2>
         </div>
       </div>
-
       <div
+        data-testid="children-container"
         className={childrenFlexColumn ? Styles.childrenColumn : Styles.children}
       >
         {children}
