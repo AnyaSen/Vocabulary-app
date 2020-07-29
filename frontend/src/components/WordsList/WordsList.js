@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Styles from "./WordsList.module.scss";
 
 import WordPair from "./WordPair/WordPair";
-import ArrowUp from "../Buttons/ArrowUp/ArrowUp";
+import ArrowUp from "../Buttons/ArrowUp";
 
 export default function WordsList({ wordsArray, noWordsMessage }) {
   const [showScroll, setShowScroll] = useState(false);

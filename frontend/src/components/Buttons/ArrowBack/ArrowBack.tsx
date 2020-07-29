@@ -11,7 +11,11 @@ interface Props {
 
 export default function ArrowBack({ linkTo }: Props): ReactElement {
   return (
-    <Link to={linkTo} className={Styles.ArrowBack}>
+    <Link
+      to={linkTo}
+      className={Styles.ArrowBack}
+      data-testid="arrow-container"
+    >
       <img src={arrowSvg} alt="Go Back" />
     </Link>
   );
