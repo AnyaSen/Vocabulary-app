@@ -9,7 +9,7 @@ import closeSvg from "../../../assets/img/close.svg";
 
 import { NavBarConext } from "../../../contexts/NavBarConext";
 
-import ButtonMenuLink from "../../Buttons/ButtonMenuLink/ButtonMenuLink";
+import ButtonMenuLink from "../../Buttons/ButtonMenuLink";
 import UserLetter from "../UserLetter/UserLetter";
 
 export default function BurgerBar() {

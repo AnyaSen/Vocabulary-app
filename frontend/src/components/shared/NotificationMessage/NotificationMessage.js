@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Styles from "./NotificationMessage.module.scss";
-import PrimaryButton from "../../Buttons/PrimaryButton/PrimaryButton";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 
 export default function NotificationMessage({ text, linkMessage, linkRoute }) {
   return (

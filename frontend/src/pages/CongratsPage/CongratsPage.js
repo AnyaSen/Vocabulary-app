@@ -7,7 +7,7 @@ import congratsSvg from "../../assets/img/congrats.svg";
 import { Link } from "react-router-dom";
 
 import PageLayout from "../../components/PageLayout/PageLayout";
-import PrimaryButton from "../../components/Buttons/PrimaryButton/PrimaryButton";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 
 import { LearningContext } from "../../contexts/LearningContext";
 import { WordsContext } from "../../contexts/WordsContext";

@@ -5,7 +5,7 @@ import Styles from "./VocabularyPage.module.scss";
 import WordsList from "../../components/WordsList/WordsList";
 import BrowseVocabulary from "../../components/BrowseVocabulary/BrowseVocabulary";
 import Loader from "../../components/shared/Loader";
-import ErrorCard from "../../components/ErrorCard/ErrorCard";
+import ErrorCard from "../../components/ErrorCard";
 import Layout from "../../components/Layout/Layout";
 import AddWordsForm from "../../components/AddWordsForm/AddWordsForm";
 import WordPairCard from "../../components/WordPairCard/WordPairCard";

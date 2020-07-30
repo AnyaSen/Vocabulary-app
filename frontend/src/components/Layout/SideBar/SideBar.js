@@ -3,7 +3,7 @@ import React from "react";
 import Styles from "./SideBar.module.scss";
 
 import { NavLink } from "react-router-dom";
-import ButtonMenuLink from "../../Buttons/ButtonMenuLink/ButtonMenuLink";
+import ButtonMenuLink from "../../Buttons/ButtonMenuLink";
 import UserLetter from "../UserLetter/UserLetter";
 
 export default function SideBar() {

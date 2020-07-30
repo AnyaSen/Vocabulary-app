@@ -4,7 +4,7 @@ import Styles from "../QuestionCard.module.scss";
 
 import WordCard from "../WordCard/WordCard";
 import InputField from "../../InputField/InputField";
-import PrimaryButton from "../../Buttons/PrimaryButton/PrimaryButton";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
 import WarningMessage from "../../shared/WarningMessage/WarningMessage";
 

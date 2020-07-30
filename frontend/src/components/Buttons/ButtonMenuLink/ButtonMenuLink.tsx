@@ -1,15 +1,25 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 
 import Styles from "./ButtonMenuLink.module.scss";
 
-export default function ButtonMenuLink({ buttonMessage, linkTo, onClick }) {
+interface Props {
+  buttonMessage: string;
+  linkTo: string;
+  onClick: () => void;
+}
+
+export default function ButtonMenuLink({
+  buttonMessage,
+  linkTo,
+  onClick
+}: Props): ReactElement {
   return (
     <NavLink
       exact
       activeClassName={Styles.active}
-      to={linkTo}
       className={Styles.ButtonMenuLink}
+      to={linkTo}
       onClick={onClick}
     >
       <button>{buttonMessage}</button>

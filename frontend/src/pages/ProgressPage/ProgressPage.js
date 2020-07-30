@@ -9,7 +9,7 @@ import { WordsContext } from "../../contexts/WordsContext";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import ArrowBack from "../../components/Buttons/ArrowBack";
 
-import ExplanatoryWordsCard from "../../components/shared/ExplanatoryWordsCard/ExplanatoryWordsCard";
+import ExplanatoryWordsCard from "../../components/shared/ExplanatoryWordsCard";
 import NotificationMessage from "../../components/shared/NotificationMessage/NotificationMessage";
 
 export default function ProgressPage() {

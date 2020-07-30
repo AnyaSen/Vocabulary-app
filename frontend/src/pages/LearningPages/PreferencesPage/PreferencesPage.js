@@ -7,8 +7,8 @@ import { WordsContext } from "../../../contexts/WordsContext";
 
 import Layout from "../../../components/Layout/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
-import ExplanatoryWordsCard from "../../../components/shared/ExplanatoryWordsCard/ExplanatoryWordsCard";
-import PrimaryButton from "../../../components/Buttons/PrimaryButton/PrimaryButton";
+import ExplanatoryWordsCard from "../../../components/shared/ExplanatoryWordsCard";
+import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall";
 import WarningMessage from "../../../components/shared/WarningMessage/WarningMessage";
 import NotificationMessage from "../../../components/shared/NotificationMessage/NotificationMessage";

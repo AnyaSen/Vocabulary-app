@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Styles from "./SignupLoginForm.module.scss";
 
-import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
 import ArrowBack from "../Buttons/ArrowBack";
 
 export default function SignupLoginForm({

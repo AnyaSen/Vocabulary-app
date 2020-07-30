@@ -14,7 +14,7 @@ import deleteSvg from "../../../assets/img/delete.svg";
 import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
 import InputField from "../../InputField/InputField";
 import LoaderSmall from "../../shared/LoaderSmall/LoaderSmall";
-import ErrorSmall from "../../ErrorSmall/ErrorSmall";
+import ErrorSmall from "../../ErrorSmall";
 import WarningMessage from "../../shared/WarningMessage/WarningMessage";
 
 export default function WordPair({

@@ -17,7 +17,7 @@ import PreferencesPage from "./pages/LearningPages/PreferencesPage/PreferencesPa
 import QuestionPage from "./pages/LearningPages/QuestionPage/QuestionPage";
 import CongratsPage from "./pages/CongratsPage/CongratsPage";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
-import ErrorCard from "./components/ErrorCard/ErrorCard";
+import ErrorCard from "./components/ErrorCard";
 import InstructionsPage from "./pages/InstructionsPage/InstructionsPage";
 
 function App() {

@@ -1,14 +1,14 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import Styles from "./ExplanatoryWordsCard.module.scss";
 
-export default function ExplanatoryWordsCard() {
+export default function ExplanatoryWordsCard(): ReactElement {
   return (
-    <div className={Styles.ExplanatoryWordsCard}>
+    <div className={Styles.ExplanatoryWordsCard} data-testid="explanatory-card">
       <p className={Styles.header}>WORDS</p>
 
       <p>
-        <span>New</span> - added but not yet reviewed{" "}
+        <span>New</span> - added but not yet reviewed
       </p>
       <p>
         <span>Learning</span> - reviewed but not learned well

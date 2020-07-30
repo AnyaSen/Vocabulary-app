@@ -1,7 +1,11 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import Styles from "./ErrorSmall.module.scss";
 
-export default function ErrorSmall({ onClick }) {
+interface Props {
+  onClick: () => void;
+}
+
+export default function ErrorSmall({ onClick }: Props): ReactElement {
   return (
     <div className={Styles.ErrorSmall}>
       <p>Error</p>

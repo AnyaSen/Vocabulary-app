@@ -8,7 +8,7 @@ import ArrowBack from "./ArrowBack";
 describe("<ArrowBack />", () => {
   afterAll(cleanup);
 
-  test("Should render an image", () => {
+  test("Should render an image and correct href", () => {
     const { getByAltText, getByTestId } = render(
       <BrowserRouter>
         <ArrowBack linkTo="/" />

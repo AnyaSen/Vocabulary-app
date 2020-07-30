@@ -7,7 +7,7 @@ import { WordsContext } from "../../contexts/WordsContext";
 import { useForm } from "../../hooks/useForm";
 
 import InputField from "../InputField/InputField";
-import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButton";
+import PrimaryButton from "../Buttons/PrimaryButton/";
 import WarningMessage from "../shared/WarningMessage/WarningMessage";
 
 export default function AddWordsForm() {

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 import Styles from "./HomePageButton.module.scss";
 
-import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import PrimaryButton from "../PrimaryButton";
+
+interface Props {
+  imgSrc: string;
+  imgAlt: string;
+  linkTo: string;
+  buttonMessage: string;
+  buttonDescription: string;
+}
 
 export default function HomePageButton({
   imgSrc,
@@ -11,7 +19,7 @@ export default function HomePageButton({
   linkTo,
   buttonMessage,
   buttonDescription
-}) {
+}: Props): ReactElement {
   return (
     <div className={Styles.HomePageButtonContainer}>
       <img src={imgSrc} alt={imgAlt} />
