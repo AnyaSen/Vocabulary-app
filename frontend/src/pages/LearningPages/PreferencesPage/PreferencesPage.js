@@ -10,7 +10,7 @@ import PageLayout from "../../../components/PageLayout/PageLayout";
 import ExplanatoryWordsCard from "../../../components/shared/ExplanatoryWordsCard";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall";
-import WarningMessage from "../../../components/shared/WarningMessage/WarningMessage";
+import WarningMessage from "../../../components/shared/WarningMessage";
 import NotificationMessage from "../../../components/shared/NotificationMessage/NotificationMessage";
 
 export default function PreferencesPage() {

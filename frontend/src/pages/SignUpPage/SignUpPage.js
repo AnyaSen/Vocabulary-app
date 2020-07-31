@@ -11,7 +11,7 @@ import { LanguageContext } from "../../contexts/LanguageContext";
 import InputField from "../../components/InputField/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
 import LoadingPage from "../LoadingPage/LoadingPage";
-import WarningMessage from "../../components/shared/WarningMessage/WarningMessage";
+import WarningMessage from "../../components/shared/WarningMessage";
 
 export default function SignUpPage() {
   const { language } = useContext(LanguageContext);

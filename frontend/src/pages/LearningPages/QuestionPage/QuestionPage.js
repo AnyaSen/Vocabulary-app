@@ -9,7 +9,7 @@ import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
 
 import QuestionCard from "../../../components/QuestionCard/QuestionCard";
-import ProgressCard from "../../../components/shared/ProgressCard/ProgressCard";
+import ProgressCard from "../../../components/shared/ProgressCard";
 import ConfirmationCard from "../../../components/shared/ConfirmationCard/ConfirmationCard";
 
 export default function QuestionPage({ match }) {

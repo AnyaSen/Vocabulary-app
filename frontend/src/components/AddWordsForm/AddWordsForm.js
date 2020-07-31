@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import Styles from "./AddWordsForm.module.scss";
 
@@ -8,10 +8,10 @@ import { useForm } from "../../hooks/useForm";
 
 import InputField from "../InputField/InputField";
 import PrimaryButton from "../Buttons/PrimaryButton/";
-import WarningMessage from "../shared/WarningMessage/WarningMessage";
+import WarningMessage from "../shared/WarningMessage";
 
 export default function AddWordsForm() {
-  const { setWordsData } = useContext(WordsContext);
+  const { setWordsData, totalWordsLength } = useContext(WordsContext);
 
   const [values, handleChange, clearValues] = useForm({
     foreignWord: "",
@@ -45,6 +45,10 @@ export default function AddWordsForm() {
       setWordsData();
     }
   };
+
+  useEffect(() => {
+    setWordsData();
+  }, [totalWordsLength]);
 
   return (
     <div className={Styles.AddWordsForm}>

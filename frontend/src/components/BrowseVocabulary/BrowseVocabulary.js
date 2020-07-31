@@ -9,7 +9,7 @@ import { filterVocabulary } from "../../services/filterVocabulary";
 import InputField from "../InputField/InputField";
 import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 import { useForm } from "../../hooks/useForm";
-import WarningMessage from "../shared/WarningMessage/WarningMessage";
+import WarningMessage from "../shared/WarningMessage";
 
 export default function BrowseVocabulary() {
   const [values, handleChange, clearValues] = useForm({

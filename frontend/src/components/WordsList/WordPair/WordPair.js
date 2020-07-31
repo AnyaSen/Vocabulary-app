@@ -15,7 +15,7 @@ import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
 import InputField from "../../InputField/InputField";
 import LoaderSmall from "../../shared/LoaderSmall/LoaderSmall";
 import ErrorSmall from "../../ErrorSmall";
-import WarningMessage from "../../shared/WarningMessage/WarningMessage";
+import WarningMessage from "../../shared/WarningMessage";
 
 export default function WordPair({
   word,
