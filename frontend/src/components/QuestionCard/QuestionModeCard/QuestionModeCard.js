@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import Styles from "../QuestionCard.module.scss";
 
 import WordCard from "../WordCard/WordCard";
-import InputField from "../../InputField/InputField";
+import InputField from "../../InputField";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
 import WarningMessage from "../../shared/WarningMessage";

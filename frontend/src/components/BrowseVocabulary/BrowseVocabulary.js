@@ -6,7 +6,7 @@ import { BrowseContext } from "../../contexts/BrowseContext";
 import { WordsContext } from "../../contexts/WordsContext";
 import { filterVocabulary } from "../../services/filterVocabulary";
 
-import InputField from "../InputField/InputField";
+import InputField from "../InputField";
 import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
 import { useForm } from "../../hooks/useForm";
 import WarningMessage from "../shared/WarningMessage";

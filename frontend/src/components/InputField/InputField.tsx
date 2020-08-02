@@ -1,6 +1,17 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import Styles from "./InputField.module.scss";
+
+type Props = {
+  placeholder: string;
+  name: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void | undefined;
+  type?: string;
+  autocompleteON?: boolean;
+  refInput?: string;
+  small?: boolean;
+};
 
 export default function InputField({
   placeholder,
@@ -11,10 +22,11 @@ export default function InputField({
   autocompleteON,
   refInput,
   small
-}) {
+}: Props): ReactElement {
   return (
     <div className={Styles.InputFieldContainer}>
       <input
+        data-testid="input-field"
         ref={refInput}
         className={small ? Styles.smallInputField : Styles.InputField}
         type={type}

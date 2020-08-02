@@ -6,7 +6,7 @@ import { createWord } from "../../services/createWord";
 import { WordsContext } from "../../contexts/WordsContext";
 import { useForm } from "../../hooks/useForm";
 
-import InputField from "../InputField/InputField";
+import InputField from "../InputField/";
 import PrimaryButton from "../Buttons/PrimaryButton/";
 import WarningMessage from "../shared/WarningMessage";
 
