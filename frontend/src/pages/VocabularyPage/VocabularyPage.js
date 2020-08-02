@@ -7,7 +7,7 @@ import BrowseVocabulary from "../../components/BrowseVocabulary/BrowseVocabulary
 import Loader from "../../components/shared/Loader";
 import ErrorCard from "../../components/ErrorCard";
 import Layout from "../../components/Layout/Layout";
-import AddWordsForm from "../../components/AddWordsForm/AddWordsForm";
+import AddWordsForm from "../../components/AddWordsForm";
 import WordPairCard from "../../components/WordPairCard/WordPairCard";
 
 import { WordsContext } from "../../contexts/WordsContext";

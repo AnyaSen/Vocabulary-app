@@ -6,7 +6,7 @@ interface Props {
   buttonMessage: string;
   value?: string;
   buttonColor?: string;
-  type?: "button";
+  type?: "button" | "submit";
 }
 
 export default function PrimaryButton({

@@ -1,4 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  FormEvent,
+  ReactElement
+} from "react";
 
 import Styles from "./AddWordsForm.module.scss";
 
@@ -6,11 +12,11 @@ import { createWord } from "../../services/createWord";
 import { WordsContext } from "../../contexts/WordsContext";
 import { useForm } from "../../hooks/useForm";
 
-import InputField from "../InputField/";
-import PrimaryButton from "../Buttons/PrimaryButton/";
+import InputField from "../InputField";
+import PrimaryButton from "../Buttons/PrimaryButton";
 import WarningMessage from "../shared/WarningMessage";
 
-export default function AddWordsForm() {
+export default function AddWordsForm(): ReactElement {
   const { setWordsData, totalWordsLength } = useContext(WordsContext);
 
   const [values, handleChange, clearValues] = useForm({
@@ -22,7 +28,7 @@ export default function AddWordsForm() {
 
   const { foreignWord, translation } = values;
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setErrorMessage("");
@@ -51,12 +57,16 @@ export default function AddWordsForm() {
   }, [totalWordsLength]);
 
   return (
-    <div className={Styles.AddWordsForm}>
+    <div className={Styles.AddWordsForm} data-testid="add-words-form-container">
       <h2>ADD VOCABULARY</h2>
 
       <WarningMessage warnMessage={errorMessage} />
 
-      <form onSubmit={handleSubmit} className={Styles.form}>
+      <form
+        onSubmit={handleSubmit}
+        className={Styles.form}
+        data-testid="add-words-form"
+      >
         <InputField
           placeholder="Foreing word"
           name="foreignWord"
