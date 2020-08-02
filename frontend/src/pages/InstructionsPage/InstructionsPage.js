@@ -49,7 +49,7 @@ export default function InstructionsPage() {
         />
         <InstructionsCard
           instructionNumber={5}
-          text="Now, press “LEARN” on the home page (or on the sidebar). You will see the preferences page. On the preferences page, you can see how many words you have."
+          text="Now, press “LEARN” on the home page (or on the sidebar). You will see the preferences page. On the preferences page, you can see how many words you have. Press “Show ward types” if you want to see the definition of each type."
           textafterBreak="As for now, all the words are new. For example, you added 4 words, but you want to review only 3 of them. In this case, enter “3” in the preferences form and press “START”."
         />
         <InstructionsCard
