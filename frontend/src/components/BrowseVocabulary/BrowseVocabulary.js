@@ -7,7 +7,7 @@ import { WordsContext } from "../../contexts/WordsContext";
 import { filterVocabulary } from "../../services/filterVocabulary";
 
 import InputField from "../InputField";
-import SecondaryButton from "../Buttons/SecondaryButton/SecondaryButton";
+import SecondaryButton from "../Buttons/SecondaryButton";
 import { useForm } from "../../hooks/useForm";
 import WarningMessage from "../shared/WarningMessage";
 

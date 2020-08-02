@@ -5,7 +5,7 @@ import Styles from "../QuestionCard.module.scss";
 import WordCard from "../WordCard/WordCard";
 import InputField from "../../InputField";
 import PrimaryButton from "../../Buttons/PrimaryButton";
-import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 import WarningMessage from "../../shared/WarningMessage";
 
 import { LearningContext } from "../../../contexts/LearningContext";

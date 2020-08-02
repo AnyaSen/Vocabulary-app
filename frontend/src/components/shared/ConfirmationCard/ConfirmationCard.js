@@ -2,7 +2,7 @@ import React from "react";
 
 import Styles from "./ConfirmationCard.module.scss";
 
-import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 
 export default function ConfirmationCard({
   confQuestion,

@@ -1,6 +1,14 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import Styles from "./SecondaryButton.module.scss";
+
+interface Props {
+  buttonMessage: string;
+  value?: string;
+  buttonColor?: string;
+  type?: "button" | "submit";
+  onClick: () => {};
+}
 
 export default function SecondaryButton({
   buttonMessage,
@@ -8,9 +16,10 @@ export default function SecondaryButton({
   type,
   value,
   buttonColor
-}) {
+}: Props): ReactElement {
   return (
     <button
+      data-testid="button"
       onClick={onClick}
       type={type}
       value={value}

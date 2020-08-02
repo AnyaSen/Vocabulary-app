@@ -9,7 +9,7 @@ import deleteSvg from "../../../assets/img/delete_account.svg";
 
 import ConfirmationCard from "../../shared/ConfirmationCard/ConfirmationCard";
 import InputField from "../../InputField/InputField";
-import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 import WarningMessage from "../../shared/WarningMessage";
 
 export default function UserLetter({ inCircle }) {

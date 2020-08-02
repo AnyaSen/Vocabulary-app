@@ -5,7 +5,7 @@ import correctEmojiSvg from "../../../assets/img/correctEmoji.svg";
 import incorrectEmojiSvg from "../../../assets/img/incorrectEmoji.svg";
 
 import WordCard from "../WordCard/WordCard";
-import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 
 import { LearningContext } from "../../../contexts/LearningContext";
 

@@ -11,7 +11,7 @@ import { useForm } from "../../../hooks/useForm";
 
 import editSvg from "../../../assets/img/edit.svg";
 import deleteSvg from "../../../assets/img/delete.svg";
-import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 import InputField from "../../InputField";
 import LoaderSmall from "../../shared/LoaderSmall/LoaderSmall";
 import ErrorSmall from "../../ErrorSmall";
