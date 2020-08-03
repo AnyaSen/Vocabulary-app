@@ -7,7 +7,7 @@ import { useForm } from "../../../hooks/useForm";
 import Styles from "./UserLetter.module.scss";
 import deleteSvg from "../../../assets/img/delete_account.svg";
 
-import ConfirmationCard from "../../shared/ConfirmationCard/ConfirmationCard";
+import ConfirmationCard from "../../shared/ConfirmationCard";
 import InputField from "../../InputField/InputField";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 import WarningMessage from "../../shared/WarningMessage";
