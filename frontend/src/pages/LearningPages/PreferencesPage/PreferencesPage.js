@@ -11,7 +11,7 @@ import ExplanatoryWordsCard from "../../../components/shared/ExplanatoryWordsCar
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall/InputFieldSmall";
 import WarningMessage from "../../../components/shared/WarningMessage";
-import NotificationMessage from "../../../components/shared/NotificationMessage/NotificationMessage";
+import NotificationMessage from "../../../components/shared/NotificationMessage";
 
 export default function PreferencesPage() {
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);
