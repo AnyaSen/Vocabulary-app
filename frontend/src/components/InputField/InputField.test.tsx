@@ -13,7 +13,6 @@ describe("<InputField />", () => {
     type: "email",
     autocompleteON: true,
     small: true
-    //   refInput
   };
 
   const { placeholder, name, value, type } = props;
@@ -38,12 +37,9 @@ describe("<InputField />", () => {
       ...props,
       autocompleteON: false,
       small: false
-      //   refInput
     };
 
-    const { getByTestId, getByPlaceholderText } = render(
-      <InputField {...updatedProps} />
-    );
+    const { getByTestId } = render(<InputField {...updatedProps} />);
 
     const input = getByTestId("input-field");
 

@@ -20,14 +20,12 @@ export default function InputField({
   onChange,
   type,
   autocompleteON,
-  refInput,
   small
 }: Props): ReactElement {
   return (
     <div className={Styles.InputFieldContainer}>
       <input
         data-testid="input-field"
-        ref={refInput}
         className={small ? Styles.smallInputField : Styles.InputField}
         type={type}
         placeholder={placeholder}
