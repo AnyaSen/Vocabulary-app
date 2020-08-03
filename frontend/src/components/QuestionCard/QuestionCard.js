@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { LearningContext } from "../../contexts/LearningContext";
 
-import CongratsPage from "../../pages/CongratsPage/CongratsPage";
+import CongratsPage from "../../pages/CongratsPage";
 import QuestionModeCard from "./QuestionModeCard/QuestionModeCard";
 import AnswerModeCard from "./AnswerModeCard/AnswerModeCard";
 

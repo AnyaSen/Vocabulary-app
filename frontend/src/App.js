@@ -15,7 +15,7 @@ import InitialPage from "./pages/InitialPage/InitialPage";
 import ProgressPage from "./pages/ProgressPage/ProgressPage";
 import PreferencesPage from "./pages/LearningPages/PreferencesPage/PreferencesPage";
 import QuestionPage from "./pages/LearningPages/QuestionPage/QuestionPage";
-import CongratsPage from "./pages/CongratsPage/CongratsPage";
+import CongratsPage from "./pages/CongratsPage";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import ErrorCard from "./components/ErrorCard";
 import InstructionsPage from "./pages/InstructionsPage/InstructionsPage";
