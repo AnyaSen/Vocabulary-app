@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, ReactElement, FormEvent } from "react";
 
 import Styles from "./BrowseVocabulary.module.scss";
 
@@ -11,7 +11,7 @@ import SecondaryButton from "../Buttons/SecondaryButton";
 import { useForm } from "../../hooks/useForm";
 import WarningMessage from "../shared/WarningMessage";
 
-export default function BrowseVocabulary() {
+export default function BrowseVocabulary(): ReactElement {
   const [values, handleChange, clearValues] = useForm({
     searchWord: ""
   });
@@ -25,8 +25,8 @@ export default function BrowseVocabulary() {
 
   const { searchWord } = values;
 
-  const searchAndUpdate = event => {
-    event.preventDefault();
+  const searchAndUpdate = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     const isFieldEmpty = searchWord === "";
 
@@ -50,8 +50,12 @@ export default function BrowseVocabulary() {
   };
 
   return (
-    <div className={Styles.BrowseVocabulary}>
-      <form className={Styles.BrowseVocabularyForm} onSubmit={searchAndUpdate}>
+    <div className={Styles.BrowseVocabulary} data-testid="browse-container">
+      <form
+        className={Styles.BrowseVocabularyForm}
+        onSubmit={searchAndUpdate}
+        data-testid="browse-form-container"
+      >
         <InputField
           small
           type="text"

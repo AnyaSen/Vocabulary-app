@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import Styles from "./VocabularyPage.module.scss";
 
 import WordsList from "../../components/WordsList/WordsList";
-import BrowseVocabulary from "../../components/BrowseVocabulary/BrowseVocabulary";
+import BrowseVocabulary from "../../components/BrowseVocabulary";
 import Loader from "../../components/shared/Loader";
 import ErrorCard from "../../components/ErrorCard";
 import Layout from "../../components/Layout/Layout";
