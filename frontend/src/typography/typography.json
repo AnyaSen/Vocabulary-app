@@ -23,7 +23,21 @@
     "enter_a_word": "Enter a word",
     "search": "Search",
     "start_entering_a_word": "Start entering a word",
-    "show_all": "Show All"
+    "show_all": "Show All",
+
+    "HomePage": {
+      "nice_to_see_you": "Nice to see you here!",
+      "what_would_you_like_to_do": "What would you like to do?",
+      "vocabulary_explanation": "To add and browse words",
+      "progress_explanation": "To see your learning progress",
+      "learn_explanation": "To learn vocabulary"
+    },
+
+    "shared": {
+      "vocabulary": "Vocabulary",
+      "progress": "Progress",
+      "learn": "Learn"
+    }
   },
   "Russian": {
     "welcome": "Добро пожаловать в Vocabulary Builder!",
@@ -31,9 +45,9 @@
     "sign_up": "Регистрация",
     "sign_up_message": "Cоздать аккаунт",
     "log_in": "Bxoд",
-    "log_in_message": "Войти в существующий аккаунт",
+    "log_in_message": "Войти в аккаунт",
     "instructions": "Инструкции",
-    "instructions_message": "Смотреть, как работает приложение",
+    "instructions_message": "Как работает приложение?",
     "name_": "Имя",
     "email_": "Электронная почта",
     "password_": "Пароль",
@@ -49,6 +63,20 @@
     "enter_a_word": "Введите слово",
     "search": "Поиск",
     "start_entering_a_word": "Начните вводить слово",
-    "show_all": "Показать все"
+    "show_all": "Показать все",
+
+    "HomePage": {
+      "nice_to_see_you": "Добро пожаловать!",
+      "what_would_you_like_to_do": "Что бы вы хотели сделать?",
+      "vocabulary_explanation": "Добавлять и искать слова",
+      "progress_explanation": "Посмотреть прогресс",
+      "learn_explanation": "Учить слова"
+    },
+
+    "shared": {
+      "vocabulary": "Мои слова",
+      "progress": "Прогресс",
+      "learn": "Изучение"
+    }
   }
 }
