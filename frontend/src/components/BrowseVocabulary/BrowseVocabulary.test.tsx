@@ -1,31 +1,29 @@
 import React from "react";
-import {
-  render,
-  cleanup,
-  fireEvent,
-  queryByText
-} from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { WordsContextProvider } from "../../contexts/WordsContext";
 import { LoadingContextProvider } from "../../contexts/LoadingContext";
 import { ErrorContextProvider } from "../../contexts/ErrorContext";
 import { BrowseContextProvider } from "../../contexts/BrowseContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 import BrowseVocabulary from "./BrowseVocabulary";
 
 describe("<BrowseVocabulary />", () => {
   afterAll(cleanup);
 
   const tree = (
-    <LoadingContextProvider>
-      <ErrorContextProvider>
-        <WordsContextProvider>
-          <BrowseContextProvider>
-            <BrowseVocabulary />
-          </BrowseContextProvider>
-        </WordsContextProvider>
-      </ErrorContextProvider>
-    </LoadingContextProvider>
+    <LanguageContext.Provider value={{ language: "English" }}>
+      <LoadingContextProvider>
+        <ErrorContextProvider>
+          <WordsContextProvider>
+            <BrowseContextProvider>
+              <BrowseVocabulary />
+            </BrowseContextProvider>
+          </WordsContextProvider>
+        </ErrorContextProvider>
+      </LoadingContextProvider>
+    </LanguageContext.Provider>
   );
 
   test("Should render a warning message with the dorrect text when search button is clicked but input value remained an empty string", () => {

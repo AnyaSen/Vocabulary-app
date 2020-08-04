@@ -19,7 +19,11 @@
     "wrong_credentials_err": "Wrong credentials",
     "account_exists_err": "Account already exists",
     "email_invalid_err": "Email is invalid",
-    "password_invalid_err": "Password should be 6 charecters minimum"
+    "password_invalid_err": "Password should be 6 charecters minimum",
+    "enter_a_word": "Enter a word",
+    "search": "Search",
+    "start_entering_a_word": "Start entering a word",
+    "show_all": "Show All"
   },
   "Russian": {
     "welcome": "Добро пожаловать в Vocabulary Builder!",
@@ -41,6 +45,10 @@
     "wrong_credentials_err": "Аккаунт не найден",
     "account_exists_err": "Аккаунт уже существует",
     "email_invalid_err": "Email недействителен",
-    "password_invalid_err": "Пароль должен быть не менее 6 символов"
+    "password_invalid_err": "Пароль должен быть не менее 6 символов",
+    "enter_a_word": "Введите слово",
+    "search": "Поиск",
+    "start_entering_a_word": "Начните вводить слово",
+    "show_all": "Показать все"
   }
 }

@@ -4,7 +4,9 @@ import Styles from "./BrowseVocabulary.module.scss";
 
 import { BrowseContext } from "../../contexts/BrowseContext";
 import { WordsContext } from "../../contexts/WordsContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 import { filterVocabulary } from "../../services/filterVocabulary";
+import typography from "../../typography/typography.json";
 
 import InputField from "../InputField";
 import SecondaryButton from "../Buttons/SecondaryButton";
@@ -12,6 +14,12 @@ import { useForm } from "../../hooks/useForm";
 import WarningMessage from "../shared/WarningMessage";
 
 export default function BrowseVocabulary(): ReactElement {
+  const { language } = useContext(LanguageContext);
+
+  const { enter_a_word, search, start_entering_a_word, show_all } = typography[
+    language
+  ];
+
   const [values, handleChange, clearValues] = useForm({
     searchWord: ""
   });
@@ -31,7 +39,7 @@ export default function BrowseVocabulary(): ReactElement {
     const isFieldEmpty = searchWord === "";
 
     if (isFieldEmpty) {
-      setErrorMessage("Start entering a word");
+      setErrorMessage(start_entering_a_word);
     } else {
       setErrorMessage("");
       setIsBrowsingMode(true);
@@ -43,7 +51,7 @@ export default function BrowseVocabulary(): ReactElement {
 
   const handleShowAll = () => {
     setIsBrowsingMode(false);
-
+    setErrorMessage("");
     clearValues();
 
     setWordsData();
@@ -60,12 +68,12 @@ export default function BrowseVocabulary(): ReactElement {
           small
           type="text"
           name="searchWord"
-          placeholder="Enter a word"
+          placeholder={enter_a_word}
           value={searchWord}
           onChange={handleChange}
         />
 
-        <SecondaryButton type="submit" value="submit" buttonMessage="Search" />
+        <SecondaryButton type="submit" value="submit" buttonMessage={search} />
       </form>
 
       <WarningMessage warnMessage={errorMessage} />
@@ -73,7 +81,7 @@ export default function BrowseVocabulary(): ReactElement {
       {isBrowsingMode && (
         <div className={Styles.showAllButton}>
           <SecondaryButton
-            buttonMessage="Show All"
+            buttonMessage={show_all}
             onClick={handleShowAll}
             buttonColor="pink"
           />

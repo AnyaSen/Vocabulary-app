@@ -10,7 +10,7 @@ interface Props {
   header: string;
   headerAfterBreak?: string;
   subHeader: string;
-  span?: string;
+  span?: string | number;
   subHeaderAferSpan?: string;
   childrenFlexColumn?: boolean;
   showLogo?: boolean;

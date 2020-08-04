@@ -7,7 +7,7 @@ interface Props {
   value?: string;
   buttonColor?: string;
   type?: "button" | "submit";
-  onClick: () => {};
+  onClick?: () => void;
 }
 
 export default function SecondaryButton({
