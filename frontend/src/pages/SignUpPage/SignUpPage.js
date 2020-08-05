@@ -9,7 +9,7 @@ import { LoadingContext } from "../../contexts/LoadingContext";
 import { LanguageContext } from "../../contexts/LanguageContext";
 
 import InputField from "../../components/InputField";
-import SignupLoginForm from "../../components/SignupLoginForm/SignupLoginForm";
+import SignupLoginForm from "../../components/SignupLoginForm";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import WarningMessage from "../../components/shared/WarningMessage";
 
