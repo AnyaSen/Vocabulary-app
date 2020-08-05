@@ -18,13 +18,11 @@ describe("<InputField />", () => {
   const { placeholder, name, value, type } = props;
 
   test("Should render correct props and have a correct class when Autocomplete and Small props are set to true", () => {
-    const { getByTestId, getByPlaceholderText } = render(
-      <InputField {...props} />
-    );
+    const { getByPlaceholderText } = render(<InputField {...props} />);
 
-    const input = getByTestId("input-field");
+    const input = getByPlaceholderText(placeholder);
 
-    expect(getByPlaceholderText(placeholder)).toBeTruthy();
+    expect(input).toBeTruthy();
     expect(input).toHaveAttribute("type", type);
     expect(input).toHaveAttribute("value", value);
     expect(input).toHaveAttribute("name", name);
@@ -39,9 +37,9 @@ describe("<InputField />", () => {
       small: false
     };
 
-    const { getByTestId } = render(<InputField {...updatedProps} />);
+    const { getByPlaceholderText } = render(<InputField {...updatedProps} />);
 
-    const input = getByTestId("input-field");
+    const input = getByPlaceholderText(placeholder);
 
     expect(input).toHaveAttribute("autoComplete", "off");
     expect(input).toHaveClass("InputField");

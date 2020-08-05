@@ -25,7 +25,6 @@ export default function InputField({
   return (
     <div className={Styles.InputFieldContainer}>
       <input
-        data-testid="input-field"
         className={small ? Styles.smallInputField : Styles.InputField}
         type={type}
         placeholder={placeholder}
