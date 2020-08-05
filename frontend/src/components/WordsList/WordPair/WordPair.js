@@ -13,7 +13,7 @@ import editSvg from "../../../assets/img/edit.svg";
 import deleteSvg from "../../../assets/img/delete.svg";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 import InputField from "../../InputField";
-import LoaderSmall from "../../shared/LoaderSmall/LoaderSmall";
+import Loader from "../../shared/Loader/Loader";
 import ErrorSmall from "../../ErrorSmall";
 import WarningMessage from "../../shared/WarningMessage";
 
@@ -209,7 +209,7 @@ export default function WordPair({
                 <WarningMessage warnMessage={errorMessage} />
               </>
             ) : (
-              <LoaderSmall />
+              <Loader small />
             )}
           </div>
         </form>
@@ -229,7 +229,7 @@ export default function WordPair({
           </div>
 
           {isDeletingLoading && isDeleteButtonClicked ? (
-            <LoaderSmall />
+            <Loader small />
           ) : isDeletingError && isDeleteButtonClicked ? (
             <ErrorSmall onClick={() => setIsDeleteButtonClicked(false)} />
           ) : (

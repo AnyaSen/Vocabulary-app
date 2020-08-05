@@ -2,16 +2,23 @@ import React, { ReactElement } from "react";
 
 import Styles from "./Loader.module.scss";
 
-export default function Loader(): ReactElement {
+interface Props {
+  small?: boolean;
+}
+
+export default function Loader({ small }: Props): ReactElement {
   return (
-    <div className={Styles.Loader}>
+    <div
+      className={small ? Styles.smallLoader : Styles.Loader}
+      data-testid="loader-container"
+    >
       <div className={Styles.loadingDots} data-testid="loader">
         <div />
         <div />
         <div />
       </div>
 
-      <p>LOADING</p>
+      {!small && <p>LOADING</p>}
     </div>
   );
 }

@@ -1,6 +1,26 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
 
+.smallLoader {
+  @include flex-column;
+
+  flex: 1;
+
+  .loadingDots {
+    @include flex-row;
+
+    div {
+      height: 0.5rem;
+      width: 0.5rem;
+      margin: 0 0.2rem;
+      background-color: $color-pink;
+      border-radius: $border-radius-sm;
+
+      animation: updown 2s linear infinite;
+    }
+  }
+}
+
 .Loader {
   width: 100%;
   margin-top: $space-3;
@@ -21,19 +41,19 @@
       margin: 0 $space-0;
       animation: updown 2s linear infinite;
     }
+  }
+}
 
-    @keyframes updown {
-      0% {
-        transform: translateY(-60%);
-      }
+@keyframes updown {
+  0% {
+    transform: translateY(-60%);
+  }
 
-      50% {
-        transform: translateY(60%);
-      }
+  50% {
+    transform: translateY(60%);
+  }
 
-      100% {
-        transform: translateY(-60%);
-      }
-    }
+  100% {
+    transform: translateY(-60%);
   }
 }
