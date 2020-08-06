@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { LanguageContextProvider } from "../../contexts/LanguageContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 import PageLayout from "./PageLayout";
 
@@ -28,14 +28,14 @@ describe("<PageLayout />", () => {
   } = props;
 
   const createRenderTree = props => (
-    <LanguageContextProvider>
+    <LanguageContext.Provider value={{ language: "English" }}>
       <PageLayout {...props}>
         <p>child 1</p>
         <p>child 2</p>
         <p>child 3</p>
         <p>child 4</p>
       </PageLayout>
-    </LanguageContextProvider>
+    </LanguageContext.Provider>
   );
 
   test("Should render correct amount of children and display correct text", () => {

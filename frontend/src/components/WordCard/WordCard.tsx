@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import Styles from "./WordCard.module.scss";
 
-export default function WordCard({ children }) {
+export default function WordCard({ children }): ReactElement {
   return <div className={Styles.WordCard}>{children}</div>;
 }

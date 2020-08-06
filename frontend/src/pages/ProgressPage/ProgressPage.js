@@ -5,6 +5,8 @@ import Styles from "./ProgressPage.module.scss";
 import { Chart } from "react-google-charts";
 
 import { WordsContext } from "../../contexts/WordsContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
+import typography from "../../typography/typography.json";
 
 import PageLayout from "../../components/PageLayout/PageLayout";
 import ArrowBack from "../../components/Buttons/ArrowBack";
@@ -13,6 +15,17 @@ import ExplanatoryWordsCard from "../../components/shared/ExplanatoryWordsCard";
 import NotificationMessage from "../../components/shared/NotificationMessage";
 
 export default function ProgressPage() {
+  const { language } = useContext(LanguageContext);
+
+  const {
+    progress,
+    here_you_can_see_your_progress,
+    add_vocabulary_message,
+    go_to_vocabulary
+  } = typography[language].ProgressPage;
+
+  const { new_type, learning_type, learned_type } = typography[language].shared;
+
   const {
     newWordsLength,
     learningWordsLength,
@@ -22,18 +35,18 @@ export default function ProgressPage() {
   } = useContext(WordsContext);
 
   return noWords ? (
-    <PageLayout header="PROGRESS" subHeader="Here you will see your progress.">
+    <PageLayout header={progress} subHeader={here_you_can_see_your_progress}>
       <ArrowBack linkTo="/home" />
 
       <NotificationMessage
-        text="Please, add some vocabulary first."
-        linkMessage="GO TO VOCABULARY"
+        text={add_vocabulary_message}
+        linkMessage={go_to_vocabulary}
         linkRoute="/vocabulary"
       />
     </PageLayout>
   ) : (
     <div className={Styles.ProgressPage}>
-      <PageLayout header="PROGRESS" subHeader="Here you can see your progress.">
+      <PageLayout header={progress} subHeader={here_you_can_see_your_progress}>
         <ArrowBack linkTo="/home" />
 
         <ExplanatoryWordsCard />
@@ -43,9 +56,9 @@ export default function ProgressPage() {
           chartType="PieChart"
           data={[
             ["Words", "Of Total Words"],
-            [`New - ${newWordsLength}`, newWordsLength],
-            [`Learning - ${learningWordsLength}`, learningWordsLength],
-            [`Learned - ${learnedWordsLength}`, learnedWordsLength]
+            [`${new_type} - ${newWordsLength}`, newWordsLength],
+            [`${learning_type} - ${learningWordsLength}`, learningWordsLength],
+            [`${learned_type} - ${learnedWordsLength}`, learnedWordsLength]
           ]}
           options={{
             slices: [

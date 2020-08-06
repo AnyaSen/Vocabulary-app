@@ -33,10 +33,54 @@
       "learn_explanation": "To learn vocabulary"
     },
 
+    "ProgressPage": {
+      "progress": "PROGRESS",
+      "here_you_can_see_your_progress": "Here you can see your progress.",
+      "add_vocabulary_message": "Please, add some vocabulary first.",
+      "go_to_vocabulary": "GO TO VOCABULARY"
+    },
+
+    "VocabularyPage": {
+      "add_vocabulary": "ADD VOCABULARY",
+      "add": "ADD",
+      "here_will_be_your_words": "Here will be your words."
+    },
+
+    "ExplanatoryWordsCard": {
+      "new_type_explanation": "added but not reviewed yet",
+      "learning_type_explanation": "reviewed but not learned",
+      "learned_type_explanation": "learned well"
+    },
+
+    "Preferences": {
+      "preferences": "PREFERENCES",
+      "how_many_words_to_review": "How many words would you like to review?",
+      "you_have": "You have",
+      "words": "words",
+      "_in_total": "in total",
+      "show_word_types": "Show word types",
+      "close_word_types": "Close word types",
+      "fill_the_preferences": "Please, fill in the preferences in numbers and press START.",
+      "start": "START",
+
+      "errors": {
+        "enter_numbers": "Please, enter NUMBERS",
+        "the_number_should_be_positive_and": "the number should be positive and",
+        "_maximum": "maximum",
+        "add_vocabulary_before_learning": "Please, add some vocabulary before learning"
+      }
+    },
+
     "shared": {
       "vocabulary": "Vocabulary",
       "progress": "Progress",
-      "learn": "Learn"
+      "learn": "Learn",
+      "new_type": "New",
+      "learning_type": "Learning",
+      "learned_type": "Learned",
+      "words": "Words",
+      "foreign_word": "Foreign word",
+      "translation": "Translation"
     }
   },
   "Russian": {
@@ -73,10 +117,55 @@
       "learn_explanation": "Учить слова"
     },
 
+    "ProgressPage": {
+      "progress": "ПРОГРЕСС",
+      "here_you_can_see_your_progress": "Здесь вы можете отслеживать ваш прогресс.",
+      "add_vocabulary_message": "Пожалуйста, сначала добавьте слова",
+      "go_to_vocabulary": "ДОБАВИТЬ СЛОВА"
+    },
+
+    "ExplanatoryWordsCard": {
+      "new_type_explanation": "добавленные, но ещё не просмотренные",
+      "learning_type_explanation": "просмотренные, но ещё не выученные",
+      "learned_type_explanation": "выученные хорошо"
+    },
+
+    "VocabularyPage": {
+      "add_vocabulary": "ДОБАВИТЬ СЛОВА",
+      "add": "ДОБАВИТЬ",
+      "here_will_be_your_words": "Здесь будут ваши слова."
+    },
+
+    "Preferences": {
+      "preferences": "ПРЕДПОЧТЕНИЯ",
+      "how_many_words_to_review": "Сколько слов вы бы хотели просмотреть?",
+      "you_have": "У вас есть",
+      "words": "слов",
+      "_in_total": "в сумме",
+      "show_word_types": "Показать типы слов",
+      "close_word_types": "Скрыть типы слов",
+      "fill_the_preferences": "Пожалуйста, заполните предпочтения в числах и нажмите НАЧАТЬ.",
+      "start": "НАЧАТЬ",
+
+      "errors": {
+        "enter_numbers": "Пожалуйста, введите ЧИСЛА",
+        "the_number_should_be_positive_and": "число должно быть положительным и",
+        "_maximum": "максимум",
+        "add_vocabulary_before_learning": "Пожалуйста, сначала добавьте слова"
+      }
+    },
+
     "shared": {
       "vocabulary": "Мои слова",
       "progress": "Прогресс",
-      "learn": "Изучение"
+      "learn": "Изучение",
+      "empty_fields_err": "Все поля должны быть заполнены",
+      "new_type": "Новые",
+      "learning_type": "В процессе",
+      "learned_type": "Выученные",
+      "words": "Слова",
+      "foreign_word": "Иностранно слово",
+      "translation": "Перевод"
     }
   }
 }
