@@ -5,11 +5,13 @@ import React, {
   FormEvent,
   ReactElement
 } from "react";
+import typography from "../../typography/typography.json";
 
 import Styles from "./AddWordsForm.module.scss";
 
 import { createWord } from "../../services/createWord";
 import { WordsContext } from "../../contexts/WordsContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 import { useForm } from "../../hooks/useForm";
 
 import InputField from "../InputField";
@@ -17,6 +19,13 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import WarningMessage from "../shared/WarningMessage";
 
 export default function AddWordsForm(): ReactElement {
+  const { language } = useContext(LanguageContext);
+
+  const { add, add_vocabulary } = typography[language].VocabularyPage;
+  const { empty_fields_err, foreign_word, translation_word } = typography[
+    language
+  ].shared;
+
   const { setWordsData, totalWordsLength } = useContext(WordsContext);
 
   const [values, handleChange, clearValues] = useForm({
@@ -39,7 +48,7 @@ export default function AddWordsForm(): ReactElement {
     const wordsURL = "/words";
 
     if (isForeignWordEmpty || isTranslationEmpty) {
-      setErrorMessage("All fields should be filled");
+      setErrorMessage(empty_fields_err);
     } else {
       createWord(wordsURL, {
         foreignWord,
@@ -58,7 +67,7 @@ export default function AddWordsForm(): ReactElement {
 
   return (
     <div className={Styles.AddWordsForm} data-testid="add-words-form-container">
-      <h2>ADD VOCABULARY</h2>
+      <h2>{add_vocabulary}</h2>
 
       <WarningMessage warnMessage={errorMessage} />
 
@@ -68,20 +77,20 @@ export default function AddWordsForm(): ReactElement {
         data-testid="add-words-form"
       >
         <InputField
-          placeholder="Foreing word"
+          placeholder={foreign_word}
           name="foreignWord"
           value={foreignWord}
           onChange={handleChange}
         />
 
         <InputField
-          placeholder="Translation"
+          placeholder={translation_word}
           name="translation"
           value={translation}
           onChange={handleChange}
         />
 
-        <PrimaryButton type="submit" value="submit" buttonMessage="ADD" />
+        <PrimaryButton type="submit" value="submit" buttonMessage={add} />
       </form>
     </div>
   );

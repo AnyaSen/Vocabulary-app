@@ -80,7 +80,7 @@
       "learned_type": "Learned",
       "words": "Words",
       "foreign_word": "Foreign word",
-      "translation": "Translation"
+      "translation_word": "Translation"
     }
   },
   "Russian": {
@@ -165,7 +165,7 @@
       "learned_type": "Выученные",
       "words": "Слова",
       "foreign_word": "Иностранно слово",
-      "translation": "Перевод"
+      "translation_word": "Перевод"
     }
   }
 }

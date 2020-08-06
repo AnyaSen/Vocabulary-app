@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import typography from "../../typography/typography.json";
 
 import Styles from "./VocabularyPage.module.scss";
 
@@ -14,8 +15,13 @@ import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 import { ErrorContext } from "../../contexts/ErrorContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 export default function VocabularyPage() {
+  const { language } = useContext(LanguageContext);
+
+  const { here_will_be_your_words } = typography[language].VocabularyPage;
+
   const { wordsArr } = useContext(WordsContext);
   const { isBrowsingMode, modifiedWordsArr, isWordPairOpen } = useContext(
     BrowseContext
@@ -42,7 +48,7 @@ export default function VocabularyPage() {
 
                 <WordsList
                   wordsArray={wordsArr}
-                  noWordsMessage="Here will be your words."
+                  noWordsMessage={here_will_be_your_words}
                 />
               </>
             ) : (

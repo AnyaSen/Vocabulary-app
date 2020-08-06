@@ -5,19 +5,23 @@ import "@testing-library/jest-dom/extend-expect";
 import { WordsContextProvider } from "../../contexts/WordsContext";
 import { LoadingContextProvider } from "../../contexts/LoadingContext";
 import { ErrorContextProvider } from "../../contexts/ErrorContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
+
 import AddWordsForm from "./AddWordsForm";
 
 describe("<AddWordsForm />", () => {
   afterAll(cleanup);
 
   const tree = (
-    <LoadingContextProvider>
-      <ErrorContextProvider>
-        <WordsContextProvider>
-          <AddWordsForm />
-        </WordsContextProvider>
-      </ErrorContextProvider>
-    </LoadingContextProvider>
+    <LanguageContext.Provider value={{ language: "English" }}>
+      <LoadingContextProvider>
+        <ErrorContextProvider>
+          <WordsContextProvider>
+            <AddWordsForm />
+          </WordsContextProvider>
+        </ErrorContextProvider>
+      </LoadingContextProvider>
+    </LanguageContext.Provider>
   );
 
   test("Should render 3 children, correct header", () => {
