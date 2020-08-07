@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "../../../hooks/useForm";
+import typography from "../../../typography/typography.json";
+
 import Styles from "./PreferencesPage.module.scss";
 
 import { WordsContext } from "../../../contexts/WordsContext";
@@ -12,8 +14,27 @@ import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall";
 import WarningMessage from "../../../components/shared/WarningMessage";
 import NotificationMessage from "../../../components/shared/NotificationMessage";
+import { LanguageContext } from "../../../contexts/LanguageContext";
 
 export default function PreferencesPage() {
+  const { language } = useContext(LanguageContext);
+
+  const {
+    preferences,
+    how_many_words_to_review,
+    you_have_in_total,
+    words,
+    show_word_types,
+    close_word_types,
+    fill_the_preferences,
+    start,
+    new_form_label,
+    learning_form_label,
+    learned_form_label
+  } = typography[language].PreferencesPage;
+
+  const { new_type, learning_type, learned_type } = typography[language].shared;
+
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -115,8 +136,8 @@ export default function PreferencesPage() {
     <Layout>
       <PageLayout
         childrenFlexColumn
-        header="PREFERENCES"
-        subHeader="How many words would you like to review?"
+        header={preferences}
+        subHeader={how_many_words_to_review}
       >
         {noWords ? (
           <NotificationMessage
@@ -129,33 +150,34 @@ export default function PreferencesPage() {
             <div className={Styles.explanatoryContainer}>
               <div className={Styles.wordsNumberInfo}>
                 <p className={Styles.totalWordsNumber}>
-                  You have <span>{totalWordsLength} word(s)</span> in total
+                  {you_have_in_total}{" "}
+                  <span>
+                    {totalWordsLength} {words}
+                  </span>{" "}
                 </p>
                 <p>
-                  New: {newWordsLength}
-                  <br /> Learning: {learningWordsLength}
+                  {new_type}: {newWordsLength}
+                  <br /> {learning_type}: {learningWordsLength}
                   <br />
-                  Learned: {learnedWordsLength}
+                  {learned_type}: {learnedWordsLength}
                 </p>
               </div>
               <button onClick={toggleisShowButtonPressed}>
-                {isShowButtonPressed ? "Close" : "Show word types"}
+                {isShowButtonPressed ? close_word_types : show_word_types}
               </button>
 
               {isShowButtonPressed && <ExplanatoryWordsCard />}
             </div>
 
             <form onSubmit={handleSubmit} className={Styles.PreferencesForm}>
-              <p className={Styles.PreferencesHeader}>
-                Please, fill the preferences in numbers and press START
-              </p>
+              <p className={Styles.PreferencesHeader}>{fill_the_preferences}</p>
 
               <WarningMessage warnMessage={errorMessage} />
 
               <div className={Styles.inputFieldsContainer}>
                 {!noNewWords && (
                   <InputFieldSmall
-                    labelText="New words"
+                    labelText={new_form_label}
                     name="newWordsInput"
                     value={newWordsInput}
                     onChange={handleChange}
@@ -164,7 +186,7 @@ export default function PreferencesPage() {
 
                 {!noLearningWords && (
                   <InputFieldSmall
-                    labelText="Learing words"
+                    labelText={learning_form_label}
                     name="learningWordsInput"
                     value={learningWordsInput}
                     onChange={handleChange}
@@ -173,7 +195,7 @@ export default function PreferencesPage() {
 
                 {!noLearnedWords && (
                   <InputFieldSmall
-                    labelText="Learned words"
+                    labelText={learned_form_label}
                     name="learnedWordsInput"
                     value={learnedWordsInput}
                     onChange={handleChange}
@@ -184,7 +206,7 @@ export default function PreferencesPage() {
               <PrimaryButton
                 type="submit"
                 value="submit"
-                buttonMessage="START"
+                buttonMessage={start}
               />
             </form>
           </>

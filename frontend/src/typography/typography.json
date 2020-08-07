@@ -55,13 +55,15 @@
     "Preferences": {
       "preferences": "PREFERENCES",
       "how_many_words_to_review": "How many words would you like to review?",
-      "you_have": "You have",
-      "words": "words",
-      "_in_total": "in total",
+      "you_have_in_total_in_total": "You have in total",
+      "words": "word(s)",
       "show_word_types": "Show word types",
       "close_word_types": "Close word types",
       "fill_the_preferences": "Please, fill in the preferences in numbers and press START.",
       "start": "START",
+      "new_form_label": "New words",
+      "learning_form_label": "Learning words",
+      "learned_form_label": "Learned words",
 
       "errors": {
         "enter_numbers": "Please, enter NUMBERS",
@@ -136,16 +138,19 @@
       "here_will_be_your_words": "Здесь будут ваши слова."
     },
 
-    "Preferences": {
+    "PreferencesPage": {
       "preferences": "ПРЕДПОЧТЕНИЯ",
       "how_many_words_to_review": "Сколько слов вы бы хотели просмотреть?",
-      "you_have": "У вас есть",
-      "words": "слов",
+      "you_have_in_total": "У вас есть всего",
+      "words": "слов(о)",
       "_in_total": "в сумме",
       "show_word_types": "Показать типы слов",
       "close_word_types": "Скрыть типы слов",
       "fill_the_preferences": "Пожалуйста, заполните предпочтения в числах и нажмите НАЧАТЬ.",
       "start": "НАЧАТЬ",
+      "new_form_label": "Новые слова",
+      "learning_form_label": "Слова в процессе",
+      "learned_form_label": "Выученные слова",
 
       "errors": {
         "enter_numbers": "Пожалуйста, введите ЧИСЛА",

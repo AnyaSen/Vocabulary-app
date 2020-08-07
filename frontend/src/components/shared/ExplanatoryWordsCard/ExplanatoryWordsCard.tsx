@@ -8,7 +8,9 @@ import { LanguageContext } from "../../../contexts/LanguageContext";
 export default function ExplanatoryWordsCard(): ReactElement {
   const { language } = useContext(LanguageContext);
 
-  const { new_type, learning_type, learned_type } = typography[language].shared;
+  const { new_type, learning_type, learned_type, words } = typography[
+    language
+  ].shared;
 
   const {
     new_type_explanation,
@@ -18,7 +20,7 @@ export default function ExplanatoryWordsCard(): ReactElement {
 
   return (
     <div className={Styles.ExplanatoryWordsCard} data-testid="explanatory-card">
-      <p className={Styles.header}>WORDS</p>
+      <p className={Styles.header}>{words.toUpperCase()}</p>
 
       <p>
         <span>{new_type}</span> - {new_type_explanation}
