@@ -30,7 +30,8 @@ export default function PreferencesPage() {
     start,
     new_form_label,
     learning_form_label,
-    learned_form_label
+    learned_form_label,
+    go_to_vocabulary
   } = typography[language].PreferencesPage;
 
   const {
@@ -155,7 +156,7 @@ export default function PreferencesPage() {
         {noWords ? (
           <NotificationMessage
             text={add_vocabulary_before_learning}
-            linkMessage="GO TO VOCABULARY"
+            linkMessage={go_to_vocabulary}
             linkRoute="/vocabulary"
           />
         ) : (

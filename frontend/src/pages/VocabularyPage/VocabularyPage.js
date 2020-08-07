@@ -20,7 +20,9 @@ import { LanguageContext } from "../../contexts/LanguageContext";
 export default function VocabularyPage() {
   const { language } = useContext(LanguageContext);
 
-  const { here_will_be_your_words } = typography[language].VocabularyPage;
+  const { here_will_be_your_words, no_words_were_found } = typography[
+    language
+  ].VocabularyPage;
 
   const { wordsArr } = useContext(WordsContext);
   const { isBrowsingMode, modifiedWordsArr, isWordPairOpen } = useContext(
@@ -62,7 +64,7 @@ export default function VocabularyPage() {
             )}
             <WordsList
               wordsArray={modifiedWordsArr}
-              noWordsMessage="No words were found."
+              noWordsMessage={no_words_were_found}
             />
           </>
         ) : (

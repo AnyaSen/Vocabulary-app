@@ -42,7 +42,8 @@
     "VocabularyPage": {
       "add_vocabulary": "ADD VOCABULARY",
       "add": "ADD",
-      "here_will_be_your_words": "Here will be your words."
+      "here_will_be_your_words": "Here will be your words.",
+      "no_words_were_found": "No words were found."
     },
 
     "ExplanatoryWordsCard": {
@@ -63,6 +64,7 @@
       "new_form_label": "New words",
       "learning_form_label": "Learning words",
       "learned_form_label": "Learned words",
+      "go_to_vocabulary": "GO TO VOCABULARY",
 
       "errors": {
         "enter_numbers": "Please, enter NUMBERS",
@@ -135,7 +137,8 @@
     "VocabularyPage": {
       "add_vocabulary": "ДОБАВИТЬ СЛОВА",
       "add": "ДОБАВИТЬ",
-      "here_will_be_your_words": "Здесь будут ваши слова."
+      "here_will_be_your_words": "Здесь будут ваши слова.",
+      "no_words_were_found": "Слово не найдено."
     },
 
     "PreferencesPage": {
@@ -151,6 +154,7 @@
       "new_form_label": "Новые слова",
       "learning_form_label": "Слова в процессе",
       "learned_form_label": "Выученные слова",
+      "go_to_vocabulary": "ДОБАВИТЬ СЛОВА",
 
       "errors": {
         "enter_numbers": "Пожалуйста, введите ЧИСЛА",
