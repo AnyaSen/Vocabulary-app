@@ -15,7 +15,6 @@
     "continue_": "Continue",
     "already_have_an_aссount": "Already have an account?",
     "dont_have_an_aссount": "Don't have an account?",
-    "empty_fields_err": "All fields should be filled",
     "wrong_credentials_err": "Wrong credentials",
     "account_exists_err": "Account already exists",
     "email_invalid_err": "Email is invalid",
@@ -52,7 +51,7 @@
       "learned_type_explanation": "learned well"
     },
 
-    "Preferences": {
+    "PreferencesPage": {
       "preferences": "PREFERENCES",
       "how_many_words_to_review": "How many words would you like to review?",
       "you_have_in_total_in_total": "You have in total",
@@ -69,7 +68,8 @@
         "enter_numbers": "Please, enter NUMBERS",
         "the_number_should_be_positive_and": "the number should be positive and",
         "_maximum": "maximum",
-        "add_vocabulary_before_learning": "Please, add some vocabulary before learning"
+        "add_vocabulary_before_learning": "Please, add some vocabulary before learning.",
+        "you_cannot_review_0": "You cannot review 0 words"
       }
     },
 
@@ -77,6 +77,7 @@
       "vocabulary": "Vocabulary",
       "progress": "Progress",
       "learn": "Learn",
+      "empty_fields_err": "All fields should be filled",
       "new_type": "New",
       "learning_type": "Learning",
       "learned_type": "Learned",
@@ -101,7 +102,6 @@
     "continue_": "Продолжить",
     "already_have_an_aссount": "Уже есть аккаунт?",
     "dont_have_an_aссount": "Ещё нет аккаунта?",
-    "empty_fields_err": "Все поля должны быть заполнены",
     "wrong_credentials_err": "Аккаунт не найден",
     "account_exists_err": "Аккаунт уже существует",
     "email_invalid_err": "Email недействителен",
@@ -156,7 +156,8 @@
         "enter_numbers": "Пожалуйста, введите ЧИСЛА",
         "the_number_should_be_positive_and": "число должно быть положительным и",
         "_maximum": "максимум",
-        "add_vocabulary_before_learning": "Пожалуйста, сначала добавьте слова"
+        "add_vocabulary_before_learning": "Пожалуйста, сначала добавьте слова.",
+        "you_cannot_review_0": "Вы не можете просмотреть 0 слов"
       }
     },
 

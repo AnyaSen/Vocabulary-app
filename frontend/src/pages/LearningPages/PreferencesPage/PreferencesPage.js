@@ -33,7 +33,20 @@ export default function PreferencesPage() {
     learned_form_label
   } = typography[language].PreferencesPage;
 
-  const { new_type, learning_type, learned_type } = typography[language].shared;
+  const {
+    enter_numbers,
+    the_number_should_be_positive_and,
+    _maximum,
+    add_vocabulary_before_learning,
+    you_cannot_review_0
+  } = typography[language].PreferencesPage.errors;
+
+  const {
+    new_type,
+    learning_type,
+    learned_type,
+    empty_fields_err
+  } = typography[language].shared;
 
   const [isShowButtonPressed, setIsShowButtonPressed] = useState(false);
 
@@ -108,23 +121,23 @@ export default function PreferencesPage() {
     setErrorMessage("");
 
     if (areSomeFieldsEmpty) {
-      setErrorMessage("All the fields should be filled");
+      setErrorMessage(empty_fields_err);
     } else if (areNotValidNumbers) {
-      setErrorMessage("Please, enter Numbers");
+      setErrorMessage(enter_numbers);
     } else if (!newWordsRange && !noNewWords) {
       setErrorMessage(
-        `"New words" should be positive and ${newWordsLength} maximum`
+        `"${new_form_label}": ${the_number_should_be_positive_and} ${newWordsLength} ${_maximum}`
       );
     } else if (!learningWordsRange && !noLearningWords) {
       setErrorMessage(
-        `"Learing words" should be positive and ${learningWordsLength} maximum`
+        `"${learning_form_label}": ${the_number_should_be_positive_and} ${learningWordsLength} ${_maximum}`
       );
     } else if (!learnedWordsRange && !noLearnedWords) {
       setErrorMessage(
-        `"Learned words" should be positive and ${learnedWordsLength} maximum`
+        `"${learned_form_label}": ${the_number_should_be_positive_and} ${learnedWordsLength} ${_maximum}`
       );
     } else if (allTheValuesAreZero) {
-      setErrorMessage(`Chose at least 1 word to review`);
+      setErrorMessage(you_cannot_review_0);
     } else {
       history.push(
         `/question/${newWordsInput}/${learningWordsInput}/${learnedWordsInput}`
@@ -141,7 +154,7 @@ export default function PreferencesPage() {
       >
         {noWords ? (
           <NotificationMessage
-            text=" Please, add some vocabulary before learning."
+            text={add_vocabulary_before_learning}
             linkMessage="GO TO VOCABULARY"
             linkRoute="/vocabulary"
           />

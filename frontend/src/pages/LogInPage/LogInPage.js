@@ -23,9 +23,10 @@ export default function HomePage() {
     sign_up,
     dont_have_an_aссount,
     continue_,
-    empty_fields_err,
     wrong_credentials_err
   } = typography[language];
+
+  const { empty_fields_err } = typography[language].shared;
 
   const [values, handleChange, clearValues] = useForm({
     email: "",

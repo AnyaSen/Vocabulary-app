@@ -24,11 +24,12 @@ export default function SignUpPage() {
     create_user,
     already_have_an_aссount,
     log_in,
-    empty_fields_err,
     account_exists_err,
     email_invalid_err,
     password_invalid_err
   } = typography[language];
+
+  const { empty_fields_err } = typography[language].shared;
 
   const [values, handleChange, clearValues] = useForm({
     name: "",
