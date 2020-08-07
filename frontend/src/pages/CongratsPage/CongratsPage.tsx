@@ -1,4 +1,5 @@
 import React, { useContext, ReactElement } from "react";
+import typography from "../../typography/typography.json";
 
 import Styles from "./CongratsPage.module.scss";
 
@@ -11,6 +12,7 @@ import PrimaryButton from "../../components/Buttons/PrimaryButton";
 
 import { LearningContext } from "../../contexts/LearningContext";
 import { WordsContext } from "../../contexts/WordsContext";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 interface Props {
   numberOfReviewedWords: number;
@@ -19,6 +21,12 @@ interface Props {
 export default function CongratsPage({
   numberOfReviewedWords
 }: Props): ReactElement {
+  const { language } = useContext(LanguageContext);
+
+  const { congratulations, you_reviewed_, _words, go_home } = typography[
+    language
+  ].CongratsPage;
+
   const { setShowCongratilationPage } = useContext(LearningContext);
   const { setWordsData } = useContext(WordsContext);
 
@@ -30,16 +38,16 @@ export default function CongratsPage({
   return (
     <div>
       <PageLayout
-        header="Congratulations!"
-        subHeader="You have reviewed "
+        header={congratulations}
+        subHeader={you_reviewed_}
         span={numberOfReviewedWords}
-        subHeaderAferSpan=" word(s)"
+        subHeaderAferSpan={_words}
       >
         <div className={Styles.congratsImgAndButton}>
           <img src={congratsSvg} alt="congrats" />
 
           <Link to="/home" onClick={handleHomeClick} data-testid="home-link">
-            <PrimaryButton buttonMessage="HOME" />
+            <PrimaryButton buttonMessage={go_home} />
           </Link>
         </div>
       </PageLayout>

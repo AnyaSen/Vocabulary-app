@@ -6,6 +6,7 @@ import typography from "../../../typography/typography.json";
 import Styles from "./PreferencesPage.module.scss";
 
 import { WordsContext } from "../../../contexts/WordsContext";
+import { LanguageContext } from "../../../contexts/LanguageContext";
 
 import Layout from "../../../components/Layout/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
@@ -14,7 +15,6 @@ import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import InputFieldSmall from "../../../components/InputFieldSmall";
 import WarningMessage from "../../../components/shared/WarningMessage";
 import NotificationMessage from "../../../components/shared/NotificationMessage";
-import { LanguageContext } from "../../../contexts/LanguageContext";
 
 export default function PreferencesPage() {
   const { language } = useContext(LanguageContext);

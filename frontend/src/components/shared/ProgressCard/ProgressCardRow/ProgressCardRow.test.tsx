@@ -16,7 +16,7 @@ describe("<ProgressCardRow />", () => {
   test("Should render correct text", () => {
     const { getByText } = render(<ProgressCardRow {...props} />);
 
-    expect(getByText(wordType)).toBeTruthy();
+    expect(getByText(wordType + ":")).toBeTruthy();
     // expect(getByText(number)).toBeTruthy();
   });
   console.error = jest.fn(); //to ignore a warning concerning tr inside a div

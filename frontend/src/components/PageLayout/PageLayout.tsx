@@ -43,15 +43,16 @@ export default function PageLayout({
 
       <div className={Styles.PageLayoutHeader}>
         <h1>
-          {header}
-          <br />
-          {headerAfterBreak}
+          {header} <br />
+          {headerAfterBreak}{" "}
         </h1>
 
         <div>
           <h2>
             {subHeader}
-            <span>{span}</span>
+
+            <span> {span} </span>
+
             {subHeaderAferSpan}
           </h2>
         </div>

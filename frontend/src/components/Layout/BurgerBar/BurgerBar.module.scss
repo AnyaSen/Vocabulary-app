@@ -69,10 +69,15 @@
         h2 {
           color: $color-pink;
           text-align: center;
+          font-size: $font-sm;
         }
 
         a {
           text-decoration: none;
+        }
+
+        button {
+          font-size: $font-xs;
         }
       }
     }

@@ -9,10 +9,24 @@ import SecondaryButton from "../../Buttons/SecondaryButton";
 import WarningMessage from "../../shared/WarningMessage";
 
 import { LearningContext } from "../../../contexts/LearningContext";
+import { LanguageContext } from "../../../contexts/LanguageContext";
 
 import { editWord } from "../../../services/editWord";
+import typography from "../../../typography/typography.json";
 
 export default function QuestionModeCard({ task, totalWorsArray }) {
+  const { language } = useContext(LanguageContext);
+
+  const {
+    enter_translation_placeholder,
+    do_not_remember,
+    try_to_remember,
+    enter_translation_err,
+    check_the_answer,
+    incorrect,
+    correct
+  } = typography[language].LearningPage;
+
   const {
     currentWord,
     wordCount,
@@ -46,7 +60,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
     setDoNotKnowGuess(true);
 
     setBorderColor("yellow");
-    setReaction("It's okay, try to remember: ");
+    setReaction(try_to_remember);
 
     if (newlyAdded || learned) {
       editWord(
@@ -68,7 +82,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
     setErrorMessage("");
 
     if (noTranslation) {
-      setErrorMessage("Please, enter the translation");
+      setErrorMessage(enter_translation_err);
       return;
     }
 
@@ -78,7 +92,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
     if (rightTranslation) {
       setIsCorrectGuess(true);
       setBorderColor("green");
-      setReaction("CORRECT");
+      setReaction(correct);
 
       editWord(
         { newlyAdded: "false", learning: "false", learned: "true" },
@@ -92,7 +106,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
     } else {
       setIsIncorrectGuess(true);
       setBorderColor("red");
-      setReaction("INCORRECT");
+      setReaction(incorrect);
 
       editWord(
         { newlyAdded: "false", learning: "true", learned: "false" },
@@ -114,7 +128,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
 
         <SecondaryButton
           type="button"
-          buttonMessage="I don't remember"
+          buttonMessage={do_not_remember}
           onClick={handleDoNotKnowClick}
         />
       </div>
@@ -128,7 +142,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
 
         <WordCard>
           <InputField
-            placeholder="Enter translation"
+            placeholder={enter_translation_placeholder}
             name="translationInput"
             value={translationInput}
             onChange={handleChange}
@@ -140,7 +154,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
       <PrimaryButton
         type="submit"
         value="submit"
-        buttonMessage="CHECK THE ANSWER"
+        buttonMessage={check_the_answer}
       />
     </form>
   );

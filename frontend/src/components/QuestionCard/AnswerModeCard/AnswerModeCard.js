@@ -8,8 +8,14 @@ import WordCard from "../WordCard/WordCard";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 
 import { LearningContext } from "../../../contexts/LearningContext";
+import { LanguageContext } from "../../../contexts/LanguageContext";
+import typography from "../../../typography/typography.json";
 
 export default function AnswerModeCard({ totalWorsArray }) {
+  const { language } = useContext(LanguageContext);
+
+  const { continue_ } = typography[language].shared;
+
   const {
     wordCount,
     currentWord,
@@ -80,7 +86,7 @@ export default function AnswerModeCard({ totalWorsArray }) {
 
       <SecondaryButton
         type="button"
-        buttonMessage="Continue"
+        buttonMessage={continue_}
         onClick={handleContinueClick}
       />
     </div>

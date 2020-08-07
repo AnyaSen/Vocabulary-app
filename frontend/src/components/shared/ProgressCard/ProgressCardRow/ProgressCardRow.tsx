@@ -13,7 +13,7 @@ export default function ProgressCardRow({
 }: Props): ReactElement {
   return (
     <tr className={Styles.ProgressCardRow}>
-      <td>{wordType}</td>
+      <td>{wordType}:</td>
       <td>{number}</td>
     </tr>
   );

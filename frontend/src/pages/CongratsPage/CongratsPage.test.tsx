@@ -1,29 +1,32 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-
 import "@testing-library/jest-dom/extend-expect";
+
+import CongratsPage from "./CongratsPage";
 
 import { WordsContextProvider } from "../../contexts/WordsContext";
 import { LoadingContextProvider } from "../../contexts/LoadingContext";
 import { ErrorContextProvider } from "../../contexts/ErrorContext";
 import { LearningContextProvider } from "../../contexts/LearningContext";
-import CongratsPage from "./CongratsPage";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 describe("<CongratsPage />", () => {
   afterAll(cleanup);
 
   const tree = (
     <BrowserRouter>
-      <ErrorContextProvider>
-        <LoadingContextProvider>
-          <WordsContextProvider>
-            <LearningContextProvider>
-              <CongratsPage numberOfReviewedWords={4} />
-            </LearningContextProvider>
-          </WordsContextProvider>
-        </LoadingContextProvider>
-      </ErrorContextProvider>
+      <LanguageContext.Provider value={{ language: "English" }}>
+        <ErrorContextProvider>
+          <LoadingContextProvider>
+            <WordsContextProvider>
+              <LearningContextProvider>
+                <CongratsPage numberOfReviewedWords={4} />
+              </LearningContextProvider>
+            </WordsContextProvider>
+          </LoadingContextProvider>
+        </ErrorContextProvider>
+      </LanguageContext.Provider>
     </BrowserRouter>
   );
 

@@ -8,12 +8,18 @@ import burgerDotsSvg from "../../../assets/img/burgerDots.svg";
 import closeSvg from "../../../assets/img/close.svg";
 
 import { NavBarConext } from "../../../contexts/NavBarConext";
+import { LanguageContext } from "../../../contexts/LanguageContext";
+import typography from "../../../typography/typography.json";
 
 import ButtonMenuLink from "../../Buttons/ButtonMenuLink";
 import UserLetter from "../UserLetter/UserLetter";
 
 export default function BurgerBar() {
   const { isBurgerOpen, setIsBurgerOpen } = useContext(NavBarConext);
+
+  const { language } = useContext(LanguageContext);
+
+  const { home, vocabulary, learn, how_to_use } = typography[language].SideBar;
 
   const toggleBurgerOpening = () => {
     setIsBurgerOpen(!isBurgerOpen);
@@ -35,17 +41,17 @@ export default function BurgerBar() {
             <div className={Styles.links}>
               <ButtonMenuLink
                 linkTo="/home"
-                buttonMessage="HOME"
+                buttonMessage={home}
                 onClick={toggleBurgerOpening}
               />
               <ButtonMenuLink
                 linkTo="/vocabulary"
-                buttonMessage="VOCABULARY"
+                buttonMessage={vocabulary}
                 onClick={toggleBurgerOpening}
               />
               <ButtonMenuLink
                 linkTo="/learn"
-                buttonMessage="LEARN"
+                buttonMessage={learn}
                 onClick={toggleBurgerOpening}
               />
             </div>
@@ -54,7 +60,7 @@ export default function BurgerBar() {
               <NavLink to="/instructions">
                 <h2>?</h2>
 
-                <button>HOW TO USE</button>
+                <button>{how_to_use}</button>
               </NavLink>
             </div>
           </div>

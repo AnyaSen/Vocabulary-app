@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
 import { logout } from "../../../services/logout";
 import { deleteAccount } from "../../../services/deleteAccount";
 import { useForm } from "../../../hooks/useForm";
+
+import { LanguageContext } from "../../../contexts/LanguageContext";
+import typography from "../../../typography/typography.json";
 
 import Styles from "./UserLetter.module.scss";
 import deleteSvg from "../../../assets/img/delete_account.svg";
@@ -15,6 +18,20 @@ import WarningMessage from "../../shared/WarningMessage";
 export default function UserLetter({ inCircle }) {
   const userName = JSON.parse(localStorage.getItem("userName"));
   const firstLetter = userName.toUpperCase().charAt(0);
+
+  const { language } = useContext(LanguageContext);
+  const {
+    log_out,
+    delete_account,
+    delete_confirmation_question_1,
+    delete_confirmation_question_2,
+    enter_user_name,
+    wrong_user_name
+  } = typography[language].SideBar;
+
+  const { yes, no, cancel, submit, empty_field_err, delete_ } = typography[
+    language
+  ].shared;
 
   const [values, handleChange, clearValues] = useForm({
     name: ""
@@ -50,9 +67,9 @@ export default function UserLetter({ inCircle }) {
     setErrorMessage("");
 
     if (name === "") {
-      setErrorMessage("The filed is empty");
+      setErrorMessage(empty_field_err);
     } else if (userName.toLowerCase() !== name.toLowerCase()) {
-      setErrorMessage("Wrong user name");
+      setErrorMessage(wrong_user_name);
     } else {
       clearValues();
       setShowNameInputField(false);
@@ -65,9 +82,9 @@ export default function UserLetter({ inCircle }) {
       {showConfirmation && (
         <div ref={confitmationCard}>
           <ConfirmationCard
-            confQuestion="Are you sure you want to delete your account?"
-            confAnswerOne="NO"
-            confAnswerTwo="YES"
+            confQuestion={delete_confirmation_question_1}
+            confAnswerOne={no}
+            confAnswerTwo={yes}
             answerOneOnClick={() => {
               setShowConfirmation(false);
             }}
@@ -82,9 +99,9 @@ export default function UserLetter({ inCircle }) {
       {showValidationRequest && (
         <div ref={confitmationCard}>
           <ConfirmationCard
-            confQuestion="Notice that your progress will be removed permanently, would you like to continue?"
-            confAnswerOne="Cancel"
-            confAnswerTwo="Continue"
+            confQuestion={delete_confirmation_question_2}
+            confAnswerOne={cancel}
+            confAnswerTwo={yes}
             answerOneOnClick={() => {
               setShowValidationRequest(false);
             }}
@@ -98,7 +115,7 @@ export default function UserLetter({ inCircle }) {
 
       {showNameInputField && (
         <div ref={confitmationCard} className={Styles.formContainer}>
-          <p>Please, enter your user name to delete your account.</p>
+          <p>{enter_user_name}</p>
 
           <form onSubmit={checkNameAndDelete} className={Styles.form}>
             <div className={Styles.input}>
@@ -116,12 +133,12 @@ export default function UserLetter({ inCircle }) {
             <div className={Styles.formButtons}>
               <SecondaryButton
                 buttonColor="pink"
-                buttonMessage="Submit"
+                buttonMessage={delete_}
                 type="submit"
               />
 
               <SecondaryButton
-                buttonMessage="Cancel"
+                buttonMessage={cancel}
                 type="button"
                 onClick={() => {
                   clearValues();
@@ -149,7 +166,7 @@ export default function UserLetter({ inCircle }) {
         <h1> {firstLetter} </h1>
       </div>
       <button className={Styles.logOutButton} onClick={logout}>
-        LOG OUT
+        {log_out}
       </button>
       {!inCircle && (
         <button
@@ -158,7 +175,7 @@ export default function UserLetter({ inCircle }) {
             setShowConfirmation(true);
           }}
         >
-          DELETE ACCOUNT
+          {delete_account}
         </button>
       )}
     </div>

@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
+import typography from "../../../typography/typography.json";
 
 import Styles from "./QuestionPage.module.scss";
 import arrowSvg from "../../../assets/img/arrow_back.svg";
@@ -7,12 +8,21 @@ import arrowSvg from "../../../assets/img/arrow_back.svg";
 import { filterWordsFromArrayByNumber } from "../../../services/filterVocabulary";
 import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
+import { LanguageContext } from "../../../contexts/LanguageContext.js";
 
 import QuestionCard from "../../../components/QuestionCard/QuestionCard";
 import ProgressCard from "../../../components/shared/ProgressCard";
 import ConfirmationCard from "../../../components/shared/ConfirmationCard";
 
 export default function QuestionPage({ match }) {
+  const { language } = useContext(LanguageContext);
+
+  const { enter_translation, confirmation_to_quit } = typography[
+    language
+  ].LearningPage;
+
+  const { yes, no } = typography[language].shared;
+
   const { newWords, learningWords, learnedWords } = useContext(WordsContext);
 
   const {
@@ -104,9 +114,9 @@ export default function QuestionPage({ match }) {
           {showConfirmation ? (
             <div ref={confitmationCard}>
               <ConfirmationCard
-                confQuestion="Are you sure you want to quit learning?"
-                confAnswerOne="YES"
-                confAnswerTwo="NO"
+                confQuestion={confirmation_to_quit}
+                confAnswerOne={yes}
+                confAnswerTwo={no}
                 answerOneOnClick={() => {
                   history.push("/learn");
                 }}
@@ -128,10 +138,7 @@ export default function QuestionPage({ match }) {
         </div>
       )}
 
-      <QuestionCard
-        task="Please, enter translation of the word"
-        totalWorsArray={totalWords}
-      />
+      <QuestionCard task={enter_translation} totalWorsArray={totalWords} />
     </div>
   );
 }

@@ -32,6 +32,19 @@
       "learn_explanation": "To learn vocabulary"
     },
 
+    "SideBar": {
+      "log_out": "LOG OUT",
+      "home": "HOME",
+      "vocabulary": "VOCABULARY",
+      "learn": "LEARN",
+      "how_to_use": "HOW TO USE",
+      "delete_account": "DELETE ACCOUNT",
+      "delete_confirmation_question_1": "Are you sure you want to delete your account?",
+      "delete_confirmation_question_2": "Notice that your progress will be removed permanently, would you like to continue?",
+      "enter_user_name": "Please, enter your user name to delete your account",
+      "wrong_user_name": "Wrong user name"
+    },
+
     "ProgressPage": {
       "progress": "PROGRESS",
       "here_you_can_see_your_progress": "Here you can see your progress.",
@@ -75,17 +88,42 @@
       }
     },
 
+    "LearningPage": {
+      "enter_translation": "Please, enter translation of the word",
+      "enter_translation_err": "Enter the translation",
+      "enter_translation_placeholder": "Translation",
+      "do_not_remember": "I don't remember",
+      "try_to_remember": "It's okay, try to remember:",
+      "check_the_answer": "CHECK THE ANSWER",
+      "incorrect": "INCORRECT",
+      "correct": "CORRECT",
+      "confirmation_to_quit": "Are you sure you want to quit learning?"
+    },
+
+    "CongratsPage": {
+      "congratulations": "Congratulations",
+      "you_reviewed_": "You have reviewed",
+      "_words": "word(s)",
+      "go_home": "HOME"
+    },
+
     "shared": {
       "vocabulary": "Vocabulary",
       "progress": "Progress",
       "learn": "Learn",
       "empty_fields_err": "All fields should be filled",
+      "empty_field_err": "The filed is empty",
       "new_type": "New",
       "learning_type": "Learning",
       "learned_type": "Learned",
       "words": "Words",
       "foreign_word": "Foreign word",
-      "translation_word": "Translation"
+      "translation_word": "Translation",
+      "yes": "YES",
+      "no": "NO",
+      "cancel": "Cancel",
+      "delete_": "Delete",
+      "continue_": "Continue"
     }
   },
   "Russian": {
@@ -119,6 +157,19 @@
       "vocabulary_explanation": "Добавлять и искать слова",
       "progress_explanation": "Посмотреть прогресс",
       "learn_explanation": "Учить слова"
+    },
+
+    "SideBar": {
+      "log_out": "ВЫХОД",
+      "home": "ДОМ",
+      "vocabulary": "СЛОВА",
+      "learn": "ИЗУЧЕНИЕ",
+      "how_to_use": "ИНСТРУКЦИИ",
+      "delete_account": "УДАЛИТЬ АККАУНТ",
+      "delete_confirmation_question_1": "Вы уверены, что хотите удалить аккаунт?",
+      "delete_confirmation_question_2": "Предупреждаем, аккаунт будет удален навсегда, продолжить?",
+      "enter_user_name": "Пожалуйста, введите имя, данное вами при регистрации, чтобы удалить аккаунт.",
+      "wrong_user_name": "Неверное имя"
     },
 
     "ProgressPage": {
@@ -165,17 +216,42 @@
       }
     },
 
+    "LearningPage": {
+      "enter_translation": "Пожалуйста, введите перевод",
+      "enter_translation_err": "Введите перевод",
+      "enter_translation_placeholder": "Перевод",
+      "do_not_remember": "Я не помню",
+      "try_to_remember": "Ничего страшного, попытайтесь запомнить:",
+      "check_the_answer": "ПРОВЕРИТЬ ОТВЕТ",
+      "incorrect": "НЕПРАВИЛЬНО",
+      "correct": "ПРАВИЛЬНО",
+      "confirmation_to_quit": "Вы уверены, что хотите прекратить изучение?"
+    },
+
+    "CongratsPage": {
+      "congratulations": "Поздравляем!",
+      "you_reviewed_": "Вы просмотрели",
+      "_words": "слов(а)",
+      "go_home": "ДОМОЙ"
+    },
+
     "shared": {
       "vocabulary": "Мои слова",
       "progress": "Прогресс",
       "learn": "Изучение",
       "empty_fields_err": "Все поля должны быть заполнены",
+      "empty_field_err": "Заполните поле",
       "new_type": "Новые",
       "learning_type": "В процессе",
       "learned_type": "Выученные",
       "words": "Слова",
       "foreign_word": "Иностранно слово",
-      "translation_word": "Перевод"
+      "translation_word": "Перевод",
+      "yes": "ДА",
+      "no": "НЕТ",
+      "cancel": "Отмена",
+      "delete_": "Удалить",
+      "continue_": "Продолжить"
     }
   }
 }
