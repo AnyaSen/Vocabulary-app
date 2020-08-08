@@ -2,9 +2,15 @@ import React from "react";
 
 import Styles from "./WordCard.module.scss";
 
-export default function WordCard({ children, borderColor }) {
+interface Props {
+  borderColor: string;
+  children: React.ReactNode;
+}
+
+export default function WordCard({ children, borderColor }: Props) {
   return (
     <div
+      data-testid="word-card"
       className={
         borderColor === "green"
           ? Styles.WordCardGreen
