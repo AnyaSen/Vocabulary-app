@@ -6,7 +6,7 @@ import Styles from "./ButtonMenuLink.module.scss";
 interface Props {
   buttonMessage: string;
   linkTo: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function ButtonMenuLink({
