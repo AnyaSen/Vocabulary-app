@@ -23,11 +23,15 @@ export default function UserLetter({ inCircle }) {
   const userName: UserName = JSON.parse(localStorage.getItem("userName")!);
 
   const upperCaseFirstLetter = name => {
-    return name.charAt(0).toUpperCase();
+    if (name) {
+      return name.charAt(0).toUpperCase();
+    }
   };
 
   const lowerCaseName = name => {
-    return name.toLowerCase();
+    if (name) {
+      return name.toLowerCase();
+    }
   };
 
   const firstLetter = upperCaseFirstLetter(userName);
