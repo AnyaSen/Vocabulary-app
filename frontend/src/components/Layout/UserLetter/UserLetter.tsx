@@ -61,25 +61,26 @@ export default function UserLetter({ inCircle }) {
   const [showValidationRequest, setShowValidationRequest] = useState(false);
   const [showNameInputField, setShowNameInputField] = useState(false);
 
-  // const confitmationCard = useRef();
+  const confitmationCard = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  // const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-  //   if (!event.composedPath().includes(confitmationCard.current)) {
-  //     setShowConfirmation(false);
-  //     setShowValidationRequest(false);
-  //     setShowNameInputField(false);
-  //     return;
-  //   }
-  // };
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClick);
+  const handleClick = e => {
+    if (!e.composedPath().includes(confitmationCard.current)) {
+      setShowConfirmation(false);
+      setShowValidationRequest(false);
+      setShowNameInputField(false);
+      return;
+    }
+  };
 
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClick);
-  //   };
-  // }, []);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
 
-  const checkNameAndDelete = e => {
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
+  const checkNameAndDelete = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage("");
 
@@ -97,9 +98,7 @@ export default function UserLetter({ inCircle }) {
   return (
     <div className={Styles.userLetterContainer}>
       {showConfirmation && (
-        <div
-        // ref={confitmationCard}
-        >
+        <div ref={confitmationCard}>
           <ConfirmationCard
             confQuestion={delete_confirmation_question_1}
             confAnswerOne={no}
@@ -116,9 +115,7 @@ export default function UserLetter({ inCircle }) {
       )}
 
       {showValidationRequest && (
-        <div
-        // ref={confitmationCard}
-        >
+        <div ref={confitmationCard}>
           <ConfirmationCard
             confQuestion={delete_confirmation_question_2}
             confAnswerOne={cancel}
@@ -135,10 +132,7 @@ export default function UserLetter({ inCircle }) {
       )}
 
       {showNameInputField && (
-        <div
-          // ref={confitmationCard}
-          className={Styles.formContainer}
-        >
+        <div ref={confitmationCard} className={Styles.formContainer}>
           <p>{enter_user_name}</p>
 
           <form onSubmit={checkNameAndDelete} className={Styles.form}>
