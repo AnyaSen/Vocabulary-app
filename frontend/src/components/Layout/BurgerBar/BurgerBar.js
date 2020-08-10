@@ -12,7 +12,7 @@ import { LanguageContext } from "../../../contexts/LanguageContext";
 import typography from "../../../typography/typography.json";
 
 import ButtonMenuLink from "../../Buttons/ButtonMenuLink";
-import UserLetter from "../UserLetter/UserLetter";
+import UserLetter from "../UserLetter";
 
 export default function BurgerBar() {
   const { isBurgerOpen, setIsBurgerOpen } = useContext(NavBarConext);

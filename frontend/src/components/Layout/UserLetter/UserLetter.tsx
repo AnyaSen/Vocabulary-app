@@ -15,9 +15,22 @@ import InputField from "../../InputField/InputField";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 import WarningMessage from "../../shared/WarningMessage";
 
+interface UserName {
+  userName: string;
+}
+
 export default function UserLetter({ inCircle }) {
-  const userName = JSON.parse(localStorage.getItem("userName"));
-  const firstLetter = userName.toUpperCase().charAt(0);
+  const userName: UserName = JSON.parse(localStorage.getItem("userName")!);
+
+  const upperCaseFirstLetter = name => {
+    return name.charAt(0).toUpperCase();
+  };
+
+  const lowerCaseName = name => {
+    return name.toLowerCase();
+  };
+
+  const firstLetter = upperCaseFirstLetter(userName);
 
   const { language } = useContext(LanguageContext);
   const {
@@ -29,7 +42,7 @@ export default function UserLetter({ inCircle }) {
     wrong_user_name
   } = typography[language].SideBar;
 
-  const { yes, no, cancel, submit, empty_field_err, delete_ } = typography[
+  const { yes, no, cancel, empty_field_err, delete_ } = typography[
     language
   ].shared;
 
@@ -44,23 +57,23 @@ export default function UserLetter({ inCircle }) {
   const [showValidationRequest, setShowValidationRequest] = useState(false);
   const [showNameInputField, setShowNameInputField] = useState(false);
 
-  const confitmationCard = useRef();
+  // const confitmationCard = useRef();
 
-  const handleClick = e => {
-    if (!e.composedPath().includes(confitmationCard.current)) {
-      setShowConfirmation(false);
-      setShowValidationRequest(false);
-      setShowNameInputField(false);
-      return;
-    }
-  };
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClick);
+  // const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  //   if (!event.composedPath().includes(confitmationCard.current)) {
+  //     setShowConfirmation(false);
+  //     setShowValidationRequest(false);
+  //     setShowNameInputField(false);
+  //     return;
+  //   }
+  // };
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClick);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClick);
+  //   };
+  // }, []);
 
   const checkNameAndDelete = e => {
     e.preventDefault();
@@ -68,7 +81,7 @@ export default function UserLetter({ inCircle }) {
 
     if (name === "") {
       setErrorMessage(empty_field_err);
-    } else if (userName.toLowerCase() !== name.toLowerCase()) {
+    } else if (lowerCaseName(userName) !== name.toLowerCase()) {
       setErrorMessage(wrong_user_name);
     } else {
       clearValues();
@@ -80,7 +93,9 @@ export default function UserLetter({ inCircle }) {
   return (
     <div className={Styles.userLetterContainer}>
       {showConfirmation && (
-        <div ref={confitmationCard}>
+        <div
+        // ref={confitmationCard}
+        >
           <ConfirmationCard
             confQuestion={delete_confirmation_question_1}
             confAnswerOne={no}
@@ -97,7 +112,9 @@ export default function UserLetter({ inCircle }) {
       )}
 
       {showValidationRequest && (
-        <div ref={confitmationCard}>
+        <div
+        // ref={confitmationCard}
+        >
           <ConfirmationCard
             confQuestion={delete_confirmation_question_2}
             confAnswerOne={cancel}
@@ -114,7 +131,10 @@ export default function UserLetter({ inCircle }) {
       )}
 
       {showNameInputField && (
-        <div ref={confitmationCard} className={Styles.formContainer}>
+        <div
+          // ref={confitmationCard}
+          className={Styles.formContainer}
+        >
           <p>{enter_user_name}</p>
 
           <form onSubmit={checkNameAndDelete} className={Styles.form}>
