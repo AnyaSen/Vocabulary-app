@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useContext,
+  ReactElement
+} from "react";
 
 import { logout } from "../../../services/logout";
 import { deleteAccount } from "../../../services/deleteAccount";
@@ -19,7 +25,11 @@ interface UserName {
   userName: string;
 }
 
-export default function UserLetter({ inCircle }) {
+interface Props {
+  inCircle?: boolean;
+}
+
+export default function UserLetter({ inCircle }: Props): ReactElement {
   const userName: UserName = JSON.parse(localStorage.getItem("userName")!);
 
   const upperCaseFirstLetter = name => {
@@ -58,7 +68,7 @@ export default function UserLetter({ inCircle }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [showValidationRequest, setShowValidationRequest] = useState(false);
+  const [showConfirmationTwo, setShowConfirmationTwo] = useState(false);
   const [showNameInputField, setShowNameInputField] = useState(false);
 
   const confitmationCard = useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -66,7 +76,7 @@ export default function UserLetter({ inCircle }) {
   const handleClick = e => {
     if (!e.composedPath().includes(confitmationCard.current)) {
       setShowConfirmation(false);
-      setShowValidationRequest(false);
+      setShowConfirmationTwo(false);
       setShowNameInputField(false);
       return;
     }
@@ -98,7 +108,7 @@ export default function UserLetter({ inCircle }) {
   return (
     <div className={Styles.userLetterContainer}>
       {showConfirmation && (
-        <div ref={confitmationCard}>
+        <div ref={confitmationCard} data-testid="confirmation-card">
           <ConfirmationCard
             confQuestion={delete_confirmation_question_1}
             confAnswerOne={no}
@@ -108,23 +118,23 @@ export default function UserLetter({ inCircle }) {
             }}
             answerTwoOnClick={() => {
               setShowConfirmation(false);
-              setShowValidationRequest(true);
+              setShowConfirmationTwo(true);
             }}
           />
         </div>
       )}
 
-      {showValidationRequest && (
-        <div ref={confitmationCard}>
+      {showConfirmationTwo && (
+        <div ref={confitmationCard} data-testid="confirmation-card-two">
           <ConfirmationCard
             confQuestion={delete_confirmation_question_2}
             confAnswerOne={cancel}
             confAnswerTwo={yes}
             answerOneOnClick={() => {
-              setShowValidationRequest(false);
+              setShowConfirmationTwo(false);
             }}
             answerTwoOnClick={() => {
-              setShowValidationRequest(false);
+              setShowConfirmationTwo(false);
               setShowNameInputField(true);
             }}
           />
@@ -132,7 +142,11 @@ export default function UserLetter({ inCircle }) {
       )}
 
       {showNameInputField && (
-        <div ref={confitmationCard} className={Styles.formContainer}>
+        <div
+          ref={confitmationCard}
+          className={Styles.formContainer}
+          data-testid="form"
+        >
           <p>{enter_user_name}</p>
 
           <form onSubmit={checkNameAndDelete} className={Styles.form}>
@@ -168,7 +182,10 @@ export default function UserLetter({ inCircle }) {
         </div>
       )}
 
-      <div className={inCircle ? Styles.userLetterInCircle : Styles.userLetter}>
+      <div
+        className={inCircle ? Styles.userLetterInCircle : Styles.userLetter}
+        data-testid="user-letter"
+      >
         {inCircle && (
           <img
             alt="delete account"
