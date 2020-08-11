@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import Styles from "./BurgerBar.module.scss";
 
@@ -14,7 +14,7 @@ import typography from "../../../typography/typography.json";
 import ButtonMenuLink from "../../Buttons/ButtonMenuLink";
 import UserLetter from "../UserLetter";
 
-export default function BurgerBar() {
+export default function BurgerBar(): ReactElement {
   const { isBurgerOpen, setIsBurgerOpen } = useContext(NavBarConext);
 
   const { language } = useContext(LanguageContext);
@@ -24,8 +24,9 @@ export default function BurgerBar() {
   const toggleBurgerOpening = () => {
     setIsBurgerOpen(!isBurgerOpen);
   };
+
   return (
-    <div className={Styles.BurgerBar}>
+    <div className={Styles.BurgerBar} data-testid="burger-bar">
       <img
         alt={isBurgerOpen ? "close" : "menu"}
         src={isBurgerOpen ? closeSvg : burgerDotsSvg}
@@ -34,11 +35,11 @@ export default function BurgerBar() {
       />
 
       {isBurgerOpen && (
-        <div className={Styles.BurgerOpen}>
-          <div className={Styles.BurgerCard}>
+        <div className={Styles.BurgerOpen} data-testid="burger-bar-open">
+          <div className={Styles.BurgerCard} data-testid="burger-card">
             <UserLetter />
 
-            <div className={Styles.links}>
+            <div className={Styles.links} data-testid="links-container">
               <ButtonMenuLink
                 linkTo="/home"
                 buttonMessage={home}
@@ -57,7 +58,7 @@ export default function BurgerBar() {
             </div>
 
             <div className={Styles.instructions}>
-              <NavLink to="/instructions">
+              <NavLink to="/instructions" data-testid="instructions-link">
                 <h2>?</h2>
 
                 <button>{how_to_use}</button>
