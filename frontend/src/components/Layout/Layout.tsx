@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, ReactElement } from "react";
 
 import Styles from "./Layout.module.scss";
 
@@ -7,7 +7,11 @@ import BurgerBar from "./BurgerBar";
 
 import { NavBarConext } from "../../contexts/NavBarConext";
 
-export default function Layout({ children }) {
+interface Props {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: Props): ReactElement {
   const [burgerBar, setBurgerBar] = useState(false);
   const { isBurgerOpen } = useContext(NavBarConext);
 
@@ -22,7 +26,10 @@ export default function Layout({ children }) {
   if (isBurgerOpen) return <BurgerBar />;
 
   return (
-    <div className={burgerBar ? Styles.LayoutBurger : Styles.Layout}>
+    <div
+      className={burgerBar ? Styles.LayoutBurger : Styles.Layout}
+      data-testid="navbar"
+    >
       {burgerBar ? <BurgerBar /> : <SideBar />}
       {children}
     </div>

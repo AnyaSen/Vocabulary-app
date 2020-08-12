@@ -8,7 +8,7 @@ import Styles from "./PreferencesPage.module.scss";
 import { WordsContext } from "../../../contexts/WordsContext";
 import { LanguageContext } from "../../../contexts/LanguageContext";
 
-import Layout from "../../../components/Layout/Layout";
+import Layout from "../../../components/Layout";
 import PageLayout from "../../../components/PageLayout/PageLayout";
 import ExplanatoryWordsCard from "../../../components/shared/ExplanatoryWordsCard";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";

@@ -5,7 +5,7 @@ import vocabularySvg from "../../assets/img/vocabulary.svg";
 import learnSvg from "../../assets/img/learn.svg";
 import progressSvg from "../../assets/img/progress.svg";
 
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../components/Layout";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import HomePageButton from "../../components/Buttons/HomePageButton";
 import typography from "../../typography/typography.json";
