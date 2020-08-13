@@ -2,7 +2,7 @@
 @import "../../../assets/scss/mixins";
 @import "../../../assets/scss/breakpoints";
 
-.WordCard {
+.LearningWordCard {
   @include flex-column;
 
   padding: $space-4 $space-1;
@@ -29,20 +29,20 @@
   }
 }
 
-.WordCardRed {
-  @extend .WordCard;
+.LearningWordCardRed {
+  @extend .LearningWordCard;
 
   border-color: $color-red;
 }
 
-.WordCardGreen {
-  @extend .WordCard;
+.LearningWordCardGreen {
+  @extend .LearningWordCard;
 
   border-color: $color-green;
 }
 
-.WordCardYellow {
-  @extend .WordCard;
+.LearningWordCardYellow {
+  @extend .LearningWordCard;
 
   border-color: $color-yellow;
 }

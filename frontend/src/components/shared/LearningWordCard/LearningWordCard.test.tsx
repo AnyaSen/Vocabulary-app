@@ -2,17 +2,17 @@ import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import WordCard from "./WordCard";
+import LearningWordCard from "./LearningWordCard";
 
-describe("<WordCard />", () => {
+describe("<LearningWordCard />", () => {
   afterAll(cleanup);
 
   const createRenderTree = props => (
-    <WordCard {...props}>
+    <LearningWordCard {...props}>
       <p>child 1</p>
       <p>child 2</p>
       <p>child 3</p>
-    </WordCard>
+    </LearningWordCard>
   );
 
   const props = {
@@ -25,7 +25,7 @@ describe("<WordCard />", () => {
     const wordCard = getByTestId("word-card");
 
     expect(wordCard.children.length).toBe(3);
-    expect(wordCard).toHaveClass("WordCardGreen");
+    expect(wordCard).toHaveClass("LearningWordCardGreen");
   });
 
   test("Should render correct class when borderColor is set to red", () => {
@@ -35,7 +35,7 @@ describe("<WordCard />", () => {
 
     const { getByTestId } = render(createRenderTree(updatedProps));
 
-    expect(getByTestId("word-card")).toHaveClass("WordCardRed");
+    expect(getByTestId("word-card")).toHaveClass("LearningWordCardRed");
   });
 
   test("Should render correct class when borderColor is set to yellow", () => {
@@ -45,7 +45,7 @@ describe("<WordCard />", () => {
 
     const { getByTestId } = render(createRenderTree(updatedProps));
 
-    expect(getByTestId("word-card")).toHaveClass("WordCardYellow");
+    expect(getByTestId("word-card")).toHaveClass("LearningWordCardYellow");
   });
 
   test("Should render correct class when borderColor is not specified", () => {
@@ -55,6 +55,6 @@ describe("<WordCard />", () => {
 
     const { getByTestId } = render(createRenderTree(updatedProps));
 
-    expect(getByTestId("word-card")).toHaveClass("WordCard");
+    expect(getByTestId("word-card")).toHaveClass("LearningWordCard");
   });
 });

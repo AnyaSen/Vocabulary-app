@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 
 import Styles from "../QuestionCard.module.scss";
 
-import WordCard from "../WordCard";
+import LearningWordCard from "../../shared/LearningWordCard";
 import InputField from "../../InputField";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton";
@@ -136,11 +136,11 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
       <WarningMessage warnMessage={errorMessage} />
 
       <div className={Styles.WordCardsContainer}>
-        <WordCard>
+        <LearningWordCard>
           <h2>{currentWord.toLowerCase()}</h2>
-        </WordCard>
+        </LearningWordCard>
 
-        <WordCard>
+        <LearningWordCard>
           <InputField
             placeholder={enter_translation_placeholder}
             name="translationInput"
@@ -148,7 +148,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
             onChange={handleChange}
             type="text"
           />
-        </WordCard>
+        </LearningWordCard>
       </div>
 
       <PrimaryButton

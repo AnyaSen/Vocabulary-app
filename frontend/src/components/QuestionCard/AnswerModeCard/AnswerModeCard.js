@@ -4,7 +4,7 @@ import Styles from "../QuestionCard.module.scss";
 import correctEmojiSvg from "../../../assets/img/correctEmoji.svg";
 import incorrectEmojiSvg from "../../../assets/img/incorrectEmoji.svg";
 
-import WordCard from "../WordCard";
+import LearningWordCard from "../../shared/LearningWordCard";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 
 import { LearningContext } from "../../../contexts/LearningContext";
@@ -75,13 +75,13 @@ export default function AnswerModeCard({ totalWorsArray }) {
       )}
 
       <div className={Styles.WordCardsContainer}>
-        <WordCard>
+        <LearningWordCard>
           <h2>{currentWord.toLowerCase()}</h2>
-        </WordCard>
+        </LearningWordCard>
 
-        <WordCard borderColor={borderColor}>
+        <LearningWordCard borderColor={borderColor}>
           <h2>{translation.toLowerCase()}</h2>
-        </WordCard>
+        </LearningWordCard>
       </div>
 
       <SecondaryButton
