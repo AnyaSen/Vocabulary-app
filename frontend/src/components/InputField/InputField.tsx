@@ -11,6 +11,7 @@ type Props = {
   autocompleteON?: boolean;
   refInput?: string;
   small?: boolean;
+  inputRef?: React.MutableRefObject<HTMLInputElement>;
 };
 
 export default function InputField({
@@ -20,11 +21,13 @@ export default function InputField({
   onChange,
   type,
   autocompleteON,
-  small
+  small,
+  inputRef
 }: Props): ReactElement {
   return (
     <div className={Styles.InputFieldContainer}>
       <input
+        ref={inputRef}
         className={small ? Styles.smallInputField : Styles.InputField}
         type={type}
         placeholder={placeholder}

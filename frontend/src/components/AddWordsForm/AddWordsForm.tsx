@@ -3,7 +3,8 @@ import React, {
   useState,
   useEffect,
   FormEvent,
-  ReactElement
+  ReactElement,
+  useRef
 } from "react";
 import typography from "../../typography/typography.json";
 
@@ -58,8 +59,12 @@ export default function AddWordsForm(): ReactElement {
       clearValues();
 
       setWordsData();
+
+      foreignWordInput.current.focus();
     }
   };
+
+  const foreignWordInput = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     setWordsData();
@@ -77,6 +82,7 @@ export default function AddWordsForm(): ReactElement {
         data-testid="add-words-form"
       >
         <InputField
+          inputRef={foreignWordInput}
           placeholder={foreign_word}
           name="foreignWord"
           value={foreignWord}
