@@ -13,6 +13,7 @@ import ArrowBack from "../../components/Buttons/ArrowBack";
 
 import ExplanatoryWordsCard from "../../components/shared/ExplanatoryWordsCard";
 import NotificationMessage from "../../components/shared/NotificationMessage";
+import Loader from "../../components/shared/Loader";
 
 export default function ProgressPage() {
   const { language } = useContext(LanguageContext);
@@ -60,6 +61,7 @@ export default function ProgressPage() {
             [`${learning_type} - ${learningWordsLength}`, learningWordsLength],
             [`${learned_type} - ${learnedWordsLength}`, learnedWordsLength]
           ]}
+          loader={<div>Loading your chart...</div>}
           options={{
             slices: [
               {
