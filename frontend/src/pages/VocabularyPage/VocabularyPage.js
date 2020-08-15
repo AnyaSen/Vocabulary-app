@@ -9,7 +9,7 @@ import Loader from "../../components/shared/Loader";
 import ErrorCard from "../../components/ErrorCard";
 import Layout from "../../components/Layout";
 import AddWordsForm from "../../components/AddWordsForm";
-import WordPairCard from "../../components/WordPairCard/WordPairCard";
+import WordPairInfoCard from "../../components/WordPairInfoCard";
 
 import { WordsContext } from "../../contexts/WordsContext";
 import { BrowseContext } from "../../contexts/BrowseContext";
@@ -43,7 +43,10 @@ export default function VocabularyPage() {
             {!isVocabularyLoading ? (
               <>
                 {isWordPairOpen ? (
-                  <WordPairCard foreignWord="word" translation="translation" />
+                  <WordPairInfoCard
+                    foreignWord="word"
+                    translation="translation"
+                  />
                 ) : (
                   <AddWordsForm />
                 )}
@@ -60,7 +63,7 @@ export default function VocabularyPage() {
         ) : !isVocabularyLoading ? (
           <>
             {isWordPairOpen && (
-              <WordPairCard foreignWord="word" translation="translation" />
+              <WordPairInfoCard foreignWord="word" translation="translation" />
             )}
             <WordsList
               wordsArray={modifiedWordsArr}
