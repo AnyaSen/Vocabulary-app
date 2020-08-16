@@ -3,7 +3,7 @@ import typography from "../../typography/typography.json";
 
 import Styles from "./VocabularyPage.module.scss";
 
-import WordsList from "../../components/WordsList/WordsList";
+import WordsList from "../../components/WordsList";
 import BrowseVocabulary from "../../components/BrowseVocabulary";
 import Loader from "../../components/shared/Loader";
 import ErrorCard from "../../components/ErrorCard";

@@ -1,11 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 
 import Styles from "./WordsList.module.scss";
 
 import WordPair from "./WordPair";
 import ArrowUp from "../Buttons/ArrowUp";
 
-export default function WordsList({ wordsArray, noWordsMessage }) {
+interface Props {
+  wordsArray: Array<{
+    newlyAdded: boolean;
+    learning: boolean;
+    learned: boolean;
+    _id: string;
+    foreignWord: string;
+    translation: string;
+    creator: string;
+  }>;
+
+  noWordsMessage: string;
+}
+
+export default function WordsList({
+  wordsArray,
+  noWordsMessage
+}: Props): ReactElement {
   const [showScroll, setShowScroll] = useState(false);
 
   const checkScrollTop = () => {
@@ -28,6 +45,12 @@ export default function WordsList({ wordsArray, noWordsMessage }) {
       </div>
     );
 
+  const lowerCaseWord = word => {
+    if (word) {
+      return word.toLowerCase();
+    }
+  };
+
   return (
     <>
       <div className={Styles.WordsList}>
@@ -43,8 +66,8 @@ export default function WordsList({ wordsArray, noWordsMessage }) {
 
           return (
             <WordPair
-              word={foreignWord.toLowerCase()}
-              transaltion={translation.toLowerCase()}
+              word={lowerCaseWord(foreignWord)}
+              transaltion={lowerCaseWord(translation)}
               key={_id}
               ID={_id}
               newlyAdded={newlyAdded}
