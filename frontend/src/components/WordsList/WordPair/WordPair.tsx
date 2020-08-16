@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, ReactElement } from "react";
 
 import Styles from "./WordPair.module.scss";
 
@@ -17,6 +17,15 @@ import Loader from "../../shared/Loader/Loader";
 import ErrorSmall from "../../ErrorSmall";
 import WarningMessage from "../../shared/WarningMessage";
 
+interface Props {
+  word: string;
+  transaltion: string;
+  ID: string;
+  newlyAdded: boolean;
+  learning: boolean;
+  learned: boolean;
+}
+
 export default function WordPair({
   word,
   transaltion,
@@ -24,7 +33,7 @@ export default function WordPair({
   newlyAdded,
   learning,
   learned
-}) {
+}: Props): ReactElement {
   const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -138,7 +147,7 @@ export default function WordPair({
     }
   };
 
-  const editAndUpdate = event => {
+  const editAndUpdate = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const areFieldEmpty = foreignWord === "" || translation === "";
@@ -167,7 +176,7 @@ export default function WordPair({
     setIsEditButtonClicked(true);
   };
 
-  const cutLongerWord = word => {
+  const cutLongerWord = (word: string) => {
     if (word.length > 15) {
       const cutWord = word.slice(0, 15);
       return cutWord + "...";
@@ -179,7 +188,11 @@ export default function WordPair({
   return (
     <>
       {isEditButtonClicked ? (
-        <form onSubmit={editAndUpdate} className={Styles.EditWordForm}>
+        <form
+          onSubmit={editAndUpdate}
+          className={Styles.EditWordForm}
+          data-testid="edit-form"
+        >
           <div className={Styles.editInputs}>
             <InputField
               type="text"
@@ -214,7 +227,10 @@ export default function WordPair({
           </div>
         </form>
       ) : (
-        <div className={Styles.WordPairContainer}>
+        <div
+          className={Styles.WordPairContainer}
+          data-testid="word-pair-container"
+        >
           <div className={Styles.WordPair}>
             <p onClick={handleWordPairClick}>
               {!isBrowsingMode

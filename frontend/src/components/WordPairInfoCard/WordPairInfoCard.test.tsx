@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 
 import WordPairInfoCard from "./WordPairInfoCard";
 import { BrowseContext } from "../../contexts/BrowseContext";

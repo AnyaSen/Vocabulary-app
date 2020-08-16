@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Styles from "./WordsList.module.scss";
 
-import WordPair from "./WordPair/WordPair";
+import WordPair from "./WordPair";
 import ArrowUp from "../Buttons/ArrowUp";
 
 export default function WordsList({ wordsArray, noWordsMessage }) {
@@ -40,6 +40,7 @@ export default function WordsList({ wordsArray, noWordsMessage }) {
             learning,
             learned
           } = word;
+
           return (
             <WordPair
               word={foreignWord.toLowerCase()}
