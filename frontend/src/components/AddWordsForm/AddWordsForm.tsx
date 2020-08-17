@@ -27,7 +27,7 @@ export default function AddWordsForm(): ReactElement {
     language
   ].shared;
 
-  const { setWordsData, totalWordsLength } = useContext(WordsContext);
+  const { setWordsData } = useContext(WordsContext);
 
   const [values, handleChange, clearValues] = useForm({
     foreignWord: "",
@@ -54,21 +54,15 @@ export default function AddWordsForm(): ReactElement {
       createWord(wordsURL, {
         foreignWord,
         translation
-      });
+      }).then(() => setWordsData());
 
       clearValues();
-
-      setWordsData();
 
       foreignWordInput.current.focus();
     }
   };
 
   const foreignWordInput = useRef() as React.MutableRefObject<HTMLInputElement>;
-
-  useEffect(() => {
-    setWordsData();
-  }, [totalWordsLength]);
 
   return (
     <div className={Styles.AddWordsForm} data-testid="add-words-form-container">
