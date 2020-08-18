@@ -1,4 +1,11 @@
-import React, { useContext, useState, FormEvent, ReactElement } from "react";
+import React, {
+  useContext,
+  useState,
+  FormEvent,
+  ReactElement,
+  useRef,
+  useEffect
+} from "react";
 import typography from "../../typography/typography.json";
 
 import Styles from "./AddWordsForm.module.scss";
@@ -23,7 +30,7 @@ export default function AddWordsForm(): ReactElement {
     language
   ].shared;
 
-  const { setWordsData } = useContext(WordsContext);
+  const { setWordsData, totalWordsLength } = useContext(WordsContext);
 
   const [values, handleChange, clearValues] = useForm({
     foreignWord: "",
@@ -65,6 +72,12 @@ export default function AddWordsForm(): ReactElement {
     }
   };
 
+  const inputFieldRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+
+  useEffect(() => {
+    inputFieldRef.current.focus();
+  }, [totalWordsLength]);
+
   return (
     <div className={Styles.AddWordsForm} data-testid="add-words-form-container">
       <h2>{add_vocabulary}</h2>
@@ -82,6 +95,7 @@ export default function AddWordsForm(): ReactElement {
           value={foreignWord}
           onChange={handleChange}
           autoFocus
+          inputRef={inputFieldRef}
         />
 
         <InputField
