@@ -32,7 +32,9 @@ export default function QuestionCard({
       {isAnswerMode ? (
         <AnswerModeCard totalWorsArray={totalWorsArray} />
       ) : (
-        <QuestionModeCard task={task} totalWorsArray={totalWorsArray} />
+        !showCongratilationPage && (
+          <QuestionModeCard task={task} totalWorsArray={totalWorsArray} />
+        )
       )}
     </div>
   );
