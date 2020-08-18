@@ -152,7 +152,10 @@
       "no": "NO",
       "cancel": "Cancel",
       "delete_": "Delete",
-      "continue_": "Continue"
+      "continue_": "Continue",
+      "loading": "Loading",
+      "sorry_error": "Sorry, an error has occured.",
+      "error": "Error"
     }
   },
   "Russian": {
@@ -309,7 +312,10 @@
       "no": "НЕТ",
       "cancel": "Отмена",
       "delete_": "Удалить",
-      "continue_": "Продолжить"
+      "continue_": "Продолжить",
+      "loading": "Загрузка",
+      "sorry_error": "Извините, произошла ошибка.",
+      "error": "Ошибка"
     }
   }
 }

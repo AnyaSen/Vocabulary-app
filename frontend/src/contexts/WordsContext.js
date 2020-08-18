@@ -18,8 +18,8 @@ export const WordsContextProvider = ({ children }) => {
   const [learningWords, setLearningWords] = useState([]);
   const [learnedWords, setLearnedWords] = useState([]);
 
-  const { setIsVocabularyLoading } = useContext(LoadingContext);
-  const { setIsVocabularyError } = useContext(ErrorContext);
+  const { setIsLoading } = useContext(LoadingContext);
+  const { setIsError } = useContext(ErrorContext);
 
   const filterWords = VocabularyArray => {
     const filteredNewWords = filterNewWords(VocabularyArray);
@@ -39,10 +39,10 @@ export const WordsContextProvider = ({ children }) => {
 
       filterWords(wordsDataArr);
 
-      setIsVocabularyLoading(false);
+      setIsLoading(false);
     } catch (error) {
-      setIsVocabularyLoading(false);
-      setIsVocabularyError(true);
+      setIsLoading(false);
+      setIsError(true);
 
       console.log(error);
     }
@@ -51,7 +51,7 @@ export const WordsContextProvider = ({ children }) => {
   const token = localStorage.getItem("token");
   useEffect(() => {
     if (token === null) {
-      setIsVocabularyLoading(false);
+      setIsLoading(false);
     } else {
       setWordsData();
     }

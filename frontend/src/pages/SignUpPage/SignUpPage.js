@@ -92,7 +92,7 @@ export default function SignUpPage() {
     }
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
 
     setErrorMessage("");

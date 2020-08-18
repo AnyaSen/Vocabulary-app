@@ -28,10 +28,10 @@ export default function VocabularyPage() {
   const { isBrowsingMode, modifiedWordsArr, isWordPairOpen } = useContext(
     BrowseContext
   );
-  const { isVocabularyLoading } = useContext(LoadingContext);
-  const { isVocabularyError } = useContext(ErrorContext);
+  const { isLoading } = useContext(LoadingContext);
+  const { isError } = useContext(ErrorContext);
 
-  if (isVocabularyError) return <ErrorCard />;
+  if (isError) return <ErrorCard />;
 
   return (
     <Layout>
@@ -40,7 +40,7 @@ export default function VocabularyPage() {
 
         {!isBrowsingMode ? (
           <>
-            {!isVocabularyLoading ? (
+            {!isLoading ? (
               <>
                 {isWordPairOpen ? (
                   <WordPairInfoCard
@@ -60,7 +60,7 @@ export default function VocabularyPage() {
               <Loader />
             )}
           </>
-        ) : !isVocabularyLoading ? (
+        ) : !isLoading ? (
           <>
             {isWordPairOpen && (
               <WordPairInfoCard foreignWord="word" translation="translation" />

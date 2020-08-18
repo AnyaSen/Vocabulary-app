@@ -35,9 +35,7 @@ export default function InstructionsPage() {
     text_eleven,
     text_after_break_eleven,
     text_twelve,
-    text_after_break_twelve,
     text_thirteen,
-    text_after_break_thirteen,
     text_fourteen,
     text_after_break_fourteen
   } = typography[language].InstructionsPage;

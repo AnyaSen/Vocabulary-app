@@ -21,12 +21,12 @@ import ErrorCard from "./components/ErrorCard";
 import InstructionsPage from "./pages/InstructionsPage/InstructionsPage";
 
 function App() {
-  const { isVocabularyLoading } = useContext(LoadingContext);
-  const { isVocabularyError } = useContext(ErrorContext);
+  const { isLoading } = useContext(LoadingContext);
+  const { isError } = useContext(ErrorContext);
 
-  return isVocabularyLoading ? (
+  return isLoading ? (
     <LoadingPage />
-  ) : isVocabularyError ? (
+  ) : isError ? (
     <ErrorCard />
   ) : (
     <div className="App">

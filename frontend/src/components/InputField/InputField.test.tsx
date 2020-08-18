@@ -12,7 +12,8 @@ describe("<InputField />", () => {
     onChange: jest.fn(),
     type: "email",
     autocompleteON: true,
-    small: true
+    small: true,
+    autoFocus: false
   };
 
   const { placeholder, name, value, type } = props;

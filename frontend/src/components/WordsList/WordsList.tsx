@@ -1,10 +1,15 @@
-import React, { useState, ReactElement } from "react";
+import React, { useState, ReactElement, useContext } from "react";
 
 import Styles from "./WordsList.module.scss";
+
 import { lowerCaseWord } from "../../services/lowerCase";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 import WordPair from "./WordPair";
 import ArrowUp from "../Buttons/ArrowUp";
+import Loader from "../shared/Loader";
+import ErrorCard from "../ErrorCard";
+import PrimaryButton from "../Buttons/PrimaryButton";
 
 interface Props {
   wordsArray: Array<{
@@ -26,6 +31,8 @@ export default function WordsList({
 }: Props): ReactElement {
   const [showScroll, setShowScroll] = useState(false);
 
+  const { isVocabularyError } = useContext(ErrorContext);
+
   const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 400) {
       setShowScroll(true);
@@ -39,6 +46,8 @@ export default function WordsList({
   };
   window.addEventListener("scroll", checkScrollTop);
 
+  if (isVocabularyError) return <ErrorCard />;
+
   if (wordsArray.length === 0)
     return (
       <div className={Styles.WordsList}>
@@ -49,28 +58,32 @@ export default function WordsList({
   return (
     <>
       <div className={Styles.WordsList}>
-        {wordsArray.map(word => {
-          const {
-            foreignWord,
-            translation,
-            _id,
-            newlyAdded,
-            learning,
-            learned
-          } = word;
+        {isVocabularyError ? (
+          <Loader small />
+        ) : (
+          wordsArray.map(word => {
+            const {
+              foreignWord,
+              translation,
+              _id,
+              newlyAdded,
+              learning,
+              learned
+            } = word;
 
-          return (
-            <WordPair
-              word={lowerCaseWord(foreignWord)}
-              transaltion={lowerCaseWord(translation)}
-              key={_id}
-              ID={_id}
-              newlyAdded={newlyAdded}
-              learning={learning}
-              learned={learned}
-            />
-          );
-        })}
+            return (
+              <WordPair
+                word={lowerCaseWord(foreignWord)}
+                transaltion={lowerCaseWord(translation)}
+                key={_id}
+                ID={_id}
+                newlyAdded={newlyAdded}
+                learning={learning}
+                learned={learned}
+              />
+            );
+          })
+        )}
       </div>
       {wordsArray.length > 10 && <ArrowUp onClick={scrollTop} />}
     </>

@@ -11,7 +11,7 @@ type Props = {
   autocompleteON?: boolean;
   refInput?: string;
   small?: boolean;
-  inputRef?: React.MutableRefObject<HTMLInputElement>;
+  autoFocus?: boolean;
 };
 
 export default function InputField({
@@ -22,12 +22,12 @@ export default function InputField({
   type,
   autocompleteON,
   small,
-  inputRef
+  autoFocus
 }: Props): ReactElement {
   return (
     <div className={Styles.InputFieldContainer}>
       <input
-        ref={inputRef}
+        autoFocus={autoFocus}
         className={small ? Styles.smallInputField : Styles.InputField}
         type={type}
         placeholder={placeholder}
