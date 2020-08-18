@@ -1,12 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import { LearningContext } from "../../contexts/LearningContext";
 
 import CongratsPage from "../../pages/CongratsPage";
-import QuestionModeCard from "./QuestionModeCard/QuestionModeCard";
-import AnswerModeCard from "./AnswerModeCard/AnswerModeCard";
+import QuestionModeCard from "./QuestionModeCard";
+import AnswerModeCard from "./AnswerModeCard";
 
-export default function QuestionCard({ task, totalWorsArray }) {
+interface Props {
+  task: string;
+  totalWorsArray: [];
+}
+
+export default function QuestionCard({
+  task,
+  totalWorsArray
+}: Props): ReactElement {
   const {
     isCorrectGuess,
     isIncorrectGuess,

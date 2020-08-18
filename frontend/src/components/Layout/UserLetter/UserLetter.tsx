@@ -9,6 +9,7 @@ import React, {
 import { logout } from "../../../services/logout";
 import { deleteAccount } from "../../../services/deleteAccount";
 import { useForm } from "../../../hooks/useForm";
+import { lowerCaseWord } from "../../../services/lowerCase";
 
 import { LanguageContext } from "../../../contexts/LanguageContext";
 import typography from "../../../typography/typography.json";
@@ -35,12 +36,6 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
   const upperCaseFirstLetter = name => {
     if (name) {
       return name.charAt(0).toUpperCase();
-    }
-  };
-
-  const lowerCaseName = name => {
-    if (name) {
-      return name.toLowerCase();
     }
   };
 
@@ -96,7 +91,7 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
 
     if (name === "") {
       setErrorMessage(empty_field_err);
-    } else if (lowerCaseName(userName) !== name.toLowerCase()) {
+    } else if (lowerCaseWord(userName) !== name.toLowerCase()) {
       setErrorMessage(wrong_user_name);
     } else {
       clearValues();

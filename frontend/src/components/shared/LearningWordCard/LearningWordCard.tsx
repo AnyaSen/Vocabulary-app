@@ -3,7 +3,7 @@ import React from "react";
 import Styles from "./LearningWordCard.module.scss";
 
 interface Props {
-  borderColor: string;
+  borderColor?: string;
   children: React.ReactNode;
 }
 

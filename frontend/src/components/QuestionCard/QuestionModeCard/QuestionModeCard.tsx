@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, ReactElement } from "react";
 
 import Styles from "../QuestionCard.module.scss";
 
@@ -12,9 +12,18 @@ import { LearningContext } from "../../../contexts/LearningContext";
 import { LanguageContext } from "../../../contexts/LanguageContext";
 
 import { editWord } from "../../../services/editWord";
+import { lowerCaseWord } from "../../../services/lowerCase";
 import typography from "../../../typography/typography.json";
 
-export default function QuestionModeCard({ task, totalWorsArray }) {
+interface Props {
+  task: string;
+  totalWorsArray: [];
+}
+
+export default function QuestionModeCard({
+  task,
+  totalWorsArray
+}: Props): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const {
@@ -87,7 +96,7 @@ export default function QuestionModeCard({ task, totalWorsArray }) {
     }
 
     const rightTranslation =
-      translation.toLowerCase() === translationInput.toLowerCase();
+      lowerCaseWord(translation) === lowerCaseWord(translationInput);
 
     if (rightTranslation) {
       setIsCorrectGuess(true);

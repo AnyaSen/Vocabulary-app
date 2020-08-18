@@ -10,7 +10,7 @@ import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
 import { LanguageContext } from "../../../contexts/LanguageContext.js";
 
-import QuestionCard from "../../../components/QuestionCard/QuestionCard";
+import QuestionCard from "../../../components/QuestionCard";
 import ProgressCard from "../../../components/shared/ProgressCard";
 import ConfirmationCard from "../../../components/shared/ConfirmationCard";
 

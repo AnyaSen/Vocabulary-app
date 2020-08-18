@@ -1,6 +1,7 @@
 import React, { useState, ReactElement } from "react";
 
 import Styles from "./WordsList.module.scss";
+import { lowerCaseWord } from "../../services/lowerCase";
 
 import WordPair from "./WordPair";
 import ArrowUp from "../Buttons/ArrowUp";
@@ -44,12 +45,6 @@ export default function WordsList({
         <p>{noWordsMessage}</p>
       </div>
     );
-
-  const lowerCaseWord = word => {
-    if (word) {
-      return word.toLowerCase();
-    }
-  };
 
   return (
     <>

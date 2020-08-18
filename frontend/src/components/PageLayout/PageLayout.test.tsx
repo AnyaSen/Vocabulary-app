@@ -44,7 +44,6 @@ describe("<PageLayout />", () => {
     expect(getByTestId("children-container").children.length).toBe(4);
     expect(getByText(header + " " + headerAfterBreak)).toBeTruthy();
     expect(getByText(subHeader + subHeaderAferSpan)).toBeTruthy();
-    // expect(getByText(subHeader + subHeaderAferSpan)).toBeTruthy();
     expect(getByText(span)).toBeTruthy();
   });
 

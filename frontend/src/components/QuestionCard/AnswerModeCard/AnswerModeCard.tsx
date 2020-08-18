@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import Styles from "../QuestionCard.module.scss";
 import correctEmojiSvg from "../../../assets/img/correctEmoji.svg";
@@ -10,8 +10,23 @@ import SecondaryButton from "../../Buttons/SecondaryButton";
 import { LearningContext } from "../../../contexts/LearningContext";
 import { LanguageContext } from "../../../contexts/LanguageContext";
 import typography from "../../../typography/typography.json";
+import { lowerCaseWord } from "../../../services/lowerCase";
 
-export default function AnswerModeCard({ totalWorsArray }) {
+interface Props {
+  totalWorsArray: Array<{
+    newlyAdded: boolean;
+    learning: boolean;
+    learned: boolean;
+    _id: string;
+    foreignWord: string;
+    translation: string;
+    creator: string;
+  }>;
+}
+
+export default function AnswerModeCard({
+  totalWorsArray
+}: Props): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const { continue_ } = typography[language].shared;
@@ -59,7 +74,10 @@ export default function AnswerModeCard({ totalWorsArray }) {
   };
 
   return (
-    <div className={Styles.QuestionCardContainer}>
+    <div
+      className={Styles.QuestionCardContainer}
+      data-testid="question-card-container"
+    >
       <div className={Styles.headerWithImg}>
         <h2>{reaction}</h2>
         {!doNotKnowGuess && (
@@ -80,7 +98,7 @@ export default function AnswerModeCard({ totalWorsArray }) {
         </LearningWordCard>
 
         <LearningWordCard borderColor={borderColor}>
-          <h2>{translation.toLowerCase()}</h2>
+          <h2>{lowerCaseWord(translation)}</h2>
         </LearningWordCard>
       </div>
 
