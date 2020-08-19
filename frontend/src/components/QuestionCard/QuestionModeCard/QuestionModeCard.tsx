@@ -17,7 +17,15 @@ import typography from "../../../typography/typography.json";
 
 interface Props {
   task: string;
-  totalWorsArray: [];
+  totalWorsArray: Array<{
+    newlyAdded: boolean;
+    learning: boolean;
+    learned: boolean;
+    _id: string;
+    foreignWord: string;
+    translation: string;
+    creator: string;
+  }>;
 }
 
 export default function QuestionModeCard({
@@ -84,7 +92,7 @@ export default function QuestionModeCard({
     }
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const noTranslation = translationInput === "";
 
     event.preventDefault();
@@ -131,7 +139,11 @@ export default function QuestionModeCard({
   };
 
   return (
-    <form onSubmit={handleSubmit} className={Styles.QuestionCardContainer}>
+    <form
+      onSubmit={handleSubmit}
+      className={Styles.QuestionCardContainer}
+      data-testid="question-card-container"
+    >
       <div className={Styles.header}>
         <h2>{task}</h2>
 

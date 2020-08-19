@@ -92,10 +92,12 @@ export default function WordPair({
     }
   };
 
-  const deleteFilteredWord = id => {
+  const deleteFilteredWord = (id: string) => {
     const newModifiedArr = modifiedWordsArr;
 
-    const wordIndex = newModifiedArr.findIndex(word => word._id === id);
+    const wordIndex = newModifiedArr.findIndex(
+      (word: { _id: string }) => word._id === id
+    );
 
     newModifiedArr.splice(wordIndex, 1);
 
@@ -109,6 +111,8 @@ export default function WordPair({
 
       await deleteWord(ID);
 
+      setLoading({ ...loading, isDeletingLoading: false });
+
       await setWordsData();
     } catch (e) {
       setLoading({ ...loading, isDeletingLoading: false });
@@ -117,7 +121,7 @@ export default function WordPair({
     }
   };
 
-  const deleteAndUpdate = async event => {
+  const deleteAndUpdate = async (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
     if (!isBrowsingMode) {
