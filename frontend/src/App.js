@@ -9,7 +9,7 @@ import ScrollToTop from "./services/ScrollToTop";
 
 import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
-import VocabularyPage from "./pages/VocabularyPage/VocabularyPage";
+import VocabularyPage from "./pages/VocabularyPage";
 import HomePage from "./pages/HomePage";
 import InitialPage from "./pages/InitialPage";
 import ProgressPage from "./pages/ProgressPage";

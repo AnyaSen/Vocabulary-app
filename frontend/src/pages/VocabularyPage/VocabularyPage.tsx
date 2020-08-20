@@ -42,14 +42,7 @@ export default function VocabularyPage() {
           <>
             {!isLoading ? (
               <>
-                {isWordPairOpen ? (
-                  <WordPairInfoCard
-                    foreignWord="word"
-                    translation="translation"
-                  />
-                ) : (
-                  <AddWordsForm />
-                )}
+                {isWordPairOpen ? <WordPairInfoCard /> : <AddWordsForm />}
 
                 <WordsList
                   wordsArray={wordsArr}
@@ -62,9 +55,7 @@ export default function VocabularyPage() {
           </>
         ) : !isLoading ? (
           <>
-            {isWordPairOpen && (
-              <WordPairInfoCard foreignWord="word" translation="translation" />
-            )}
+            {isWordPairOpen && <WordPairInfoCard />}
             <WordsList
               wordsArray={modifiedWordsArr}
               noWordsMessage={no_words_were_found}
