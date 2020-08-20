@@ -7,18 +7,18 @@ import { LoadingContext } from "./contexts/LoadingContext";
 import { ErrorContext } from "./contexts/ErrorContext";
 import ScrollToTop from "./services/ScrollToTop";
 
-import SignUpPage from "./pages/SignUpPage/SignUpPage";
-import LogInPage from "./pages/LogInPage/LogInPage";
+import SignUpPage from "./pages/SignUpPage";
+import LogInPage from "./pages/LogInPage";
 import VocabularyPage from "./pages/VocabularyPage/VocabularyPage";
-import HomePage from "./pages/HomePage/HomePage";
-import InitialPage from "./pages/InitialPage/InitialPage";
-import ProgressPage from "./pages/ProgressPage/ProgressPage";
-import PreferencesPage from "./pages/LearningPages/PreferencesPage/PreferencesPage";
-import QuestionPage from "./pages/LearningPages/QuestionPage/QuestionPage";
+import HomePage from "./pages/HomePage";
+import InitialPage from "./pages/InitialPage";
+import ProgressPage from "./pages/ProgressPage";
+import PreferencesPage from "./pages/LearningPages/PreferencesPage";
+import QuestionPage from "./pages/LearningPages/QuestionPage";
 import CongratsPage from "./pages/CongratsPage";
-import LoadingPage from "./pages/LoadingPage/LoadingPage";
+import LoadingPage from "./pages/LoadingPage";
 import ErrorCard from "./components/ErrorCard";
-import InstructionsPage from "./pages/InstructionsPage/InstructionsPage";
+import InstructionsPage from "./pages/InstructionsPage/";
 
 function App() {
   const { isLoading } = useContext(LoadingContext);

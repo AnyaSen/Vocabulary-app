@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, ReactElement } from "react";
 import { useHistory } from "react-router-dom";
 import typography from "../../typography/typography.json";
 
@@ -10,10 +10,10 @@ import { LanguageContext } from "../../contexts/LanguageContext";
 
 import InputField from "../../components/InputField";
 import SignupLoginForm from "../../components/SignupLoginForm";
-import LoadingPage from "../LoadingPage/LoadingPage";
+import LoadingPage from "../LoadingPage";
 import WarningMessage from "../../components/shared/WarningMessage";
 
-export default function SignUpPage() {
+export default function SignUpPage(): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const {
@@ -136,7 +136,6 @@ export default function SignUpPage() {
         name="password"
         value={password}
         onChange={handleChange}
-        minlength={6}
       />
     </SignupLoginForm>
   );

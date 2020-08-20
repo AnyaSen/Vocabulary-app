@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, ReactElement } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "../../../hooks/useForm";
 import typography from "../../../typography/typography.json";
@@ -16,7 +16,7 @@ import InputFieldSmall from "../../../components/InputFieldSmall";
 import WarningMessage from "../../../components/shared/WarningMessage";
 import NotificationMessage from "../../../components/shared/NotificationMessage";
 
-export default function PreferencesPage() {
+export default function PreferencesPage(): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const {

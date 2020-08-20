@@ -4,7 +4,7 @@ import Styles from "./InstructionsCard.module.scss";
 
 interface Props {
   text: string;
-  textafterBreak: string;
+  textafterBreak?: string;
   instructionNumber: number | string;
 }
 

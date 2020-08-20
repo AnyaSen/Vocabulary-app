@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 import typography from "../../typography/typography.json";
 
 import Styles from "./InitialPage.module.scss";
@@ -11,7 +11,7 @@ import InitialPageButton from "../../components/Buttons/InitialPageButton";
 
 import { LanguageContext } from "../../contexts/LanguageContext.js";
 
-export default function InitialPage() {
+export default function InitialPage(): ReactElement {
   const { language } = useContext(LanguageContext);
   const {
     welcome,

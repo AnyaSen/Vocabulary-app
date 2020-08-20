@@ -1,4 +1,10 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+  ReactElement
+} from "react";
 import { useHistory } from "react-router-dom";
 import typography from "../../../typography/typography.json";
 
@@ -14,7 +20,7 @@ import QuestionCard from "../../../components/QuestionCard";
 import ProgressCard from "../../../components/shared/ProgressCard";
 import ConfirmationCard from "../../../components/shared/ConfirmationCard";
 
-export default function QuestionPage({ match }) {
+export default function QuestionPage({ match }): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const { enter_translation, confirmation_to_quit } = typography[
@@ -92,8 +98,7 @@ export default function QuestionPage({ match }) {
     setShowConfirmation(true);
   };
 
-  const confitmationCard = useRef();
-
+  const confitmationCard = useRef() as React.MutableRefObject<HTMLInputElement>;
   const handleClick = e => {
     if (!e.composedPath().includes(confitmationCard.current)) {
       setShowConfirmation(false);

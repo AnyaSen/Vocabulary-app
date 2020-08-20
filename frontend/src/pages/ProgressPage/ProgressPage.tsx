@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import Styles from "./ProgressPage.module.scss";
 
@@ -13,9 +13,8 @@ import ArrowBack from "../../components/Buttons/ArrowBack";
 
 import ExplanatoryWordsCard from "../../components/shared/ExplanatoryWordsCard";
 import NotificationMessage from "../../components/shared/NotificationMessage";
-import Loader from "../../components/shared/Loader";
 
-export default function ProgressPage() {
+export default function ProgressPage(): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const {

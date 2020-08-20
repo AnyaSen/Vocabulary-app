@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, ReactElement } from "react";
 import { useHistory } from "react-router-dom";
 import typography from "../../typography/typography.json";
 
@@ -13,7 +13,7 @@ import SignupLoginForm from "../../components/SignupLoginForm";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import WarningMessage from "../../components/shared/WarningMessage";
 
-export default function HomePage() {
+export default function LogInPage(): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const {

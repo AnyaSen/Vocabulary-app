@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import Styles from "./HomePage.module.scss";
 import vocabularySvg from "../../assets/img/vocabulary.svg";
@@ -11,8 +11,8 @@ import HomePageButton from "../../components/Buttons/HomePageButton";
 import typography from "../../typography/typography.json";
 import { LanguageContext } from "../../contexts/LanguageContext";
 
-export default function HomePage() {
-  const name = JSON.parse(localStorage.getItem("userName"));
+export default function HomePage(): ReactElement {
+  const name = JSON.parse(localStorage.getItem("userName")!);
 
   const { language } = useContext(LanguageContext);
 

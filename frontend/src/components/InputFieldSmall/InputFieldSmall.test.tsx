@@ -1,12 +1,11 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, getByTestId } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import InputFieldSmall from "./InputFieldSmall";
 
 describe("<InputFieldSmall />", () => {
   const props = {
-    placeholder: "placeholder",
     name: "name",
     value: "value",
     onChange: jest.fn(),
@@ -14,16 +13,14 @@ describe("<InputFieldSmall />", () => {
     labelText: "Label"
   };
 
-  const { placeholder, name, value, type, labelText } = props;
+  const { name, value, type, labelText } = props;
 
   test("Should render correct props and have a correct class when Autocomplete and Small props are set to true", () => {
-    const { getByPlaceholderText, getByText } = render(
-      <InputFieldSmall {...props} />
-    );
+    const { getByTestId, getByText } = render(<InputFieldSmall {...props} />);
 
     expect(getByText(labelText)).toBeTruthy();
 
-    const input = getByPlaceholderText(placeholder);
+    const input = getByTestId("small-input");
 
     expect(input).toBeTruthy();
     expect(input).toHaveAttribute("type", type);
