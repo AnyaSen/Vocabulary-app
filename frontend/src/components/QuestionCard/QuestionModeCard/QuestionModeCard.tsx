@@ -158,7 +158,7 @@ export default function QuestionModeCard({
 
       <div className={Styles.WordCardsContainer}>
         <LearningWordCard>
-          <h2>{currentWord.toLowerCase()}</h2>
+          <h2>{lowerCaseWord(currentWord)}</h2>
         </LearningWordCard>
 
         <LearningWordCard>

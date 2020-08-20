@@ -8,7 +8,15 @@ import AnswerModeCard from "./AnswerModeCard";
 
 interface Props {
   task: string;
-  totalWorsArray: [];
+  totalWorsArray: Array<{
+    newlyAdded: boolean;
+    learning: boolean;
+    learned: boolean;
+    _id: string;
+    foreignWord: string;
+    translation: string;
+    creator: string;
+  }>;
 }
 
 export default function QuestionCard({
@@ -25,7 +33,7 @@ export default function QuestionCard({
   const isAnswerMode = isCorrectGuess || isIncorrectGuess || doNotKnowGuess;
 
   return (
-    <div>
+    <div data-testid="question-cards-container">
       {showCongratilationPage && (
         <CongratsPage numberOfReviewedWords={totalWorsArray.length} />
       )}
