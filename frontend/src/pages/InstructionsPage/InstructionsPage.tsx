@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 import { useHistory } from "react-router-dom";
 import typography from "../../typography/typography.json";
 import { LanguageContext } from "../../contexts/LanguageContext";
@@ -8,7 +8,7 @@ import arrowSvg from "../../assets/img/arrow_back.svg";
 
 import InstructionsCard from "../../components/InstructionsCard";
 
-export default function InstructionsPage() {
+export default function InstructionsPage(): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const {
@@ -43,7 +43,10 @@ export default function InstructionsPage() {
   const history = useHistory();
 
   return (
-    <div className={Styles.InstructionsPage}>
+    <div
+      className={Styles.InstructionsPage}
+      data-testid="instructions-page-container"
+    >
       <div className={Styles.ArrowBack} onClick={() => history.goBack()}>
         <img src={arrowSvg} alt="Go Back" />
       </div>
@@ -57,7 +60,10 @@ export default function InstructionsPage() {
           allowFullScreen
         ></iframe>
       </div>
-      <div className={Styles.InstructionCards}>
+      <div
+        className={Styles.InstructionCards}
+        data-testid="instruction-cards-container"
+      >
         <h1>Instructions</h1>
         <InstructionsCard
           instructionNumber={1}
