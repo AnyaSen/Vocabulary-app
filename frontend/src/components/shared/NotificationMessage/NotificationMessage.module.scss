@@ -5,9 +5,14 @@
   @include flex-column;
 
   .NotificationMessage {
+    // border: 1px solid $color-text;
+    box-shadow: $shadow-2;
     margin: $space-0;
-    color: $color-red;
     border-radius: $border-radius-sm;
     padding: $space-1;
+  }
+
+  button {
+    margin-top: $space-1;
   }
 }

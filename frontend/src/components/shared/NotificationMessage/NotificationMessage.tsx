@@ -20,7 +20,7 @@ export default function NotificationMessage({
       <h2 className={Styles.NotificationMessage}>{text}</h2>
 
       <Link to={linkRoute} data-testid="notification-link">
-        <PrimaryButton buttonColor="white" buttonMessage={linkMessage} />
+        <PrimaryButton buttonMessage={linkMessage} />
       </Link>
     </div>
   );
