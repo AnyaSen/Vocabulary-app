@@ -16,7 +16,10 @@ export default function NotificationMessage({
   linkRoute
 }: Props): ReactElement {
   return (
-    <div className={Styles.NotificationContainer}>
+    <div
+      className={Styles.NotificationContainer}
+      data-testid="notification-message"
+    >
       <h2 className={Styles.NotificationMessage}>{text}</h2>
 
       <Link to={linkRoute} data-testid="notification-link">

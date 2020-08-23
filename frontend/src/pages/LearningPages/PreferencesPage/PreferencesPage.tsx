@@ -87,11 +87,13 @@ export default function PreferencesPage(): ReactElement {
     (isLearningWordsInputEmpty && !noLearningWords) ||
     (isLearnedWordsInputEmpty && !noLearnedWords);
 
-  const isValidNumber = num => {
+  const isValidNumber = (num: number) => {
     const numbers = /^[0-9]+$/;
-    const numberToString = num.toString();
+    if (num) {
+      const numberToString = num.toString();
 
-    return numberToString.match(numbers);
+      return numberToString.match(numbers);
+    }
   };
 
   const areNotValidNumbers =
@@ -116,7 +118,7 @@ export default function PreferencesPage(): ReactElement {
     (learnedWordsInput > -1 && learnedWordsInput <= learnedWordsLength) ||
     isLearnedWordsInputEmpty;
 
-  const handleSubmit = event => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setErrorMessage("");
@@ -160,7 +162,7 @@ export default function PreferencesPage(): ReactElement {
             linkRoute="/vocabulary"
           />
         ) : (
-          <>
+          <div data-testid="preferences">
             <div className={Styles.explanatoryContainer}>
               <div className={Styles.wordsNumberInfo}>
                 <p className={Styles.totalWordsNumber}>
@@ -223,7 +225,7 @@ export default function PreferencesPage(): ReactElement {
                 buttonMessage={start}
               />
             </form>
-          </>
+          </div>
         )}
       </PageLayout>
     </Layout>
