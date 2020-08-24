@@ -9,7 +9,6 @@ import WordPair from "./WordPair";
 import ArrowUp from "../Buttons/ArrowUp";
 import Loader from "../shared/Loader";
 import ErrorCard from "../ErrorCard";
-import PrimaryButton from "../Buttons/PrimaryButton";
 
 interface Props {
   wordsArray: Array<{

@@ -19,7 +19,7 @@ import { useForm } from "../../hooks/useForm";
 import InputField from "../InputField";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import WarningMessage from "../shared/WarningMessage";
-import { ErrorContext } from "../../contexts/ErrorContext.js";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 export default function AddWordsForm(): ReactElement {
   const { language } = useContext(LanguageContext);

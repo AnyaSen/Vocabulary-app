@@ -188,7 +188,7 @@ export default function WordPair({
       return word;
     }
   };
-
+  console.log(modifiedWordsArr);
   return (
     <>
       {isEditButtonClicked ? (
