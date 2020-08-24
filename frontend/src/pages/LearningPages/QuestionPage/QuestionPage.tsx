@@ -14,7 +14,7 @@ import arrowSvg from "../../../assets/img/arrow_back.svg";
 import { filterWordsFromArrayByNumber } from "../../../services/filterVocabulary";
 import { WordsContext } from "../../../contexts/WordsContext";
 import { LearningContext } from "../../../contexts/LearningContext";
-import { LanguageContext } from "../../../contexts/LanguageContext.js";
+import { LanguageContext } from "../../../contexts/LanguageContext";
 
 import QuestionCard from "../../../components/QuestionCard";
 import ProgressCard from "../../../components/shared/ProgressCard";

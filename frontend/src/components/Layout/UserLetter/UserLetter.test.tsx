@@ -10,7 +10,9 @@ describe("<UserLetter />", () => {
   afterEach(cleanup);
 
   const createRenderTree = props => (
-    <LanguageContext.Provider value={{ language: "English" }}>
+    <LanguageContext.Provider
+      value={{ language: "English", setLanguage: () => {} }}
+    >
       <UserLetter {...props} />
     </LanguageContext.Provider>
   );

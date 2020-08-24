@@ -28,7 +28,9 @@ describe("<PageLayout />", () => {
   } = props;
 
   const createRenderTree = props => (
-    <LanguageContext.Provider value={{ language: "English" }}>
+    <LanguageContext.Provider
+      value={{ language: "English", setLanguage: () => {} }}
+    >
       <PageLayout {...props}>
         <p>child 1</p>
         <p>child 2</p>

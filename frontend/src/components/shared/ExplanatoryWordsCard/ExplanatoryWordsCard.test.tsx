@@ -9,7 +9,9 @@ describe("<ExplanatoryWordsCard />", () => {
 
   test("Should render 4 children and correct text", () => {
     const { getByText, getByTestId } = render(
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <ExplanatoryWordsCard />
       </LanguageContext.Provider>
     );

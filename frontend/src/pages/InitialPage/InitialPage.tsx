@@ -9,7 +9,7 @@ import instructionsSvg from "../../assets/img/instructions.svg";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import InitialPageButton from "../../components/Buttons/InitialPageButton";
 
-import { LanguageContext } from "../../contexts/LanguageContext.js";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 export default function InitialPage(): ReactElement {
   const { language } = useContext(LanguageContext);

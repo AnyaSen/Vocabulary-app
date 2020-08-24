@@ -15,7 +15,9 @@ describe("<ProgressCard />", () => {
 
   test("Should render 2 children, show correct text and show 3 table rows", () => {
     const { getByTestId, getByText } = render(
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <ProgressCard {...props} />
       </LanguageContext.Provider>
     );

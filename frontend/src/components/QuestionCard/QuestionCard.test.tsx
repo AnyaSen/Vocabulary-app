@@ -36,7 +36,9 @@ describe("<QuestionCard />", () => {
     isIncorrectGuess: boolean
   ) => (
     <BrowserRouter>
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <LoadingContextProvider>
           <ErrorContextProvider>
             <WordsContextProvider>

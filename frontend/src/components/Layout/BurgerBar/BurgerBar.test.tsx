@@ -13,7 +13,9 @@ describe("<BurgerBar />", () => {
 
   const createRenderTree = (isBurgerOpen: boolean) => (
     <BrowserRouter>
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <NavBarConext.Provider value={{ isBurgerOpen: isBurgerOpen }}>
           <BurgerBar />
         </NavBarConext.Provider>

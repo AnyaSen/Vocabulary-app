@@ -9,7 +9,9 @@ describe("<ErrorSmall />", () => {
 
   test("Should render correct text", () => {
     const { getByText } = render(
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <ErrorSmall onClick={() => {}} />
       </LanguageContext.Provider>
     );

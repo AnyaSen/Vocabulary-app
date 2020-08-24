@@ -12,7 +12,9 @@ describe("<BrowseVocabulary />", () => {
   afterAll(cleanup);
 
   const tree = (
-    <LanguageContext.Provider value={{ language: "English" }}>
+    <LanguageContext.Provider
+      value={{ language: "English", setLanguage: () => {} }}
+    >
       <LoadingContextProvider>
         <ErrorContextProvider>
           <WordsContextProvider>

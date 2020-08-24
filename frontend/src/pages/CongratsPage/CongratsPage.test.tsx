@@ -16,7 +16,9 @@ describe("<CongratsPage />", () => {
 
   const tree = (
     <BrowserRouter>
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <ErrorContextProvider>
           <LoadingContextProvider>
             <WordsContextProvider>

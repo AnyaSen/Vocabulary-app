@@ -12,7 +12,9 @@ describe("<SideBar />", () => {
 
   const tree = (
     <BrowserRouter>
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <SideBar />
       </LanguageContext.Provider>
     </BrowserRouter>

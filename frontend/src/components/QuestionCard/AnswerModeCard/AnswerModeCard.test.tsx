@@ -29,7 +29,9 @@ describe("<AnswerModeCard />", () => {
   const { totalWorsArray } = props;
 
   const tree = (
-    <LanguageContext.Provider value={{ language: "English" }}>
+    <LanguageContext.Provider
+      value={{ language: "English", setLanguage: () => {} }}
+    >
       <LoadingContextProvider>
         <ErrorContextProvider>
           <WordsContextProvider>

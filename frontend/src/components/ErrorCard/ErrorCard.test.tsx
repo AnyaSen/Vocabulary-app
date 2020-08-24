@@ -9,7 +9,9 @@ describe("<ErrorCard />", () => {
 
   test("Should render correct text and image", () => {
     const { getByText, getByAltText } = render(
-      <LanguageContext.Provider value={{ language: "English" }}>
+      <LanguageContext.Provider
+        value={{ language: "English", setLanguage: () => {} }}
+      >
         <ErrorCard />
       </LanguageContext.Provider>
     );

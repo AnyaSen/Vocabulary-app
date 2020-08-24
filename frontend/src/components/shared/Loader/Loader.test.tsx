@@ -6,7 +6,9 @@ import Loader from "./Loader";
 import { LanguageContext } from "../../../contexts/LanguageContext";
 
 const createRenderTree = (small: boolean) => (
-  <LanguageContext.Provider value={{ language: "English" }}>
+  <LanguageContext.Provider
+    value={{ language: "English", setLanguage: () => {} }}
+  >
     <Loader small={small} />
   </LanguageContext.Provider>
 );
