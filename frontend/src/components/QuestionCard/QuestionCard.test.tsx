@@ -1,6 +1,5 @@
 import React from "react";
-import { render, cleanup, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import { render, cleanup } from "@testing-library/react";
 
 import { WordsContextProvider } from "../../contexts/WordsContext";
 import { LoadingContextProvider } from "../../contexts/LoadingContext";

@@ -12,7 +12,7 @@ export default function ErrorCard(): ReactElement {
   const { sorry_error } = typography[language].shared;
 
   return (
-    <div className={Styles.ErrorCard}>
+    <div className={Styles.ErrorCard} data-testid="error-card">
       <img src={error} alt="Error" />
       <p>{sorry_error}</p>
     </div>
