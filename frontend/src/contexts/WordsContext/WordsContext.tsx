@@ -1,18 +1,73 @@
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+  ReactNode,
+  ReactElement
+} from "react";
 
 import {
   filterNewWords,
   filterLearnedWords,
   filterLearningWords
-} from "../services/filterVocabulary";
-import { getWords } from "../services/getWords";
+} from "../../services/filterVocabulary";
+import { getWords } from "../../services/getWords";
 
-import { LoadingContext } from "./LoadingContext";
-import { ErrorContext } from "./ErrorContext";
+import { LoadingContext } from "../LoadingContext";
+import { ErrorContext } from "../ErrorContext";
 
-export const WordsContext = createContext();
+interface wordsArrType {
+  newlyAdded: boolean;
+  learning: boolean;
+  learned: boolean;
+  _id: string;
+  foreignWord: string;
+  translation: string;
+  creator: string;
+}
 
-export const WordsContextProvider = ({ children }) => {
+interface WordsContextType {
+  wordsArr: wordsArrType[];
+  newWords: wordsArrType[];
+  learningWords: wordsArrType[];
+  learnedWords: wordsArrType[];
+  setWordsData: () => void;
+
+  totalWordsLength: number;
+  newWordsLength: number;
+  learningWordsLength: number;
+  learnedWordsLength: number;
+
+  noWords?: boolean;
+  noNewWords?: boolean;
+  noLearningWords?: boolean;
+  noLearnedWords?: boolean;
+}
+
+interface Props {
+  children: ReactNode;
+}
+
+export const WordsContext = createContext<WordsContextType>({
+  wordsArr: [],
+  newWords: [],
+  learningWords: [],
+  learnedWords: [],
+  setWordsData: () => {},
+
+  totalWordsLength: 0,
+  newWordsLength: 0,
+  learningWordsLength: 0,
+  learnedWordsLength: 0,
+
+  noWords: true,
+  noNewWords: true,
+  noLearningWords: true,
+  noLearnedWords: true
+});
+
+export const WordsContextProvider = ({ children }: Props): ReactElement => {
   const [wordsArr, setWordsArr] = useState([]);
   const [newWords, setNewWords] = useState([]);
   const [learningWords, setLearningWords] = useState([]);
@@ -21,7 +76,7 @@ export const WordsContextProvider = ({ children }) => {
   const { setIsLoading } = useContext(LoadingContext);
   const { setIsError } = useContext(ErrorContext);
 
-  const filterWords = VocabularyArray => {
+  const filterWords = (VocabularyArray: wordsArrType[]) => {
     const filteredNewWords = filterNewWords(VocabularyArray);
     const filteredLearningWords = filterLearningWords(VocabularyArray);
     const filteredLearnedWords = filterLearnedWords(VocabularyArray);
