@@ -21,7 +21,8 @@ export default function ProgressPage(): ReactElement {
     progress,
     here_you_can_see_your_progress,
     add_vocabulary_message,
-    go_to_vocabulary
+    go_to_vocabulary,
+    loading_your_chart
   } = typography[language].ProgressPage;
 
   const { new_type, learning_type, learned_type } = typography[language].shared;
@@ -60,7 +61,7 @@ export default function ProgressPage(): ReactElement {
             [`${learning_type} - ${learningWordsLength}`, learningWordsLength],
             [`${learned_type} - ${learnedWordsLength}`, learnedWordsLength]
           ]}
-          loader={<div>Loading your chart...</div>}
+          loader={<div>{loading_your_chart}</div>}
           options={{
             slices: [
               {

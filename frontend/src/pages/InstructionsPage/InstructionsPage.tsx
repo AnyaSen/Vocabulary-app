@@ -12,6 +12,7 @@ export default function InstructionsPage(): ReactElement {
   const { language } = useContext(LanguageContext);
 
   const {
+    instructions,
     text_one,
     text_after_break_one,
     text_two,
@@ -64,7 +65,7 @@ export default function InstructionsPage(): ReactElement {
         className={Styles.InstructionCards}
         data-testid="instruction-cards-container"
       >
-        <h1>Instructions</h1>
+        <h1>{instructions}</h1>
         <InstructionsCard
           instructionNumber={1}
           text={text_one}

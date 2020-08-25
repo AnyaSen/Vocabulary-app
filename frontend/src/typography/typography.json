@@ -49,7 +49,8 @@
       "progress": "PROGRESS",
       "here_you_can_see_your_progress": "Here you can see your progress.",
       "add_vocabulary_message": "Please, add some vocabulary first.",
-      "go_to_vocabulary": "GO TO VOCABULARY"
+      "go_to_vocabulary": "GO TO VOCABULARY",
+      "loading_your_chart": "Loading your chart..."
     },
 
     "VocabularyPage": {
@@ -108,6 +109,7 @@
     },
 
     "InstructionsPage": {
+      "instructions": "Instructions",
       "text_one": "First, create an account pressing SING UP.",
       "text_after_break_one": "Log into your account if you already have one pressing LOG IN.",
       "text_two": "On the home page, press the button VOCABULARY.",
@@ -208,7 +210,8 @@
       "progress": "ПРОГРЕСС",
       "here_you_can_see_your_progress": "Здесь вы можете отслеживать ваш прогресс.",
       "add_vocabulary_message": "Пожалуйста, сначала добавьте слова.",
-      "go_to_vocabulary": "ДОБАВИТЬ СЛОВА"
+      "go_to_vocabulary": "ДОБАВИТЬ СЛОВА",
+      "loading_your_chart": "Загружаем диаграмму..."
     },
 
     "ExplanatoryWordsCard": {
@@ -268,6 +271,7 @@
     },
 
     "InstructionsPage": {
+      "instructions": "Инструкции",
       "text_one": "Для начала, создайте аккаунт, нажав кнопку РЕГИСТРАЦИЯ.",
       "text_after_break_one": "Если у вас уже есть аккаунт, войдите в него, для этого нажмите ВХОД.",
       "text_two": "Вы попадете на главную страницу. На главной странице нажмите кнопку МОИ СЛОВА.",
