@@ -16,7 +16,9 @@ describe("<BurgerBar />", () => {
       <LanguageContext.Provider
         value={{ language: "English", setLanguage: () => {} }}
       >
-        <NavBarConext.Provider value={{ isBurgerOpen: isBurgerOpen }}>
+        <NavBarConext.Provider
+          value={{ isBurgerOpen: isBurgerOpen, setIsBurgerOpen: () => {} }}
+        >
           <BurgerBar />
         </NavBarConext.Provider>
       </LanguageContext.Provider>

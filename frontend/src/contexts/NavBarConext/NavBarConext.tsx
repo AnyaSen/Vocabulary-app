@@ -1,18 +1,10 @@
-import React, {
-  createContext,
-  useState,
-  ReactNode,
-  Dispatch,
-  ReactElement
-} from "react";
+import React, { createContext, useState, Dispatch, ReactElement } from "react";
+
+import { Props } from "../../types/types";
 
 interface NavBarConextType {
   isBurgerOpen: boolean;
   setIsBurgerOpen: Dispatch<any>;
-}
-
-interface Props {
-  children: ReactNode;
 }
 
 export const NavBarConext = createContext<NavBarConextType>({

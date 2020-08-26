@@ -1,10 +1,6 @@
-import React, {
-  useState,
-  createContext,
-  Dispatch,
-  ReactElement,
-  ReactNode
-} from "react";
+import React, { useState, createContext, Dispatch, ReactElement } from "react";
+
+import { Props } from "../../types/types";
 
 interface BrowseContextType {
   modifiedWordsArr: Array<{
@@ -27,10 +23,6 @@ interface BrowseContextType {
   setWordPairTranslation: Dispatch<any>;
   wordPairType: string;
   setWordPairType: Dispatch<any>;
-}
-
-interface Props {
-  children: ReactNode;
 }
 
 export const BrowseContext = createContext<BrowseContextType>({

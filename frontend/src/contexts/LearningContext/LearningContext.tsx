@@ -1,11 +1,7 @@
-import React, {
-  createContext,
-  useState,
-  ReactElement,
-  ReactNode,
-  Dispatch
-} from "react";
+import React, { createContext, useState, ReactElement, Dispatch } from "react";
 import { useForm } from "../../hooks/useForm";
+
+import { Props } from "../../types/types";
 
 interface LearningContextType {
   wordCount: number;
@@ -39,10 +35,6 @@ interface LearningContextType {
   setCroppedLearningWordsLength: Dispatch<any>;
   croppedLearnedWordsLength: number;
   setCroppedLearnedWordsLength: Dispatch<any>;
-}
-
-interface Props {
-  children: ReactNode;
 }
 
 export const LearningContext = createContext<LearningContextType>({

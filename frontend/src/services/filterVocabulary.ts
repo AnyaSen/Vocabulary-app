@@ -1,4 +1,9 @@
-export const filterVocabulary = (vocabularyArr, userInputWord) => {
+import { wordsArrType } from "../types/types";
+
+export const filterVocabulary = (
+  vocabularyArr: wordsArrType[],
+  userInputWord: string
+) => {
   const filteredVocabulary = vocabularyArr.filter(wordPair => {
     const { foreignWord, translation } = wordPair;
 
@@ -48,7 +53,10 @@ export const filterLearnedWords = vocabularyArr => {
   return filteredWords;
 };
 
-export const filterWordsFromArrayByNumber = (array, numberOfWords) =>
+export const filterWordsFromArrayByNumber = (
+  array: wordsArrType[],
+  numberOfWords: number
+) =>
   array.filter((item, index) => {
     return index < numberOfWords;
   });

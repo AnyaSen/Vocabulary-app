@@ -17,15 +17,7 @@ import { getWords } from "../../services/getWords";
 import { LoadingContext } from "../LoadingContext";
 import { ErrorContext } from "../ErrorContext";
 
-interface wordsArrType {
-  newlyAdded: boolean;
-  learning: boolean;
-  learned: boolean;
-  _id: string;
-  foreignWord: string;
-  translation: string;
-  creator: string;
-}
+import { wordsArrType, Props } from "../../types/types";
 
 interface WordsContextType {
   wordsArr: wordsArrType[];
@@ -43,10 +35,6 @@ interface WordsContextType {
   noNewWords?: boolean;
   noLearningWords?: boolean;
   noLearnedWords?: boolean;
-}
-
-interface Props {
-  children: ReactNode;
 }
 
 export const WordsContext = createContext<WordsContextType>({

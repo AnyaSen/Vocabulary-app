@@ -1,20 +1,12 @@
-import React, {
-  createContext,
-  useState,
-  Dispatch,
-  ReactNode,
-  ReactElement
-} from "react";
+import React, { createContext, useState, Dispatch, ReactElement } from "react";
+
+import { Props } from "../../types/types";
 
 interface LoadingContextType {
   isLoading: boolean;
   setIsLoading: Dispatch<any>;
   isProfileLoading: boolean;
   setIsProfileLoading: Dispatch<any>;
-}
-
-interface Props {
-  children: ReactNode;
 }
 
 export const LoadingContext = createContext<LoadingContextType>({

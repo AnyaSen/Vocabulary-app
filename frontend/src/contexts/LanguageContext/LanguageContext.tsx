@@ -1,18 +1,10 @@
-import React, {
-  createContext,
-  useState,
-  Dispatch,
-  ReactElement,
-  ReactNode
-} from "react";
+import React, { createContext, useState, Dispatch, ReactElement } from "react";
+
+import { Props } from "../../types/types";
 
 interface LanguageContextType {
   language: string;
   setLanguage: Dispatch<any>;
-}
-
-interface Props {
-  children: ReactNode;
 }
 
 export const LanguageContext = createContext<LanguageContextType>({

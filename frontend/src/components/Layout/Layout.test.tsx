@@ -14,7 +14,9 @@ describe("<Layout />", () => {
   const createRenderTree = (isBurgerOpen: boolean) => (
     <BrowserRouter>
       <LanguageContextProvider>
-        <NavBarConext.Provider value={{ isBurgerOpen: isBurgerOpen }}>
+        <NavBarConext.Provider
+          value={{ isBurgerOpen: isBurgerOpen, setIsBurgerOpen: () => {} }}
+        >
           <Layout>
             <p>child 1</p>
             <p>child 2</p>
