@@ -5,7 +5,7 @@ import React, {
   useRef,
   ReactElement
 } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, RouteComponentProps } from "react-router-dom";
 import typography from "../../../typography/typography.json";
 
 import Styles from "./QuestionPage.module.scss";
@@ -19,6 +19,14 @@ import { LanguageContext } from "../../../contexts/LanguageContext";
 import QuestionCard from "../../../components/QuestionCard";
 import ProgressCard from "../../../components/shared/ProgressCard";
 import ConfirmationCard from "../../../components/shared/ConfirmationCard";
+
+interface MatchParams {
+  newNumber: string;
+  learningNumber: string;
+  learnedNumber: string;
+}
+
+interface Props extends RouteComponentProps<MatchParams> {}
 
 export default function QuestionPage({ match }): ReactElement {
   const { language } = useContext(LanguageContext);
