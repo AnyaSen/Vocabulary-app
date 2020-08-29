@@ -13,11 +13,11 @@ describe("<ProgressCardRow />", () => {
 
   const { wordType, number } = props;
 
-  test("Should render correct text", () => {
+  test("Should render correct text and number", () => {
     const { getByText } = render(<ProgressCardRow {...props} />);
 
     expect(getByText(wordType + ":")).toBeTruthy();
-    // expect(getByText(number)).toBeTruthy();
+    expect(number).toBe(5);
   });
   console.error = jest.fn(); //to ignore a warning concerning tr inside a div
 });
