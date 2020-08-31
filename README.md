@@ -23,9 +23,9 @@ To use the app:
 - review them and learn by typing in translation
 - track the progress
 
-<!-- ### Demo link
+### Demo link
 
-[Click to go to live demo](). -->
+[Click to go to live demo](https://appvocabularybuilder.herokuapp.com/).
 
 ### Video demo: (click the image below to play)
 
