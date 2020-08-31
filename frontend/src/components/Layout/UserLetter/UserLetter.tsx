@@ -68,22 +68,22 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
 
   const confitmationCard = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  const handleClick = e => {
-    if (!e.composedPath().includes(confitmationCard.current)) {
-      setShowConfirmation(false);
-      setShowConfirmationTwo(false);
-      setShowNameInputField(false);
-      return;
-    }
-  };
-
   useEffect(() => {
+    const handleClick = e => {
+      if (!e.composedPath().includes(confitmationCard.current)) {
+        setShowConfirmation(false);
+        setShowConfirmationTwo(false);
+        setShowNameInputField(false);
+        return;
+      }
+    };
+
     document.addEventListener("mousedown", handleClick);
 
     return () => {
       document.removeEventListener("mousedown", handleClick);
     };
-  }, []);
+  }, [confitmationCard]);
 
   const checkNameAndDelete = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

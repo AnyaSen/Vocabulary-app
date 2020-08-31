@@ -76,7 +76,7 @@ export default function AddWordsForm(): ReactElement {
 
   useEffect(() => {
     inputFieldRef.current.focus();
-  }, [totalWordsLength]);
+  }, [totalWordsLength, inputFieldRef]);
 
   return (
     <div className={Styles.AddWordsForm} data-testid="add-words-form-container">

@@ -103,19 +103,22 @@ export default function QuestionPage({ match }): ReactElement {
   };
 
   const confitmationCard = useRef() as React.MutableRefObject<HTMLInputElement>;
-  const handleClick = e => {
-    if (!e.composedPath().includes(confitmationCard.current)) {
-      setShowConfirmation(false);
-      return;
-    }
-  };
+
   useEffect(() => {
+    const handleClick = e => {
+      if (!e.composedPath().includes(confitmationCard.current)) {
+        setShowConfirmation(false);
+        return;
+      }
+    };
+
     document.addEventListener("mousedown", handleClick);
 
     return () => {
       document.removeEventListener("mousedown", handleClick);
     };
-  }, []);
+  }, [confitmationCard]);
+
   return (
     <div>
       {!showCongratilationPage && (
