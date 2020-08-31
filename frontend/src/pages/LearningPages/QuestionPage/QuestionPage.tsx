@@ -71,13 +71,9 @@ export default function QuestionPage({ match }): ReactElement {
     numberOfLearnedParam
   );
 
-  const [croppedNewWords, setCroppedNewWords] = useState(croppedNewWordsArray);
-  const [croppedLearningWords, setCroppedLearningWords] = useState(
-    croppedLearningWordsArray
-  );
-  const [croppedLearnedWords, setCroppedLearnedWords] = useState(
-    croppedLearnedWordsArray
-  );
+  const [croppedNewWords] = useState(croppedNewWordsArray);
+  const [croppedLearningWords] = useState(croppedLearningWordsArray);
+  const [croppedLearnedWords] = useState(croppedLearnedWordsArray);
 
   const totalWordArr = croppedNewWords.concat(
     croppedLearningWords,

@@ -26,12 +26,12 @@ To use the app:
 <!-- ### Demo link
 
 [Click to go to live demo](). -->
-<!--
+
 ### Video demo: (click the image below to play)
 
-<a href="" target='_blank'>
-    <img src="" alt="Demo Video"/>
-</a> -->
+<a href="https://youtu.be/wkZnL-1QmGQ" target='_blank'>
+    <img src="./video_demo.png" alt="Demo Video"/>
+</a>
 
 ## How get the app locally
 

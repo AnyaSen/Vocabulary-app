@@ -127,7 +127,7 @@ export default function SignUpPage(): ReactElement {
         name="email"
         value={email}
         onChange={handleChange}
-        autocompleteON
+        // autocompleteON
       />
 
       <InputField

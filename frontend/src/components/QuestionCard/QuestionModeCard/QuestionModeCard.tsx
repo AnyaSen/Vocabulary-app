@@ -14,6 +14,8 @@ import { LanguageContext } from "../../../contexts/LanguageContext";
 import { editWord } from "../../../services/editWord";
 import { lowerCaseWord } from "../../../services/lowerCase";
 import typography from "../../../typography/typography.json";
+import { ErrorContext } from "../../../contexts/ErrorContext";
+import ErrorCard from "../../ErrorCard";
 
 interface Props {
   task: string;
@@ -137,6 +139,9 @@ export default function QuestionModeCard({
       }
     }
   };
+  const { isError } = useContext(ErrorContext);
+
+  if (isError) return <ErrorCard />;
 
   return (
     <form

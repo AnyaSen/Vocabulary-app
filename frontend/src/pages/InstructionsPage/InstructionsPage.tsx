@@ -55,7 +55,7 @@ export default function InstructionsPage(): ReactElement {
       <div className={Styles.InstructionsVideoContainer}>
         <iframe
           title="instructionsVideo"
-          src="https://www.youtube.com/embed/qRo3O2N7uqg"
+          src="https://www.youtube.com/embed/wkZnL-1QmGQ"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

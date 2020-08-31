@@ -14,7 +14,7 @@ describe("<PrimaryButton />", () => {
     type: "submit"
   };
 
-  const { buttonMessage, value, type } = props;
+  const { buttonMessage, value } = props;
 
   test("Should render correct props and have correct class when buttonColor is set to white", () => {
     const { getByText, getByTestId } = render(<PrimaryButton {...props} />);
@@ -24,11 +24,11 @@ describe("<PrimaryButton />", () => {
     expect(getByText(buttonMessage)).toBeTruthy();
     expect(button).toHaveClass("PrimaryButtonWhite");
     expect(button).toHaveAttribute("value", value);
-    expect(button).toHaveAttribute("type", type);
   });
 
   test("Should have correct class when buttonColor is not specified", () => {
     const updatedProps = {
+      ...props,
       buttonColor: ""
     };
 
