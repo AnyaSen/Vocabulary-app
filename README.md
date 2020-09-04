@@ -14,11 +14,11 @@
 
 ### App functionality overview:
 
-The app allows to make a list of vocabulary, review the words and track the progress, therefore memorizing foreing words faster.
+The app allows to make a list of vocabulary, review the words, and track the progress, therefore memorizing foreign words faster.
 
 To use the app:
 
-- create an acccount
+- create an account
 - add some words
 - review them and learn by typing in translation
 - track the progress
@@ -30,10 +30,15 @@ To use the app:
 ### Video demo: (click the image below to play)
 
 <a href="https://youtu.be/wkZnL-1QmGQ" target='_blank'>
-    <img src="./video_demo.png" alt="Demo Video"/>
+    <img src="./video_demo.png" alt="Demo Video"/>
 </a>
 
-## How get the app locally
+#### What I learned:
+
+Making this app I learned how to build a REST API and use Node.js as a backend for the React application.
+It also helped me learn TypeScript. Overall, it was a good practice to learn new technologies and improve React skills
+
+## How to get the app locally
 
 - **`git clone https://github.com/AnyaSen/Vocabulary-app.git`**
 
