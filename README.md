@@ -42,9 +42,9 @@ It also helped me learn TypeScript. Overall, it was a good practice to learn new
 
 - **`git clone https://github.com/AnyaSen/Vocabulary-app.git`**
 
-- **`npm install`**
+- **`cd frontend`** + **`npm install`**
 
 ### Commands:
 
-- to run locally: **`npm run dev`**
+- to run locally: **`npm run dev`** (from the root)
 - to run tests: **`cd frontend`** + **`npm test`**
