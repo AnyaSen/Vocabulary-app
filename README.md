@@ -42,6 +42,8 @@ It also helped me learn TypeScript. Overall, it was a good practice to learn new
 
 - **`git clone https://github.com/AnyaSen/Vocabulary-app.git`**
 
+- **`npm install`**
+
 - **`cd frontend`** + **`npm install`**
 
 ### Commands:
