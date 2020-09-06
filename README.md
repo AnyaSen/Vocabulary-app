@@ -36,7 +36,7 @@ To use the app:
 #### What I learned:
 
 Making this app I learned how to build a REST API and use Node.js as a backend for the React application.
-It also helped me learn TypeScript. Overall, it was a good practice to learn new technologies and improve React skills
+It also helped me learn TypeScript. Overall, it was a good practice to learn new technologies and improve React skills.
 
 ## How to get the app locally
 
