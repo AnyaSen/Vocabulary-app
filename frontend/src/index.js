@@ -18,6 +18,7 @@ axios.interceptors.response.use(
   },
   function(error) {
     if (401 === error.response.status) {
+      localStorage.removeItem("token");
       window.location = "/";
     } else {
       return Promise.reject(error);
