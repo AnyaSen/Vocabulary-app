@@ -40,13 +40,15 @@ It also helped me learn TypeScript. Overall, it was a good practice to learn new
 
 ## How to get the app locally
 
-- **`git clone https://github.com/AnyaSen/Vocabulary-app.git`**
+1. **`git clone https://github.com/AnyaSen/Vocabulary-app.git`**
 
-- **`npm install`**
+2. From the root run:
 
-- **`cd frontend`** + **`npm install`**
+   - **`npm install`**
 
-### Commands:
+   - **`cd frontend`** + **`npm install`**
 
-- to run locally: **`npm run dev`** (from the root)
+### Commands (from the root):
+
+- to run locally: **`npm run dev`**
 - to run tests: **`cd frontend`** + **`npm test`**
