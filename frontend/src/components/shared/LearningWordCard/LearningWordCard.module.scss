@@ -5,12 +5,16 @@
 .LearningWordCard {
   @include flex-column;
 
+  min-height: 11rem;
   padding: $space-4 $space-1;
   margin: $space-1;
   box-shadow: $shadow-1;
   border-radius: $border-radius-lg;
   word-break: break-all;
   width: 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @include md {
     width: 20rem;
