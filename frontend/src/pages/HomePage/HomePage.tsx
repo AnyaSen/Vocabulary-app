@@ -14,6 +14,8 @@ import { LanguageContext } from "../../contexts/LanguageContext";
 export default function HomePage(): ReactElement {
   const name = JSON.parse(localStorage.getItem("userName")!);
 
+  const firstName = name.split(" ")[0];
+
   const { language } = useContext(LanguageContext);
 
   const {
@@ -29,7 +31,7 @@ export default function HomePage(): ReactElement {
   return (
     <Layout>
       <PageLayout
-        header={`${name},`}
+        header={`${firstName},`}
         headerAfterBreak={nice_to_see_you}
         subHeader={what_would_you_like_to_do}
       >
