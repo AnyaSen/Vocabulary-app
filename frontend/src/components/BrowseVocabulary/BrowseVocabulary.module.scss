@@ -11,6 +11,11 @@
   display: flex;
   flex-direction: column;
 
+  .WarningMessage {
+    align-self: flex-start;
+    margin: 0 $space-0;
+  }
+
   .BrowseVocabularyForm {
     @include flex-row;
 

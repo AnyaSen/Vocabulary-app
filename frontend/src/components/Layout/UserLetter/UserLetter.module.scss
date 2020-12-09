@@ -81,9 +81,11 @@
 
     .input {
       @include flex-column;
+      align-items: flex-start;
 
       p {
-        margin: 0;
+        margin-bottom: 0;
+        margin-left: $space-0;
       }
     }
 

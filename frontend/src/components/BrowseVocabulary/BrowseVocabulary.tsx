@@ -76,7 +76,9 @@ export default function BrowseVocabulary(): ReactElement {
         <SecondaryButton type="submit" value="submit" buttonMessage={search} />
       </form>
 
-      <WarningMessage warnMessage={errorMessage} />
+      <div className={Styles.WarningMessage}>
+        <WarningMessage warnMessage={errorMessage} />
+      </div>
 
       {isBrowsingMode && (
         <div className={Styles.showAllButton}>
