@@ -53,7 +53,7 @@ describe("<BrowseVocabulary />", () => {
 
     fireEvent.click(searchButton);
 
-    const showAllButton = getByText("Show All");
+    const showAllButton = getByText("Clear");
 
     expect(showAllButton).toBeTruthy();
 
