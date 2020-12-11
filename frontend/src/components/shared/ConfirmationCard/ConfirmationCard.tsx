@@ -6,6 +6,7 @@ import SecondaryButton from "../../Buttons/SecondaryButton";
 
 interface Props {
   confQuestion: string;
+  confQuestionSpan?: string;
   confAnswerOne: string;
   confAnswerTwo: string;
   answerOneOnClick: () => void;
@@ -14,6 +15,7 @@ interface Props {
 
 export default function ConfirmationCard({
   confQuestion,
+  confQuestionSpan,
   confAnswerOne,
   confAnswerTwo,
   answerOneOnClick,
@@ -21,7 +23,10 @@ export default function ConfirmationCard({
 }: Props): ReactElement {
   return (
     <div className={Styles.ConfirmationCard}>
-      <p className={Styles.ConfirmationCardQuestion}>{confQuestion}</p>
+      <p className={Styles.ConfirmationCardQuestion}>
+        {confQuestion}
+        <span>{confQuestionSpan}</span>
+      </p>
 
       <div>
         <SecondaryButton

@@ -34,5 +34,11 @@
 
   .ConfirmationCardQuestion {
     margin: $space-1;
+
+    span {
+      font-size: $font-xs;
+      font-size: $font-xs;
+      color: $color-red;
+    }
   }
 }

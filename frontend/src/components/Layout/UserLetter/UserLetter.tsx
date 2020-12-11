@@ -12,6 +12,7 @@ import { useForm } from "../../../hooks/useForm";
 import { lowerCaseWord } from "../../../services/lowerCase";
 
 import { LanguageContext } from "../../../contexts/LanguageContext";
+import { ConfirmationCardContext } from "../../../contexts/ConfirmationCardContext";
 import typography from "../../../typography/typography.json";
 
 import Styles from "./UserLetter.module.scss";
@@ -62,18 +63,20 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
   const { name } = values;
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [showConfirmationTwo, setShowConfirmationTwo] = useState(false);
-  const [showNameInputField, setShowNameInputField] = useState(false);
+  const {
+    isDeleteAccountConfirmationOpen,
+    setIsDeleteAccountConfirmationOpen,
+    areConfirmationInputsOpen,
+    setAreConfirmationInputsOpen
+  } = useContext(ConfirmationCardContext);
 
   const confitmationCard = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     const handleClick = e => {
       if (!e.composedPath().includes(confitmationCard.current)) {
-        setShowConfirmation(false);
-        setShowConfirmationTwo(false);
-        setShowNameInputField(false);
+        setIsDeleteAccountConfirmationOpen(false);
+        setAreConfirmationInputsOpen(false);
         return;
       }
     };
@@ -95,48 +98,32 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
       setErrorMessage(wrong_user_name);
     } else {
       clearValues();
-      setShowNameInputField(false);
+      setAreConfirmationInputsOpen(false);
       deleteAccount();
     }
   };
 
   return (
     <div className={Styles.userLetterContainer}>
-      {showConfirmation && (
+      {isDeleteAccountConfirmationOpen && (
         <div ref={confitmationCard} data-testid="confirmation-card">
           <ConfirmationCard
             confQuestion={delete_confirmation_question_1}
+            confQuestionSpan={delete_confirmation_question_2}
             confAnswerOne={no}
             confAnswerTwo={yes}
             answerOneOnClick={() => {
-              setShowConfirmation(false);
+              setIsDeleteAccountConfirmationOpen(false);
             }}
             answerTwoOnClick={() => {
-              setShowConfirmation(false);
-              setShowConfirmationTwo(true);
+              setIsDeleteAccountConfirmationOpen(false);
+              setAreConfirmationInputsOpen(true);
             }}
           />
         </div>
       )}
 
-      {showConfirmationTwo && (
-        <div ref={confitmationCard} data-testid="confirmation-card-two">
-          <ConfirmationCard
-            confQuestion={delete_confirmation_question_2}
-            confAnswerOne={cancel}
-            confAnswerTwo={yes}
-            answerOneOnClick={() => {
-              setShowConfirmationTwo(false);
-            }}
-            answerTwoOnClick={() => {
-              setShowConfirmationTwo(false);
-              setShowNameInputField(true);
-            }}
-          />
-        </div>
-      )}
-
-      {showNameInputField && (
+      {areConfirmationInputsOpen && (
         <div
           ref={confitmationCard}
           className={Styles.formContainer}
@@ -169,7 +156,7 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
                 type="button"
                 onClick={() => {
                   clearValues();
-                  setShowNameInputField(false);
+                  setAreConfirmationInputsOpen(false);
                 }}
               />
             </div>
@@ -187,7 +174,7 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
             className={Styles.delete}
             src={deleteSvg}
             onClick={() => {
-              setShowConfirmation(true);
+              setIsDeleteAccountConfirmationOpen(true);
               setErrorMessage("");
             }}
           />
@@ -202,7 +189,7 @@ export default function UserLetter({ inCircle }: Props): ReactElement {
         <button
           className={Styles.deleteButton}
           onClick={() => {
-            setShowConfirmation(true);
+            setIsDeleteAccountConfirmationOpen(true);
           }}
         >
           {delete_account}
