@@ -90,69 +90,71 @@ export default function ConfirmationDeleteAccont(): ReactElement {
   };
 
   return (
-    <div
-      className={Styles.ConfirmationDeleteAccont}
-      data-testid="confirmation-card-container"
-    >
-      {isDeleteAccountConfirmationOpen && (
-        <div ref={confitmationCard} data-testid="confirmation-card">
-          <ConfirmationCard
-            confQuestion={delete_confirmation_question_1}
-            confQuestionSpan={delete_confirmation_question_2}
-            confAnswerOne={no}
-            confAnswerTwo={yes}
-            answerOneOnClick={() => {
-              setIsDeleteAccountConfirmationOpen(false);
-            }}
-            answerTwoOnClick={() => {
-              setIsDeleteAccountConfirmationOpen(false);
-              setAreConfirmationInputsOpen(true);
-            }}
-          />
-        </div>
-      )}
+    <div className={Styles.ConfirmationContainer}>
+      <div
+        className={Styles.ConfirmationDeleteAccont}
+        data-testid="confirmation-card-container"
+      >
+        {isDeleteAccountConfirmationOpen && (
+          <div ref={confitmationCard} data-testid="confirmation-card">
+            <ConfirmationCard
+              confQuestion={delete_confirmation_question_1}
+              confQuestionSpan={delete_confirmation_question_2}
+              confAnswerOne={no}
+              confAnswerTwo={yes}
+              answerOneOnClick={() => {
+                setIsDeleteAccountConfirmationOpen(false);
+              }}
+              answerTwoOnClick={() => {
+                setIsDeleteAccountConfirmationOpen(false);
+                setAreConfirmationInputsOpen(true);
+              }}
+            />
+          </div>
+        )}
 
-      {areConfirmationInputsOpen && (
-        <div
-          ref={confitmationCard}
-          className={Styles.formContainer}
-          data-testid="form"
-        >
-          <p>{enter_user_name}</p>
+        {areConfirmationInputsOpen && (
+          <div
+            ref={confitmationCard}
+            className={Styles.formContainer}
+            data-testid="form"
+          >
+            <p>{enter_user_name}</p>
 
-          <form onSubmit={checkNameAndDelete} className={Styles.form}>
-            <div className={Styles.input}>
-              <InputField
-                small
-                placeholder="User name"
-                name="name"
-                value={name}
-                onChange={handleChange}
-                type="name"
-              />
-              <WarningMessage warnMessage={errorMessage} />
-            </div>
+            <form onSubmit={checkNameAndDelete} className={Styles.form}>
+              <div className={Styles.input}>
+                <InputField
+                  small
+                  placeholder="User name"
+                  name="name"
+                  value={name}
+                  onChange={handleChange}
+                  type="name"
+                />
+                <WarningMessage warnMessage={errorMessage} />
+              </div>
 
-            <div className={Styles.formButtons}>
-              <SecondaryButton
-                buttonColor="pink"
-                buttonMessage={delete_}
-                type="submit"
-              />
+              <div className={Styles.formButtons}>
+                <SecondaryButton
+                  buttonColor="pink"
+                  buttonMessage={delete_}
+                  type="submit"
+                />
 
-              <SecondaryButton
-                buttonMessage={cancel}
-                type="button"
-                onClick={() => {
-                  clearValues();
-                  setAreConfirmationInputsOpen(false);
-                  setErrorMessage("");
-                }}
-              />
-            </div>
-          </form>
-        </div>
-      )}
+                <SecondaryButton
+                  buttonMessage={cancel}
+                  type="button"
+                  onClick={() => {
+                    clearValues();
+                    setAreConfirmationInputsOpen(false);
+                    setErrorMessage("");
+                  }}
+                />
+              </div>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

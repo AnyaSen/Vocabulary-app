@@ -2,11 +2,16 @@
 @import "../../../assets/scss/mixins";
 @import "../../../assets/scss/breakpoints";
 
-.ConfirmationDeleteAccont {
+.ConfirmationContainer {
   position: absolute;
   z-index: 5;
   display: flex;
-
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 35%;
+}
+.ConfirmationDeleteAccont {
   .formContainer {
     margin: $space-1;
     padding: $space-1 $space-2;
