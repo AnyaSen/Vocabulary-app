@@ -13,5 +13,5 @@
 
 .DarkenedLayout {
   @extend .Layout;
-  @include darkened;
+  @include faded;
 }

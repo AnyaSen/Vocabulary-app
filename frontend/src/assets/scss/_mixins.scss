@@ -41,8 +41,7 @@
   right: 0;
 }
 
-@mixin darkened() {
-  background-color: #0000;
-  opacity: 0.5;
+@mixin faded() {
+  opacity: 0.3;
   z-index: 3;
 }
