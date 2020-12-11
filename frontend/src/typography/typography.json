@@ -40,7 +40,7 @@
       "how_to_use": "HOW TO USE",
       "delete_account": "DELETE ACCOUNT",
       "delete_confirmation_question_1": "Are you sure you want to delete your account?",
-      "delete_confirmation_question_2": "Notice that your progress will be removed permanently, would you like to continue?",
+      "delete_confirmation_question_2": "Notice, this action is irrevocable.",
       "enter_user_name": "Please, enter your user name to delete your account",
       "wrong_user_name": "Wrong user name"
     },
@@ -201,7 +201,7 @@
       "how_to_use": "ИНСТРУКЦИИ",
       "delete_account": "УДАЛИТЬ АККАУНТ",
       "delete_confirmation_question_1": "Вы уверены, что хотите удалить аккаунт?",
-      "delete_confirmation_question_2": "Предупреждаем, аккаунт будет удален навсегда, продолжить?",
+      "delete_confirmation_question_2": "Предупреждаем, это действие безвозвратно.",
       "enter_user_name": "Пожалуйста, введите имя, данное вами при регистрации, чтобы удалить аккаунт.",
       "wrong_user_name": "Неверное имя"
     },
