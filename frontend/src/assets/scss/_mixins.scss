@@ -40,3 +40,9 @@
   top: 0;
   right: 0;
 }
+
+@mixin darkened() {
+  background-color: #0000;
+  opacity: 0.5;
+  z-index: 3;
+}

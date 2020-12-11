@@ -124,7 +124,7 @@ export default function QuestionPage({ match }): ReactElement {
       {!showCongratilationPage && (
         <div className={Styles.progressCardArrowContainer}>
           {showConfirmation ? (
-            <div ref={confitmationCard}>
+            <div ref={confitmationCard} className={Styles.confitmationCard}>
               <ConfirmationCard
                 confQuestion={confirmation_to_quit}
                 confAnswerOne={yes}
@@ -149,8 +149,9 @@ export default function QuestionPage({ match }): ReactElement {
           />
         </div>
       )}
-
-      <QuestionCard task={enter_translation} totalWorsArray={totalWords} />
+      <div className={showConfirmation ? Styles.DarkenedQuestionCard : ""}>
+        <QuestionCard task={enter_translation} totalWorsArray={totalWords} />
+      </div>
     </div>
   );
 }

@@ -23,10 +23,10 @@ export default function ConfirmationCard({
 }: Props): ReactElement {
   return (
     <div className={Styles.ConfirmationCard}>
-      <p className={Styles.ConfirmationCardQuestion}>
-        {confQuestion}
-        <span>{confQuestionSpan}</span>
-      </p>
+      <div className={Styles.QuestionContainer}>
+        <p>{confQuestion}</p>
+        <p className={Styles.ConfirmationCardNotice}>{confQuestionSpan}</p>
+      </div>
 
       <div>
         <SecondaryButton

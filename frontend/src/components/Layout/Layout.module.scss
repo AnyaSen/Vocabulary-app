@@ -10,3 +10,8 @@
 .LayoutBurger {
   flex-direction: column;
 }
+
+.DarkenedLayout {
+  @extend .Layout;
+  @include darkened;
+}

@@ -83,3 +83,8 @@
     }
   }
 }
+
+.DarkenedBurgerBar {
+  @extend .BurgerBar;
+  @include darkened;
+}

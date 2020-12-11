@@ -1,0 +1,68 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/breakpoints";
+
+.ConfirmationDeleteAccont {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+
+  .formContainer {
+    margin: $space-1;
+    padding: $space-1 $space-2;
+    background-color: $color-white;
+    border-radius: $border-radius-md;
+    border: 1px solid $color-pink;
+    max-width: 30rem;
+
+    @include sm {
+      padding: $space-0 $space-1;
+      margin: $space-1 $space-0;
+    }
+
+    p {
+      margin: $space-0 0;
+
+      @include sm {
+        margin-bottom: 0;
+      }
+    }
+
+    .form {
+      @include flex-row;
+      align-items: flex-start;
+
+      button {
+        margin: $space-0;
+      }
+
+      .input {
+        @include flex-column;
+        align-items: flex-start;
+
+        p {
+          margin: 0;
+          margin-left: $space-0;
+        }
+      }
+
+      .formButtons {
+        @include flex-row;
+      }
+
+      @include md {
+        margin: $space-0;
+        padding: $space-0;
+      }
+
+      @include sm {
+        @include flex-column;
+      }
+
+      @include xs {
+        margin: $space-0;
+        padding: 0;
+      }
+    }
+  }
+}

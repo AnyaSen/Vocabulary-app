@@ -4,8 +4,10 @@ import Styles from "./Layout.module.scss";
 
 import SideBar from "./SideBar";
 import BurgerBar from "./BurgerBar";
+import ConfirmationDeleteAccont from "../shared/ConfirmationDeleteAccont";
 
 import { NavBarConext } from "../../contexts/NavBarConext";
+import { ConfirmationCardContext } from "../../contexts/ConfirmationCardContext";
 
 interface Props {
   children: React.ReactNode;
@@ -14,6 +16,11 @@ interface Props {
 export default function Layout({ children }: Props): ReactElement {
   const [burgerBar, setBurgerBar] = useState(false);
   const { isBurgerOpen } = useContext(NavBarConext);
+
+  const {
+    isDeleteAccountConfirmationOpen,
+    areConfirmationInputsOpen
+  } = useContext(ConfirmationCardContext);
 
   useEffect(() => {
     if (window.innerWidth < 719) {
@@ -26,12 +33,22 @@ export default function Layout({ children }: Props): ReactElement {
   if (isBurgerOpen) return <BurgerBar />;
 
   return (
-    <div
-      className={burgerBar ? Styles.LayoutBurger : Styles.Layout}
-      data-testid="navbar"
-    >
-      {burgerBar ? <BurgerBar /> : <SideBar />}
-      {children}
-    </div>
+    <>
+      <ConfirmationDeleteAccont />
+
+      <div
+        className={
+          isDeleteAccountConfirmationOpen || areConfirmationInputsOpen
+            ? Styles.DarkenedLayout
+            : burgerBar
+            ? Styles.LayoutBurger
+            : Styles.Layout
+        }
+        data-testid="navbar"
+      >
+        {burgerBar ? <BurgerBar /> : <SideBar />}
+        {children}
+      </div>
+    </>
   );
 }

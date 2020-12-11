@@ -4,9 +4,7 @@
 
 .ConfirmationCard {
   @include flex-column;
-  @include push-to-upper-left-corner;
 
-  z-index: 2;
   margin: $space-1;
   padding: $space-1 $space-2;
   background-color: $color-white;
@@ -15,7 +13,7 @@
   max-width: 30rem;
 
   button {
-    margin: $space-1;
+    margin: $space-0;
   }
 
   @include md {
@@ -32,13 +30,14 @@
     padding: 0;
   }
 
-  .ConfirmationCardQuestion {
+  .QuestionContainer {
     margin: $space-1;
 
-    span {
+    .ConfirmationCardNotice {
       font-size: $font-xs;
       font-size: $font-xs;
       color: $color-red;
+      align-self: flex-start;
     }
   }
 }

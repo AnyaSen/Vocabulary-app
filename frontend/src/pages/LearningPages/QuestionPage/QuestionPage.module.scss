@@ -50,4 +50,12 @@
       cursor: pointer;
     }
   }
+
+  .confitmationCard {
+    @include push-to-upper-left-corner;
+  }
+}
+
+.DarkenedQuestionCard {
+  @include darkened;
 }
