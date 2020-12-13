@@ -29,6 +29,20 @@ router.post("/users/login", async (req, res) => {
   }
 });
 
+router.post("/users/login/guest", async (req, res) => {
+  const email = process.env.GUEST_EMAIL;
+  const password = process.env.GUEST_PASSWORD;
+
+  try {
+    const user = await User.findByCredentials(email, password);
+    const token = await user.generateAuthToken();
+
+    res.send({ user, token });
+  } catch (e) {
+    res.status(400).send();
+  }
+});
+
 router.get("/users/me", authentication, async (req, res) => {
   res.send(req.user);
 });

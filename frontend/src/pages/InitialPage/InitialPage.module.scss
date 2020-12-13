@@ -1,11 +1,11 @@
 @import "../../assets/scss/variables";
-@import "../../assets/scss/mixins";
 @import "../../assets/scss/breakpoints";
 
 .buttons {
-  @include flex-row;
+  display: flex;
   width: 100%;
   justify-content: space-evenly;
+  align-content: flex-start;
   flex-wrap: wrap;
   margin-top: $space-8;
   margin-bottom: $space-1;
@@ -16,5 +16,17 @@
 
   @include sm {
     margin-top: 0;
+  }
+
+  .loginButtons {
+    text-align: center;
+
+    .guestLoginBtn {
+      color: $color-white;
+      background-color: $color-pink;
+      padding: 0.2rem $space-0;
+      border-radius: 0.3rem;
+      margin: $space-0;
+    }
   }
 }
