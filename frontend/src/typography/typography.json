@@ -111,8 +111,8 @@
 
     "InstructionsPage": {
       "instructions": "Instructions",
-      "text_one": "First, create an account pressing SING UP.",
-      "text_after_break_one": "Log into your account if you already have one pressing LOG IN.",
+      "text_one": "First, create an account by pressing SING UP. Log into your account if you already have one by pressing LOG IN.",
+      "text_after_break_one": "If you don't want to create an account, press 'Log in as a guest'.",
       "text_two": "On the home page, press the button VOCABULARY.",
       "text_after_break_two": "On the vocabulary page, you can add words by typing a word and its translation, pressing ADD afterwords. You will see the word showing in the list below. Click on a word pair to see its information.",
       "text_three": "Also, you can browse your words in your list using the input field in the upper right corner, just start entering the word you’d like to find.",
@@ -274,8 +274,8 @@
 
     "InstructionsPage": {
       "instructions": "Инструкции",
-      "text_one": "Для начала, создайте аккаунт, нажав кнопку РЕГИСТРАЦИЯ.",
-      "text_after_break_one": "Если у вас уже есть аккаунт, войдите в него, для этого нажмите ВХОД.",
+      "text_one": "Для начала, создайте аккаунт, нажав кнопку РЕГИСТРАЦИЯ. Если у вас уже есть аккаунт, войдите в него, для этого нажмите ВХОД.",
+      "text_after_break_one": "Если вы не хотите создавать аккаунт, нажмите 'Войти как гость'.",
       "text_two": "Вы попадете на главную страницу. На главной странице нажмите кнопку МОИ СЛОВА.",
       "text_after_break_two": "На этой странице вы можете добавлять новые слова, вбивая иностранное слово и его перевод, а затем нажимая ДОБАВИТЬ. Слова будут добавляться в список внизу. Чтобы увидеть информацию о слове, кликните по паре слов.",
       "text_three": "Также, вы можете искать слова в созданном вами списке, используя поисковую строку в правом верхнем углу, просто начните вводить слово, которое вы хотитe найти.",
